@@ -18,4 +18,13 @@ module.exports = class MessageEvent extends BaseEvent {
       }
     }
   }
+  async run(client) {
+    let serverIn = await client.guilds.cache.size;
+    console.log(client.user.tag + ' has logged in.');
+    client.user.setPresence({
+      activity: {
+        name: `${serverIn} servers. Prefix: //`,
+        type: "WATCHING"
+      }, status: 'online'
+    })}
 }
