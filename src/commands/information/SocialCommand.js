@@ -12,8 +12,6 @@ module.exports = class SocialCommand extends BaseCommand {
       .setURL('https://twitch.tv/deathb4defeet')
       .setColor('#b31217')
       .addField('Check out my creators Twitch!', 'I would like it if you followed and watched the streams.')
-      .setTimestamp()
-      .setFooter("DEATHB4DEFEET", "https://lh3.googleusercontent.com/ogw/ADGmqu_vcnAUhv0EfAttTcTA7Ymepd4OC_MlSDMU9JWE=s83-c-mo");
     const discordEmbed = new Discord.MessageEmbed()
       .setTitle('Join my creators main server for support or to hang out!')
       .setURL('https://discord.gg/26NtPVvNCU')
