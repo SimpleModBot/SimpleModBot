@@ -18,7 +18,7 @@ module.exports = class UnbanCommand extends BaseCommand {
 
     if (!reason) reason = 'No reason given.';
     if (!args[0]) return message.channel.send('You must mention a user to unban.');
-    if (!isNaN(args[0])) return message.channel.send('The ID mentioned is not valid');
+    if (isNaN(args[0])) return message.channel.send('The ID mentioned is not valid');
 
 
     message.guild.fetchBans().then(async bans => {
@@ -29,8 +29,8 @@ module.exports = class UnbanCommand extends BaseCommand {
         console.log(err);
         return message.channel.send('Something went wrong unbanning the ID.');
       }).then(() => {
-        message.channel.send(`Succesfully Unbanned ${arg[0]}`);
+        message.channel.send(`Succesfully Unbanned ${args[0]}`);
       });
     });
   }
-} 
+}
