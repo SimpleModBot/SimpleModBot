@@ -34,7 +34,6 @@ const moderationEmbed = new Discord.MessageEmbed()
    .addField('Mute Command', 'Mutes a member in the server \`wip\`')
    .addField('Nuke Command', 'Clones a channel and deletes the old one.')
    .addField('Purge Command', 'Purges messages within a channel')
-   .addField('Recruit Command', 'Recruits a member to the staff team in a server \`wip\`')
    .addField('Unban Command', 'Unbans a member from the server')
    .addField('Unmute Command', 'Unmutes a member in a server \`wip\`');
  
