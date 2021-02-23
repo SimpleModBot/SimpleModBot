@@ -9,7 +9,7 @@ module.exports = class HelpCommand extends BaseCommand {
   run(client, message, args) {
     const sectionEmbed = new Discord.MessageEmbed()
    .setTitle('Bot Help Sections')
-   .setDescription('Use //help sectionName to access another section.\nSections:\ninformation\nfun\nmoderation')
+   .setDescription('Use //help sectionName to access another section.\nSections:\n\`information\`\n\`fun\`\n\`moderation\`')
    .addField('Fun Commands', 'Commands that all users can use that are for fun and have no purpose.')
    .addField('Information commands', 'Commands that return some information.')
    .addField('Moderation commands', 'Commands that are for moderation within a server.')
@@ -17,25 +17,26 @@ module.exports = class HelpCommand extends BaseCommand {
  
 const infoEmbed = new Discord.MessageEmbed()  
    .setTitle('Information Commands.')
-   .addField('Help Commands', 'This commands shows the user all the commands possable.')
-   .addField('Social Command', 'Displays social media in an embed and bot invite.');
+   .addField('\`Help\` Commands', 'This commands shows the user all the commands possable.')
+   .addField('\`Social\` Command', 'Displays social media in an embed and bot invite.')
+   .addField('\`Vote\` Command', 'Creates a poll in the current channel for people to vote on something.');
  
 const funEmbed = new Discord.MessageEmbed()
-   .setTitle('Fun Commands.')
-   .addField('Avatar Command', 'Returns a users avatar.')
-   .addField('Meme Commands', 'Returns a Meme to the channel.')
-   .addField('Nickname Command', 'Changes a members nickname in a server')
-   .addField('Say Command', 'Make the bot say a message to the channel.')
+   .setTitle('\`Fun\` Commands.')
+   .addField('\`Avatar\` Command', 'Returns a users avatar.')
+   .addField('\`Meme\` Commands', 'Returns a Meme to the channel.')
+   .addField('\`Nickname\` Command', 'Changes a members nickname in a server')
+   .addField('\`Say\` Command', 'Make the bot say a message to the channel.')
  
 const moderationEmbed = new Discord.MessageEmbed()
    .setTitle('Moderation Commands.')
-   .addField('Ban Command', 'Bans a member from the server')
-   .addField('Kick Command', 'Kicks a member from the server')
-   .addField('Mute Command', 'Mutes a member in the server \`wip\`')
-   .addField('Nuke Command', 'Clones a channel and deletes the old one.')
-   .addField('Purge Command', 'Purges messages within a channel')
-   .addField('Unban Command', 'Unbans a member from the server')
-   .addField('Unmute Command', 'Unmutes a member in a server \`wip\`');
+   .addField('\`Ban\` Command', 'Bans a member from the server')
+   .addField('\`Kick\` Command', 'Kicks a member from the server')
+   .addField('\`Mute\` Command', 'Mutes a member in the server \`wip\`')
+   .addField('\`Nuke\` Command', 'Clones a channel and deletes the old one.')
+   .addField('\`Purge\` Command', 'Purges messages within a channel')
+   .addField('\`Unban\` Command', 'Unbans a member from the server')
+   .addField('\`Unmute\` Command', 'Unmutes a member in a server \`wip\`');
  
 if (!args[0]) return message.channel.send(sectionEmbed);
 if (args[0] == 'information') return message.channel.send(infoEmbed);
