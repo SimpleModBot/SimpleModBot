@@ -9,7 +9,7 @@ module.exports = class ReadyEvent extends BaseEvent {
     console.log(client.user.tag + ' has logged in.');
     client.user.setPresence({
       activity: {
-        name: `${serverIn} servers. Prefix: //`,
+        name: `${serverIn} servers. //help`,
         type: "WATCHING"
       }, status: 'online'
     })
