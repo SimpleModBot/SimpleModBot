@@ -17,8 +17,10 @@ module.exports = class HelpCommand extends BaseCommand {
  
 const infoEmbed = new Discord.MessageEmbed()  
    .setTitle('Information Commands.')
-   .addField('\`Help\` Commands', 'This commands shows the user all the commands possable.')
+   .addField('\`Help\` Commands', 'This commands shows the user all the commands possible.')
+   .addField('\`Servers\` Commands', 'Shows a more accurate and nicer counter of the bots server count.')
    .addField('\`Social\` Command', 'Displays social media in an embed and bot invite.')
+   .addField('\`Suggest\` Commands', 'Displays your message as a suggestion for whatever server your in.')
    .addField('\`Vote\` Command', 'Creates a poll in the current channel for people to vote on something.');
  
 const funEmbed = new Discord.MessageEmbed()
