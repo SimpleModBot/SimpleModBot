@@ -25,5 +25,6 @@ module.exports = class SocialCommand extends BaseCommand {
     message.channel.send(twitchEmbed).catch(err => console.log(err));
     message.channel.send(discordEmbed).catch(err => console.log(err));
     message.channel.send(inviteEmbed).catch(err => console.log(err));
+    message.delete();
   }
 }

@@ -18,5 +18,6 @@ module.exports = class NicknameCommand extends BaseCommand {
     if (!mentionedMember.kickable) return message.channel.send("I cannot change this users nickname because they are higher than my role");
 
     await mentionedMember.setNickname(nickName).catch(err => console.log(err).then(message.channel.send("I am unable to add this username due to an error.")));
+    message.delete();
   }
 }

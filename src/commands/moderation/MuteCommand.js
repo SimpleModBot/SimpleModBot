@@ -12,8 +12,29 @@ module.exports = class MuteCommand extends BaseCommand {
 
     let reason = args.slice(1).join(" ");
 
-    const muteRole = message.guild.roles.cache.get('812106222223884308');
-    const memberRole = message.guild.roles.cache.get('812108515840622624');
+    const muteRole = message.guild.roles.cache.find(r => r.name.toLowerCase() == 'muted');
+    if (!muteRole) message.guild.roles.create({
+      data: {
+        name: 'Muted',
+        color: 'RED',
+      },
+      reason: 'for muted people',
+    })
+      .then(console.log)
+      .catch(console.error)
+      .then(message.channel.send('Could not find role "muted".. creating..'))
+      .catch(console.error)
+    const memberRole = message.guild.roles.cache.find(r => r.name.toLowerCase() == 'member');
+    if (!muteRole) message.guild.roles.create({
+      data: {
+        name: 'Member',
+        color: 'BLUE',
+      },
+      reason: 'for members of the server',
+    })
+      .then(console.log)
+      .catch(console.error)
+      .then(message.channel.send('Could not find role "Member".. creating..'));
     const mentionedMember = message.mentionedMember || message.guild.members.cache.get(args[0]);
     const muteEmbed = new Discord.MessageEmbed()
       .setTitle(`You have been muted in ${message.guild.name}`)
@@ -26,12 +47,12 @@ module.exports = class MuteCommand extends BaseCommand {
     if (mentionedMember.user.id == message.author.id) return message.channel.send('You cannot mute yourself, why would you want that?');
     if (mentionedMember.user.id == client.user.id) return message.channel.send('You cannot mute me with my own command lol.');
     if (!reason) reason = 'No reason given.';
-    if (mentionedMember.roles.cache.has(muteRole.id)) return message.channel.send('This member is already muted.');
+    if (mentionedMember.roles.cache.has(muteRole)) return message.channel.send('This member is already muted.');
     if (message.member.roles.highest.position <= mentionedMember.roles.highest.position) return message.channel.send('You cannot mute someone with a higher ranked role than yourself.');
 
     await mentionedMember.send(muteEmbed).catch(err => console.log(err));
-    await mentionedMember.roles.add(muteRole.id).catch(err => console.log(err).then(message.channel.send('there was an error giving the user mute role.')));
-    await mentionedMember.roles.remove(memberRole.id).catch(err => console.log(err).then(message.channel.send('there was an error removing the users member role.')));
-
+    await mentionedMember.roles.add(muteRole).catch(err => console.log(err).then(message.channel.send('there was an error giving the user mute role.')));
+    await mentionedMember.roles.remove(memberRole).catch(err => console.log(err).then(message.channel.send('there was an error removing the users member role.')));
+    message.delete();
   }
 }

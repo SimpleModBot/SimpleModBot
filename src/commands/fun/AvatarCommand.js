@@ -15,5 +15,6 @@ module.exports = class AvatarCommand extends BaseCommand {
       .setImage(mentionedMember.user.displayAvatarURL());
 
     message.channel.send(embed);
+    message.delete();
   }
 }

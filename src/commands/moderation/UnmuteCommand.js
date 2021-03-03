@@ -12,8 +12,8 @@ module.exports = class UnmuteCommand extends BaseCommand {
 
     let reason = args.slice(1).join(" ");
 
-    const muteRole = message.guild.roles.cache.get('812106222223884308');
-    const memberRole = message.guild.roles.cache.get('812108515840622624');
+    const muteRole = message.guild.roles.cache.find(r => r.name.toLowerCase() == 'muted');
+    const memberRole = message.guild.roles.cache.find(r => r.name.toLowerCase() == 'member');
     const mentionedMember = message.mentionedMember || message.guild.members.cache.get(args[0]);
     const unmuteEmbed = new Discord.MessageEmbed()
       .setTitle(`You have been unmuted in ${message.guild.name}`)
@@ -26,12 +26,12 @@ module.exports = class UnmuteCommand extends BaseCommand {
     if (mentionedMember.user.id == message.author.id) return message.channel.send('You cannot mute yourself, why would you want that?');
     if (mentionedMember.user.id == client.user.id) return message.channel.send('You cannot mute me with my own command lol.');
     if (!reason) reason = 'No reason given.';
-    if (mentionedMember.roles.cache.has(memberRole.id)) return message.channel.send('This member is already unmuted.');
+    if (mentionedMember.roles.cache.has(memberRole)) return message.channel.send('This member is already unmuted.');
     if (message.member.roles.highest.position <= mentionedMember.roles.highest.position) return message.channel.send('You cannot unmute someone with a higher ranked role than yourself.');
 
     await mentionedMember.send(unmuteEmbed).catch(err => console.log(err));
-    await mentionedMember.roles.add(memberRole.id).catch(err => console.log(err).then(message.channel.send('there was an error giving the user member role.')));
-    await mentionedMember.roles.remove(muteRole.id).catch(err => console.log(err).then(message.channel.send('there was an error removing the users muted role.')));
-
+    await mentionedMember.roles.add(memberRole).catch(err => console.log(err).then(message.channel.send('there was an error giving the user member role.')));
+    await mentionedMember.roles.remove(muteRole).catch(err => console.log(err).then(message.channel.send('there was an error removing the users muted role.')));
+    message.delete();
   }
 }

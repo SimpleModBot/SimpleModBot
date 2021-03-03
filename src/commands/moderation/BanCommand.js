@@ -28,5 +28,6 @@ module.exports = class BanCommand extends BaseCommand {
       days: 7,
       reason: reason
     }).catch(err => console.log(err)).then(() => message.channel.send("Succesfully banned " + mentionedMember.user.tag));
+    message.delete();
   }
 }

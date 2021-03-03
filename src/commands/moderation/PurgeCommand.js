@@ -21,10 +21,11 @@ module.exports = class PurgeCommand extends BaseCommand {
 
     try {
       await message.channel.bulkDelete(fetched)
-        .then(messages => message.channel.send(`Deleted ${messages.size} messages succefully!`));
+        .then(messages => message.channel.send(`Deleted ${messages.size} messages succefully!`))
     } catch (err) {
       console.Log(err);
       message.channel.send('I was unable to delete the amount stated. please make sure they are within 2 weeks old.');
     }
+    message.delete();
   }
 }
