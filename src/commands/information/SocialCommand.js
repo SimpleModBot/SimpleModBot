@@ -19,8 +19,8 @@ module.exports = class SocialCommand extends BaseCommand {
       .setTimestamp();
     const inviteEmbed = new Discord.MessageEmbed()
       .setTitle('Invite me to your discord server to help grow my bot and help with your moderation!')
-      .setURL('https://discord.com/api/oauth2/authorize?client_id=808196506833125396&permissions=8&scope=bot')
-      .setColor("#7289da")
+      .setURL('https://top.gg/bot/808196506833125396')
+      .setColor("#7716E9")
       .setTimestamp();
     message.channel.send(twitchEmbed).catch(err => console.log(err));
     message.channel.send(discordEmbed).catch(err => console.log(err));
