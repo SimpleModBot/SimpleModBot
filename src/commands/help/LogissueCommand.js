@@ -5,8 +5,9 @@ module.exports = class LogissueCommand extends BaseCommand {
     super('logissue', 'help', ['log']);
   }
 
-  run(client, message, args) {
-    console.log(message.content);
+  async run(client, message, args) {
+    console.log(message.content)
     message.channel.send('I have sent a bug report into the console.');
+    message.delete();
   }
 }
