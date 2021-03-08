@@ -7,6 +7,6 @@ module.exports = class SupportCommand extends BaseCommand {
 
   run(client, message, args) {
     message.channel.send('To receive direct support join the support/community server: temporarily removed.');
-    message.delete();
+    if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
   }
 }

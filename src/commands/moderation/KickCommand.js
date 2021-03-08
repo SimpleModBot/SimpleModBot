@@ -33,6 +33,6 @@ module.exports = class KickCommand extends BaseCommand {
       console.log(err);
       return message.channel.send("I was unable to kick the member mentioned.");
     }
-    message.delete();
+    if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
   }
 }

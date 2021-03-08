@@ -19,6 +19,6 @@ module.exports = class MemeCommand extends BaseCommand {
         let msg = await message.channel.send('Fetching you a meme...');
         msg.edit(memeEmbed);
       });
-    message.delete();
+    if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
   }
 }

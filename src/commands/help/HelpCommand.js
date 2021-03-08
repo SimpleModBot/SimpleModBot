@@ -51,5 +51,7 @@ module.exports = class HelpCommand extends BaseCommand {
       else if (args[0] == 'fun') return message.channel.send(funEmbed);
       else if (args[0] == 'moderation') return message.channel.send(moderationEmbed);
       else if (args[0] == 'help') return message.channel.send(helpEmbed);
+
+      if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
    }
 }

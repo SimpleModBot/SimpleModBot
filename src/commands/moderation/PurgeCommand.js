@@ -26,6 +26,6 @@ module.exports = class PurgeCommand extends BaseCommand {
       console.Log(err);
       message.channel.send('I was unable to delete the amount stated. please make sure they are within 2 weeks old.');
     }
-    message.delete();
+    if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
   }
 }

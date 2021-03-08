@@ -32,6 +32,6 @@ module.exports = class UnbanCommand extends BaseCommand {
         message.channel.send(`Succesfully Unbanned ${args[0]}`);
       });
     });
-    message.delete();
+    if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
   }
 }

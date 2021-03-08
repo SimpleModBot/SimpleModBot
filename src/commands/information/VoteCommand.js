@@ -19,7 +19,7 @@ module.exports = class VoteCommand extends BaseCommand {
     } catch (err) {
       console.log(err);
       message.channel.send('You ran out of time, Redo the command to retry.');
-      message.delete();
+      if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
     }
 
     message.channel.send('What is the first thing to vote for?');
@@ -30,7 +30,7 @@ module.exports = class VoteCommand extends BaseCommand {
     } catch (err) {
       console.log(err);
       message.channel.send('You ran out of time, Redo the command to retry.');
-      message.delete();
+      if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
     }
 
     message.channel.send('What is the second thing to vote for?');
@@ -41,7 +41,7 @@ module.exports = class VoteCommand extends BaseCommand {
     } catch (err) {
       console.log(err);
       message.channel.send('You ran out of time, Redo the command to retry.');
-      message.delete();
+      if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
     }
     message.channel.send(embed).then(sentMessage => sentMessage.react('🔴')).then(reaction => reaction.message.react('🔵'));
   }

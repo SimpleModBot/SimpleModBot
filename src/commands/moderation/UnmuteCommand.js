@@ -32,6 +32,6 @@ module.exports = class UnmuteCommand extends BaseCommand {
     await mentionedMember.send(unmuteEmbed).catch(err => console.log(err));
     await mentionedMember.roles.add(memberRole).catch(err => console.log(err).then(message.channel.send('there was an error giving the user member role.')));
     await mentionedMember.roles.remove(muteRole).catch(err => console.log(err).then(message.channel.send('there was an error removing the users muted role.')));
-    message.delete();
+    if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
   }
 }

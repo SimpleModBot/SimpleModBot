@@ -15,6 +15,6 @@ module.exports = class AvatarCommand extends BaseCommand {
       .setImage(mentionedMember.user.displayAvatarURL());
 
     message.channel.send(embed);
-    message.delete();
+    if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
   }
 }

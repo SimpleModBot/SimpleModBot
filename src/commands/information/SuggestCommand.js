@@ -14,6 +14,6 @@ module.exports = class SuggestCommand extends BaseCommand {
       .addField(`Suggestion: ${suggestion}`, `This was suggested by ${message.author.tag}`);
 
     message.channel.send(embed).then(sentMessage => sentMessage.react('👍')).then(reaction => reaction.message.react('👎'));
-    message.delete();
+    if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
   }
 }

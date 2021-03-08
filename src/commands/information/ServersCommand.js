@@ -20,6 +20,6 @@ module.exports = class ServersCommand extends BaseCommand {
       console.log(err);
       message.channel.send('I am unable to send the embed counter.");')
     }
-    message.delete();
+    if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
   }
 }
