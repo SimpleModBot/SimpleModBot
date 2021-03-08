@@ -9,7 +9,7 @@ module.exports = class HelpCommand extends BaseCommand {
    run(client, message, args) {
       const sectionEmbed = new Discord.MessageEmbed()
          .setTitle('Bot Help Sections')
-         .setDescription('Use //help sectionName to access another section.\n Sections:\n fun\n help\n information\n moderation')
+         .setDescription('Use //help sectionName to access another section.\nSections: \nfun \nhelp \ninformation \nmoderation')
          .addField('Fun Commands', 'Commands that all users can use that are for fun and have no true purpose.')
          .addField('Help Commands', 'Commands That are used for help with this bot.')
          .addField('Information commands', 'Commands that return some information.')
