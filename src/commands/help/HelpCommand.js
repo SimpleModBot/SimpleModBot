@@ -28,6 +28,7 @@ module.exports = class HelpCommand extends BaseCommand {
          .addField('\`Avatar\` Command', 'Returns a users avatar.')
          .addField('\`Meme\` Commands', 'Returns a Meme to the channel.')
          .addField('\`Nickname\` Command', 'Changes a members nickname in a server')
+         .addField('\`rps\` or \`rockpaperscissors\`', 'Plays a game of rock paper scissors with the user!')
          .addField('\`Say\` Command', 'Make the bot say a message to the channel.');
 
       const moderationEmbed = new Discord.MessageEmbed()
