@@ -16,15 +16,15 @@ module.exports = class RpsCommand extends BaseCommand {
 
     if (botChoice == 1) {
       botChoiceStr = 'rock';
-      botEmoji = ':rock: Rock.';
+      botEmoji = ':rock: Rock';
     }
     if (botChoice == 2) {
       botChoiceStr = 'paper';
-      botEmoji = ':newspaper: Paper.';
+      botEmoji = ':newspaper: Paper';
     }
     if (botChoice == 3) {
       botChoiceStr = 'scissors';
-      botEmoji = ':scissors: Scissors.';
+      botEmoji = ':scissors: Scissors';
     }
 
     if (args[0] == 'rock') playerEmoji = ':rock: Rock';
@@ -33,7 +33,7 @@ module.exports = class RpsCommand extends BaseCommand {
     console.log(botChoice);
     console.log(botEmoji);
 
-    if (botChoiceStr == args[0]) return message.channel.send(`I picked: ${botEmoji}, you picked: ${playerEmoji}. We tied!`);
+    if (botChoiceStr == args[0]) return message.channel.send(`${botEmoji} vs ${playerEmoji}! We tied! Try again..`);
     if (args[0] == 'rock') {
       if (botChoiceStr == 'paper') return message.channel.send(`${botEmoji} vs ${playerEmoji}! You lost.. Better luck next time!`);
       else return message.channel.send(`${botEmoji} vs ${playerEmoji}! You won! Good job!`);
