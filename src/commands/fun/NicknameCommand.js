@@ -2,7 +2,7 @@ const BaseCommand = require('../../utils/structures/BaseCommand');
 
 module.exports = class NicknameCommand extends BaseCommand {
   constructor() {
-    super('nickname', 'fun', []);
+    super('nickname', 'fun', ['nick']);
   }
 
   async run(client, message, args) {

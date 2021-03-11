@@ -12,12 +12,13 @@ module.exports = class HelpCommand extends BaseCommand {
          .setDescription('Use //help sectionName to access another section.\nSections: \nfun \nhelp \ninformation \nmoderation')
          .addField('Fun Commands', 'Commands that all users can use that are for fun and have no true purpose.')
          .addField('Help Commands', 'Commands That are used for help with this bot.')
-         .addField('Information commands', 'Commands that return some information.')
-         .addField('Moderation commands', 'Commands that are for moderation within a server.')
+         .addField('Information Commands', 'Commands that return some information.')
+         .addField('Moderation Commands', 'Commands that are for moderation within a server.')
          .setFooter(client.user.tag, client.user.displayAvatarURL());
 
       const infoEmbed = new Discord.MessageEmbed()
          .setTitle('Information Commands.')
+         .addField('\`Calc\` Commands', 'Allows you to calculate math problems with \`+, -, x, or /\`')
          .addField('\`Servers\` Commands', 'Shows a more accurate and nicer counter of the bots server count.')
          .addField('\`Social\` Command', 'Displays social media in an embed and bot invite.')
          .addField('\`Suggest\` Commands', 'Displays your message as a suggestion for whatever server your in.')
@@ -26,9 +27,9 @@ module.exports = class HelpCommand extends BaseCommand {
       const funEmbed = new Discord.MessageEmbed()
          .setTitle('\`Fun\` Commands.')
          .addField('\`Avatar\` Command', 'Returns a users avatar.')
-         .addField('\`Meme\` Commands', 'Returns a Meme to the channel.')
-         .addField('\`Nickname\` Command', 'Changes a members nickname in a server')
-         .addField('\`rps\` or \`rockpaperscissors\`', 'Plays a game of rock paper scissors with the user!')
+         .addField('\`Meme\` Command', 'Returns a Meme to the channel.')
+         .addField('\`Nickname\` Commands', 'Changes a members nickname in a server')
+         .addField('\`rps\` Commands', 'Plays a game of rock paper scissors with the user!')
          .addField('\`Say\` Command', 'Make the bot say a message to the channel.');
 
       const moderationEmbed = new Discord.MessageEmbed()
