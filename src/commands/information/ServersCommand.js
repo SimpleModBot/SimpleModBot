@@ -20,6 +20,14 @@ module.exports = class ServersCommand extends BaseCommand {
       console.log(err);
       message.channel.send('I am unable to send the embed counter.");')
     }
+    client.user.setPresence({
+      activity: {
+        name: `${serverIn} servers. //help`,
+        type: "WATCHING"
+      }, status: 'online'
+    })
+      .catch(console.error);
+
     if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };
   }
 }
