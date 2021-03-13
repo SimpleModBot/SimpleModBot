@@ -1,4 +1,3 @@
-
 const { Client } = require('discord.js');
 const { registerCommands, registerEvents } = require('./utils/registry');
 const config = require('../slappey.json');
@@ -12,4 +11,3 @@ const client = new Client();
   await registerEvents(client, '../events');
   await client.login(config.token);
 })();
-

@@ -9,12 +9,12 @@ module.exports = class ReadyEvent extends BaseEvent {
     console.log(client.user.tag + ' has logged in.');
     client.user.setPresence({
       activity: {
-        name: `${serverIn} servers. //help`,
+        name: `${serverIn} servers.`,
         type: "WATCHING"
       }, status: 'online'
     })
       .catch(console.error);
-    client.user.setUsername('SimpleModBot')
+    client.user.setUsername('[//]SimpleModBot')
       .then(user => console.log(`My new username is ${user.username}`))
       .catch(console.error);
   }

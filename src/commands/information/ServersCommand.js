@@ -18,7 +18,7 @@ module.exports = class ServersCommand extends BaseCommand {
       message.channel.send(serverEmbed);
     } catch (err) {
       console.log(err);
-      message.channel.send('I am unable to send the embed counter.");')
+      message.channel.send('I am unable to send the embed counter.');
     }
     client.user.setPresence({
       activity: {

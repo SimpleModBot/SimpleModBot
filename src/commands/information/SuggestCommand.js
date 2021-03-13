@@ -11,7 +11,7 @@ module.exports = class SuggestCommand extends BaseCommand {
     if (!args[0]) return message.channel.send('You must state something to suggest.');
     const embed = new Discord.MessageEmbed()
       .setTitle(`Suggestion:`)
-      .addField(`Suggestion: ${suggestion}`, `This was suggested by ${message.author.tag}`);
+      .addField(`${suggestion}`, `This was suggested by ${message.author.tag}`);
 
     message.channel.send(embed).then(sentMessage => sentMessage.react('👍')).then(reaction => reaction.message.react('👎'));
     if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete() };

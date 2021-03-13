@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.1",
+    "mongoose": "^5.12.0",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
