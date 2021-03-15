@@ -1,8 +1,8 @@
-const BaseEvent = require('../../utils/structures/BaseEvent');
+const BaseEvent = require("../../utils/structures/BaseEvent");
 
 module.exports = class MessageEvent extends BaseEvent {
   constructor() {
-    super('message');
+    super("message");
   }
   async run(client, message) {
     if (message.author.bot) return;
@@ -17,4 +17,4 @@ module.exports = class MessageEvent extends BaseEvent {
       }
     }
   }
-}
+};
