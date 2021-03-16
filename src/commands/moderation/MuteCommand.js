@@ -30,7 +30,7 @@ module.exports = class MuteCommand extends BaseCommand {
         })
         .then(console.log)
         .catch(console.error)
-        .then(message.channel.send('Could not find role "muted".. creating..'))
+        .then(message.channel.send('Could not find role "Muted".. creating..'))
         .catch(console.error);
     const memberRole = message.guild.roles.cache.find(
       (r) => r.name.toLowerCase() == "member"
