@@ -10,7 +10,7 @@ module.exports = class HelpCommand extends BaseCommand {
     const sectionEmbed = new Discord.MessageEmbed()
       .setTitle("Bot Help Sections")
       .setDescription("Use //help sectionName to access another section.\nSections: \nfun \nhelp \ninformation \nmoderation")
-      .addField("Fun Commands", "Commands that all users can use that are for fun and have no true purpose.")
+      .addField("Fun Commands", "Commands that all users can use that are for fun.")
       .addField("Help Commands", "Commands That are used for help with this bot.")
       .addField("Information Commands", "Commands that return some information.")
       .addField("Moderation Commands", "Commands that are for moderation within a server.").setFooter(client.user.tag, client.user.displayAvatarURL());
@@ -22,7 +22,7 @@ module.exports = class HelpCommand extends BaseCommand {
       .addField("`Social` Command", "Displays social media in an embed and bot invite.")
       .addField("`Suggest` Commands", "Displays your message as a suggestion for whatever server your in.")
       .addField("`Vote` Command", "Creates a poll in the current channel for people to vote on something.")
-      .addField("`//website` Commands", "Sends a link to the official website.");
+      .addField("`website` Commands", "Sends a link to the official website.");
 
     const funEmbed = new Discord.MessageEmbed()
       .setTitle("`Fun` Commands.")
@@ -36,18 +36,18 @@ module.exports = class HelpCommand extends BaseCommand {
       .setTitle("Moderation Commands.")
       .addField("`Ban` Command", "Bans a member from the server")
       .addField("`Kick` Command", "Kicks a member from the server")
-      .addField("`Mute` Command", "Mutes a member in the server `wip`")
+      .addField("`Mute` Command `WIP`", "Mutes a member in the server")
       .addField("`Nuke` Command", "Clones a channel and deletes the old one.")
       .addField("`Purge` Command", "Purges messages within a channel")
       .addField("`Slowmode` Command", "Changes slowmode of current channel")
       .addField("`Unban` Command", "Unbans a member from the server")
-      .addField("`Unmute` Command", "Unmutes a member in a server `wip`")
+      .addField("`Unmute` Command `WIP`", "Unmutes a member in a server")
       .addField("`warn` Command", "Warns a user and gives them a role to track their warnings.");
 
     const helpEmbed = new Discord.MessageEmbed()
       .setTitle("Help Commands.")
-      .addField("`help` Command`", "Gives you the list of commands you can use")
-      .addField("`LogIssue` or `Log` Commands", "Sends your message into the log so you can report issues that I dont see in testing.")
+      .addField("`help` Command", "Gives you the list of commands you can use")
+      .addField("`Log` Commands", "Sends your message into the log so you can report issues that I dont see in testing.")
       .addField("`Support` Command", "Sends a link to the server where you can get support");
 
     if (!args[0]) return message.channel.send(sectionEmbed);

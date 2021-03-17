@@ -36,8 +36,6 @@ module.exports = class RpsCommand extends BaseCommand {
     if (args[0] == "rock") playerEmoji = ":rock: Rock";
     if (args[0] == "paper") playerEmoji = ":newspaper: Paper";
     if (args[0] == "scissors") playerEmoji = ":scissors: Scissors";
-    console.log(botChoice);
-    console.log(botEmoji);
 
     if (botChoiceStr == args[0])
       return message.channel.send(
