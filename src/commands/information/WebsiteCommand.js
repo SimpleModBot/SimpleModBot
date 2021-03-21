@@ -6,6 +6,6 @@ module.exports = class WebsiteCommand extends BaseCommand {
   }
 
   run(client, message, args) {
-    message.channel.send("https://sites.google.com/view/simplemodbot/home");
+    message.channel.send("https://sites.google.com/view/simplemodbot/main");
   }
 };
