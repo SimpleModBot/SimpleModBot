@@ -10,14 +10,14 @@ module.exports = class HugCommand extends BaseCommand {
     const mentionedMember = message.mentions.members.first();
 
     if (!args[0]) return message.channel.send("Heres a hug! *hug* :)");
-    if (!mentionedMember) return message.channel.send("You have found the secret hug! :o\n*gives mega hug to you* :D");
+    if (!mentionedMember) return message.channel.send("You have found the secret hug! :o\n** **\n*gives mega hug to you* :D");
 
     const hugUEmbed = new Discord.MessageEmbed()
       .setTitle("Someone has been hugged!")
-      .setDescription(`Someone sent a hug to ${mentionedMember.user}!\n*Hugs ${mentionedMember.user}* :)`)
+      .setDescription(`${message.author} sent a hug to ${mentionedMember.user}!\n*Hugs ${mentionedMember.user}* :)`)
       .setColor("#7289da");
-
-    if (mentionedMember) return message.channel.send(hugUEmbed);
+    
     if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete(); }
+    if (mentionedMember) return message.channel.send(hugUEmbed);
   }
 }

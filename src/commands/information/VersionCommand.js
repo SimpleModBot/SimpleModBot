@@ -9,9 +9,9 @@ module.exports = class VersionCommand extends BaseCommand {
   async run(client, message, args) {
     const versionEmbed = new Discord.MessageEmbed()
       .setTitle("Current bot version:")
-      .setDescription("V41")
+      .setDescription("V43")
       .setURL("https://github.com/DEATHB4DEFEAT/SimpleModBot-Updates")
-      .addField("➕Added:\n✅\`version\` or \`ver\`\n✅\`hug\` or \`hug @user\`\n✅\`ping\`\n✅\`uptime\` or \`up\`\n** **\n➕Updated:\n✅\`help\`")
+      .addField("➕Added:\n✅bug fix\n** **\n➕Updated:\n✅\`hug\`")
       .setTimestamp();
     
     message.channel.send(versionEmbed);
