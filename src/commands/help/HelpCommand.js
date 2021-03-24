@@ -17,19 +17,22 @@ module.exports = class HelpCommand extends BaseCommand {
 
     const infoEmbed = new Discord.MessageEmbed()
       .setTitle("Information Commands.")
-      .addField("`Calc` Commands", "Allows you to calculate math problems with `+, -, x, or /`")
-      .addField("`Servers` Commands", "Shows a more accurate and nicer counter of the bots server count.")
+      .addField("`Calculate` Commands", "Allows you to calculate math problems with `+, -, x, or /`\nAliases: `Calc`")
+      .addField("`Ping` Command", "Gives the bots ping from you to the bot back to you.")
+      .addField("`Servers` Command", "Shows a more accurate and nicer counter of the bots server count.")
       .addField("`Social` Command", "Displays social media in an embed and bot invite.")
-      .addField("`Suggest` Commands", "Displays your message as a suggestion for whatever server your in.")
+      .addField("`Suggest` Command", "Displays your message as a suggestion for whatever channel your in.")
+      .addField("`Uptime` Commands", "Shows how long the bot has been online for.\nAliases: `up`")
       .addField("`Vote` Command", "Creates a poll in the current channel for people to vote on something.")
-      .addField("`website` Commands", "Sends a link to the official website.");
+      .addField("`website` Commands", "Sends a link to the official website.\nAliases: `web`");
 
     const funEmbed = new Discord.MessageEmbed()
       .setTitle("`Fun` Commands.")
       .addField("`Avatar` Command", "Returns a users avatar.")
+      .addField("`hug` Command", "Gives you or the mentioned member a hug :)")
       .addField("`Meme` Command", "Returns a Meme to the channel.")
-      .addField("`Nickname` Commands", "Changes a members nickname in a server")
-      .addField("`rps` Commands", "Plays a game of rock paper scissors with the user!")
+      .addField("`Nickname` Commands", "Changes a members nickname in a server\nAliases: `Nick`")
+      .addField("`RockPaperScissors` Commands", "Plays a game of rock paper scissors with the user!\nAliases: `rps`")
       .addField("`Say` Command", "Make the bot say a message to the channel.");
 
     const moderationEmbed = new Discord.MessageEmbed()
@@ -47,7 +50,7 @@ module.exports = class HelpCommand extends BaseCommand {
     const helpEmbed = new Discord.MessageEmbed()
       .setTitle("Help Commands.")
       .addField("`help` Command", "Gives you the list of commands you can use")
-      .addField("`Log` Commands", "Sends your message into the log so you can report issues that I dont see in testing.")
+      .addField("`LogIssue` Commands", "Sends your message into the log so you can report issues that I dont see in testing.\nAliases: `Log`")
       .addField("`Support` Command", "Sends a link to the server where you can get support");
 
     if (!args[0]) return message.channel.send(sectionEmbed);
@@ -56,8 +59,6 @@ module.exports = class HelpCommand extends BaseCommand {
     else if (args[0] == "moderation") return message.channel.send(moderationEmbed);
     else if (args[0] == "help") return message.channel.send(helpEmbed);
 
-    if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
-      message.delete();
-    }
+    if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {message.delete();}
   }
 };
