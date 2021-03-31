@@ -1,0 +1,24 @@
+{
+  "name": "console-timestamp",
+  "version": "0.3.0",
+  "description": "Simple date formatter for logging purposes",
+  "main": "console-timestamp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wesolyromek/console-timestamp"
+  },
+  "keywords": [
+    "timestamp",
+    "console",
+    "log"
+  ],
+  "author": "Adam Paszke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wesolyromek/console-timestamp/issues"
+  },
+  "homepage": "https://github.com/wesolyromek/console-timestamp"
+}
