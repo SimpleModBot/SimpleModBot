@@ -1,9 +1,0 @@
-
-
-module.exports = {
-    name: '',
-    description: '',
-    async execute(message, args, client) {
-
-    },
-};

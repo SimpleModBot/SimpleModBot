@@ -54,29 +54,29 @@ module.exports = {
             }
         } else {
             if (args[1] == "add") {
-                if (punishment == 1) {
-                    await mentionedMember.roles.add(warnRole1.id).catch(err => console.log(err));
-                    return message.channel.send(`${mentionedMember}, you have been warned for: ${reason}.`);
-                } else if (punishment == 2) {
-                    await mentionedMember.roles.add(warnRole2.id).catch(err => console.log(err));
-                    await mentionedMember.roles.remove(warnRole1.id).catch(err => console.log(err));
+                if (punishment == 2) {
+                    await mentionedMember.roles.add(warnRole1.Id).catch(err => console.log(err));
                     return message.channel.send(`${mentionedMember}, you have been warned for: ${reason}.`);
                 } else if (punishment == 3) {
-                    await mentionedMember.roles.add(warnRole3.id).catch(err => console.log(err));
-                    await mentionedMember.roles.remove(warnRole2.id).catch(err => console.log(err));
+                    await mentionedMember.roles.add(warnRole2.Id).catch(err => console.log(err));
+                    await mentionedMember.roles.remove(warnRole1.Id).catch(err => console.log(err));
+                    return message.channel.send(`${mentionedMember}, you have been warned for: ${reason}.`);
+                } else if (punishment == 4) {
+                    await mentionedMember.roles.add(warnRole3.Id).catch(err => console.log(err));
+                    await mentionedMember.roles.remove(warnRole2.Id).catch(err => console.log(err));
                     return message.channel.send(`${mentionedMember}, you have been warned for: ${reason}.`);
                 }
             } else if (args[1] == "remove") {
                 if (punishment == 1) {
                     return message.channel.send(`${mentionedMember.user.tag} has no warnings to remove.`);
                 } else if (punishment == 2) {
-                    await mentionedMember.roles.remove(warnRole1.id).catch(err => console.log(err));
+                    await mentionedMember.roles.remove(warnRole1.Id).catch(err => console.log(err));
                     return message.channel.send(`I removed all warnings from ${mentionedMember.user.tag}.`);
                 } else if (punishment == 3) {
-                    await mentionedMember.roles.remove(warnRole2.id).catch(err => console.log(err));
+                    await mentionedMember.roles.remove(warnRole2.Id).catch(err => console.log(err));
                     return message.channel.send(`I removed all warnings from ${mentionedMember.user.tag}.`);
                 } else if (punishment == 4) {
-                    await mentionedMember.roles.remove(warnRole3.id).catch(err => console.log(err));
+                    await mentionedMember.roles.remove(warnRole3.Id).catch(err => console.log(err));
                     return message.channel.send(`I removed all warnings from ${mentionedMember.user.tag}.`);
                 }
             }

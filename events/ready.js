@@ -6,13 +6,16 @@ const number = 478921;
 module.exports = {
     name: 'ready',
     async execute(client) {
+
+        let serverIn = await client.guilds.cache.size;
+        let serverMembers = await client.users.cache.size;
+
         console.log('[hh:mm:ss] '.timestamp + 'Starting Bot..');
-        console.log('[hh:mm:ss] '.timestamp + 'Loading Commands..');
-        console.log('[hh:mm:ss] '.timestamp + 'Loading Events..');
+        console.log('[hh:mm:ss] '.timestamp + `Watching ${serverIn} Servers!`);
+        console.log('[hh:mm:ss] '.timestamp + `Watching ${serverMembers} Members!`);
         console.log('[hh:mm:ss] '.timestamp + 'Done Loading Successfully!');
         console.log('[hh:mm:ss] '.timestamp + client.user.tag + " has logged in.");
 
-        let serverIn = await client.guilds.cache.size;
 
         const statuses = [
             `for if anyone wants a //hug`,
