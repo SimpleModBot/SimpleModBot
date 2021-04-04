@@ -10,7 +10,7 @@ module.exports = {
 
         const embed = new Discord.MessageEmbed()
             .setTitle(mentionedMember.user.tag + "'s Avatar")
-            .setImage(mentionedMember.user.displayAvatarURL());
+            .setImage(mentionedMember.user.displayAvatarURL({dynamic: true}));
 
         message.channel.send(embed);
         

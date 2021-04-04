@@ -1,4 +1,4 @@
-const Blacklist = require('../database/models/blackListSchema');
+const Blacklist = require('../../database/models/blackListSchema');
 const mongoose = require('mongoose');
 
 module.exports = {

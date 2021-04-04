@@ -1,7 +1,8 @@
 
 
 module.exports = {
-    name: 'log',
+    name: 'logissue',
+    aliases: ['log'],
     description: 'Sends a message to the console.',
     async execute(message, args, client) {
 

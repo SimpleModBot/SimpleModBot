@@ -2,6 +2,7 @@ const Levels = require('discord-xp');
 
 module.exports = {
     name: 'leaderboard',
+    aliases: ['leaders'],
     description: 'Shows the servers leaderboard.',
     async execute(message, args, client) {
         const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);

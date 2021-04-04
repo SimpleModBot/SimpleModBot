@@ -19,9 +19,9 @@ module.exports = {
         const args = message.content.slice(client.prefix.length).trim().split(/ +/);
         const commandName = args.shift().toLowerCase();
 
-        if (!client.commands.has(commandName)) return;
+        const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-        const command = client.commands.get(commandName);
+        if (!command) return;
         if (command.devOnly == true && message.author.id !== '750880076555354185') return message.channel.send('You don\'t have permission to use this command as it is only for developers.');
 
         let profile = await Blacklist.findOne({

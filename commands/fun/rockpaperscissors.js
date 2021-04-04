@@ -1,7 +1,8 @@
 
 
 module.exports = {
-    name: 'rps',
+    name: 'rockpaperscissors',
+    aliases: ['rps'],
     description: 'Plays a game of rock paper scissors',
     async execute(message, args, client) {
 

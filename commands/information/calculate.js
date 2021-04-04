@@ -2,6 +2,7 @@
 
 module.exports = {
     name: 'calculate',
+    aliases: ['calc'],
     description: 'Does simple math for you.',
     async execute(message, args, client) {
 
