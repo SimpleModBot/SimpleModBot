@@ -11,8 +11,8 @@ module.exports = {
         let serverMembers = await client.users.cache.size;
 
         console.log('[hh:mm:ss] '.timestamp + 'Starting Bot..');
-        console.log('[hh:mm:ss] '.timestamp + `Watching ${serverIn} Servers!`);
-        console.log('[hh:mm:ss] '.timestamp + `Watching ${serverMembers} Members!`);
+        console.log('[hh:mm:ss] '.timestamp + `Watching ${serverIn} Servers.`);
+        console.log('[hh:mm:ss] '.timestamp + `Watching ${serverMembers} Members.`);
         console.log('[hh:mm:ss] '.timestamp + 'Done Loading Successfully!');
         console.log('[hh:mm:ss] '.timestamp + client.user.tag + " has logged in.");
 
@@ -36,9 +36,5 @@ module.exports = {
             }).catch(console.error);
             index++;
             }, 15000);
-
-        client.user
-            .setUsername("SimpleModBot")
-            .catch(console.error);
     },
 };

@@ -1,17 +1,35 @@
 const Levels = require('discord-xp');
 const Blacklist = require('../database/models/blackListSchema');
+const Afk = require('../database/models/afkSchema');
 
 module.exports = {
     name: 'message',
     async execute(message, client) {
         if (message.author.bot) return;
-        if (message.channel.type == 'dm') return;
+        if (message.channel.type === 'dm') return;
 
         const randomXP = Math.floor(Math.random() * 29) + 1;
         const hasLeveledUP = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
         if (hasLeveledUP) {
             const user = await Levels.fetch(message.author.id, message.guild.id);
-            message.channel.send(`${message.member}, you have leveled up to ${user.level}!`);
+            message.channel.send(`${message.member.user.tag}, you have leveled up to ${user.level}!`);
+        }
+
+        if (await Afk.findOne({ userID: message.author.id })) {
+            let afkProfile = await Afk.findOne({ userID: message.author.id });
+            if (afkProfile.messagesLeft == 0) {
+                await Afk.findOneAndDelete({ userID: message.author.id });
+                message.channel.send(`You are no longer AFK ${message.author}!`);
+            } else {
+                await Afk.findOneAndUpdate({ userID: message.author.id }, { messagesLeft: afkProfile.messagesLeft - 1 });
+            }
+        }
+
+        if (message.mentions.members.first()) {
+            await message.mentions.members.forEach(async member => {
+                let afkProfile = await Afk.findOne({ userID: member.user.id });
+                if (afkProfile) message.channel.send(`That user is AFK because: ${afkProfile.reason}`);
+            });
         }
 
         if (!message.content.startsWith(client.prefix)) return;

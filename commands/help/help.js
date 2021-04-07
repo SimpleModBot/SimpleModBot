@@ -17,6 +17,8 @@ module.exports = {
         
         const databaseEmbed = new Discord.MessageEmbed()
             .setTitle("`Database` Commands")
+            .setDescription("Some people didn't like the message the bot sent when a user levels up so dm DEATHB4DEFEAT#1018 with a server ID or invite and proof you are a mod or higher rank to remove the leveling message. :)")
+            .addField("`afk`", "Makes the user AFK until they send 3 messages\n**Aliases:** away")
             .addField("`edit`", "Edits the mentioned users xp or level.")
             .addField("`leaderboard`", "Shows the servers leaderboard.\n**Aliases:** leaders")
             .addField("`level`", "shows you or the mentioned users current level in the server.");
@@ -43,7 +45,7 @@ module.exports = {
             .setTitle("`Information` Commands.")
             .addField("`calculate`", "Allows you to calculate simple math problems with `+, -, x, or /`\n**Aliases:** calc")
             .addField("`ping`", "Gives the bots ping from you to the bot back to you.")
-            .addField("`servers`", "Shows a more accurate and nicer counter of the bots server count.")
+            .addField("`servers`", "Shows the amount of servers the bot is in, the amount of members the bot has, and the amount of members in this server.\n**Aliases:** members\nservermembers")
             .addField("`social`", "Displays social media in an embed and bot invite.")
             .addField("`suggest`", "Displays your message as a suggestion for whatever channel your in.")
             .addField("`uptime`", "Shows how long the bot has been online for.\n**Aliases:** up")

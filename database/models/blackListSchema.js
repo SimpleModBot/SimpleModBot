@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const BlackListSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+    _id: mongoose.Types.ObjectId,
     userID: String,
     reason: String,
 })

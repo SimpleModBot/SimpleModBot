@@ -20,11 +20,11 @@ module.exports = {
         mongoose.Promise = global.Promise;
 
         mongoose.connection.on('connected', () => {
-            console.log('[hh:mm:ss]'.timestamp + ` SimpleModBot#2461 has connected to the database succesfully!`);
+            console.log('[hh:mm:ss]'.timestamp + ` I have connected to the database succesfully!`);
         });
 
         mongoose.connection.on('disconnected', () => {
-            console.log('[hh:mm:ss]'.timestamp + ` SimpleModBot#2461 has disconnected from the database!`);
+            console.log('[hh:mm:ss]'.timestamp + ` I have disconnected from the database!`);
         });
 
         mongoose.connection.on('err', (err) => {
