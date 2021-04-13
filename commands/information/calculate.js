@@ -1,3 +1,4 @@
+const Discord = require("discord.js");
 
 
 module.exports = {
@@ -17,19 +18,39 @@ module.exports = {
 
         if (args[1] == "+") {
             let result = firstvalue + secondvalue;
-            message.channel.send(`${firstvalue} + ${secondvalue} = ${result}`);
+            const mathPlusEmbed = new Discord.MessageEmbed()
+                .setTitle("`Calculate` command.")
+                .setDescription(`${firstvalue} + ${secondvalue} = ${result}`)
+                .setColor("GREEN")
+                .setFooter(`${message.author.tag} used Calculate command`);
+            message.channel.send(mathPlusEmbed);
         }
         if (args[1] == "-") {
             let result = firstvalue - secondvalue;
-            message.channel.send(`${firstvalue} + ${secondvalue} = ${result}`);
+            const mathSubractEmbed = new Discord.MessageEmbed()
+                .setTitle("`Calculate` Command.")
+                .setDescription(`${firstvalue} - ${secondvalue} = ${result}`)
+                .setColor("GREEN")
+                .setFooter(`${message.author.tag} used Calculate command`);
+            message.channel.send(mathSubractEmbed);
         }
         if (args[1] == "x") {
             let result = firstvalue * secondvalue;
-            message.channel.send(`${firstvalue} x ${secondvalue} = ${result}`);
+            const mathMultiplyEmbed = new Discord.MessageEmbed()
+                .setTitle("`Calculate` Command.")
+                .setDescription(`${firstvalue} X ${secondvalue} = ${result}`)
+                .setColor("GREEN")
+                .setFooter(`${message.author.tag} used Calculate command`);
+            message.channel.send(mathMultiplyEmbed);
         }
         if (args[1] == "/") {
             let result = firstvalue / secondvalue;
-            message.channel.send(`${firstvalue} / ${secondvalue} = ${result}`);
+            const mathDivideEmbed = new Discord.MessageEmbed()
+                .setTitle("`Calculate` Command.")
+                .setDescription(`${firstvalue} ÷ ${secondvalue} = ${result}`)
+                .setColor("GREEN")
+                .setFooter(`${message.author.tag} used Calculate command`);
+            message.channel.send(mathDivideEmbed);
         }
     },
 };

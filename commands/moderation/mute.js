@@ -19,11 +19,8 @@ module.exports = {
                 deny: "SEND_MESSAGES",
             },
             reason: "for muted people",
-        })
-            .then(console.log)
-            .catch(console.error)
-            .then(message.channel.send('Could not find role "Muted".. creating..'))
-            .catch(console.error);
+        });
+        
         const memberRole = message.guild.roles.cache.find((r) => r.name.toLowerCase() == "member");
         if (!memberRole) message.guild.roles.create({
             data: {
@@ -31,10 +28,7 @@ module.exports = {
                 color: "BLUE",
             },
             reason: "for members of the server",
-        })
-            .then(console.log)
-            .catch(console.error)
-            .then(message.channel.send('Could not find role "Member".. creating..'));
+        });
 
         const mentionedMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 

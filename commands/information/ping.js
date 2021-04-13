@@ -1,13 +1,28 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'ping',
-    description: 'Shows the bot/users ping.',
+    cooldown: 5,
+    description: 'Shows the bots ping.',
     async execute(message, args, client) {
-        const msg = await message.channel.send('Pinging...');
+        const pingingEmbed = new Discord.MessageEmbed()
+            .setTitle("Pinging...")
+            .setDescription("This will probably take a bit.")
+            .setFooter(`${message.author.tag} used ping command.`)
+            .setColor("#fffb14");
+        message.channel.send(pingingEmbed).then((resultMessage) => {
+            const ping = resultMessage.createdTimestamp - message.createdTimestamp;
 
-        const latency = msg.createdTimestamp - message.createdTimestamp;
-        const choices = ['I hope the ping is okay! :)', 'Is the ping good?', 'Am I lagging or are you? I can\'t see :)']
-        const response = choices[Math.floor(Math.random() * choices.length)];
-
-        msg.edit(`${response}\n🤖Bot Latency: ${latency}ms`);
+            const pongEmbed = new Discord.MessageEmbed()
+                .setTitle("🏓Pong!")
+                .setDescription(`Bot ping: ${ping}ms\nAPI ping: ${client.ws.ping}ms`)
+                .setFooter(`${message.author.tag} used ping command.`)
+                .setColor("GREEN");
+            resultMessage.edit(pongEmbed);
+        })
+        
+        if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
+            message.delete();
+        }
     },
 };

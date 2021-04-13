@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 const Levels = require('discord-xp');
 const Blacklist = require('../database/models/blackListSchema');
 const Afk = require('../database/models/afkSchema');
@@ -12,9 +13,12 @@ module.exports = {
         const hasLeveledUP = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
         if (hasLeveledUP) {
             const user = await Levels.fetch(message.author.id, message.guild.id);
-            message.channel.send(`${message.member.user.tag}, you have leveled up to ${user.level}!`);
+            message.channel.send(`${message.member.user.tag}, you have leveled up to ${user.level}!`)
+                .then((lvlmsg) => {
+                    lvlmsg.delete({ timeout: 3500 });
+                });
         }
-
+        
         if (await Afk.findOne({ userID: message.author.id })) {
             let afkProfile = await Afk.findOne({ userID: message.author.id });
             if (afkProfile.messagesLeft == 0) {
@@ -24,24 +28,26 @@ module.exports = {
                 await Afk.findOneAndUpdate({ userID: message.author.id }, { messagesLeft: afkProfile.messagesLeft - 1 });
             }
         }
-
         if (message.mentions.members.first()) {
             await message.mentions.members.forEach(async member => {
                 let afkProfile = await Afk.findOne({ userID: member.user.id });
-                if (afkProfile) message.channel.send(`That user is AFK because: ${afkProfile.reason}`);
+                if (afkProfile) message.channel.send(`That user is AFK because: ${afkProfile.reason}`)
+                    .then((afkmsg) => {
+                        afkmsg.delete({ timeout: 5000 });
+                    });
             });
         }
-
-        if (!message.content.startsWith(client.prefix)) return;
-
+        
         const args = message.content.slice(client.prefix.length).trim().split(/ +/);
         const commandName = args.shift().toLowerCase();
-
         const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
+        if (message.content.includes(client.user.id)) return message.reply(`my prefix is: ${client.prefix}`);
+        if (message.content.includes('geo') && message.guild.id == '753366889924657193') return message.channel.send('<@568307974964248587> is a nab.');
         if (!command) return;
-        if (command.devOnly == true && message.author.id !== '750880076555354185') return message.channel.send('You don\'t have permission to use this command as it is only for developers.');
+        if (!message.content.startsWith(client.prefix)) return;
 
+        if (command.devOnly == true && message.author.id !== '750880076555354185') return message.channel.send('You don\'t have permission to use this command as it is only for developers.');
         let profile = await Blacklist.findOne({
             userID: message.author.id
         });

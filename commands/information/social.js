@@ -2,30 +2,19 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'social',
+    aliases: ['links', 'link'],
     description: 'Displays my social medias.',
     async execute(message, args, client) {
 
-        const twitchEmbed = new Discord.MessageEmbed()
-            .setTitle("DEATHB4DEFEET")
-            .setURL("https://twitch.tv/deathb4defeet")
-            .setColor("#7716E9")
-            .addField("Check out my creators Twitch!", "I would like it if you followed and watched the streams.");
-
-        const discordEmbed = new Discord.MessageEmbed()
-            .setTitle("Join my creators main server for support or to hang out!")
-            .setURL("https://discord.gg/26NtPVvNCU")
-            .setColor("#7289da")
+        const socialEmbed = new Discord.MessageEmbed()
+            .setTitle("My Links/Social Medias.")
+            .addField("Twitch: https://twitch.tv/deathb4defeet", "** **")
+            .addField("Discord: https://discord.gg/26NtPVvNCU", "Testing Server: https://discord.gg/yfcvPmxkmR", "** **")
+            .addField("Top.gg Invite: https://top.gg/bot/808196506833125396", "** **")
+            .setColor("#ff0800")
             .setTimestamp();
 
-        const inviteEmbed = new Discord.MessageEmbed()
-            .setTitle("Invite me to your discord server to help grow my bot and help with your moderation!")
-            .setURL("https://top.gg/bot/808196506833125396")
-            .setColor("#b31217")
-            .setTimestamp();
-
-        message.channel.send(twitchEmbed).catch((err) => console.log(err));
-        message.channel.send(discordEmbed).catch((err) => console.log(err));
-        message.channel.send(inviteEmbed).catch((err) => console.log(err));
+        message.channel.send(socialEmbed);
 
         if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
             message.delete();

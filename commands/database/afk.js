@@ -16,7 +16,7 @@ module.exports = {
                 reason: reason,
             });
             await afkProfile.save();
-            message.channel.send('You are now AFk! Have a good time :)');
+            message.channel.send('You are now AFK! Have a good time :)');
         } else return message.channel.send('You are already AFK.');
     },
 };

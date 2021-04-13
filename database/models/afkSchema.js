@@ -4,7 +4,7 @@ const afkSchema = new mongoose.Schema({
     _id: mongoose.Types.ObjectId,
     userID: String,
     reason: String,
-    messagesLeft: {type: Number, default: 3}
+    messagesLeft: {type: Number, default: 0}
 })
 
 module.exports = new mongoose.model('Afk', afkSchema, 'afks');

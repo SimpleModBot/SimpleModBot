@@ -11,8 +11,7 @@ module.exports = {
             .setTitle(`Suggestion:`)
             .addField(`${suggestion}`, `This was suggested by ${message.author.tag}`);
 
-        message.channel
-            .send(embed)
+        message.channel.send(embed)
             .then((sentMessage) => sentMessage.react("👍"))
             .then((reaction) => reaction.message.react("👎"));
 

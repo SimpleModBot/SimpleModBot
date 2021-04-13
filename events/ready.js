@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 const timestamp = require('console-timestamp');
 const now = new Date();
 const number = 478921;
@@ -21,7 +20,8 @@ module.exports = {
             `for if anyone wants a //hug`,
             `For //help`,
             `For //support`,
-            `${serverIn} servers.`
+            `${serverIn} servers.`,
+            `${serverMembers} members.`
         ];
 
         let index = 0;

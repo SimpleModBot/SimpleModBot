@@ -1,4 +1,5 @@
 const Levels = require('discord-xp');
+const Discord = require('discord.js');
 
 module.exports = {
     name: 'leaderboard',
@@ -13,6 +14,11 @@ module.exports = {
 
         const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
 
-        message.channel.send(`**Leaderboard**:\n\n${lb.join("\n\n")}`);
+        const leaderboardEmbed = new Discord.MessageEmbed()
+            .setTitle("**Leaderboard**:")
+            .setDescription(`${lb.join("\n\n")}`)
+            .setColor("#000000")
+            .setFooter(`${message.author.tag} is looking at the leaderboard.`);
+        message.channel.send(leaderboardEmbed);
     },
 };
