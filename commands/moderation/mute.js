@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'mute',
+    cooldown: 5,
     description: 'Mutes a member in the server.',
     async execute(message, args, client) {
 

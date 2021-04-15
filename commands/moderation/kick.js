@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'kick',
+    cooldown: 3,
     description: 'Kicks a user from the server.',
     async execute(message, args, client) {
 

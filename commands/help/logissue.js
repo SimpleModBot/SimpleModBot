@@ -2,6 +2,7 @@
 
 module.exports = {
     name: 'logissue',
+    cooldown: 10,
     aliases: ['log'],
     description: 'Sends a message to the console.',
     async execute(message, args, client) {

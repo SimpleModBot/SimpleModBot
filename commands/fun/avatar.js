@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'avatar',
+    cooldown: 5,
     description: 'Displays a users avatar.',
     async execute(message, args, client) {
-
         const mentionedMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if (!mentionedMember) return;
 

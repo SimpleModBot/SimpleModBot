@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'unmute',
+    cooldown: 5,
     description: 'Unmutes the mentioned user if they are muted.',
     async execute(message, args, client) {
 

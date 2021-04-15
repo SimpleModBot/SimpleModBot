@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: 'hug',
+    cooldown: 3,
     description: 'Hugs the user mentioned.',
     async execute(message, args, client) {
         const mentionedMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]);

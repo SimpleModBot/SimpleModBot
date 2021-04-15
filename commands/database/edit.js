@@ -2,6 +2,7 @@ const Levels = require('discord-xp');
 
 module.exports = {
     name: 'edit',
+    cooldown: 5,
     description: 'Edits the users xp or level.',
     async execute(message, args, client) {
         let usage = '//edit @member [xp, level] [add, set, remove] <number>'

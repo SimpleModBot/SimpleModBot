@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'social',
+    cooldown: 10,
     aliases: ['links', 'link'],
     description: 'Displays my social medias.',
     async execute(message, args, client) {

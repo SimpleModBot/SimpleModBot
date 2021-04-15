@@ -2,6 +2,7 @@
 
 module.exports = {
     name: 'support',
+    cooldown: 30,
     description: 'Gives a link to the support/community server',
     async execute(message, args, client) {
 

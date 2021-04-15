@@ -2,6 +2,7 @@
 
 module.exports = {
     name: 'nickname',
+    cooldown: 10,
     aliases: ['nick'],
     description: 'Nicknames the user with what you say',
     async execute(message, args, client) {

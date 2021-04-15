@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: 'say',
+  cooldown: 3,
   description: 'Says a message in a nice embed.',
   execute(message, args, client) {
     const messageToSay = args.join(" ");

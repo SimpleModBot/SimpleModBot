@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'vote',
+    cooldown: 10,
     aliases: ['poll'],
     description: 'Creates a poll in the current channel.',
     async execute(message, args, client) {

@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'warn',
+    cooldown: 3,
     description: 'Warns the user and gives them a role.',
     async execute(message, args, client) {
 
