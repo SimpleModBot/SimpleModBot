@@ -28,7 +28,13 @@ module.exports = {
             await profile.save();
             message.channel.send('Successfully banned ' + mentionedMember.user.tag + ' from using the bot!');
         } catch (err) {
-            console.log(err);
+            const errorChannel = await client.channels.cache.get("832744410998767666");
+            const errorMessage = new Discord.MessageEmbed()
+                .setTitle("An error has occured!")
+                .setDescription(err)
+                .setTimestamp()
+                .setColor("#ff0a0a");
+            errorChannel.send(errorMessage);
         }
     },
 };

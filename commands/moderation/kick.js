@@ -25,15 +25,27 @@ module.exports = {
         try {
             await mentionedMember.send(kickEmbed);
         } catch (err) {
-            console.log(err);
-            message.channel.send("I was unable to message the member.");
+            const errorChannel = await client.channels.cache.get("832744410998767666");
+            const errorMessage = new Discord.MessageEmbed()
+                .setTitle("An error has occured!")
+                .setDescription(err)
+                .setTimestamp()
+                .setColor("RED");
+            errorChannel.send(errorMessage);
+            message.channel.send("I was unable to message the member containing the reasoning.");
         }
 
         try {
             await mentionedMember.kick(reason);
         } catch (err) {
-            console.log(err);
-            return message.channel.send("I was unable to kick the member mentioned.");
+            const errorChannel = await client.channels.cache.get("832744410998767666");
+            const errorMessage = new Discord.MessageEmbed()
+                .setTitle("An error has occured!")
+                .setDescription(err)
+                .setTimestamp()
+                .setColor("#ff0a0a");
+            errorChannel.send(errorMessage);
+            message.channel.send("I was unable to kick the mentioned member.");
         }
         if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
             message.delete();

@@ -18,8 +18,14 @@ module.exports = {
             await message.channel.setRateLimitPerUser(value);
             message.channel.send(`The channels slowmode has been set to ${value} seconds for ${message.channel}!`);
         } catch (err) {
-            console.log(err);
-            message.channel.send("Something went wrong doing this command. If you think this is a bug please use `//log` to report the issue with a description.");
+            const errorChannel = await client.channels.cache.get("832744410998767666");
+            const errorMessage = new Discord.MessageEmbed()
+                .setTitle("An error has occured!")
+                .setDescription(err)
+                .setTimestamp()
+                .setColor("#ff0a0a");
+            errorChannel.send(errorMessage);
+            message.channel.send("There was an error while setting the slowmode.");
         }
         if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
             message.delete();

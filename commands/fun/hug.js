@@ -15,7 +15,9 @@ module.exports = {
             .setDescription(`${message.author} sent a hug to ${mentionedMember.user}!\n*Hugs ${mentionedMember.user}* :)`)
             .setColor("#7289da");
 
-        if (message.guild.me.hasPermission("MANAGE_MESSAGES")) { message.delete(); }
+        if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
+            message.delete();
+        }
         if (mentionedMember) return message.channel.send(hugUEmbed);
     },
 };

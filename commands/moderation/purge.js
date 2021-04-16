@@ -20,8 +20,14 @@ module.exports = {
             await message.channel.bulkDelete(fetched)
                 .then((messages) => message.channel.send(`Deleted ${messages.size} messages succesfully!`));
         } catch (err) {
-            console.Log(err);
-            message.channel.send("I was unable to delete the amount stated. Make sure they are within 2 weeks old.");
+            const errorChannel = await client.channels.cache.get("832744410998767666");
+            const errorMessage = new Discord.MessageEmbed()
+                .setTitle("An error has occured!")
+                .setDescription(err)
+                .setTimestamp()
+                .setColor("#ff0a0a");
+            errorChannel.send(errorMessage);
+            message.channel.send("I was unabe to delete the amount of messages. if they are not within 2 weeks old maybe try the nuke command.");
         }
     },
 };

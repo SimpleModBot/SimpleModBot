@@ -8,6 +8,7 @@ const dotenv = require('dotenv').config();
 Levels.setURL(`mongodb+srv://DEATHB4DEFEAT:${process.env.PASS}@cluster0.vzyir.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`);
 client.prefix = '//';
 client.commands = new Discord.Collection();
+client.cooldowns = new Discord.Collection();
 const commandFolders = fs.readdirSync('./commands');
 
 for (const folder of commandFolders) {

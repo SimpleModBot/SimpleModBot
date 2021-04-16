@@ -6,7 +6,6 @@ module.exports = {
     cooldown: 5,
     description: 'Sends a meme from r/meirl, r/memes, or r/dankmemes',
     async execute(message, args, client) {
-
         fetch("https://meme-api.herokuapp.com/gimme").then((res) => res.json()).then(async (json) => {
             const memeEmbed = new Discord.MessageEmbed()
                 .setTitle(json.title)

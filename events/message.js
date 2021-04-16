@@ -18,7 +18,7 @@ module.exports = {
                     lvlmsg.delete({ timeout: 3500 });
                 });
         }
-        
+
         if (await Afk.findOne({ userID: message.author.id })) {
             let afkProfile = await Afk.findOne({ userID: message.author.id });
             if (afkProfile.messagesLeft == 0) {
@@ -37,7 +37,7 @@ module.exports = {
                     });
             });
         }
-        
+
         const args = message.content.slice(client.prefix.length).trim().split(/ +/);
         const commandName = args.shift().toLowerCase();
         const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));

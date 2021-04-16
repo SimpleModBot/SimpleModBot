@@ -21,7 +21,7 @@ module.exports = {
 
         const databaseEmbed = new Discord.MessageEmbed()
             .setTitle("`Database` Commands")
-            .addField("`afk`", "Makes the user AFK until they send 3 messages\n**Aliases:** away")
+            .addField("`afk`", "Makes the user AFK until they send a message\n**Aliases:** away")
             .addField("`edit`", "Edits the mentioned users xp or level.")
             .addField("`leaderboard`", "Shows the servers leaderboard.\n**Aliases:** leaders")
             .addField("`level`", "shows you or the mentioned users current level in the server.")
@@ -53,6 +53,12 @@ module.exports = {
             .addField("`wheeze`", "Sends a laughing emoji.")
             .setColor("#ff4df2");
         
+        const eventEmbed = new Discord.MessageEmbed()
+            .setTitle("`Event`s")
+            .addField("`message`", "Does something whenever a user sends a message.")
+            .addField("`ready`", "Does something whenever the bot comes online.")
+            .setColor("RANDOM");
+        
         const funEmbed = new Discord.MessageEmbed()
             .setTitle("`Fun` Commands.")
             .addField("`avatar`", "Returns a users avatar.")
@@ -73,6 +79,7 @@ module.exports = {
         const infoEmbed = new Discord.MessageEmbed()
             .setTitle("`Information` Commands.")
             .addField("`calculate`", "Allows you to calculate simple math problems with `+, -, x, or /`\n**Aliases:** calc")
+            .addField("`invite`", "Show a link to the bots invite page.\n**Aliases:** inv")
             .addField("`ping`", "Gives the bots ping from you to the bot back to you.")
             .addField("`servers`", "Shows the amount of servers the bot is in, the amount of members the bot has, and the amount of members in this server.\n**Aliases:** members\nservermembers")
             .addField("`social`", "Displays social media in an embed and bot invite.")
@@ -109,6 +116,7 @@ module.exports = {
         if (args[0] == "database") return message.channel.send(databaseEmbed);
         else if (args[0] == "devonly") return message.channel.send(devOnlyEmbed);
         else if (args[0] == "emoji") return message.channel.send(emojiEmbed);
+        else if (args[0] == "event") return message.channel.send(eventEmbed);
         else if (args[0] == "fun") return message.channel.send(funEmbed);
         else if (args[0] == "help") return message.channel.send(helpEmbed);
         else if (args[0] == "information") return message.channel.send(infoEmbed);

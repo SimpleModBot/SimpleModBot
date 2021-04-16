@@ -19,7 +19,13 @@ module.exports = {
             });
             embed.setTitle(msg.first().content);
         } catch (err) {
-            console.log(err);
+            const errorChannel = await client.channels.cache.get("832744410998767666");
+            const errorMessage = new Discord.MessageEmbed()
+                .setTitle("An error has occured!")
+                .setDescription(err)
+                .setTimestamp()
+                .setColor("#ff0a0a");
+            errorChannel.send(errorMessage);
             message.channel.send("You ran out of time, Redo the command to retry.");
             if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
                 message.delete();
@@ -35,8 +41,14 @@ module.exports = {
             });
             embed.addField(`[🔴] The first option to vote for:`, msg.first().content);
         } catch (err) {
-            console.log(err);
-            message.channel.send("You ran out of time, Redo the command to retry.");
+            const errorChannel = await client.channels.cache.get("832744410998767666");
+            const errorMessage = new Discord.MessageEmbed()
+                .setTitle("An error has occured!")
+                .setDescription(err)
+                .setTimestamp()
+                .setColor("#ff0a0a");
+            errorChannel.send(errorMessage);
+            message.channel.send("You ran out of time, redo the command to retry.");
             if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
                 message.delete();
             }
@@ -54,7 +66,13 @@ module.exports = {
                 msg.first().content
             );
         } catch (err) {
-            console.log(err);
+            const errorChannel = await client.channels.cache.get("832744410998767666");
+            const errorMessage = new Discord.MessageEmbed()
+                .setTitle("An error has occured!")
+                .setDescription(err)
+                .setTimestamp()
+                .setColor("#ff0a0a");
+            errorChannel.send(errorMessage);
             message.channel.send("You ran out of time, Redo the command to retry.");
             if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
                 message.delete();

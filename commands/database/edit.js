@@ -23,7 +23,13 @@ module.exports = {
                     await Levels.appendXp(mentionedMember.user.id, message.guild.id, value);
                     message.channel.send(`Added: ${value} xp to ${mentionedMember.user.tag}`);
                 } catch (err) {
-                    console.log(err);
+                    const errorChannel = await client.channels.cache.get("832744410998767666");
+                    const errorMessage = new Discord.MessageEmbed()
+                        .setTitle("An error has occured!")
+                        .setDescription(err)
+                        .setTimestamp()
+                        .setColor("#ff0a0a");
+                    errorChannel.send(errorMessage);
                 }
             } else if (args[2] == 'remove') {
                 if (!value) return message.channel.send('The number stated is not valid.');
@@ -31,7 +37,13 @@ module.exports = {
                     await Levels.subtractXp(mentionedMember.user.id, message.guild.id, value);
                     message.channel.send(`Removed: ${value} xp from ${mentionedMember.user.tag}`);
                 } catch (err) {
-                    console.log(err);
+                    const errorChannel = await client.channels.cache.get("832744410998767666");
+                    const errorMessage = new Discord.MessageEmbed()
+                        .setTitle("An error has occured!")
+                        .setDescription(err)
+                        .setTimestamp()
+                        .setColor("#ff0a0a");
+                    errorChannel.send(errorMessage);
                 }
             } else if (args[2] == 'set') {
                 if (!value) return message.channel.send('The number stated is not valid.');
@@ -39,7 +51,13 @@ module.exports = {
                     await Levels.setXp(mentionedMember.user.id, message.guild.id, value);
                     message.channel.send(`Set: ${mentionedMember.user.tag}'s xp to ${value}`);
                 } catch (err) {
-                    console.log(err);
+                    const errorChannel = await client.channels.cache.get("832744410998767666");
+                    const errorMessage = new Discord.MessageEmbed()
+                        .setTitle("An error has occured!")
+                        .setDescription(err)
+                        .setTimestamp()
+                        .setColor("#ff0a0a");
+                    errorChannel.send(errorMessage);
                 }
             }
         } else if (args[1] == 'level') {
@@ -53,7 +71,13 @@ module.exports = {
                     await Levels.appendLevel(mentionedMember.user.id, message.guild.id, value);
                     message.channel.send(`Added: ${value} levels to ${mentionedMember.user.tag}`);
                 } catch (err) {
-                    console.log(err);
+                    const errorChannel = await client.channels.cache.get("832744410998767666");
+                    const errorMessage = new Discord.MessageEmbed()
+                        .setTitle("An error has occured!")
+                        .setDescription(err)
+                        .setTimestamp()
+                        .setColor("#ff0a0a");
+                    errorChannel.send(errorMessage);
                 }
             } else if (args[2] == 'remove') {
                 if (!value) return message.channel.send('The number stated is not valid.');
@@ -61,7 +85,13 @@ module.exports = {
                     await Levels.subtractLevel(mentionedMember.user.id, message.guild.id, value);
                     message.channel.send(`Removed: ${value} levels from ${mentionedMember.user.tag}`);
                 } catch (err) {
-                    console.log(err);
+                    const errorChannel = await client.channels.cache.get("832744410998767666");
+                    const errorMessage = new Discord.MessageEmbed()
+                        .setTitle("An error has occured!")
+                        .setDescription(err)
+                        .setTimestamp()
+                        .setColor("#ff0a0a");
+                    errorChannel.send(errorMessage);
                 }
             } else if (args[2] == 'set') {
                 if (!value) return message.channel.send('The number stated is not valid.');
@@ -69,7 +99,13 @@ module.exports = {
                     await Levels.setLevel(mentionedMember.user.id, message.guild.id, value);
                     message.channel.send(`Set: ${mentionedMember.user.tag}'s level to ${value}`);
                 } catch (err) {
-                    console.log(err);
+                    const errorChannel = await client.channels.cache.get("832744410998767666");
+                    const errorMessage = new Discord.MessageEmbed()
+                        .setTitle("An error has occured!")
+                        .setDescription(err)
+                        .setTimestamp()
+                        .setColor("#ff0a0a");
+                    errorChannel.send(errorMessage);
                 }
             }
         }

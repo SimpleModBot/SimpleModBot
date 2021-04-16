@@ -1,5 +1,3 @@
-
-
 module.exports = {
     name: 'website',
     cooldown: 10,

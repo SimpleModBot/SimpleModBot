@@ -13,23 +13,29 @@ module.exports = {
 
         const muteRole = message.guild.roles.cache.find((r) => r.name.toLowerCase() == "muted"
         );
-        if (!muteRole) message.guild.roles.create({
-            data: {
-                name: "Muted",
-                color: "RED",
-                deny: "SEND_MESSAGES",
-            },
-            reason: "for muted people",
-        });
+        if (!muteRole) {
+            message.guild.roles.create({
+                data: {
+                    name: "Muted",
+                    color: "RED",
+                    deny: "SEND_MESSAGES",
+                },
+                reason: "for muted people",
+            })
+            message.channel.send("I have created the `Muted` role, please make sure it is above all normal member roles and denies the send message permission.");
+        };
         
         const memberRole = message.guild.roles.cache.find((r) => r.name.toLowerCase() == "member");
-        if (!memberRole) message.guild.roles.create({
-            data: {
-                name: "Member",
-                color: "BLUE",
-            },
-            reason: "for members of the server",
-        });
+        if (!memberRole) {
+            await message.guild.roles.create({
+                data: {
+                    name: "Member",
+                    color: "BLUE",
+                },
+                reason: "for members of the server",
+            })
+            message.channel.send("I have created the `Member` role, please make sure it has the proper permissions you want.");
+        };
 
         const mentionedMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
