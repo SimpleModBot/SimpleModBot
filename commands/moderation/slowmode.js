@@ -12,7 +12,7 @@ module.exports = {
         const value = Number(args[0]);
 
         if (!args[0]) return message.channel.send("You need to say a number for how many seconds you want the slowmode to be.");
-        if (!value || value < 5 || value > 21600) return message.channel.send("You need to say a number from 5-21600 in seconds.");
+        if (!value || value > 21600) return message.channel.send("You need to say a number from 5-21600 in seconds.");
         try {
             await message.channel.setRateLimitPerUser(value);
             message.channel.send(`The channels slowmode has been set to ${value} seconds for ${message.channel}!`);

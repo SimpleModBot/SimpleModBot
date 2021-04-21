@@ -21,31 +21,8 @@ module.exports = {
         if (!args[0]) return message.channel.send("You need to state a user to kick.");
         if (!mentionedMember) return message.channel.send("The member mentioned is not in the server.");
         if (!mentionedMember.kickable) return message.channel.send("I cannot kick this user.");
-        try {
             await mentionedMember.send(kickEmbed);
-        } catch (err) {
-            const errorChannel = await client.channels.cache.get("832744410998767666");
-            const errorMessage = new Discord.MessageEmbed()
-                .setTitle("An error has occured!")
-                .setDescription(err)
-                .setTimestamp()
-                .setColor("RED");
-            errorChannel.send(errorMessage);
-            message.channel.send("I was unable to message the member containing the reasoning.");
-        }
-
-        try {
             await mentionedMember.kick(reason);
-        } catch (err) {
-            const errorChannel = await client.channels.cache.get("832744410998767666");
-            const errorMessage = new Discord.MessageEmbed()
-                .setTitle("An error has occured!")
-                .setDescription(err)
-                .setTimestamp()
-                .setColor("#ff0a0a");
-            errorChannel.send(errorMessage);
-            message.channel.send("I was unable to kick the mentioned member.");
-        }
         if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
             message.delete();
         }

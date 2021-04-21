@@ -29,9 +29,8 @@ module.exports = {
             .setTitle("`Developer Only` Commands.")
             .addField("`blacklist`", "Blacklists a user form interacting with the bot")
             .addField("`reload`", "Reloads a command\n**Aliases:** re")
-            .setColor("#000000");
+            .setColor("GREY");
 
-<<<<<<< HEAD
         const emojiEmbed = new Discord.MessageEmbed()
             .setTitle("`Emoji` Commands.")
             .addField("`4k`", "Sends an emoji of a 4K graphics plate.")
@@ -53,12 +52,12 @@ module.exports = {
         
         const eventEmbed = new Discord.MessageEmbed()
             .setTitle("`Event`s")
+            .addField("`guildCreate`", "When the bot joins a server it does something.")
+            .addField("`guildMemberAdd`", "Does an action when a member joins a server it's in.")
             .addField("`message`", "Does something whenever a user sends a message.")
             .addField("`ready`", "Does something whenever the bot comes online.")
-            .setColor("RANDOM");
+            .setColor("GREY");
         
-=======
->>>>>>> parent of 95f60a0 (much)
         const funEmbed = new Discord.MessageEmbed()
             .setTitle("`Fun` Commands.")
             .addField("`avatar`", "Returns a users avatar.")
@@ -114,14 +113,11 @@ module.exports = {
             .setColor("#ff0a0a");
 
         if (!args[0]) return message.channel.send(sectionsEmbed);
-<<<<<<< HEAD
         if (args[0] == "database") return message.channel.send(databaseEmbed);
         else if (args[0] == "devonly") return message.channel.send(devOnlyEmbed);
         else if (args[0] == "emoji") return message.channel.send(emojiEmbed);
         else if (args[0] == "event") return message.channel.send(eventEmbed);
-=======
-        if (args[0] == "information") return message.channel.send(infoEmbed);
->>>>>>> parent of 95f60a0 (much)
+        else if (args[0] == "information") return message.channel.send(infoEmbed);
         else if (args[0] == "fun") return message.channel.send(funEmbed);
         else if (args[0] == "moderation") return message.channel.send(moderationEmbed);
         else if (args[0] == "help") return message.channel.send(helpEmbed);

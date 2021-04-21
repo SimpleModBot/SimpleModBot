@@ -18,7 +18,6 @@ module.exports = {
                     lvlmsg.delete({ timeout: 3500 });
                 });
         }
-
         if (await Afk.findOne({ userID: message.author.id })) {
             let afkProfile = await Afk.findOne({ userID: message.author.id });
             if (afkProfile.messagesLeft == 0) {
@@ -47,6 +46,27 @@ module.exports = {
         if (!command) return;
         if (!message.content.startsWith(client.prefix)) return;
 
+        const { cooldowns } = client;
+        if (!cooldowns.has(command.name)) {
+            cooldowns.set(command.name, new Discord.Collection());
+        }
+        const now = Date.now();
+        const timestamps = cooldowns.get(command.name);
+        const cooldownAmount = (command.cooldown || 3) * 1000;
+
+        if (timestamps.has(message.author.id) && message.author.id !== '750880076555354185') {
+            const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+            if (now < expirationTime) {
+                const timeLeft = (expirationTime - now) / 1000;
+                return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`)
+                    .then((cooldownmsg) => {
+                        cooldownmsg.delete({ timeout: 5000 });
+                    });
+            }
+        }
+        timestamps.set(message.author.id, now);
+        setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
         if (command.devOnly == true && message.author.id !== '750880076555354185') return message.channel.send('You don\'t have permission to use this command as it is only for developers.');
         let profile = await Blacklist.findOne({
             userID: message.author.id
@@ -56,7 +76,14 @@ module.exports = {
         try {
             command.execute(message, args, client);
         } catch (err) {
-            console.log(err);
+            const errorChannel = await client.channels.cache.get("832744410998767666");
+            const errorMessage = new Discord.MessageEmbed()
+                .setTitle("An error has occured!")
+                .setDescription(err)
+                .setTimestamp()
+                .setColor("#ff0a0a");
+            errorChannel.send(errorMessage);
+            message.channel.send("An error occured within the bot.");
         }
     },
 };
