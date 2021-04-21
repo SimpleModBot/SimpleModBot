@@ -3,7 +3,6 @@ const ms = require('ms');
 
 module.exports = {
     name: 'uptime',
-    cooldown: 60,
     aliases: ['up'],
     description: 'Shows how long the bot has been active for.',
     async execute(message, args, client) {

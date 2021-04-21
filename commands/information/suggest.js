@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'suggest',
-    cooldown: 10,
     description: 'Gives a suggestion in the current channel with a reaction vote counter.',
     async execute(message, args, client) {
 

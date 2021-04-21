@@ -2,8 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'unban',
-    cooldown: 10,
-    description: 'Unbans a user form the current server.',
+    description: '',
     async execute(message, args, client) {
 
         if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You do not have permission to use this command!");

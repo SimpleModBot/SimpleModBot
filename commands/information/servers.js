@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'servers',
-    cooldown: 15,
     aliases: ['members', 'servermembers'],
     description: 'Shows the current amount of servers the bot is in, in an embed.',
     async execute(message, args, client) {

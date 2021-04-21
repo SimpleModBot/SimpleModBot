@@ -2,16 +2,14 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'help',
-    cooldown: 2,
     description: 'Sends a list of all the commands',
     async execute(message, args, client) {
 
         const sectionsEmbed = new Discord.MessageEmbed()
             .setTitle("Bot Help Pages")
-            .setDescription("Use `//help (section name)` to access another section.")
+            .setDescription("Use //help (sectionName) to access another section.")
             .addField("`database` Commands", "Commands that interact with the database.")
             .addField("`devOnly` Commands", "Commands that are only for developers.")
-            .addField("`emoji` commands", "Commands that send an emoji.")
             .addField("`fun` Commands", "Commands that all users can use that are for fun.")
             .addField("`help` Commands", "Commands That are used for help with this bot.")
             .addField("`information` Commands", "Commands that return some information.")
@@ -30,10 +28,10 @@ module.exports = {
         const devOnlyEmbed = new Discord.MessageEmbed()
             .setTitle("`Developer Only` Commands.")
             .addField("`blacklist`", "Blacklists a user form interacting with the bot")
-            .addField("`devwelcome`", "Sends a message telling people to welcome a mentioned user to the server.")
             .addField("`reload`", "Reloads a command\n**Aliases:** re")
             .setColor("#000000");
 
+<<<<<<< HEAD
         const emojiEmbed = new Discord.MessageEmbed()
             .setTitle("`Emoji` Commands.")
             .addField("`4k`", "Sends an emoji of a 4K graphics plate.")
@@ -59,14 +57,17 @@ module.exports = {
             .addField("`ready`", "Does something whenever the bot comes online.")
             .setColor("RANDOM");
         
+=======
+>>>>>>> parent of 95f60a0 (much)
         const funEmbed = new Discord.MessageEmbed()
             .setTitle("`Fun` Commands.")
             .addField("`avatar`", "Returns a users avatar.")
+            .addField("`duck`", "Returns an emoji of a duck.")
             .addField("`hug`", "Gives you or the mentioned member a hug :)")
             .addField("`meme`", "Returns a Meme to the channel.")
             .addField("`rockpaperscissors`", "Plays a game of rock paper scissors with the user!\n**Aliases:** rps")
             .addField("`say`", "Make the bot say a message to the channel.")
-            .addField("`welcome`", "Sends an embed welcoming a mentioned user.")
+            .addField("`this`", "Returns an emoji with an arrow pointing up.")
             .setColor("#2eff0a");
 
         const helpEmbed = new Discord.MessageEmbed()
@@ -113,14 +114,19 @@ module.exports = {
             .setColor("#ff0a0a");
 
         if (!args[0]) return message.channel.send(sectionsEmbed);
+<<<<<<< HEAD
         if (args[0] == "database") return message.channel.send(databaseEmbed);
         else if (args[0] == "devonly") return message.channel.send(devOnlyEmbed);
         else if (args[0] == "emoji") return message.channel.send(emojiEmbed);
         else if (args[0] == "event") return message.channel.send(eventEmbed);
+=======
+        if (args[0] == "information") return message.channel.send(infoEmbed);
+>>>>>>> parent of 95f60a0 (much)
         else if (args[0] == "fun") return message.channel.send(funEmbed);
-        else if (args[0] == "help") return message.channel.send(helpEmbed);
-        else if (args[0] == "information") return message.channel.send(infoEmbed);
         else if (args[0] == "moderation") return message.channel.send(moderationEmbed);
+        else if (args[0] == "help") return message.channel.send(helpEmbed);
+        else if (args[0] == "devonly") return message.channel.send(devOnlyEmbed);
+        else if (args[0] == "database") return message.channel.send(databaseEmbed);
         else if (args[0] == "secrets") {
             message.channel.send("I didn't think anyone would find this.. yet here we are..")
                 .then((msg) => { msg.delete({ timeout: 3000 }) });

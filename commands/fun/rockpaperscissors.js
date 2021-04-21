@@ -1,7 +1,6 @@
 module.exports = {
     name: 'rockpaperscissors',
     aliases: ['rps'],
-    cooldown: 5,
     description: 'Plays a game of rock paper scissors',
     async execute(message, args, client) {
         const botChoice = Math.floor(Math.random() * 2) + 1;

@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 
 module.exports = {
     name: 'afk',
-    cooldown: 30,
     aliases: ['away'],
     description: 'Sets a user to AFK in the server.',
     async execute(message, args, client) {

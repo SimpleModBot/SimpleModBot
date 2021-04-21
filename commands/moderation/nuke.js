@@ -2,7 +2,6 @@
 
 module.exports = {
     name: 'nuke',
-    cooldown: 60,
     aliases: ['bomb'],
     description: 'Deletes the current channel and makes a new identical one. (good for deleting really old messages)',
     async execute(message, args, client) {

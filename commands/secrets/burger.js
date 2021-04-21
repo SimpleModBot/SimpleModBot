@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: "burger",
-    cooldown: 10,
     execute(message, args, client) {
         const burgerEmbed = new Discord.MessageEmbed()
             .setTitle("hamburger🍔")

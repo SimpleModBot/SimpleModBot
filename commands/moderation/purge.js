@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'purge',
-    cooldown: 5,
     description: 'Removes 2-200 messages in the current channel as long as they aren\'t 2 weeks old.',
     async execute(message, args, client) {
 

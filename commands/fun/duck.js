@@ -1,8 +1,7 @@
 module.exports = {
-    name: "catblush",
-    cooldown: 5,
+    name: "duck",
     execute(message, args, client) {
-        message.channel.send("<:catblushing:832059060579860510>");
+        message.channel.send("<:shy_duck:830163069786259468>");
         if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
             message.delete();
         }

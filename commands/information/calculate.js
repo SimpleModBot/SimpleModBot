@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: 'calculate',
-    cooldown: 5,
     aliases: ['calc'],
     description: 'Does simple math for you.',
     async execute(message, args, client) {
@@ -11,7 +10,7 @@ module.exports = {
         const firstvalue = Number(args[0]);
         const secondvalue = Number(args[2]);
 
-        if (!args[0]) return message.channel.send(`You need to give more arguments: ${client.prefix}calc <number> [+, -, x, /] <number>`);
+        if (!args[0]) return message.channel.send(`You need to give more arguments: ${client.prefix}calc number [+, -, x, /x] number`);
         if (!firstvalue) return message.channel.send("The first value is not a number.");
         if (!args[1]) return message.channel.send("You need to say what method to use for calculation");
         if (!["+", "-", "x", "/"].includes(args[1])) return message.channel.send("You need to say a proper method of calculating: `+, -, x, /`");

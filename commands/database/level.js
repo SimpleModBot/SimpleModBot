@@ -2,7 +2,6 @@ const levels = require('discord-xp');
 
 module.exports = {
     name: 'level',
-    cooldown: 3,
     description: 'Says users current level.',
     async execute(message, args, client) {
         const target = message.mentions.users.first() || message.author;

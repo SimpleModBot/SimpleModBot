@@ -2,7 +2,6 @@
 
 module.exports = {
     name: 'slowmode',
-    cooldown: 10,
     aliases: ['slow'],
     description: 'Changes the slowmode for the selected channel(s).',
     async execute(message, args, client) {

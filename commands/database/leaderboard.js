@@ -3,7 +3,6 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: 'leaderboard',
-    cooldown: 5,
     aliases: ['leaders'],
     description: 'Shows the servers leaderboard.',
     async execute(message, args, client) {
