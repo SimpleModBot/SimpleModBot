@@ -20,6 +20,7 @@ module.exports = {
         const databaseEmbed = new Discord.MessageEmbed()
             .setTitle("`Database` Commands")
             .addField("`afk`", "Makes the user AFK until they send a message\n**Aliases:** away")
+            .addField("`config`", "Changes the servers database config.")
             .addField("`edit`", "Edits the mentioned users xp or level.")
             .addField("`leaderboard`", "Shows the servers leaderboard.\n**Aliases:** leaders")
             .addField("`level`", "shows you or the mentioned users current level in the server.")
@@ -94,14 +95,11 @@ module.exports = {
             .setTitle("`Moderation` Commands.")
             .addField("`ban`", "Bans a member from the server.")
             .addField("`kick`", "Kicks a member from the server.")
-            .addField("`mute`", "Mutes a member in the server.")
             .addField("`nickname`", "Changes a members nickname in a server.\n**Aliases:** nick")
             .addField("`nuke`", "Clones a channel and deletes the old one.\n**Aliases:** bomb")
             .addField("`purge`", "Purges messages within a channel.")
             .addField("`slowmode`", "Changes slowmode of current channel\n**Aliases:** slow")
             .addField("`unban`", "Unbans a member from the server.")
-            .addField("`unmute`", "Unmutes a member in a server.")
-            .addField("`warn`", "Warns a user and gives them a role to track their warnings.")
             .setColor("#ffef0a");
 
         const secretsEmbed = new Discord.MessageEmbed()

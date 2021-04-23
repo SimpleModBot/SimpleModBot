@@ -1,4 +1,5 @@
-
+const Discord = require('discord.js');
+const Guild = require('../../database/models/guildSchema');
 
 module.exports = {
     name: 'nuke',
@@ -18,5 +19,15 @@ module.exports = {
 
         await nukeChannel.clone().catch((err) => console.log(err));
         await nukeChannel.delete(reason).catch((err) => console.log(err));
+        const guild = await Guild.findOne({ guildID: message.guild.id });
+        const modlogChannel = client.channels.cache.get(guild.modlogChannelID);
+        if (modlogChannel) {
+            const modlogEmbed = new Discord.MessageEmbed()
+                .setTitle(`nuke command was used.`)
+                .setDescription(`${message.author.tag} nuked a channel.`)
+                .setTimestamp()
+                .setColor("RED");
+            modlogChannel.send(modlogEmbed);
+        }
     },
 };

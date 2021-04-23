@@ -10,7 +10,7 @@ module.exports = {
             .setTitle("Current bot version:")
             .setDescription("V49")
             .setURL("https://github.com/DEATHB4DEFEAT/SimpleModBot-Updates")
-            .addField("Added:\n`duck`\n`this`\n** **\nUpdated:\n`help`\n`calculate`\n`leaderboard`")
+            .addField("Added:\n`moderation logs`\n`config`\n** **\nUpdated:\n`help`")
             .setTimestamp();
 
         message.channel.send(versionEmbed);

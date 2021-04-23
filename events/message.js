@@ -2,12 +2,24 @@ const Discord = require('discord.js');
 const Levels = require('discord-xp');
 const Blacklist = require('../database/models/blackListSchema');
 const Afk = require('../database/models/afkSchema');
+const Guild = require('../database/models/guildSchema');
+const mongoose = require('mongoose');
 
 module.exports = {
     name: 'message',
     async execute(message, client) {
         if (message.author.bot) return;
         if (message.channel.type === 'dm') return;
+
+        let guildProfile = await Guild.findOne({ guildID: message.guild.id });
+        if (!guildProfile) {
+            guildProfile = await new Guild({
+                _id: mongoose.Types.ObjectId(),
+                guildID: message.guild.id
+            });
+            await guildProfile.save().catch(err => console.log(err));
+        }
+        client.prefix = guildProfile.prefix;
 
         const randomXP = Math.floor(Math.random() * 29) + 1;
         const hasLeveledUP = await Levels.appendXp(message.author.id, message.guild.id, randomXP);

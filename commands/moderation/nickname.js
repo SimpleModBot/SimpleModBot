@@ -1,4 +1,5 @@
-
+const Discord = require('discord.js');
+const Guild = require('../../database/models/guildSchema');
 
 module.exports = {
     name: 'nickname',
@@ -18,8 +19,23 @@ module.exports = {
         if (!mentionedMember.kickable) return message.channel.send("I cannot change this users nickname because they are higher than my role");
 
         await mentionedMember.setNickname(nickName).catch((err) => console.log(err).then(message.channel.send("I am unable to add this username due to an error.")));
-        if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
-            message.delete();
+        const guild = await Guild.findOne({ guildID: message.guild.id });
+        const modlogChannel = client.channels.cache.get(guild.modlogChannelID);
+        if (modlogChannel) {
+            const modlogEmbed = new Discord.MessageEmbed()
+                .setTitle(`nickname command was used.`)
+                .setDescription(`${mentionedMember} was nicknamed ${nickName} by ${message.author.tag}`)
+                .setTimestamp()
+                .setColor("RED");
+            modlogChannel.send(modlogEmbed);
+
+            if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
+                message.delete();
+            }
+        } else {
+            if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
+                message.delete();
+            }
         }
     },
 };

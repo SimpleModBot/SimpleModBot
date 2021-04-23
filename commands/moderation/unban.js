@@ -1,10 +1,9 @@
 const Discord = require("discord.js");
+const Guild = require('../../database/models/guildSchema');
 
 module.exports = {
     name: 'unban',
-    description: '',
     async execute(message, args, client) {
-
         if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You do not have permission to use this command!");
         if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("I do not have permission to ban users.");
 
@@ -25,9 +24,24 @@ module.exports = {
             }).then(() => {
                 message.channel.send(`Succesfully Unbanned ${args[0]}`);
             });
+            const guild = await Guild.findOne({ guildID: message.guild.id });
+            const modlogChannel = client.channels.cache.get(guild.modlogChannelID);
+            if (modlogChannel) {
+                const modlogEmbed = new Discord.MessageEmbed()
+                    .setTitle(`unban command was used.`)
+                    .setDescription(`${args[0]} was unbanned for **${reason}** by ${message.author.tag}`)
+                    .setTimestamp()
+                    .setColor("RED");
+                modlogChannel.send(modlogEmbed);
+
+                if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
+                    message.delete();
+                }
+            } else {
+                if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
+                    message.delete();
+                }
+            }
         });
-        if (message.guild.me.hasPermission("MANAGE_MESSAGES")) {
-            message.delete();
-        }
     },
 };

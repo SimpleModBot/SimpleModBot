@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const Guild = require('../../database/models/guildSchema');
 
 module.exports = {
     name: 'purge',
@@ -20,5 +21,16 @@ module.exports = {
             .then(msg => setTimeout(() => {
                 msg.delete();
             }, 5000));
+        
+        const guild = await Guild.findOne({ guildID: message.guild.id });
+        const modlogChannel = client.channels.cache.get(guild.modlogChannelID);
+        if (modlogChannel) {
+            const modlogEmbed = new Discord.MessageEmbed()
+                .setTitle(`purge command was used.`)
+                .setDescription(`${message.author.tag} purged ${amountToDelete} messages`)
+                .setTimestamp()
+                .setColor("RED");
+            modlogChannel.send(modlogEmbed);
+        }
     },
 };
