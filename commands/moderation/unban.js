@@ -26,6 +26,7 @@ module.exports = {
             });
             const guild = await Guild.findOne({ guildID: message.guild.id });
             const modlogChannel = client.channels.cache.get(guild.modlogChannelID);
+            if (modlogChannel == "undefined") return;
             if (modlogChannel) {
                 const modlogEmbed = new Discord.MessageEmbed()
                     .setTitle(`unban command was used.`)

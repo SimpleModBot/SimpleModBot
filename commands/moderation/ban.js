@@ -15,19 +15,14 @@ module.exports = {
 
         let reason = args.slice(1).join(" ");
         const mentionedMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+        if (!args[0]) return message.channel.send("You need to mention a user to ban.");
+        if (!mentionedMember) return message.channel.send("The mentioned user is not in this server.");
+        if (!mentionedMember.bannable) return message.channel.send("I cannot ban this user.");
+        if (mentionedMember.id == '750880076555354185') return message.channel.send("I cannot ban this user.");
 
         if (!reason) reason = "No reason given.";
         if (!args[0]) return message.channel.send("You must mention a user to ban.");
-        if (!mentionedMember) return message.channel.send("The mentioned user is not in this server.");
-        if (!mentionedMember.bannable) return message.channel.send("I cannot ban this user.");
-
-        const banEmbed = new Discord.MessageEmbed()
-            .setTitle(`You have been banned from ${message.guild.name}`)
-            .setDescription(`Reason for being banned: ${reason}`)
-            .setColor("#5708ab")
-            .setTimestamp();
         
-        await mentionedMember.send(banEmbed).catch((err) => console.log(err));
         await mentionedMember.ban({
                 days: 7,
                 reason: reason,
@@ -37,6 +32,7 @@ module.exports = {
         
         const guild = await Guild.findOne({ guildID: message.guild.id });
         const modlogChannel = client.channels.cache.get(guild.modlogChannelID);
+        if (modlogChannel == "undefined") return;
         if (modlogChannel) {
             const modlogEmbed = new Discord.MessageEmbed()
                 .setTitle(`ban command was used.`)

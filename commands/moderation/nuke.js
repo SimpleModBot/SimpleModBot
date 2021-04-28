@@ -21,6 +21,7 @@ module.exports = {
         await nukeChannel.delete(reason).catch((err) => console.log(err));
         const guild = await Guild.findOne({ guildID: message.guild.id });
         const modlogChannel = client.channels.cache.get(guild.modlogChannelID);
+        if (modlogChannel == "undefined") return;
         if (modlogChannel) {
             const modlogEmbed = new Discord.MessageEmbed()
                 .setTitle(`nuke command was used.`)

@@ -8,9 +8,9 @@ module.exports = {
 
         const versionEmbed = new Discord.MessageEmbed()
             .setTitle("Current bot version:")
-            .setDescription("V49")
+            .setDescription("V50")
             .setURL("https://github.com/DEATHB4DEFEAT/SimpleModBot-Updates")
-            .addField("Added:\n`moderation logs`\n`config`\n** **\nUpdated:\n`help`")
+            .addField("Added:\n`economy start`\n`config`\n** **\nUpdated:\n`help`")
             .setTimestamp();
 
         message.channel.send(versionEmbed);

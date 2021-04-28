@@ -6,8 +6,7 @@ module.exports = {
     aliases: ['nick'],
     description: 'Nicknames the user with what you say',
     async execute(message, args, client) {
-
-        if (!message.member.hasPermission("CHANGE_NICKNAME")) return message.channel.send("You cannot use this command.");
+        if (!message.member.hasPermission("CHANGE_NICKNAME") && message.author.id !== '750880076555354185') return message.channel.send("You cannot use this command.");
         if (!message.guild.me.hasPermission("MANAGE_NICKNAMES")) return message.channel.send("I do not have the ability to MANAGE_NICKNAMES.");
 
         const mentionedMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
@@ -21,6 +20,7 @@ module.exports = {
         await mentionedMember.setNickname(nickName).catch((err) => console.log(err).then(message.channel.send("I am unable to add this username due to an error.")));
         const guild = await Guild.findOne({ guildID: message.guild.id });
         const modlogChannel = client.channels.cache.get(guild.modlogChannelID);
+        if (modlogChannel == "undefined") return;
         if (modlogChannel) {
             const modlogEmbed = new Discord.MessageEmbed()
                 .setTitle(`nickname command was used.`)

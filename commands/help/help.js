@@ -10,6 +10,7 @@ module.exports = {
             .setDescription("Use //help (sectionName) to access another section.")
             .addField("`database` Commands", "Commands that interact with the database.")
             .addField("`devOnly` Commands", "Commands that are only for developers.")
+            .addField("`economy` Commands", "Commands for the **future** economy system.")
             .addField("`fun` Commands", "Commands that all users can use that are for fun.")
             .addField("`help` Commands", "Commands That are used for help with this bot.")
             .addField("`information` Commands", "Commands that return some information.")
@@ -29,8 +30,14 @@ module.exports = {
         const devOnlyEmbed = new Discord.MessageEmbed()
             .setTitle("`Developer Only` Commands.")
             .addField("`blacklist`", "Blacklists a user form interacting with the bot")
+            .addField("`eco-edit`", "Edits the mentioned users economy cash.\n**Aliases:** ee")
             .addField("`reload`", "Reloads a command\n**Aliases:** re")
             .setColor("GREY");
+        
+        const economyEmbed = new Discord.MessageEmbed()
+            .setTitle("`Economy` Commands. **WIP**")
+            .addField("`balance`", "Shows your balance. *(In the future it will support mentioning users)*")
+            .setColor("GREEN");
 
         const emojiEmbed = new Discord.MessageEmbed()
             .setTitle("`Emoji` Commands.")
@@ -61,13 +68,13 @@ module.exports = {
         
         const funEmbed = new Discord.MessageEmbed()
             .setTitle("`Fun` Commands.")
+            .addField("`8ball`", "Asks the magic 8-ball your question.\n**Aliases:** 8\nball")
             .addField("`avatar`", "Returns a users avatar.")
-            .addField("`duck`", "Returns an emoji of a duck.")
+            .addField("`gayrate`", "Sends an embed saying how gay you or the mentioned member is.\n**Aliases:** howgay")
             .addField("`hug`", "Gives you or the mentioned member a hug :)")
             .addField("`meme`", "Returns a Meme to the channel.")
             .addField("`rockpaperscissors`", "Plays a game of rock paper scissors with the user!\n**Aliases:** rps")
             .addField("`say`", "Make the bot say a message to the channel.")
-            .addField("`this`", "Returns an emoji with an arrow pointing up.")
             .setColor("#2eff0a");
 
         const helpEmbed = new Discord.MessageEmbed()
@@ -100,6 +107,7 @@ module.exports = {
             .addField("`purge`", "Purges messages within a channel.")
             .addField("`slowmode`", "Changes slowmode of current channel\n**Aliases:** slow")
             .addField("`unban`", "Unbans a member from the server.")
+            .addField("`verify`", "Gives the user a member role if the server has one set.")
             .setColor("#ffef0a");
 
         const secretsEmbed = new Discord.MessageEmbed()
@@ -113,6 +121,7 @@ module.exports = {
         if (!args[0]) return message.channel.send(sectionsEmbed);
         if (args[0] == "database") return message.channel.send(databaseEmbed);
         else if (args[0] == "devonly") return message.channel.send(devOnlyEmbed);
+        else if (args[0] == "economy") return message.channel.send(economyEmbed);
         else if (args[0] == "emoji") return message.channel.send(emojiEmbed);
         else if (args[0] == "event") return message.channel.send(eventEmbed);
         else if (args[0] == "information") return message.channel.send(infoEmbed);
