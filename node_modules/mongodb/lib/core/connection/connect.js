@@ -179,6 +179,9 @@ function prepareHandshakeDocument(authContext, callback) {
     }
 
     const authProvider = AUTH_PROVIDERS[credentials.mechanism];
+    if (authProvider == null) {
+      return callback(new MongoError(`No AuthProvider for ${credentials.mechanism} defined.`));
+    }
     authProvider.prepare(handshakeDoc, authContext, callback);
     return;
   }
@@ -243,7 +246,7 @@ function parseSslOptions(family, options) {
   }
 
   // Set default sni servername to be the same as host
-  if (result.servername == null) {
+  if (result.servername == null && !net.isIP(result.host)) {
     result.servername = result.host;
   }
 

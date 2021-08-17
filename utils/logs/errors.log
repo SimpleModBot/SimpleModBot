@@ -1,0 +1,41 @@
+[2021-08-15T23:16:43.281] [ERROR] default - RangeError [BITFIELD_INVALID]: Invalid bitfield flag or number: MANAGE_EMOJIS.
+    at Function.resolve (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\util\BitField.js:152:11)
+    at Permissions.has (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\util\BitField.js:44:28)
+    at Permissions.has (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\util\Permissions.js:54:85)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\emoji\emojisteal.ts:8:41)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:108:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'BITFIELD_INVALID'
+}
+[2021-08-16T11:31:00.314] [ERROR] default - TypeError [COLOR_CONVERT]: Unable to convert color to a number.
+    at Function.resolveColor (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\util\Util.js:473:41)
+    at MessageEmbed.setColor (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:330:23)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\database\cc-list.ts:11:18)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:17) {
+  [Symbol(code)]: 'COLOR_CONVERT'
+}
+[2021-08-16T11:42:43.398] [ERROR] default - TypeError: message.member.hasPermission is not a function
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\database\cc-create.ts:6:29)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-16T11:45:21.750] [ERROR] default - MongooseError: document must have an _id before saving
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\mongoose\lib\model.js:290:18
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+[2021-08-16T11:46:21.266] [ERROR] default - ReferenceError: mongoose is not defined
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\database\cc-create.ts:17:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:17)
+[2021-08-16T12:44:20.969] [ERROR] default - RangeError [BITFIELD_INVALID]: Invalid bitfield flag or number: MANAGE_MESSAGE.
+    at Function.resolve (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\util\BitField.js:152:11)
+    at Permissions.has (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\util\BitField.js:44:28)
+    at Permissions.has (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\util\Permissions.js:54:85)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\moderation\snipe.ts:7:40)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'BITFIELD_INVALID'
+}
+[2021-08-16T12:51:37.904] [ERROR] default - TypeError: Cannot read property '0' of undefined
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\moderation\snipe.ts:13:30)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)

@@ -1,0 +1,25 @@
+{
+    "SMBG_N": "SimpleModBot God",
+    "SMBG_P1": 250000,
+    "SMBG_P2": 125000,
+    "SMBG_EXP": 250000,
+    "SMBG_PEXP": 50,
+
+    "BC_N": "Bot Creator",
+    "BC_P1": 8000,
+    "BC_P2": 4000,
+    "BC_EXP": 30,
+    "BC_PEXP": 8,
+
+    "BT_N": "Beta Tester",
+    "BT_P1": 4000,
+    "BT_P2": 2000,
+    "BT_EXP": 15,
+    "BT_PEXP": 4,
+
+    "DJ_N": "DJ",
+    "DJ_P1": 500,
+    "DJ_P2": 250,
+    "DJ_EXP": 0,
+    "DJ_PEXP": 2
+}

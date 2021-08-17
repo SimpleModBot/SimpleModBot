@@ -30,7 +30,6 @@ module.exports = function getModelsMapForPopulate(model, docs, options) {
   let currentOptions;
   let modelNames;
   let modelName;
-  let modelForFindSchema;
 
   const originalModel = options.model;
   let isVirtual = false;
@@ -54,7 +53,7 @@ module.exports = function getModelsMapForPopulate(model, docs, options) {
     }
     // Populating a nested path should always be a no-op re: #9073.
     // People shouldn't do this, but apparently they do.
-    if (modelSchema.nested[options.path]) {
+    if (options._localModel != null && options._localModel.schema.nested[options.path]) {
       continue;
     }
     const isUnderneathDocArray = schema && schema.$isUnderneathDocArray;
@@ -405,28 +404,26 @@ module.exports = function getModelsMapForPopulate(model, docs, options) {
     } else {
       let modelForCurrentDoc = model;
       let schemaForCurrentDoc;
+      let discriminatorValue;
 
-      if (!schema && discriminatorKey) {
-        modelForFindSchema = utils.getValue(discriminatorKey, doc);
-        if (modelForFindSchema) {
-          // `modelForFindSchema` is the discriminator value, so we might need
-          // find the discriminated model name
-          const discriminatorModel = getDiscriminatorByValue(model, modelForFindSchema);
-          if (discriminatorModel != null) {
-            modelForCurrentDoc = discriminatorModel;
-          } else {
-            try {
-              modelForCurrentDoc = model.db.model(modelForFindSchema);
-            } catch (error) {
-              return error;
-            }
+      if (!schema && discriminatorKey && (discriminatorValue = utils.getValue(discriminatorKey, doc))) {
+        // `modelNameForFind` is the discriminator value, so we might need
+        // find the discriminated model name
+        const discriminatorModel = getDiscriminatorByValue(model.discriminators, discriminatorValue) || model;
+        if (discriminatorModel != null) {
+          modelForCurrentDoc = discriminatorModel;
+        } else {
+          try {
+            modelForCurrentDoc = model.db.model(discriminatorValue);
+          } catch (error) {
+            return error;
           }
+        }
 
-          schemaForCurrentDoc = modelForCurrentDoc.schema._getSchema(options.path);
+        schemaForCurrentDoc = modelForCurrentDoc.schema._getSchema(options.path);
 
-          if (schemaForCurrentDoc && schemaForCurrentDoc.caster) {
-            schemaForCurrentDoc = schemaForCurrentDoc.caster;
-          }
+        if (schemaForCurrentDoc && schemaForCurrentDoc.caster) {
+          schemaForCurrentDoc = schemaForCurrentDoc.caster;
         }
       } else {
         schemaForCurrentDoc = schema;
@@ -501,7 +498,12 @@ function handleRefFunction(ref, doc) {
  */
 
 function convertTo_id(val, schema) {
-  if (val != null && val.$__ != null) return val._id;
+  if (val != null && val.$__ != null) {
+    return val._id;
+  }
+  if (val != null && val._id != null && (schema == null || !schema.$isSchemaMap)) {
+    return val._id;
+  }
 
   if (Array.isArray(val)) {
     for (let i = 0; i < val.length; ++i) {
@@ -510,7 +512,7 @@ function convertTo_id(val, schema) {
       }
     }
     if (val.isMongooseArray && val.$schema()) {
-      return val.$schema().cast(val, val.$parent());
+      return val.$schema()._castForPopulate(val, val.$parent());
     }
 
     return [].concat(val);
