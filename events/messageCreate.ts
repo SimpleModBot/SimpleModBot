@@ -54,7 +54,7 @@ module.exports = {
         const dataa = await schema.findOne({ Guild: message.guild.id, Command: commandName });
         if (dataa) return message.channel.send({ content: dataa.Response });
 
-        let command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+        let command = client.messageCommands.get(commandName) || client.messageCommands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
         if (!command) return;
 
         let profile = await Blacklist.findOne({

@@ -39,3 +39,8 @@
     at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\moderation\snipe.ts:13:30)
     at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:31)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-16T22:11:13.172] [INFO] default - 
+[2021-08-17T12:27:00.985] [ERROR] default - TypeError: Cannot read property 'get' of undefined
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\reload.ts:15:41)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
