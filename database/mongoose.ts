@@ -6,6 +6,7 @@ require('dotenv').config();
 module.exports = {
     init: async() => {
         const dbOptions = {
+            useFindAndModify: false,
             useNewUrlParser: true,
             useUnifiedTopology: true,
             autoIndex: false,
@@ -14,8 +15,7 @@ module.exports = {
             family: 4
         };
 
-        const connection = mongoose.createConnection(`mongodb+srv://DEATHB4DEFEAT:${process.env.PASS}@cluster0.vzyir.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, dbOptions);
-        mongoose.set('useFindAndModify', false);
+        const connection = mongoose.createConnection(`mongodb://127.0.0.1:27017/SMB`, dbOptions);
         mongoose.Promise = global.Promise;
 
         mongoose.connection.on('err', (err) => {

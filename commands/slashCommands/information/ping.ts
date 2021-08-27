@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('ping')
-        .setDescription('Replies with Pong!'),
+        .setDescription('Replies with the bot ping.'),
     async execute(interaction, client) {
         interaction.reply({ content: "Sending the ping embed.", ephemeral: true });
 

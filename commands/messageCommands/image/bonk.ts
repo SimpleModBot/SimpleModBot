@@ -21,13 +21,7 @@ module.exports = {
 
         bonk.getBuffer(`image/jpeg`, (err, buffer) => {
             const bonked = new Discord.MessageAttachment(buffer, "bonk.jpeg");
-            const embed = new Discord.MessageEmbed()
-                .setColor(message.guild.me.displayHexColor)
-                .setTitle(`${message.author.username} has bonked ${user.user.username}!`)
-                .attachFiles(bonked)
-                .setImage("attachment://bonk.jpeg");
-
-            return message.channel.send({ embeds: [embed] });
+            return message.channel.send({ files: [bonked] });
         });
     },
 };

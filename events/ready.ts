@@ -32,10 +32,11 @@ module.exports = {
             if (index === statuses.length) index = 0;
             const status = statuses[index];
             client.user.setPresence({
-                activity: {
+                activities: [{
                     name: `${status}`,
                     type: "WATCHING",
-                }, status: "online",
+                }],
+                status: "online",
             })
             index++;
         }, 20000);

@@ -23,7 +23,7 @@ module.exports = {
                 .setTitle("prefix")
                 .setDescription(`The current prefix is ${client.prefix}
                 To change or remove/reset it use:
-                \`${client.prefix}config prefix add/remove <input>\``)
+                \`${client.prefix}config add/remove prefix <input>\``)
                 .setTimestamp()
                 .setColor("GREY");
 
@@ -31,7 +31,7 @@ module.exports = {
                 .setTitle("muteRoleID")
                 .setDescription(`The current muteRole is ${guildProfile.muteRoleID}
                 To change or remove/reset it use:
-                \`${client.prefix}config muteRoleID add/remove <input>\``)
+                \`${client.prefix}config add/remove muteRoleID <input>\``)
                 .setTimestamp()
                 .setColor("GREY");
 
@@ -39,7 +39,7 @@ module.exports = {
                 .setTitle("memberRoleID")
                 .setDescription(`The current memberRole is ${guildProfile.memberRoleID}
                 To change or remove/reset it use:
-                \`${client.prefix}config memberRoleID add/remove <input>\``)
+                \`${client.prefix}config add/remove memberRoleID <input>\``)
                 .setTimestamp()
                 .setColor("GREY");
 
@@ -47,7 +47,7 @@ module.exports = {
                 .setTitle("modlogChannelID")
                 .setDescription(`The current modlogChannel is ${guildProfile.modlogChannelID}
                 To change or remove/reset it use:
-                \`${client.prefix}config modlogChannelID add/remove <input>\``)
+                \`${client.prefix}config add/remove modlogChannelID <input>\``)
                 .setTimestamp()
                 .setColor("GREY");
 
@@ -55,7 +55,7 @@ module.exports = {
                 .setTitle("levelSystem")
                 .setDescription(`The current levelSystem is ${guildProfile.levelSystem}
                 To change or remove/reset it use:
-                \`${client.prefix}config levelSystem add/remove <input>\``)
+                \`${client.prefix}config add/remove levelSystem\``)
                 .setTimestamp()
                 .setColor("GREY");
 
@@ -63,7 +63,7 @@ module.exports = {
                 .setTitle("bumpBuddy")
                 .setDescription(`The current bumpBuddy is ${guildProfile.bumpBuddy}
                 To change or remove/reset it use:
-                \`${client.prefix}config bumpBuddy add/remove <input>\``)
+                \`${client.prefix}config add/remove bumpBuddy\``)
                 .setTimestamp()
                 .setColor("GREY");
 
@@ -71,7 +71,7 @@ module.exports = {
                 .setTitle("bumpRole")
                 .setDescription(`The current bumpRole is ${guildProfile.bumpRole}
                 To change or remove/reset it use:
-                \`${client.prefix}config bumpRole add/remove <input>\``)
+                \`${client.prefix}config add/remove bumpRole <input>\``)
                 .setTimestamp()
                 .setColor("GREY");
 
