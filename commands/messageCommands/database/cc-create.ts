@@ -9,7 +9,7 @@ module.exports = {
         const name = args[0]; const response = args.slice(1).join(" ");
 
         if (name == "ENA") return message.channel.send({ content: 'Please specify a command name.' });
-        if (await client.commands.get(name)) return message.channel.send({ content: "You can't overwrite a base command!" });
+        if (await client.messageCommands.get(name)) return message.channel.send({ content: "You can't overwrite a base command!" });
         if (!response) return message.channel.send({ content: 'Please specify a response.' });
 
         const data = await schema.findOne({ Guild: message.guild.id, Command: name });

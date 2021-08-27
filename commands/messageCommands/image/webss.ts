@@ -18,9 +18,7 @@ module.exports = {
         let web = args[0].toLowerCase();
         if (!web.startsWith("https://")) return message.channel.send({ embeds: [embed] });
         if (web.length < 12) return message.channel.send({ embeds: [embed] });
-
         let ping = Date.now();
-        message.channel.startTyping();
 
         await nf(`https://smbwss.up.railway.app/?url=${web}&checkNsfw=yes`, {
             method: 'get',
@@ -30,7 +28,6 @@ module.exports = {
             ping = (Date.now() - ping) / 1000;
             const image = new Discord.MessageAttachment(Bytes, 'image.png');
             message.channel.send({ content: `Website image for **${web}**\nTook **${ping}** seconds to fetch.`, files: [image] });
-            message.channel.stopTyping(true);
         });
     },
 };

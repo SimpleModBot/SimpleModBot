@@ -18,7 +18,6 @@ module.exports = {
 
         if (message.author.bot) return;
 
-        const Blacklist = require('../database/models/blackListSchema.ts');
         let balanceDB = client.data.getBalanceDB(message.author.id);
         let blacklistDB = client.data.getBlacklistDB(message.author.id);
         let guildDB = null;
@@ -57,7 +56,7 @@ module.exports = {
         let command = client.messageCommands.get(commandName) || client.messageCommands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
         if (!command) return;
 
-        let profile = await Blacklist.findOne({
+        let profile = await require("../database/models/blackListSchema.ts").findOne({
             userID: message.author.id
         });
         if (profile) return message.channel.send({ content: 'You cannot use this bot as you are banned. You can appeal in the support server: https://discord.gg/26NtPVvNCU' });

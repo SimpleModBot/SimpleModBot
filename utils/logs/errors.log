@@ -44,3 +44,354 @@
     at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\reload.ts:15:41)
     at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-18T11:00:51.681] [ERROR] default - TypeError: Cannot read property 'get' of undefined
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\database\cc-create.ts:12:35)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-18T11:12:01.723] [ERROR] default - TypeError: error is not a constructor
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\moderation\verify.ts:59:36)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:17)
+[2021-08-18T11:12:28.764] [ERROR] default - TypeError: error is not a constructor
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\moderation\verify.ts:59:36)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:17)
+[2021-08-19T22:33:57.977] [ERROR] default - TypeError: Cannot read property '0' of undefined
+    at formatString (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:27:45)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:38:28
+    at Array.map (<anonymous>)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:29:40)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-19T22:39:35.353] [ERROR] default - TypeError: Cannot read property '0' of undefined
+    at formatString (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:27:45)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:38:28
+    at Array.map (<anonymous>)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:29:40)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-19T22:44:22.403] [ERROR] default - TypeError: Cannot read property '0' of undefined
+    at formatString (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:27:45)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:38:28
+    at Array.map (<anonymous>)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:29:40)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-19T23:01:00.861] [ERROR] default - Error: ENOENT: no such file or directory, scandir './commands/messageCommands/messageCommands/'
+    at readdirSync (node:fs:1380:3)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:33:34
+    at Array.forEach (<anonymous>)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:32:40)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  errno: -4058,
+  syscall: 'scandir',
+  code: 'ENOENT',
+  path: './commands/messageCommands/messageCommands/'
+}
+[2021-08-19T23:01:38.299] [ERROR] default - Error: ENOENT: no such file or directory, scandir './commands/messageCommands/messageCommands/'
+    at readdirSync (node:fs:1380:3)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:33:34
+    at Array.forEach (<anonymous>)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:32:40)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  errno: -4058,
+  syscall: 'scandir',
+  code: 'ENOENT',
+  path: './commands/messageCommands/messageCommands/'
+}
+[2021-08-19T23:03:10.940] [ERROR] default - Error: ENOENT: no such file or directory, scandir './commands/messageCommands/messageCommands/'
+    at readdirSync (node:fs:1380:3)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:33:34
+    at Array.forEach (<anonymous>)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:32:40)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  errno: -4058,
+  syscall: 'scandir',
+  code: 'ENOENT',
+  path: './commands/messageCommands/messageCommands/'
+}
+[2021-08-19T23:04:24.436] [ERROR] default - Error: ENOENT: no such file or directory, scandir './messageCommands/messageCommands/'
+    at readdirSync (node:fs:1380:3)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:33:34
+    at Array.forEach (<anonymous>)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:32:40)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  errno: -4058,
+  syscall: 'scandir',
+  code: 'ENOENT',
+  path: './messageCommands/messageCommands/'
+}
+[2021-08-19T23:08:26.264] [ERROR] default - Error: ENOENT: no such file or directory, scandir './messageCommands/'
+    at readdirSync (node:fs:1380:3)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:33:34
+    at Array.forEach (<anonymous>)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:32:40)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  errno: -4058,
+  syscall: 'scandir',
+  code: 'ENOENT',
+  path: './messageCommands/'
+}
+[2021-08-19T23:12:05.793] [ERROR] default - Error: ENOENT: no such file or directory, scandir './commands/database/'
+    at readdirSync (node:fs:1380:3)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:33:34
+    at Array.forEach (<anonymous>)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:32:56)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  errno: -4058,
+  syscall: 'scandir',
+  code: 'ENOENT',
+  path: './commands/database/'
+}
+[2021-08-19T23:12:35.265] [ERROR] default - Error: Cannot find module '../../database/cc-create.ts'
+Require stack:
+- C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts
+- C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\reload.ts
+- C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\utils\handlers\messageCommand.ts
+- C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\index.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:94:18)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:36:32
+    at Array.map (<anonymous>)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:35:39
+    at Array.forEach (<anonymous>)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:32:56)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\zachc\\Desktop\\Code\\Discord\\My_Bots\\Tests\\commands\\messageCommands\\devonly\\test.ts',
+    'C:\\Users\\zachc\\Desktop\\Code\\Discord\\My_Bots\\Tests\\commands\\messageCommands\\devonly\\reload.ts',
+    'C:\\Users\\zachc\\Desktop\\Code\\Discord\\My_Bots\\Tests\\utils\\handlers\\messageCommand.ts',
+    'C:\\Users\\zachc\\Desktop\\Code\\Discord\\My_Bots\\Tests\\index.ts'
+  ]
+}
+[2021-08-19T23:16:34.977] [ERROR] default - Error: Cannot find module '../database'
+Require stack:
+- C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts
+- C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\utils\handlers\messageCommand.ts
+- C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\index.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:94:18)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:36:25
+    at Array.map (<anonymous>)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:35:39
+    at Array.forEach (<anonymous>)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:32:56)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\zachc\\Desktop\\Code\\Discord\\My_Bots\\Tests\\commands\\messageCommands\\devonly\\test.ts',
+    'C:\\Users\\zachc\\Desktop\\Code\\Discord\\My_Bots\\Tests\\utils\\handlers\\messageCommand.ts',
+    'C:\\Users\\zachc\\Desktop\\Code\\Discord\\My_Bots\\Tests\\index.ts'
+  ]
+}
+[2021-08-19T23:20:13.000] [ERROR] default - RangeError [EMBED_FIELD_NAME]: MessageEmbed field names must be non-empty strings.
+    at Function.verifyString (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\node_modules\discord.js\src\util\Util.js:413:41)
+    at Function.normalizeField (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\node_modules\discord.js\src\structures\MessageEmbed.js:442:18)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\node_modules\discord.js\src\structures\MessageEmbed.js:464:14
+    at Array.map (<anonymous>)
+    at Function.normalizeFields (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\node_modules\discord.js\src\structures\MessageEmbed.js:463:8)
+    at MessageEmbed.addFields (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\node_modules\discord.js\src\structures\MessageEmbed.js:286:42)
+    at MessageEmbed.addField (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\node_modules\discord.js\src\structures\MessageEmbed.js:277:17)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:56:18)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'EMBED_FIELD_NAME'
+}
+[2021-08-19T23:20:33.254] [ERROR] default - RangeError [EMBED_FIELD_NAME]: MessageEmbed field names must be non-empty strings.
+    at Function.verifyString (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\node_modules\discord.js\src\util\Util.js:413:41)
+    at Function.normalizeField (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\node_modules\discord.js\src\structures\MessageEmbed.js:442:18)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\node_modules\discord.js\src\structures\MessageEmbed.js:464:14
+    at Array.map (<anonymous>)
+    at Function.normalizeFields (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\node_modules\discord.js\src\structures\MessageEmbed.js:463:8)
+    at MessageEmbed.addFields (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\node_modules\discord.js\src\structures\MessageEmbed.js:286:42)
+    at MessageEmbed.addField (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\node_modules\discord.js\src\structures\MessageEmbed.js:277:17)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:56:18)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'EMBED_FIELD_NAME'
+}
+[2021-08-19T23:41:51.105] [ERROR] default - TypeError: Cannot read property 'name' of undefined
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\commands\messageCommands\devonly\test.ts:124:42)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\Tests\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-23T15:41:49.240] [ERROR] default - TypeError: (intermediate value).setColor(...).attachFiles is not a function
+    at Jimp.<anonymous> (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\image\amongus.ts:26:18)
+    at Jimp.getBuffer (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\@jimp\core\dist\utils\image-bitmap.js:252:8)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\image\amongus.ts:22:14)
+    at async Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:17)
+[2021-08-23T15:42:05.567] [ERROR] default - TypeError: (intermediate value).setColor(...).setTitle(...).attachFiles is not a function
+    at Jimp.<anonymous> (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\image\bonk.ts:27:18)
+    at Jimp.getBuffer (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\@jimp\core\dist\utils\image-bitmap.js:252:8)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\image\bonk.ts:22:14)
+    at async Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:17)
+[2021-08-23T16:10:58.997] [ERROR] default - Error: ENOENT, No such file or directory '../../../utils/images/bed.png'
+    at setSource (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\lib\image.js:91:13)
+    at Image.set (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\lib\image.js:62:9)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\index.js:34:15
+    at new Promise (<anonymous>)
+    at Object.loadImage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\index.js:23:10)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\image\santa.ts:12:41)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  errno: 2,
+  code: 'ENOENT',
+  path: '../../../utils/images/bed.png',
+  syscall: 'fopen'
+}
+[2021-08-23T16:11:32.598] [ERROR] default - Error: ENOENT, No such file or directory '../../../utils/images/santa.png'
+    at setSource (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\lib\image.js:91:13)
+    at Image.set (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\lib\image.js:62:9)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\index.js:34:15
+    at new Promise (<anonymous>)
+    at Object.loadImage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\index.js:23:10)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\image\santa.ts:12:41)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  errno: 2,
+  code: 'ENOENT',
+  path: '../../../utils/images/santa.png',
+  syscall: 'fopen'
+}
+[2021-08-23T16:11:59.832] [ERROR] default - Error: ENOENT, No such file or directory '../../../utils/images/santa.png'
+    at setSource (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\lib\image.js:91:13)
+    at Image.set (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\lib\image.js:62:9)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\index.js:34:15
+    at new Promise (<anonymous>)
+    at Object.loadImage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\index.js:23:10)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\image\santa.ts:12:41)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  errno: 2,
+  code: 'ENOENT',
+  path: '../../../utils/images/santa.png',
+  syscall: 'fopen'
+}
+[2021-08-23T16:12:40.179] [ERROR] default - Error: ENOENT, No such file or directory '../../../../utils/images/santa.png'
+    at setSource (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\lib\image.js:91:13)
+    at Image.set (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\lib\image.js:62:9)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\index.js:34:15
+    at new Promise (<anonymous>)
+    at Object.loadImage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\canvas\index.js:23:10)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\image\santa.ts:12:41)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:113:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  errno: 2,
+  code: 'ENOENT',
+  path: '../../../../utils/images/santa.png',
+  syscall: 'fopen'
+}
+[2021-08-23T17:32:05.249] [ERROR] default - TypeError: Cannot read property 'toLowerCase' of null
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\slashCommands\help\help.ts:231:61)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\interactionCreate.ts:11:27)
+    at Client.<anonymous> (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\utils\handlers\event.ts:13:58)
+    at Client.emit (node:events:394:28)
+    at InteractionCreateAction.handle (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\actions\InteractionCreate.js:66:12)
+    at Object.module.exports [as INTERACTION_CREATE] (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\handlers\INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\WebSocketManager.js:345:31)
+    at WebSocketShard.onPacket (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\WebSocketShard.js:443:22)
+    at WebSocketShard.onMessage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\WebSocketShard.js:300:10)
+    at WebSocket.onMessage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\event-target.js:132:16)
+    at WebSocket.emit (node:events:394:28)
+    at Receiver.receiverOnMessage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\websocket.js:970:20)
+    at Receiver.emit (node:events:394:28)
+    at Receiver.dataMessage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\receiver.js:517:14)
+    at Receiver.getData (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\receiver.js:435:17)
+    at Receiver.startLoop (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\receiver.js:143:22)
+[2021-08-23T17:33:23.574] [ERROR] default - Error: Cannot find module '../database/cc-create.ts'
+Require stack:
+- C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\slashCommands\help\help.ts
+- C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\utils\handlers\slashCommand.ts
+- C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\index.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:94:18)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\slashCommands\help\help.ts:24:32
+    at Array.map (<anonymous>)
+    at C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\slashCommands\help\help.ts:23:39
+    at Array.forEach (<anonymous>)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\slashCommands\help\help.ts:20:56)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\interactionCreate.ts:11:27)
+    at Client.<anonymous> (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\utils\handlers\event.ts:13:58)
+    at Client.emit (node:events:394:28)
+    at InteractionCreateAction.handle (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\actions\InteractionCreate.js:66:12)
+    at Object.module.exports [as INTERACTION_CREATE] (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\handlers\INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\WebSocketManager.js:345:31)
+    at WebSocketShard.onPacket (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\WebSocketShard.js:443:22) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\zachc\\Desktop\\Code\\Discord\\My_Bots\\SimpleModBot\\commands\\slashCommands\\help\\help.ts',
+    'C:\\Users\\zachc\\Desktop\\Code\\Discord\\My_Bots\\SimpleModBot\\utils\\handlers\\slashCommand.ts',
+    'C:\\Users\\zachc\\Desktop\\Code\\Discord\\My_Bots\\SimpleModBot\\index.ts'
+  ]
+}
+[2021-08-23T17:34:21.889] [ERROR] default - TypeError: Cannot read property 'tag' of undefined
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\slashCommands\help\help.ts:46:63)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\interactionCreate.ts:11:27)
+    at Client.<anonymous> (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\utils\handlers\event.ts:13:58)
+    at Client.emit (node:events:394:28)
+    at InteractionCreateAction.handle (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\actions\InteractionCreate.js:66:12)
+    at Object.module.exports [as INTERACTION_CREATE] (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\handlers\INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\WebSocketManager.js:345:31)
+    at WebSocketShard.onPacket (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\WebSocketShard.js:443:22)
+    at WebSocketShard.onMessage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\WebSocketShard.js:300:10)
+    at WebSocket.onMessage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\event-target.js:132:16)
+    at WebSocket.emit (node:events:394:28)
+    at Receiver.receiverOnMessage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\websocket.js:970:20)
+    at Receiver.emit (node:events:394:28)
+    at Receiver.dataMessage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\receiver.js:517:14)
+    at Receiver.getData (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\receiver.js:435:17)
+    at Receiver.startLoop (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\receiver.js:143:22)
+[2021-08-23T17:40:24.934] [ERROR] default - TypeError: Cannot read property 'componentCollector' of undefined
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\slashCommands\help\help.ts:203:42)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\interactionCreate.ts:11:13)
+[2021-08-23T17:43:00.196] [ERROR] default - TypeError: Cannot read property 'createMessageComponentCollector' of undefined
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\slashCommands\help\help.ts:203:42)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\interactionCreate.ts:11:13)
+[2021-08-23T22:21:47.537] [ERROR] default - TypeError: message.channel.startTyping is not a function
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\image\webss.ts:23:25)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-24T19:24:18.834] [ERROR] default - TypeError: Cannot read property 'join' of undefined
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\slashCommands\help\help.ts:247:91)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\interactionCreate.ts:11:27)
+    at Client.<anonymous> (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\utils\handlers\event.ts:13:58)
+    at Client.emit (node:events:394:28)
+    at InteractionCreateAction.handle (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\actions\InteractionCreate.js:66:12)
+    at Object.module.exports [as INTERACTION_CREATE] (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\handlers\INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\WebSocketManager.js:345:31)
+    at WebSocketShard.onPacket (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\WebSocketShard.js:443:22)
+    at WebSocketShard.onMessage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\discord.js\src\client\websocket\WebSocketShard.js:300:10)
+    at WebSocket.onMessage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\event-target.js:132:16)
+    at WebSocket.emit (node:events:394:28)
+    at Receiver.receiverOnMessage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\websocket.js:970:20)
+    at Receiver.emit (node:events:394:28)
+    at Receiver.dataMessage (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\receiver.js:517:14)
+    at Receiver.getData (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\receiver.js:435:17)
+    at Receiver.startLoop (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\node_modules\ws\lib\receiver.js:143:22)
+[2021-08-24T19:25:10.386] [ERROR] default - TypeError: Cannot read property 'join' of undefined
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\help\help.ts:242:91)
+    at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:112:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
