@@ -58,25 +58,17 @@ module.exports = {
                 \`${client.prefix}config add/remove levelSystem\``)
                 .setTimestamp()
                 .setColor("GREY");
-
-            const bumpBuddy = new MessageEmbed()
-                .setTitle("bumpBuddy")
-                .setDescription(`The current bumpBuddy is ${guildProfile.bumpBuddy}
+            
+            const antiInvite = new MessageEmbed()
+                .setTitle("antiInvite")
+                .setDescription(`The current antiInvite is ${guildProfile.antiInvite}
                 To change or remove/reset it use:
-                \`${client.prefix}config add/remove bumpBuddy\``)
-                .setTimestamp()
-                .setColor("GREY");
-
-            const bumpRole = new MessageEmbed()
-                .setTitle("bumpRole")
-                .setDescription(`The current bumpRole is ${guildProfile.bumpRole}
-                To change or remove/reset it use:
-                \`${client.prefix}config add/remove bumpRole <input>\``)
+                \`${client.prefix}config add/remove antiInvite\``)
                 .setTimestamp()
                 .setColor("GREY");
 
             let position = 0;
-            const pages = [prefix, muteRoleID, memberRoleID, modlogChannelID, levelSystem, bumpBuddy, bumpRole];
+            const pages = [prefix, muteRoleID, memberRoleID, modlogChannelID, levelSystem, antiInvite];
 
             const previous = new MessageButton()
                 .setLabel("")
@@ -172,12 +164,9 @@ module.exports = {
                 } else if ("levelSystem" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { levelSystem: true });
                     message.channel.send({ content: "Level System is now toggled on!" });
-                } else if ("bumpBuddy" === args[1]) {
-                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { bumpBuddy: true });
-                    message.channel.send({ content: "bumpBuddy is now toggled on!" });
-                } else if ("bumpRole" === args[1]) {
-                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { bumpRole: args[2] });
-                    message.channel.send({ content: "bumpRole has been changed! Make sure you put a proper role ID!" });
+                } else if ("antiInvite" === args[1]) {
+                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { antiInvite: true });
+                    message.channel.send({ content: "antiInvite is now toggled on!" });
                 } else return message.channel.send({ content: "You need to say a property to update." });
             } else if ("remove" === args[0]) {
                 if ("prefix" === args[1]) {
@@ -195,12 +184,9 @@ module.exports = {
                 } else if ("levelSystem" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { levelSystem: false });
                     message.channel.send({ content: "Level System is now toggled off!" });
-                } else if ("bumpBuddy" === args[1]) {
-                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { bumpBuddy: false });
-                    message.channel.send({ content: "bumpBuddy is now toggled off!" });
-                } else if ("bumpRole" === args[1]) {
-                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { bumpRole: "undefined" });
-                    message.channel.send({ content: "bumpRole has been disabled!" });
+                } else if ("antiInvite" === args[1]) {
+                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { antiInvite: false });
+                    message.channel.send({ content: "antiInvite is now toggled off!" });
                 } else return message.channel.send({ content: "You need to say a property to delete." });
             } else return message.channel.send({ content: "You need to say if you want to `add` or `remove` a property." });
         };

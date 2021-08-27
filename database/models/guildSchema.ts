@@ -9,8 +9,7 @@ const guildSchema = new mongoose.Schema({
     memberRoleID: { type: String, required: false },
     modlogChannelID: { type: String, required: false },
     levelSystem: { type: Boolean, default: false },
-    bumpBuddy: { type: Boolean, default: false },
-    bumpRole: { type: String, default: "undefined" },
+    antiInvite: { type: Boolean, default: false },
 });
 
 module.exports = new mongoose.model('Guild', guildSchema, 'guilds');

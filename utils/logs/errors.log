@@ -395,3 +395,15 @@ Require stack:
     at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\commands\messageCommands\help\help.ts:242:91)
     at Object.execute (C:\Users\zachc\Desktop\Code\Discord\My_Bots\SimpleModBot\events\messageCreate.ts:112:31)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-27T02:29:49.959] [ERROR] default - FetchError: request to https://smbwss.up.railway.app/?url=https://auxbot.xyz&checkNsfw=yes failed, reason: unable to verify the first certificate
+    at ClientRequest.<anonymous> (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\node-fetch\lib\index.js:1461:11)
+    at ClientRequest.emit (node:events:394:28)
+    at TLSSocket.socketErrorListener (node:_http_client:447:9)
+    at TLSSocket.emit (node:events:394:28)
+    at emitErrorNT (node:internal/streams/destroy:157:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+  type: 'system',
+  errno: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE',
+  code: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE'
+}

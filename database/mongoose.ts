@@ -10,7 +10,7 @@ module.exports = {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             autoIndex: false,
-            poolSize: 10,
+            poolSize: 100,
             connectTimeoutMS: 10000,
             family: 4
         };
