@@ -1,2 +1,4 @@
+@ECHO OFF
 CD ../
-START NODE index.ts
+NODE index.ts
+PAUSE

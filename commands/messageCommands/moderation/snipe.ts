@@ -4,7 +4,7 @@ const moment = require("moment");
 module.exports = {
     name: 'snipe',
     async execute(message, args, data, client) {
-        if (message.member.permissions.has("MANAGE_MESSAGES") && message.author.id !== client.ownerID) return message.reply("You do not have permission to use this.");
+        if (!message.member.permissions.has("MANAGE_MESSAGES") && !message.author.id == client.ownerID) return message.reply("You do not have permission to use this.");
 
         const snipes = client.snipes.get(message.channel.id);
         if (!snipes) return message.reply("There is nothing to snipe!");

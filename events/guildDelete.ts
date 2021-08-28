@@ -4,7 +4,6 @@ module.exports = {
     name: 'guildDelete',
     async execute(guild, client) {
         {
-
             const joinNotifChannel = await client.channels.cache.get("834283366324895786");
             const notifEmbed = new Discord.MessageEmbed()
                 .setTitle("I have left a guild.")

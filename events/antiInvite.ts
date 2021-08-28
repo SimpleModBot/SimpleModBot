@@ -12,7 +12,8 @@ module.exports = {
         if (message.member.permissions.has("MANAGE_GUILD")) return;
 
         let guildProfile = await schema.findOne({ guildID: message.guild.id });
-        if (guildProfile.antiInvite == false) return;
+        if (!guildProfile) return;
+        if (guildProfile.antiInvite && guildProfile.antiInvite == false) return;
 
         function deleteMessage() {
             if (!message.guild.me.permissions.has("MANAGE_MESSAGES")) return message.reply({ content: "I have anti invite turned on but I do not have the permissions I need to protect you!" });

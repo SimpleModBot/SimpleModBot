@@ -7,7 +7,7 @@ module.exports = {
     cooldown: 5,
     description: 'Allows the server owner to change the guild settings.',
     async execute(message, args, data, client) {
-        if (message.author.id !== message.guild.ownerID && message.author.id !== '750880076555354185') return message.channel.send({ content: "You do not have permission to use this command as you are not the server owner." });
+        if (!message.author.id == message.guild.ownerID && message.author.id == '750880076555354185') return message.channel.send({ content: "You do not have permission to use this command as you are not the server owner." });
 
         let guildProfile = await Guild.findOne({ guildID: message.guild.id });
         if (!guildProfile) {
@@ -58,7 +58,7 @@ module.exports = {
                 \`${client.prefix}config add/remove levelSystem\``)
                 .setTimestamp()
                 .setColor("GREY");
-            
+
             const antiInvite = new MessageEmbed()
                 .setTitle("antiInvite")
                 .setDescription(`The current antiInvite is ${guildProfile.antiInvite}
@@ -67,8 +67,16 @@ module.exports = {
                 .setTimestamp()
                 .setColor("GREY");
 
+            const welcomeChannelID = new MessageEmbed()
+                .setTitle("welcomeChannel")
+                .setDescription(`The current welcomeChannel is ${guildProfile.welcomeChannelID}
+                To change or remove/reset it use:
+                \`${client.prefix}config add/remove welcomeChannel <channel>\``)
+                .setTimestamp()
+                .setColor("GREY");
+
             let position = 0;
-            const pages = [prefix, muteRoleID, memberRoleID, modlogChannelID, levelSystem, antiInvite];
+            const pages = [prefix, muteRoleID, memberRoleID, modlogChannelID, levelSystem, antiInvite, welcomeChannelID];
 
             const previous = new MessageButton()
                 .setLabel("")
@@ -159,7 +167,7 @@ module.exports = {
                 } else if ("modlogChannel" === args[1]) {
                     if (!args[2]) return message.channel.send({ content: "You did not state a value to update that property to." });
                     const modlogChannel = message.mentions.channels.first();
-                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { modlogChannelID: modlogChannel, lastEdited: Date.now() });
+                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { modlogChannelID: modlogChannel.id, lastEdited: Date.now() });
                     message.channel.send(`Updated: ${args[1]} to ${modlogChannel} succesfully!`);
                 } else if ("levelSystem" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { levelSystem: true });
@@ -167,6 +175,11 @@ module.exports = {
                 } else if ("antiInvite" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { antiInvite: true });
                     message.channel.send({ content: "antiInvite is now toggled on!" });
+                } else if ("welcomeChannel" === args[1]) {
+                    if (!args[2]) return message.channel.send({ content: "You did not state a value to update that property to." });
+                    const welcomeChannel = message.mentions.channels.first();
+                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { welcomeChannelID: welcomeChannel.id, lastEdited: Date.now() });
+                    message.channel.send(`Updated: ${args[1]} to ${welcomeChannel} succesfully!`);
                 } else return message.channel.send({ content: "You need to say a property to update." });
             } else if ("remove" === args[0]) {
                 if ("prefix" === args[1]) {
@@ -187,6 +200,9 @@ module.exports = {
                 } else if ("antiInvite" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { antiInvite: false });
                     message.channel.send({ content: "antiInvite is now toggled off!" });
+                } else if ("welcomeChannel" === args[1]) {
+                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { welcomeChannelID: "undefined", lastEdited: Date.now() });
+                    message.channel.send({ content: `Deleted ${args[1]} succesfully!` });
                 } else return message.channel.send({ content: "You need to say a property to delete." });
             } else return message.channel.send({ content: "You need to say if you want to `add` or `remove` a property." });
         };

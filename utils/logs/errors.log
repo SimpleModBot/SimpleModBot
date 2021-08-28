@@ -407,3 +407,33 @@ Require stack:
   errno: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE',
   code: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE'
 }
+[2021-08-27T16:37:10.651] [ERROR] default - TypeError: err is not a constructor
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\moderation\purge.ts:27:28)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:17)
+[2021-08-27T16:37:51.272] [ERROR] default - TypeError: msg.delete is not a function
+    at C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\moderation\purge.ts:23:27
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\moderation\purge.ts:20:9)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:17)
+[2021-08-27T20:52:40.856] [ERROR] default - TypeError: (intermediate value).setLabel(...).setID is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\information1\calculator.ts:54:54)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-27T20:53:56.404] [ERROR] default - TypeError: (intermediate value).setLabel(...).setCustomID is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\information1\calculator.ts:54:54)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-28T00:39:29.458] [ERROR] default - Error
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\emit.ts:6:15)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-28T02:20:30.503] [ERROR] default - Error: unable to verify the first certificate
+    at TLSSocket.onConnectSecure (node:_tls_wrap:1530:34)
+    at TLSSocket.emit (node:events:394:28)
+    at TLSSocket._finishInit (node:_tls_wrap:944:8)
+    at TLSWrap.ssl.onhandshakedone (node:_tls_wrap:725:12) {
+  code: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE'
+}

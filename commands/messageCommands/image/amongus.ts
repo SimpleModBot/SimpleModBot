@@ -12,7 +12,7 @@ module.exports = {
 
         userToBonkAv.circle();
         bonk.resize(500, 500);
-        userToBonkAv.resize(300, 180);
+        userToBonkAv.resize(290, 180);
         bonk.composite(userToBonkAv, 200, 65);
 
         bonk.getBuffer(`image/png`, (err, buffer) => {

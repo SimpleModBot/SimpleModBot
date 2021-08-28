@@ -51,7 +51,7 @@ module.exports = {
         let commandName = args.shift().toLowerCase();
 
         const dataa = await schema.findOne({ Guild: message.guild.id, Command: commandName });
-        if (dataa) return message.channel.send({ content: dataa.Response });
+        if (dataa) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(dataa.Response).setFooter(`CustomCommand: ${dataa.Command}`).setColor("GREY").setTimestamp()] });
 
         let command = client.messageCommands.get(commandName) || client.messageCommands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
         if (!command) return;
@@ -75,7 +75,7 @@ module.exports = {
             const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
             if (now < expirationTime) {
                 const timeLeft = (expirationTime - now) / 1000;
-                return message.reply({ content: `please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.` })
+                return message.reply({ content: `Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.` })
                     .then((cooldownmsg) => {
                         cooldownmsg.delete({ timeout: 5000 });
                     });

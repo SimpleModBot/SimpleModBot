@@ -16,7 +16,7 @@ module.exports = {
             return result
         }
 
-        let str = ' '
+        let str = ' ';
         let stringify = new Discord.MessageEmbed()
             .setTitle("Calculator.")
             .setDescription('```\n' + str + '\n```')
@@ -51,107 +51,77 @@ module.exports = {
         let calculator_dot = i(20)
         let calculator_equal = i(20)
 
-        let ac = new MessageButton().setLabel('CLR').setID(calculator_ac).setStyle('red')
-        let e1 = new MessageButton().setLabel('(').setID(calculator_e1).setStyle('blurple')
-        let e2 = new MessageButton().setLabel(')').setID(calculator_e2).setStyle('blurple')
-        let uppercase = new MessageButton().setLabel('^').setID(calculator_uppercase).setStyle('blurple')
-        let seven = new MessageButton().setLabel('7️').setID(calculator_7).setStyle('gray')
-        let eight = new MessageButton().setLabel('8️').setID(calculator_8).setStyle('gray')
-        let nine = new MessageButton().setLabel('9️').setID(calculator_9).setStyle('gray')
-        let slash = new MessageButton().setLabel('/').setID(calculator_devide).setStyle('blurple')
-        let four = new MessageButton().setLabel('4️').setID(calculator_4).setStyle('gray')
-        let five = new MessageButton().setLabel('5️').setID(calculator_5).setStyle('gray')
-        let six = new MessageButton().setLabel('6️').setID(calculator_6).setStyle('gray')
-        let star = new MessageButton().setLabel('*').setID(calculator_star).setStyle('blurple')
-        let one = new MessageButton().setLabel('1️').setID(calculator_1).setStyle('gray')
-        let two = new MessageButton().setLabel('2️').setID(calculator_2).setStyle('gray')
-        let three = new MessageButton().setLabel('3️').setID(calculator_3).setStyle('gray')
-        let minus = new MessageButton().setLabel('-').setID(calculator_minus).setStyle('blurple')
-        let zero = new MessageButton().setLabel('0️').setID(calculator_0).setStyle('gray')
-        let dot = new MessageButton().setLabel('.').setID(calculator_dot).setStyle('blurple')
-        let equal = new MessageButton().setLabel('=').setID(calculator_equal).setStyle('green')
-        let plus = new MessageButton().setLabel('+').setID(calculator_plus).setStyle('blurple')
+        let ac = new MessageButton().setLabel('CLR').setCustomId(calculator_ac).setStyle('DANGER')
+        let e1 = new MessageButton().setLabel('(').setCustomId(calculator_e1).setStyle('PRIMARY')
+        let e2 = new MessageButton().setLabel(')').setCustomId(calculator_e2).setStyle('PRIMARY')
+        let uppercase = new MessageButton().setLabel('^').setCustomId(calculator_uppercase).setStyle('PRIMARY')
+        let seven = new MessageButton().setLabel('7️').setCustomId(calculator_7).setStyle('SECONDARY')
+        let eight = new MessageButton().setLabel('8️').setCustomId(calculator_8).setStyle('SECONDARY')
+        let nine = new MessageButton().setLabel('9️').setCustomId(calculator_9).setStyle('SECONDARY')
+        let slash = new MessageButton().setLabel('/').setCustomId(calculator_devide).setStyle('PRIMARY')
+        let four = new MessageButton().setLabel('4️').setCustomId(calculator_4).setStyle('SECONDARY')
+        let five = new MessageButton().setLabel('5️').setCustomId(calculator_5).setStyle('SECONDARY')
+        let six = new MessageButton().setLabel('6️').setCustomId(calculator_6).setStyle('SECONDARY')
+        let star = new MessageButton().setLabel('*').setCustomId(calculator_star).setStyle('PRIMARY')
+        let one = new MessageButton().setLabel('1️').setCustomId(calculator_1).setStyle('SECONDARY')
+        let two = new MessageButton().setLabel('2️').setCustomId(calculator_2).setStyle('SECONDARY')
+        let three = new MessageButton().setLabel('3️').setCustomId(calculator_3).setStyle('SECONDARY')
+        let minus = new MessageButton().setLabel('-').setCustomId(calculator_minus).setStyle('PRIMARY')
+        let zero = new MessageButton().setLabel('0️').setCustomId(calculator_0).setStyle('SECONDARY')
+        let dot = new MessageButton().setLabel('.').setCustomId(calculator_dot).setStyle('PRIMARY')
+        let equal = new MessageButton().setLabel('=').setCustomId(calculator_equal).setStyle('SUCCESS')
+        let plus = new MessageButton().setLabel('+').setCustomId(calculator_plus).setStyle('PRIMARY')
 
-        let qac = new MessageButton().setLabel('CLR').setID(calculator_ac).setStyle('red').setDisabled()
-        let qe1 = new MessageButton().setLabel('(').setID(calculator_e1).setStyle('blurple').setDisabled()
-        let qe2 = new MessageButton().setLabel(')').setID(calculator_e2).setStyle('blurple').setDisabled()
-        let quppercase = new MessageButton().setLabel('^').setID(calculator_uppercase).setStyle('blurple').setDisabled()
-        let qseven = new MessageButton().setLabel('7️').setID(calculator_7).setStyle('gray').setDisabled()
-        let qeight = new MessageButton().setLabel('8️').setID(calculator_8).setStyle('gray').setDisabled()
-        let qnine = new MessageButton().setLabel('9️').setID(calculator_9).setStyle('gray').setDisabled()
-        let qslash = new MessageButton().setLabel('/').setID(calculator_devide).setStyle('blurple').setDisabled()
-        let qfour = new MessageButton().setLabel('4️').setID(calculator_4).setStyle('gray').setDisabled()
-        let qfive = new MessageButton().setLabel('5️').setID(calculator_5).setStyle('gray').setDisabled()
-        let qsix = new MessageButton().setLabel('6️').setID(calculator_6).setStyle('gray').setDisabled()
-        let qstar = new MessageButton().setLabel('*').setID(calculator_star).setStyle('blurple').setDisabled()
-        let qone = new MessageButton().setLabel('1️').setID(calculator_1).setStyle('gray').setDisabled()
-        let qtwo = new MessageButton().setLabel('2️').setID(calculator_2).setStyle('gray').setDisabled()
-        let qthree = new MessageButton().setLabel('3️').setID(calculator_3).setStyle('gray').setDisabled()
-        let qminus = new MessageButton().setLabel('-').setID(calculator_minus).setStyle('blurple').setDisabled()
-        let qzero = new MessageButton().setLabel('0️').setID(calculator_0).setStyle('gray').setDisabled()
-        let qdot = new MessageButton().setLabel('.').setID(calculator_dot).setStyle('blurple').setDisabled()
-        let qequal = new MessageButton().setLabel('=').setID(calculator_equal).setStyle('green').setDisabled()
-        let qplus = new MessageButton().setLabel('+').setID(calculator_plus).setStyle('blurple').setDisabled()
+        let qac = new MessageButton().setLabel('CLR').setCustomId(calculator_ac).setStyle('DANGER').setDisabled()
+        let qe1 = new MessageButton().setLabel('(').setCustomId(calculator_e1).setStyle('PRIMARY').setDisabled()
+        let qe2 = new MessageButton().setLabel(')').setCustomId(calculator_e2).setStyle('PRIMARY').setDisabled()
+        let quppercase = new MessageButton().setLabel('^').setCustomId(calculator_uppercase).setStyle('PRIMARY').setDisabled()
+        let qseven = new MessageButton().setLabel('7️').setCustomId(calculator_7).setStyle('SECONDARY').setDisabled()
+        let qeight = new MessageButton().setLabel('8️').setCustomId(calculator_8).setStyle('SECONDARY').setDisabled()
+        let qnine = new MessageButton().setLabel('9️').setCustomId(calculator_9).setStyle('SECONDARY').setDisabled()
+        let qslash = new MessageButton().setLabel('/').setCustomId(calculator_devide).setStyle('PRIMARY').setDisabled()
+        let qfour = new MessageButton().setLabel('4️').setCustomId(calculator_4).setStyle('SECONDARY').setDisabled()
+        let qfive = new MessageButton().setLabel('5️').setCustomId(calculator_5).setStyle('SECONDARY').setDisabled()
+        let qsix = new MessageButton().setLabel('6️').setCustomId(calculator_6).setStyle('SECONDARY').setDisabled()
+        let qstar = new MessageButton().setLabel('*').setCustomId(calculator_star).setStyle('PRIMARY').setDisabled()
+        let qone = new MessageButton().setLabel('1️').setCustomId(calculator_1).setStyle('SECONDARY').setDisabled()
+        let qtwo = new MessageButton().setLabel('2️').setCustomId(calculator_2).setStyle('SECONDARY').setDisabled()
+        let qthree = new MessageButton().setLabel('3️').setCustomId(calculator_3).setStyle('SECONDARY').setDisabled()
+        let qminus = new MessageButton().setLabel('-').setCustomId(calculator_minus).setStyle('PRIMARY').setDisabled()
+        let qzero = new MessageButton().setLabel('0️').setCustomId(calculator_0).setStyle('SECONDARY').setDisabled()
+        let qdot = new MessageButton().setLabel('.').setCustomId(calculator_dot).setStyle('PRIMARY').setDisabled()
+        let qequal = new MessageButton().setLabel('=').setCustomId(calculator_equal).setStyle('SUCCESS').setDisabled()
+        let qplus = new MessageButton().setLabel('+').setCustomId(calculator_plus).setStyle('PRIMARY').setDisabled()
 
         const filter = m => m.clicker.user.id == message.author.id;
         message.channel.send({
             components: [
-                {
-                    type: 1, components: [
-                        ac, e1, e2, uppercase
-                    ]
-                },
-                {
-                    type: 1, components: [
-                        seven, eight, nine, slash
-                    ]
-                },
-                {
-                    type: 1, components: [
-                        four, five, six, star
-                    ]
-                },
-                {
-                    type: 1, components: [
-                        one, two, three, minus
-                    ]
-                },
-                {
-                    type: 1, components: [
-                        dot, zero, equal, plus
-                    ]
-                },
+                new Discord.MessageActionRow()
+                    .addComponents(ac, e1, e2, uppercase),
+                new Discord.MessageActionRow()
+                    .addComponents(seven, eight, nine, slash),
+                new Discord.MessageActionRow()
+                    .addComponents(four, five, six, star),
+                new Discord.MessageActionRow()
+                    .addComponents(one, two, three, minus),
+                new Discord.MessageActionRow()
+                    .addComponents(dot, zero, equal, plus)
             ],
             embeds: [stringify],
         }).then(async (msg) => {
             async function edit() {
                 msg.edit({
                     components: [
-                        {
-                            type: 1, components: [
-                                ac, e1, e2, uppercase
-                            ]
-                        },
-                        {
-                            type: 1, components: [
-                                seven, eight, nine, slash
-                            ]
-                        },
-                        {
-                            type: 1, components: [
-                                four, five, six, star
-                            ]
-                        },
-                        {
-                            type: 1, components: [
-                                one, two, three, minus
-                            ]
-                        },
-                        {
-                            type: 1, components: [
-                                dot, zero, equal, plus
-                            ]
-                        },
+                        new Discord.MessageActionRow()
+                            .addComponents(ac, e1, e2, uppercase),
+                        new Discord.MessageActionRow()
+                            .addComponents(seven, eight, nine, slash),
+                        new Discord.MessageActionRow()
+                            .addComponents(four, five, six, star),
+                        new Discord.MessageActionRow()
+                            .addComponents(one, two, three, minus),
+                        new Discord.MessageActionRow()
+                            .addComponents(dot, zero, equal, plus)
                     ],
                     embeds: [stringify],
                 })
@@ -160,41 +130,26 @@ module.exports = {
             async function lock() {
                 msg.edit({
                     components: [
-                        {
-                            type: 1, components: [
-                                qac, qe1, qe2, quppercase
-                            ]
-                        },
-                        {
-                            type: 1, components: [
-                                qseven, qeight, qnine, qslash
-                            ]
-                        },
-                        {
-                            type: 1, components: [
-                                qfour, qfive, qsix, qstar
-                            ]
-                        },
-                        {
-                            type: 1, components: [
-                                qone, qtwo, qthree, qminus
-                            ]
-                        },
-                        {
-                            type: 1, components: [
-                                qdot, qzero, qequal, qplus
-                            ]
-                        },
+                        new Discord.MessageActionRow()
+                            .addComponents(qac, qe1, qe2, quppercase),
+                        new Discord.MessageActionRow()
+                            .addComponents(qseven, qeight, qnine, qslash),
+                        new Discord.MessageActionRow()
+                            .addComponents(qfour, qfive, qsix, qstar),
+                        new Discord.MessageActionRow()
+                            .addComponents(qone, qtwo, qthree, qminus),
+                        new Discord.MessageActionRow()
+                            .addComponents(qdot, qzero, qequal, qplus)
                     ],
                     embeds: [timedout],
                 })
             }
-            const calc = msg.createButtonCollector(filter, { time: 45000 })
+            const calc = msg.componentCollector(filter, { time: 45000 })
 
             calc.on('collect', async btn => {
-                btn.defer()
+                btn.deferUpdate()
                 if (btn.id === calculator_1) {
-                    str += '1'
+                    str = str + '1'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -202,7 +157,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_2) {
-                    str += '2'
+                    str = str + '2'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -210,7 +165,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_3) {
-                    str += '3'
+                    str = str + '3'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -218,7 +173,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_4) {
-                    str += '4'
+                    str = str + '4'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -226,7 +181,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_5) {
-                    str += '5'
+                    str = str + '5'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -234,7 +189,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_6) {
-                    str += '6'
+                    str = str + '6'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -242,7 +197,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_7) {
-                    str += '7'
+                    str = str + '7'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -250,7 +205,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_8) {
-                    str += '8'
+                    str = str + '8'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -258,7 +213,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_9) {
-                    str += '9'
+                    str = str + '9'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -266,7 +221,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_0) {
-                    str += '0'
+                    str = str + '0'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -274,7 +229,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_plus) {
-                    str += '+'
+                    str = str + '+'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -282,7 +237,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_minus) {
-                    str += '-'
+                    str = str + '-'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -290,7 +245,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_devide) {
-                    str += '/'
+                    str = str + '/'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -298,7 +253,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_uppercase) {
-                    str += '^'
+                    str = str + '^'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -306,7 +261,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_star) {
-                    str += '*'
+                    str = str + '*'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -314,7 +269,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_dot) {
-                    str += '.'
+                    str = str + '.'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -330,7 +285,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_e1) {
-                    str += '('
+                    str = str + '('
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -338,7 +293,7 @@ module.exports = {
                         .setTimestamp();
                     edit()
                 } else if (btn.id === calculator_e2) {
-                    str += ')'
+                    str = str + ')'
                     stringify = new Discord.MessageEmbed()
                         .setTitle("Calculator.")
                         .setDescription('```\n' + str + '\n```')
@@ -347,7 +302,7 @@ module.exports = {
                     edit()
                 } else if (btn.id === calculator_equal) {
                     try {
-                        str += ' = ' + require('mathjs').evaluate(str) + ''
+                        str = str + ' = ' + require('mathjs').evaluate(str) + ''
                         stringify = new Discord.MessageEmbed()
                             .setTitle("Calculator.")
                             .setDescription('```\n' + str + '\n```')

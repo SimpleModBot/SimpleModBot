@@ -1,10 +1,16 @@
 const Discord = require('discord.js');
+const mongis = require('../database/mongoose.ts');
+const schema = require('../database/models/guildSchema.ts');
+const mongoose = require('mongoose');
 
 module.exports = {
     name: 'guildMemberAdd',
     async execute(member, client) {
         {
-            const welcomechannel = await member.guild.channels.cache.find(wc => wc.name.includes("welcome"));
+            let guildProfile = await schema.findOne({ guildID: member.guild.id });
+            if (!guildProfile) return;
+            if (!guildProfile.welcomeChannelID) return;
+            const welcomechannel = await member.guild.channels.cache.get(guildProfile.welcomeChannelID);
             if (!welcomechannel) return;
 
             const welcomeEmbed = new Discord.MessageEmbed()

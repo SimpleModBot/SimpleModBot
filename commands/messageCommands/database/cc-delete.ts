@@ -5,7 +5,7 @@ module.exports = {
     aliases: ['cc-remove'],
     cooldown: 10,
     async execute(message, args, a, client) {
-        if (!message.member.permissions.has('ADMINISTRATOR') && message.author.id !== client.ownerID) return message.channel.send({ content: 'You do not have permission to use this command.' });
+        if (!message.member.permissions.has('MANAGE_MESSAGES') && message.author.id !== client.ownerID) return message.channel.send({ content: 'You do not have permission to use this command.' });
 
         const name = args[0];
         if (name == "ENA") return message.channel.send({ content: 'Please specify a command.' });

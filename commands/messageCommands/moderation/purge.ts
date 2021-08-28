@@ -17,15 +17,8 @@ module.exports = {
         if (!amountToDelete || amountToDelete < 2 || amountToDelete > 100) return message.channel.send({ content: "The number stated must be between 2 and 100." });
         const fetched = await message.channel.messages.fetch({ limit: amountToDelete, });
 
-        try {
-            await message.channel.bulkDelete(fetched)
-                .then((messages) => message.channel.send({ content: `Deleted ${messages.size} messages succesfully!` }))
-                .then(msg => setTimeout(() => {
-                    msg.delete();
-                }, 4500));
-        } catch (err) {
-            Promise.reject(new err);
-        };
+        await message.channel.bulkDelete(fetched);
+        message.channel.send({ content: `Deleted ${amountToDelete} messages succesfully!` });
 
         let guildProfile = await Guild.findOne({ guildID: message.guild.id });
         if (!guildProfile) {
