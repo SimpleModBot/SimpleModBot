@@ -9,6 +9,7 @@ module.exports = {
         await mongis.init();
 
         if (!message.guild) return;
+        if (message.author.bot) return;
         if (message.member.permissions.has("MANAGE_GUILD")) return;
 
         let guildProfile = await schema.findOne({ guildID: message.guild.id });

@@ -9,6 +9,7 @@ module.exports = {
             weather.find({ search: args.join(" "), degreeType: 'F' }, function (err, result) {
 
                 if (err) message.channel.send(err.message);
+                if (!result) return message.channel.send({ content: "You probably used this command after I don't have a valid connection so an error occurred." });
                 if (result.length === 0) return message.channel.send({ content: `Please enter a valid location.` });
 
                 var current = result[0].current;

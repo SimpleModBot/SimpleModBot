@@ -132,7 +132,7 @@ module.exports = {
                 .setColor(roleColor)
                 .setTimestamp();
 
-            const nsfwEmbed = new Discord.MessageEmbed()
+            const randomEmbed = new Discord.MessageEmbed()
                 .setTitle("Commands:")
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[12].name, categories[12].value)
@@ -140,17 +140,9 @@ module.exports = {
                 .setColor(roleColor)
                 .setTimestamp();
 
-            const randomEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
-                .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
-                .addField(categories[13].name, categories[13].value)
-                .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
-                .setColor(roleColor)
-                .setTimestamp();
-
             let position = 0;
             const pages = [databaseEmbed, devOnlyEmbed, economyEmbed, embedEmbed, emojiEmbed, funEmbed, gamesEmbed, helpEmbed,
-                imageEmbed, information1Embed, information2Embed, moderationEmbed, nsfwEmbed, randomEmbed];
+                imageEmbed, information1Embed, information2Embed, moderationEmbed, randomEmbed];
 
             const previous = new MessageButton()
                 .setLabel("")

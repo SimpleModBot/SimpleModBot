@@ -14,7 +14,7 @@ module.exports = {
 
         spawn(process.argv[0], process.argv.slice(1), {
             env: { process_restarting: 1 },
-            stdio: 'ignore',
+            stdio: 'inherit',
             detached: true
         }).unref();
 
