@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 module.exports = {
     name: 'messageCreate',
     async execute(message, client) {
+        if (!message.channel.permissionsFor(message.guild.me).has("SEND_MESSAGES")) return;
         await mongis.init();
 
         if (!message.guild) return;
@@ -14,10 +15,10 @@ module.exports = {
 
         let guildProfile = await schema.findOne({ guildID: message.guild.id });
         if (!guildProfile) return;
-        if (guildProfile.antiInvite && guildProfile.antiInvite == false) return;
+        if (guildProfile.antiInvite) if (guildProfile.antiInvite == false) return; else return;
 
         function deleteMessage() {
-            if (!message.guild.me.permissions.has("MANAGE_MESSAGES")) return message.reply({ content: "I have anti invite turned on but I do not have the permissions I need to protect you!" });
+            if (!message.channel.permissionsFor(message.guild.me).has("MANAGE_MESSAGES")) return message.reply({ content: "I have anti invite turned on but I do not have the permissions I need to protect you!" });
             message.delete();
             message.channel.send({
                 embeds: [new Discord.MessageEmbed()
@@ -40,8 +41,10 @@ module.exports = {
                 try {
                     const vanity = await message.guild.fetchVanityData();
                     if (code !== vanity?.code) return deleteMessage();
+                    await client.channels.cache.get('883251216639991828').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author} was attacked by anti invite in ${message.channel}!`).setColor('GREY').setTimestamp()] });
                 } catch (err) {
                     deleteMessage();
+                    await client.channels.cache.get('883251216639991828').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author} was attacked by anti invite in ${message.channel}!`).setColor('GREY').setTimestamp()] });
                 };
             };
         };

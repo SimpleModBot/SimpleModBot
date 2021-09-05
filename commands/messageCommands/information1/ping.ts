@@ -8,6 +8,16 @@ module.exports = {
     DMU: true,
     cooldown: 5,
     async execute(message, args, data, client) {
+        let Days = Math.floor(client.uptime / 86400000);
+        let Hours = Math.floor(client.uptime / 3600000) % 24;
+        let Minutes = Math.floor(client.uptime / 60000) % 60;
+        let Seconds = Math.floor(client.uptime / 1000) % 60;
+        const RemoveUseless = (Duration) => {
+            return Duration.replace("`0` Day", "").replace("`0` Hour", "").replace("`0` Minute", "");
+        };
+
+        let Uptime = await RemoveUseless(`\`${Days}\` ${Days > 1 ? "Days" : "Day"} \`${Hours}\` ${Hours > 1 ? "Hours" : "Hour"} \`${Minutes}\` ${Minutes > 1 ? "Minutes" : "Minute"} \`${Seconds}\` ${Seconds > 1 ? "Seconds" : "Second"}`);
+
         const pingingEmbed = new Discord.MessageEmbed()
             .setTitle("Pinging...")
             .setDescription("This might take a bit.")
@@ -47,7 +57,8 @@ module.exports = {
                 .setTitle("🏓Pong!")
                 .setDescription(`${MESSAGE}\n> <:BotDev:832344818453184522> Bot: ${ping}ms
                 > <:mongoDB:870855924129079356> Database: ${dbPing}ms
-                > <:DiscordApp:870856184456949761> API: ${client.ws.ping}ms`)
+                > <:DiscordApp:870856184456949761> API: ${client.ws.ping}ms
+                > 💖 Uptime: ${Uptime}`)
                 .setFooter(`${message.author.tag.slice(0, -5)} used ping command.`)
                 .setColor(COLOR);
 

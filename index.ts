@@ -12,7 +12,6 @@ Levels.setURL(`mongodb://127.0.0.1:27017/SMB`);
 client.prefix = '//';
 client.ownerID = '750880076555354185';
 client.data = require("./database/mongoose.ts");
-client.hourlymessageCommands = 0;
 client.messageCommands = new Discord.Collection();
 client.slashCommands = new Discord.Collection();
 client.mcn = 0;

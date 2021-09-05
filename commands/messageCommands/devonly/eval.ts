@@ -22,7 +22,6 @@ module.exports = {
         };
 
         try {
-            var output = true;
             let code = args.join(" ");
 
             let evaled = await eval(code);

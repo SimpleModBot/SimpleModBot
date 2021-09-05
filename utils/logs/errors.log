@@ -437,3 +437,127 @@ Require stack:
     at TLSWrap.ssl.onhandshakedone (node:_tls_wrap:725:12) {
   code: 'UNABLE_TO_VERIFY_LEAF_SIGNATURE'
 }
+[2021-09-04T23:17:39.173] [ERROR] default - TypeError: Class constructor MessageEmbed cannot be invoked without 'new'
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:8:63)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-04T23:18:14.574] [ERROR] default - TypeError: arg[3].setColor is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:10:107)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-04T23:18:49.283] [ERROR] default - TypeError: arg[2].setColor is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:10:107)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-04T23:33:47.512] [ERROR] default - TypeError [COLOR_CONVERT]: Unable to convert color to a number.
+    at Function.resolveColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\util\Util.js:473:41)
+    at MessageEmbed.setColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:330:23)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:31:55)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'COLOR_CONVERT'
+}
+[2021-09-04T23:36:10.208] [ERROR] default - TypeError: message.content.split(...).split is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:22:45)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-04T23:37:02.844] [ERROR] default - TypeError: Cannot read property 'split' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:22:77)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-04T23:37:38.058] [ERROR] default - TypeError: Cannot read property 'split' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:22:77)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-04T23:47:19.687] [ERROR] default - TypeError: Cannot read property 'toString' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:23:87)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-04T23:48:04.856] [ERROR] default - TypeError: Cannot read property 'toString' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:22:99)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-04T23:50:15.644] [ERROR] default - TypeError: Cannot read property 'toString' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:22:99)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-04T23:52:47.678] [ERROR] default - TypeError: Cannot read property 'toString' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:22:146)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-04T23:53:13.773] [ERROR] default - TypeError: Cannot read property 'toString' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:22:146)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-05T00:01:16.487] [ERROR] default - TypeError [COLOR_CONVERT]: Unable to convert color to a number.
+    at Function.resolveColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\util\Util.js:473:41)
+    at MessageEmbed.setColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:330:23)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:35:55)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'COLOR_CONVERT'
+}
+[2021-09-05T00:04:34.901] [ERROR] default - TypeError [COLOR_CONVERT]: Unable to convert color to a number.
+    at Function.resolveColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\util\Util.js:473:41)
+    at MessageEmbed.setColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:330:23)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:35:55)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'COLOR_CONVERT'
+}
+[2021-09-05T00:06:09.810] [ERROR] default - TypeError [COLOR_CONVERT]: Unable to convert color to a number.
+    at Function.resolveColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\util\Util.js:473:41)
+    at MessageEmbed.setColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:330:23)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:35:55)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'COLOR_CONVERT'
+}
+[2021-09-05T00:06:46.436] [ERROR] default - TypeError [COLOR_CONVERT]: Unable to convert color to a number.
+    at Function.resolveColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\util\Util.js:473:41)
+    at MessageEmbed.setColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:330:23)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:35:55)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'COLOR_CONVERT'
+}
+[2021-09-05T00:08:13.945] [ERROR] default - TypeError [COLOR_CONVERT]: Unable to convert color to a number.
+    at Function.resolveColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\util\Util.js:473:41)
+    at MessageEmbed.setColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:330:23)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:35:55)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'COLOR_CONVERT'
+}
+[2021-09-05T00:13:55.214] [ERROR] default - RangeError [COLOR_RANGE]: Color must be within the range 0 - 16777215 (0xFFFFFF).
+    at Function.resolveColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\util\Util.js:472:46)
+    at MessageEmbed.setColor (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:330:23)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:35:55)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'COLOR_RANGE'
+}
+[2021-09-05T01:24:04.743] [ERROR] default - TypeError: message.guild.me.hasPermission is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\dev-embed.ts:21:34)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:31)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-05T01:25:42.141] [ERROR] default - TypeError: userProfile.save is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\economy\work.ts:11:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:112:17)

@@ -12,6 +12,9 @@ module.exports = {
         if (await client.messageCommands.get(name)) return message.channel.send({ content: "You can't overwrite a base command!" });
         if (!response) return message.channel.send({ content: 'Please specify a response.' });
 
+        const m = await schema.find({});
+        if (m.length > 19) return message.reply({ content: 'You have 20 custom commands which is the limit!' });
+
         const data = await schema.findOne({ Guild: message.guild.id, Command: name });
         if (data) return message.channel.send({ content: 'This command already exists!' });
         const newData = new schema({

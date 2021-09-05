@@ -1,18 +1,19 @@
 const Discord = require('discord.js');
 
 module.exports = {
-    name: "test",
-    aliases: ["t"],
-    devOnly: true,
+    name: "embed",
     async execute(message, args, data, client) {
         if (args[0] == "ENA") return message.channel.send({
-            embeds: [new Discord.MessageEmbed().setTitle('Invalid usage!').setDescription(`__Embed tags:__
+            embeds: [new Discord.MessageEmbed()
+                .setTitle('Invalid usage!')
+                .setDescription(`__Embed tags:__
         \`-t\` Sets the title to whatever you put after it. Limit of 256 chars.
         \`-d\` Sets the description to whatever you put after it. Limit of 4096 chars.
         \`-f\` Sets the footer to whatever you put after it. Limit of 2048 chars.
         \`-c\` Sets the color to whatever you put after it.
+        \`-m\` Sends the text as the actual message.
 
-        Add a tag to your message and some text after it to change the embed!`).setColor('GREY')]
+        Add a tag to your message and some text after it to change the embed!`).setColor('GREY') ]
         });
 
         let embed = new Discord.MessageEmbed();
@@ -25,11 +26,14 @@ module.exports = {
         else num = num + 1;
 
         if (message.content.includes('-d')) {
-            if (message.content.split('-d')[1]) embed.setDescription(message.content.split('-d')[1].split('-')[0].slice(0, -4096));
-        } else { num = num + 1; embed.setDescription('\u200b') };
+            if (message.content.split('-d')[1]) embed.setDescription(message.content.split('-d')[1].split('-')[0].slice(0, 4096));
+        } else {
+            num = num + 1;
+            embed.setDescription('\u200b');
+        };
 
         if (message.content.includes('-f')) {
-            if (message.content.split('-f')[1]) embed.setFooter(message.content.split('-f')[1].split('-')[0].slice(0, -2048));
+            if (message.content.split('-f')[1]) embed.setFooter(message.content.split('-f')[1].split('-')[0].slice(0, 2048));
         } else num = num + 1;
 
         if (message.content.includes('-c')) {
@@ -47,13 +51,16 @@ module.exports = {
                 message.channel.send({ content: message.content.split('-m')[1].split('-')[0].slice(0, 2000), embeds: [embed] });
             };
         } else return message.channel.send({
-            embeds: [new Discord.MessageEmbed().setTitle('Invalid usage!').setDescription(`__Embed tags:__
+            embeds: [new Discord.MessageEmbed()
+                .setTitle('Invalid usage!')
+                .setDescription(`__Embed tags:__
         \`-t\` Sets the title to whatever you put after it. Limit of 256 chars.
         \`-d\` Sets the description to whatever you put after it. Limit of 4096 chars.
         \`-f\` Sets the footer to whatever you put after it. Limit of 2048 chars.
         \`-c\` Sets the color to whatever you put after it.
+        \`-m\` Sends the text as the actual message.
 
-        Add a tag to your message and some text after it to change the embed!`).setColor('GREY')]
+        Add a tag to your message and some text after it to change the embed!`).setColor('GREY') ]
         });
     },
 };

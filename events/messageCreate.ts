@@ -42,7 +42,7 @@ module.exports = {
         const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(client.prefix)})\\s*`);
         if (!prefixRegex.test(message.content)) return;
-        if (message.content == `<@!${client.user.id}>`) return message.channel.send({ content: `My prefix is **${client.prefix}** but you can also ping me like **<@${client.user.id}> say Hello!** to use a command.` })
+        if (message.content == `<@!${client.user.id}>`) return message.channel.send({ embeds: [new Discord.MessageEmbed().setTitle("It appears you mentioned me!").setDescription(`Hello! I am SimpleModBot! An easy to use multipurpose bot.\n\nIf you wish to know my prefix its set to \`${client.prefix}\` but you can change it if your the owner!\nI will always have <@${client.user.id}> as a prefix though!\n\nIf you wish to know my commands type \`${client.prefix}help\`.`).setFooter('I hope you like me!').setTimestamp().setColor('GREY')] })
 
         const [, matchedPrefix] = message.content.match(prefixRegex);
         let args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
@@ -104,25 +104,28 @@ module.exports = {
         try {
             if (message.channel.type == 'DM') {
                 if (command.DMU == true) {
-                    client.hourlyCommands = client.hourlyCommands + 1;
+                    await client.channels.cache.get('883251143151599646').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author} used \`${command.name} ${args.join(' ')}\`.`).setColor('GREY').setTimestamp()] });
                     await command.execute(message, args, data, client);
                 };
             } else {
-                client.hourlyCommands = client.hourlyCommands + 1;
+                await client.channels.cache.get('883251143151599646').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author} used \`${command.name} ${args.join(' ')}\`.`).setColor('GREY').setTimestamp()] });
                 await command.execute(message, args, data, client);
             };
         } catch (err) {
-            require("log4js").getLogger(`default`).error(err);
-            
-            const errorChannel = client.channels.cache.get("832744410998767666");
-            const errorMessage = new Discord.MessageEmbed()
-                .setTitle("An error has occured!")
-                .setDescription("** **" + err)
-                .setTimestamp()
-                .setColor("#ff0a0a");
+            if (command.name == 'embed') return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("An error occurred whilst running this command!\nIt is most likely from an invalid color, you can probably fix this by:\nMaking the color a valid hex code.\nMaking an all caps color name like GREY or RED\nOr you probably added a space after \`-c\`").setColor("GREY").setTimestamp()] });
+            else {
+                require("log4js").getLogger(`default`).error(err);
 
-            errorChannel.send({ embeds: [errorMessage] });
-            message.channel.send({ content: "An error occured within the bot. If you are a dev or log viewer please review the error in <#832744410998767666>" });
+                const errorChannel = client.channels.cache.get("832744410998767666");
+                const errorMessage = new Discord.MessageEmbed()
+                    .setTitle("An error has occured!")
+                    .setDescription("** **" + err)
+                    .setTimestamp()
+                    .setColor("#ff0a0a");
+
+                errorChannel.send({ embeds: [errorMessage] });
+                message.channel.send({ content: "An error occured within the bot. If you are a dev or log viewer please review the error in <#832744410998767666>" });
+            };
         };
     },
 };

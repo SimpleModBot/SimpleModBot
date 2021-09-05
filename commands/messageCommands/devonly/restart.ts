@@ -4,7 +4,7 @@ module.exports = {
     DMU: true,
     devOnly: true,
     async execute(message, args, data, client) {
-        var spawn = require('child_process').spawn;
+        const spawn = require('child_process').spawn;
 
         await message.channel.send({ content: "Restarting bot.." });
         if (process.env.process_restarting) {
@@ -14,7 +14,7 @@ module.exports = {
 
         spawn(process.argv[0], process.argv.slice(1), {
             env: { process_restarting: 1 },
-            stdio: 'inherit',
+            stdio: 'ignore',
             detached: true
         }).unref();
 

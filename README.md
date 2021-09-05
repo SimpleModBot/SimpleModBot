@@ -35,11 +35,13 @@ Contributions are always welcome!
 
 If you would like to help with this project please join my [community](https://discord.gg/26NtPVvNCU) or [testing](https://discord.gg/yfcvPmxkmR)
 server and tell me any bugs/issues you encounter.
+# Contributors
 
 ## Developers
-
 - [DEATHB4DEFEAT#1018](https://www.github.com/deathb4defeat)
 
-## Contributors
-
-- Currently none, read the `Contributing` section to learn more.
+## Testers
+- [itsamedood#0818](https://github.com/itsamedood)
+- [Blaster#6969](https://www.youtube.com/channel/UCvG7nYCCx33dL61nlObV5TQ)
+- [Stanford47#5621](https://github.com/Stanford47)
+- [near#9999](https://www.youtube.com/channel/UCVdckpCY90ytyzwihp86xEA)

@@ -1,6 +1,7 @@
 const figlet = require("figlet");
 const rgb = require("lolcatjs");
 const log4jsRun = require(`../utils/other/log4js`);
+const Discord = require('discord.js');
 
 module.exports = {
     name: 'ready',
@@ -41,10 +42,6 @@ module.exports = {
             index++;
         }, 20000);
 
-        setInterval(async() => {
-            const channel = await client.channels.cache.get("856795412600717322");
-            if (client.hourlyCommands > 0) await channel.send(`This hour ${client.hourlyCommands} commands were used!`);
-            client.hourlyCommands = 0;
-        }, 3600000);
+        await client.channels.cache.get('883252233926488074').send({ embeds: [new Discord.MessageEmbed().setDescription(`\`${client.user.tag}\` is now online!`).setColor('GREY').setTimestamp()] });
     },
 };
