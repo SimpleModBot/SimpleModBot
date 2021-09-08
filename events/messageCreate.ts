@@ -75,10 +75,7 @@ module.exports = {
             const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
             if (now < expirationTime) {
                 const timeLeft = (expirationTime - now) / 1000;
-                return message.reply({ content: `Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.` })
-                    .then((cooldownmsg) => {
-                        cooldownmsg.delete({ timeout: 5000 });
-                    });
+                return message.reply({ content: `Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.` });
             }
         }
 

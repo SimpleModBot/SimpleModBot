@@ -9,7 +9,7 @@ module.exports = {
     DMU: true,
     async execute(message, args, data, client) {
         const prefix = client.prefix;
-        const roleColor = message.guild.me.displayHexColor === "#000000" ? "GREY" : message.guild.me.displayHexColor;
+        const roleColor = "#000000" ? "GREY" : message.guild.me.displayHexColor;
 
         if (args[0] == "ENA") {
             let categories = [];
@@ -108,7 +108,7 @@ module.exports = {
                 .setColor(roleColor)
                 .setTimestamp();
 
-            const information1Embed = new Discord.MessageEmbed()
+            const informationEmbed = new Discord.MessageEmbed()
                 .setTitle("Commands:")
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[9].name, categories[9].value)
@@ -116,7 +116,7 @@ module.exports = {
                 .setColor(roleColor)
                 .setTimestamp();
 
-            const information2Embed = new Discord.MessageEmbed()
+            const moderationEmbed = new Discord.MessageEmbed()
                 .setTitle("Commands:")
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[10].name, categories[10].value)
@@ -124,7 +124,7 @@ module.exports = {
                 .setColor(roleColor)
                 .setTimestamp();
 
-            const moderationEmbed = new Discord.MessageEmbed()
+            const randomEmbed = new Discord.MessageEmbed()
                 .setTitle("Commands:")
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[11].name, categories[11].value)
@@ -132,17 +132,9 @@ module.exports = {
                 .setColor(roleColor)
                 .setTimestamp();
 
-            const randomEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
-                .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
-                .addField(categories[12].name, categories[12].value)
-                .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
-                .setColor(roleColor)
-                .setTimestamp();
-
             let position = 0;
             const pages = [databaseEmbed, devOnlyEmbed, economyEmbed, embedEmbed, emojiEmbed, funEmbed, gamesEmbed, helpEmbed,
-                imageEmbed, information1Embed, information2Embed, moderationEmbed, randomEmbed];
+                imageEmbed, informationEmbed, moderationEmbed, randomEmbed];
 
             const previous = new MessageButton()
                 .setLabel("")

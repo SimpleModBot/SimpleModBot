@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const client = new Discord.Client({ intents: 32767 });
+const client = new Discord.Client({ intents: 875 });
 const Levels = require('discord-xp');
 const figlet = require('figlet');
 const chalk = require('chalk');

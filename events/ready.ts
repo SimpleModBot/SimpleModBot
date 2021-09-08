@@ -22,10 +22,12 @@ module.exports = {
         let serverMembers = await client.users.cache.size;
 
         const statuses = [
-            `For //help`,
-            `For //support`,
             `${serverIn} servers.`,
-            `${serverMembers} members.`
+            `for commands.`,
+            `${serverMembers} members.`,
+            `for mentions.`,
+            `you..`,
+            `messages.`,
         ];
 
         let index = 0;

@@ -28,17 +28,17 @@ module.exports = {
             .addField(`Client Guild Count`, `\`\`\`${client.guilds.cache.size} Servers\`\`\``, true)
             .addField(`Client Channel Count`, `\`\`\`${client.channels.cache.size} Channels\`\`\``, true)
             .addField(`Client User Count`, `\`\`\`${usersCount} Users\`\`\``, true)
-            .addField(`Made Using`, `\`\`\`Discord.js/Node.js/MongoDB\`\`\``, true)
+            .addField(`Made Using`, `\`\`\`Discord.js\nNode.js\nMongoDB\`\`\``, true)
             .addField(`Creation Date`, `\`\`\`${moment.utc(client.user.createdAt).format('DD/MMM/YYYY')}\`\`\``, true)
             .addField(`Bot Ping`, `\`\`\`Latency: ${Date.now() - message.createdTimestamp} ms\nAPI Latency: ${Math.round(client.ws.ping)} ms\`\`\``, true)
-            .addField(`Commands Number`, `\`\`\`${client.commands.size} Commands\`\`\``, true)
+            .addField(`Commands Number`, `\`\`\`${client.messageCommands.size} messageCommands\n${client.slashCommands.size} slashCommands\`\`\``, true)
             .addField(`Prefix`, `\`\`\`${client.prefix}\`\`\``, true)
             .addField(`Uptime`, `\`\`\`${Uptime}\`\`\``, true)
             .addField(`Developer`, `\`\`\`${Developer.tag}\n${client.ownerID}\`\`\``, true)
             .addField(`Bot Links`, `Bot Invite [https://top.gg/bot/808196506833125396]\nSupport/Community Server [https://discord.gg/26NtPVvNCU]`)
             .setAuthor(client.user.tag, client.user.displayAvatarURL())
-            .setColor(message.guild.me.displayHexColor)
-            .setTimestamp()
+            .setColor('GREY')
+            .setTimestamp();
 
         message.channel.send({ embeds: [embed] })
     },

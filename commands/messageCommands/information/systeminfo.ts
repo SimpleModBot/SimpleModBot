@@ -22,7 +22,7 @@ module.exports = {
             .setTitle(`My Clients System Information.`)
             .setDescription(`\`\`\`yaml\n${systeminfo}\`\`\``)
             .setTimestamp()
-            .setColor(message.guild.me.displayHexColor);
+            .setColor('BLACK');
 
         message.channel.send({ embeds: [embed] })
     },

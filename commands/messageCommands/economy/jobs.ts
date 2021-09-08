@@ -9,7 +9,6 @@ module.exports = {
         if (!userProfile) return message.channel.send("You have no Bot Wallet, please use the `balance`/`bal` command to create one.");
         if (!userProfile.job) userProfile.job = "none";
         if (!userProfile.exp) userProfile.exp = 0;
-        await userProfile.save();
 
         const jobsEmbed = new Discord.MessageEmbed()
             .setTitle("SimpleModBot Job List.")
