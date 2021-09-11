@@ -4,21 +4,10 @@ module.exports = {
     DMU: true,
     devOnly: true,
     async execute(message, args, data, client) {
-        const spawn = require('child_process').spawn;
-
         await message.channel.send({ content: "Restarting bot.." });
-        if (process.env.process_restarting) {
-            delete process.env.process_restarting;
-            return;
-        }
-
-        spawn(process.argv[0], process.argv.slice(1), {
-            env: { process_restarting: 1 },
-            stdio: 'ignore',
-            detached: true
-        }).unref();
-
-        await message.reply({ content: "I have successfully restarted!" });
-        process.exit();
+        setTimeout(async () => {
+            await message.reply({ content: "I have successfully restarted!\n|| There is a 10 second delay to send this message to make sure the bot has actually been restarted so I don't lie. ^-^||" });
+            process.exit();
+        }, 10000);
     },
 };

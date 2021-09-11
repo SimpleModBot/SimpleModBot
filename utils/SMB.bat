@@ -1,4 +1,5 @@
 @ECHO OFF
 CD ../
+:MAIN
 NODE index.ts
-PAUSE
+GOTO MAIN

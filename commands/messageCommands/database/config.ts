@@ -167,6 +167,7 @@ module.exports = {
                 } else if ("modlogChannel" === args[1]) {
                     if (!args[2]) return message.channel.send({ content: "You did not state a value to update that property to." });
                     const modlogChannel = message.mentions.channels.first();
+                    if (!modlogChannel) return;
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { modlogChannelID: modlogChannel.id, lastEdited: Date.now() });
                     message.channel.send(`Updated: ${args[1]} to ${modlogChannel} succesfully!`);
                 } else if ("levelSystem" === args[1]) {
@@ -178,6 +179,7 @@ module.exports = {
                 } else if ("welcomeChannel" === args[1]) {
                     if (!args[2]) return message.channel.send({ content: "You did not state a value to update that property to." });
                     const welcomeChannel = message.mentions.channels.first();
+                    if (!welcomeChannel) return;
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { welcomeChannelID: welcomeChannel.id, lastEdited: Date.now() });
                     message.channel.send(`Updated: ${args[1]} to ${welcomeChannel} succesfully!`);
                 } else return message.channel.send({ content: "You need to say a property to update." });

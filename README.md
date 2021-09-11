@@ -31,16 +31,19 @@ want the database commands to work you need to put your own MongoDB link.*
 
 ## Contributing
 
-Contributions are always welcome! 
+Contributions are always welcome!
 
 If you would like to help with this project please join my [community](https://discord.gg/26NtPVvNCU) or [testing](https://discord.gg/yfcvPmxkmR)
 server and tell me any bugs/issues you encounter.
-# Contributors
 
-## Developers
+## Contributors
+
+### Developers
+
 - [DEATHB4DEFEAT#1018](https://www.github.com/deathb4defeat)
 
-## Testers
+### Testers
+
 - [itsamedood#0818](https://github.com/itsamedood)
 - [Blaster#6969](https://www.youtube.com/channel/UCvG7nYCCx33dL61nlObV5TQ)
 - [Stanford47#5621](https://github.com/Stanford47)

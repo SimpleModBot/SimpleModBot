@@ -607,3 +607,52 @@ Require stack:
     at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\information\botinfo.ts:34:74)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
     at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:109:17)
+[2021-09-08T17:39:47.465] [ERROR] default - TypeError: Cannot read property 'id' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\database\config.ts:170:114)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:109:17)
+[2021-09-08T20:49:54.186] [ERROR] default - TypeError: err is not a constructor
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\games\chat.ts:29:28)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:109:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-08T21:11:43.790] [ERROR] default - TypeError: Cannot read property 'id' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\serverlist.ts:34:28)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:109:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-08T21:12:16.566] [ERROR] default - TypeError: message.guild.me.hasPermission is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\serverlist.ts:35:35)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:109:31)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-08T21:12:53.715] [ERROR] default - DiscordAPIError: Cannot send an empty message
+    at RequestHandler.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\rest\RequestHandler.js:298:13)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async RequestHandler.push (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\rest\RequestHandler.js:50:14)
+    at async TextChannel.send (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:171:15)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\serverlist.ts:57:23)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:109:17) {
+  method: 'post',
+  path: '/channels/814386802609487912/messages',
+  code: 50006,
+  httpStatus: 400,
+  requestData: {
+    json: {
+      content: undefined,
+      tts: false,
+      nonce: undefined,
+      embeds: undefined,
+      components: undefined,
+      username: undefined,
+      avatar_url: undefined,
+      allowed_mentions: undefined,
+      flags: undefined,
+      message_reference: undefined,
+      attachments: undefined,
+      sticker_ids: undefined
+    },
+    files: []
+  }
+}
