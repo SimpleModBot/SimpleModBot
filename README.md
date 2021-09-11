@@ -3,6 +3,8 @@
 A bot for Discord I originally made for moderation but grew over time into a
 multipurpose bot.
 
+Please read SECURITY.md as it doesn't appear below files like README.md does
+
 ## Additional Information
 
 If you wish to use my bots code for your own bot please do not pass it off as
