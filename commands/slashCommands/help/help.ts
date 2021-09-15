@@ -113,7 +113,7 @@ module.exports = {
                 .setColor(roleColor)
                 .setTimestamp();
 
-            const information1Embed = new Discord.MessageEmbed()
+            const informationEmbed = new Discord.MessageEmbed()
                 .setTitle("Commands:")
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[9].name, categories[9].value)
@@ -121,7 +121,7 @@ module.exports = {
                 .setColor(roleColor)
                 .setTimestamp();
 
-            const information2Embed = new Discord.MessageEmbed()
+            const moderationEmbed = new Discord.MessageEmbed()
                 .setTitle("Commands:")
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[10].name, categories[10].value)
@@ -129,7 +129,7 @@ module.exports = {
                 .setColor(roleColor)
                 .setTimestamp();
 
-            const moderationEmbed = new Discord.MessageEmbed()
+            const musicEmbed = new Discord.MessageEmbed()
                 .setTitle("Commands:")
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[11].name, categories[11].value)
@@ -147,7 +147,7 @@ module.exports = {
 
             let position = 0;
             const pages = [databaseEmbed, devOnlyEmbed, economyEmbed, embedEmbed, emojiEmbed, funEmbed, gamesEmbed, helpEmbed,
-                imageEmbed, information1Embed, information2Embed, moderationEmbed, randomEmbed];
+                imageEmbed, informationEmbed, moderationEmbed, musicEmbed, randomEmbed];
 
             const previous = new MessageButton()
                 .setLabel("")

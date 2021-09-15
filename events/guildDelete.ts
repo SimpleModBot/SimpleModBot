@@ -14,9 +14,5 @@ module.exports = {
 
             joinNotifChannel.send({ content: "Left Guild.", embeds: [notifEmbed] });
         }
-        {
-            const guildDB = await client.data.getGuildDB(guild.id);
-            if (guildDB) guildDB.remove();
-        }
     },
 };

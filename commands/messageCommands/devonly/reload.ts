@@ -3,7 +3,6 @@ const fs = require('fs');
 module.exports = {
     name: 'reload',
     aliases: ['re'],
-    DMU: true,
     devOnly: true,
     description: 'Reloads a command',
     async execute(message, args, data, client) {
@@ -28,8 +27,7 @@ module.exports = {
             client.messageCommands.set(newCommand.name, newCommand);
             message.channel.send({ content: `Command \`${command.name}\` was reloaded!` });
         } catch (error) {
-            console.log(error);
-            message.channel.send({ content: `There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\`` });
+            message.channel.send({ content: `There was an error while reloading \`${command.name}\`:\n\`${error.message}\`` });
         }
     },
 };

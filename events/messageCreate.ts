@@ -8,21 +8,18 @@ module.exports = {
     name: 'messageCreate',
     async execute(message, client) {
         await mongis.init();
+        client.emit('antiInviteMessageCreate', message, client);
 
-        let guildProfile = null;
-        if (message.channel.type !== 'DM') {
-            const Guild = require('../database/models/guildSchema.ts');
-            guildProfile = await Guild.findOne({ guildID: message.guild.id });
-            if (guildProfile) client.prefix = guildProfile.prefix;
-        };
-
+        if (message.channel.type == 'DM') return;
         if (message.author.bot) return;
+
+        const Guild = require('../database/models/guildSchema.ts');
+        const guildProfile = await Guild.findOne({ guildID: message.guild.id });
+        if (guildProfile) client.prefix = guildProfile.prefix;
 
         let balanceDB = client.data.getBalanceDB(message.author.id);
         let blacklistDB = client.data.getBlacklistDB(message.author.id);
-        let guildDB = null;
-        if (message.channel.type !== 'DM') guildDB = client.data.getGuildDB(message.guild.id);
-        else guildDB = client.data.getGuildDB("753366889924657193");
+        let guildDB = client.data.getGuildDB(message.guild.id);
         let inventoryDB = client.data.getInventoryDB(message.author.id);
 
         let data = {
@@ -83,7 +80,7 @@ module.exports = {
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
         if (message.channel.type !== 'DM') {
-            if (guildProfile && guildProfile.levelSystem && guildProfile.levelSystem == true) {
+            if (guildDB && guildDB.levelSystem && guildDB.levelSystem == true) {
                 const randomXP = Math.floor(Math.random() * 29) + 1;
                 const hasLeveledUP = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
                 if (hasLeveledUP) {
@@ -96,18 +93,9 @@ module.exports = {
             };
         };
 
-        if (command.buttonActivated == true) return;
-
         try {
-            if (message.channel.type == 'DM') {
-                if (command.DMU == true) {
-                    await client.channels.cache.get('883251143151599646').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author} used \`${command.name} ${args.join(' ')}\`.`).setColor('GREY').setTimestamp()] });
-                    await command.execute(message, args, data, client);
-                };
-            } else {
-                await client.channels.cache.get('883251143151599646').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author} used \`${command.name} ${args.join(' ')}\`.`).setColor('GREY').setTimestamp()] });
-                await command.execute(message, args, data, client);
-            };
+            await client.channels.cache.get('883251143151599646').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author} used \`${command.name} ${args.join(' ')}\`.`).setColor('GREY').setTimestamp()] });
+            await command.execute(message, args, data, client);
         } catch (err) {
             if (command.name == 'embed') return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("An error occurred whilst running this command!\nIt is most likely from an invalid color, you can probably fix this by:\nMaking the color a valid hex code.\nMaking an all caps color name like GREY or RED\nOr you probably added a space after \`-c\`").setColor("GREY").setTimestamp()] });
             else {

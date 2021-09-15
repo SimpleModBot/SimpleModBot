@@ -17,7 +17,7 @@ If you do find something dangerous please join the [community](https://discord.g
 
 ---
 
-If the issue is something **REALLY** dangerous report to me as soon as you possibly can and I will definately reward tou and thank you.
+If the issue is something **REALLY** dangerous report to me as soon as you possibly can and I will definately reward you and thank you.
 
 If your issue is something dangerous that I don't know of or forgot about you will probably be rewarded in some way for reporting it.
 

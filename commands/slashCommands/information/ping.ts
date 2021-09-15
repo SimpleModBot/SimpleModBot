@@ -26,9 +26,9 @@ module.exports = {
             .setFooter(`${interaction.user.tag.slice(0, -5)} used ping command.`)
             .setColor("#fffb14");
 
-        const Past = Date.now();
         interaction.channel.send({ embeds: [pingingEmbed] }).then(async (resultMessage) => {
             const ping = resultMessage.createdTimestamp - interaction.createdTimestamp;
+            const Past = Date.now();
             await new Ping({
                 _id: mongoose.Types.ObjectId(),
                 pings: 1
@@ -57,9 +57,9 @@ module.exports = {
 
             const pongEmbed = new Discord.MessageEmbed()
                 .setTitle("🏓Pong!")
-                .setDescription(`${MESSAGE}\n> <:BotDev:832344818453184522> Bot: ${ping}ms
+                .setDescription(`${MESSAGE}\n> <:BotDev:832344818453184522> Response: ${ping}ms
                 > <:mongoDB:870855924129079356> Database: ${dbPing}ms
-                > <:DiscordApp:870856184456949761> API: ${client.ws.ping}ms
+                > <:DiscordApp:870856184456949761> Discord: ${client.ws.ping}ms
                 > 💖 Uptime: ${Uptime}`)
                 .setFooter(`${interaction.user.tag.slice(0, -5)} used ping command.`)
                 .setColor(COLOR);
