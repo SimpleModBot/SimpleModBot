@@ -10,7 +10,7 @@ module.exports = {
         if (!mentionedMember) mentionedMember = message.member;
 
         const target = await Levels.fetch(mentionedMember.user.id, message.guild.id);
-        if (!target) return message.channel.send({ content: 'That person does not have any level within the server.' });
+        if (!target) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('That person does not have any level within the server.').setColor('GREY')] });
 
         const levelEmbed = new Discord.MessageEmbed()
             .setTitle(`${mentionedMember.user.tag}'s level in ${message.guild}`)

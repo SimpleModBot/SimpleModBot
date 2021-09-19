@@ -5,8 +5,8 @@ module.exports = {
     description: "Check song queue.",
     async execute(message, args, data, client) {
         const vc = message.member.voice.channel;
-        if (!vc) return message.reply({ content: "Please join a voice channel first!" });
-        if (!client.player.hasQueue(message.guild.id)) return message.reply({ content: 'There is no queue!' });
+        if (!vc) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription("Please join a voice channel first!").setColor('GREY')] });
+        if (!client.player.hasQueue(message.guild.id)) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription('There is no queue!').setColor('GREY')] });
 
         const queue = client.player.getQueue(message.guild.id);
         const embed = new Discord.MessageEmbed()

@@ -18,13 +18,13 @@ module.exports = {
         const memberRole = await message.guild.roles.cache.get(guildProfile.memberRoleID);
         if (memberRole) {
             if (message.member.roles.cache.has(memberRole)) {
-                return message.channel.send({ content: "You are already verified." })
+                return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You are already verified.").setColor('GREY')] })
             } else {
                 message.member.roles.add(memberRole);
-                message.channel.send({ content: "You have succesfully been verified in the server!" });
+                message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You have succesfully been verified in the server!").setColor('GREY')] });
             }
         } else {
-            message.reply({ content: "This guild has no member role set, please ask the owner to set it with the command `config`" });
+            message.reply({ embeds: [new Discord.MessageEmbed().setDescription("This guild has no member role set, please ask the owner to set it with the command `config`").setColor('GREY')] });
         }
     },
 };

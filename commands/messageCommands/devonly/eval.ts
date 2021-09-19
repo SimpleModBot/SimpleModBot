@@ -143,7 +143,7 @@ module.exports = {
                 });
             });
         } catch (err) {
-            message.channel.send(`\`ERROR\` \`\`\`ts\n${clean(err)}\n\`\`\``);
+            message.channel.send({ embeds: [new MessageEmbed().setDescription(`\`ERROR\` \`\`\`ts\n${clean(err)}\n\`\`\``).setColor('GREY')] });
         };
     },
 };

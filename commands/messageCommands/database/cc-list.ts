@@ -7,11 +7,7 @@ module.exports = {
     async execute(message, args, a, client) {
         const data = await schema.find({ Guild: message.guild.id });
         message.channel.send({
-            embeds: [
-                new MessageEmbed()
-                    .setDescription(data.map((cmd) => `● ${cmd.Command}`).join('\n') + "\u200b")
-                    .setColor('GREY')
-            ]
+            embeds: [new MessageEmbed().setDescription(data.map((cmd) => `● ${cmd.Command}`).join('\n') + "\u200b").setColor('GREY')]
         });
     },
 };

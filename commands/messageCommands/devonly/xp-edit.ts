@@ -7,7 +7,7 @@ module.exports = {
     aliases: ["xe"],
     async execute(message, args, data, client) {
         const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-        if (!user) return message.channel.send("You need to say a user.");
+        if (!user) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You need to say a user.").setColor('GREY')] });
 
         let balanceProfile = await Balance.findOne({ userID: user.user.id });
         if (!balanceProfile) {
@@ -18,8 +18,8 @@ module.exports = {
             await balanceProfile.save().catch(err => console.log(err));
         }
 
-        if (args[1] == "ENA") return message.channel.send({ content: "You need to say how much experience you want the user to have." });
-        if (args[1].isNaN) return message.channel.send({ content: "You need to say a number of experience." });
+        if (args[1] == "ENA") return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You need to say how much experience you want the user to have.").setColor('GREY')] });
+        if (args[1].isNaN) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You need to say a number of experience.").setColor('GREY')] });
         await Balance.findOneAndUpdate({ userID: user.user.id }, { exp: args[1] });
         balanceProfile = await Balance.findOne({ userID: user.user.id });
 

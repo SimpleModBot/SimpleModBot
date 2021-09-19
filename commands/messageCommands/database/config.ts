@@ -1,5 +1,6 @@
 const Guild = require('../../../database/models/guildSchema.ts');
 const { MessageButton, MessageActionRow, MessageEmbed } = require('discord.js');
+const Discord = require('discord.js');
 const mongoose = require('mongoose');
 
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
     cooldown: 5,
     description: 'Allows the server owner to change the guild settings.',
     async execute(message, args, data, client) {
-        if (!message.author.id == message.guild.ownerID && message.author.id == '750880076555354185') return message.channel.send({ content: "You do not have permission to use this command as you are not the server owner." });
+        if (!message.author.id == message.guild.ownerID && message.author.id == '750880076555354185') return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You do not have permission to use this command as you are not the server owner.").setColor('GREY')] });
 
         let guildProfile = await Guild.findOne({ guildID: message.guild.id });
         if (!guildProfile) {
@@ -139,7 +140,7 @@ module.exports = {
                     });
                     await button.deferUpdate();
                 } else {
-                    button.reply({ content: `Hey, ${button.user.username}, these buttons aren't for you to use!`, ephemeral: true });
+                    button.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Hey, ${button.user.username}, these buttons aren't for you to use!`).setColor('GREY')], ephemeral: true });
                 };
             });
 
@@ -153,19 +154,19 @@ module.exports = {
         } else {
             if ("add" === args[0]) {
                 if ("prefix" === args[1]) {
-                    if (!args[2]) return message.channel.send({ content: "You did not state a value to update that property to." });
+                    if (!args[2]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You did not state a value to update that property to.").setColor('GREY')] });
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { prefix: args[2], lastEdited: Date.now() });
                     message.channel.send({ content: `Updated: ${args[1]} to ${args[2]} succesfully!` });
                 } else if ("muteRole" === args[1]) {
-                    if (!args[2]) return message.channel.send({ content: "You did not state a value to update that property to." });
+                    if (!args[2]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You did not state a value to update that property to.").setColor('GREY')] });
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { muteRoleID: args[2], lastEdited: Date.now() });
                     message.channel.send({ content: `Updated: ${args[1]} to ${args[2]} succesfully!` });
                 } else if ("memberRole" === args[1]) {
-                    if (!args[2]) return message.channel.send({ content: "You did not state a value to update that property to." });
+                    if (!args[2]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You did not state a value to update that property to.").setColor('GREY')] });
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { memberRoleID: args[2], lastEdited: Date.now() });
                     message.channel.send({ content: `Updated: ${args[1]} to ${args[2]} succesfully!` });
                 } else if ("modlogChannel" === args[1]) {
-                    if (!args[2]) return message.channel.send({ content: "You did not state a value to update that property to." });
+                    if (!args[2]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You did not state a value to update that property to.").setColor('GREY')] });
                     const modlogChannel = message.mentions.channels.first();
                     if (!modlogChannel) return;
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { modlogChannelID: modlogChannel.id, lastEdited: Date.now() });
@@ -177,25 +178,25 @@ module.exports = {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { antiInvite: true });
                     message.channel.send({ content: "antiInvite is now toggled on!" });
                 } else if ("welcomeChannel" === args[1]) {
-                    if (!args[2]) return message.channel.send({ content: "You did not state a value to update that property to." });
+                    if (!args[2]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You did not state a value to update that property to.").setColor('GREY')] });
                     const welcomeChannel = message.mentions.channels.first();
                     if (!welcomeChannel) return;
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { welcomeChannelID: welcomeChannel.id, lastEdited: Date.now() });
                     message.channel.send(`Updated: ${args[1]} to ${welcomeChannel} succesfully!`);
-                } else return message.channel.send({ content: "You need to say a property to update." });
+                } else return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You need to say a property to update.").setColor('GREY')] });
             } else if ("remove" === args[0]) {
                 if ("prefix" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { prefix: "//", lastEdited: Date.now() });
-                    message.channel.send({ content: `Deleted ${args[1]} succesfully!` });
+                    message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Deleted ${args[1]} successfully!`).setColor('GREY')] });
                 } else if ("muteRole" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { muteRoleID: "undefined", lastEdited: Date.now() });
-                    message.channel.send({ content: `Deleted ${args[1]} succesfully!` });
+                    message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Deleted ${args[1]} successfully!`).setColor('GREY')] });
                 } else if ("memberRole" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { memberRoleID: "undefined", lastEdited: Date.now() });
-                    message.channel.send({ content: `Deleted ${args[1]} succesfully!` });
+                    message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Deleted ${args[1]} successfully!`).setColor('GREY')] });
                 } else if ("modlogChannel" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { modlogChannelID: "undefined", lastEdited: Date.now() });
-                    message.channel.send({ content: `Deleted ${args[1]} succesfully!` });
+                    message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Deleted ${args[1]} successfully!`).setColor('GREY')] });
                 } else if ("levelSystem" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { levelSystem: false });
                     message.channel.send({ content: "Level System is now toggled off!" });
@@ -204,7 +205,7 @@ module.exports = {
                     message.channel.send({ content: "antiInvite is now toggled off!" });
                 } else if ("welcomeChannel" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { welcomeChannelID: "undefined", lastEdited: Date.now() });
-                    message.channel.send({ content: `Deleted ${args[1]} succesfully!` });
+                    message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Deleted ${args[1]} successfully!`).setColor('GREY')] });
                 } else return message.channel.send({ content: "You need to say a property to delete." });
             } else return message.channel.send({ content: "You need to say if you want to `add` or `remove` a property." });
         };

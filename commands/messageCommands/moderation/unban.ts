@@ -5,24 +5,24 @@ const mongoose = require("mongoose");
 module.exports = {
     name: 'unban',
     async execute(message, args, data, client) {
-        if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send({ content: "You do not have permission to use this command!" });
-        if (!message.guild.me.permissions.has("BAN_MEMBERS")) return message.channel.send({ content: "I do not have permission to ban users." });
+        if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You do not have permission to use this command!").setColor('GREY')] });
+        if (!message.guild.me.permissions.has("BAN_MEMBERS")) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("I do not have permission to ban users.").setColor('GREY')] });
 
         let reason = args.slice(1).join(" ");
         let userID = args[0];
 
         if (!reason) reason = "No reason given.";
-        if (!args[0]) return message.channel.send({ content: "You must mention a user to unban." });
-        if (isNaN(args[0])) return message.channel.send({ content: "The ID mentioned is not valid" });
+        if (!args[0]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You must mention a user to unban.").setColor('GREY')] });
+        if (isNaN(args[0])) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("The ID mentioned is not valid").setColor('GREY')] });
 
         message.guild.fetchBans().then(async (bans) => {
-            if (bans.size == 0) return message.channel.send({ content: "This server does not have anyone banned" });
+            if (bans.size == 0) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("This server does not have anyone banned").setColor('GREY')] });
             let bUser = bans.find((b) => b.user.id == userID);
-            if (!bUser) return message.channel.send({ content: "The user ID mentioned is not banned." });
+            if (!bUser) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("The user ID mentioned is not banned.").setColor('GREY')] });
             await message.guild.members.unban(bUser.user, reason).catch((err) => {
                 Promise.reject(new err);
             }).then(() => {
-                message.channel.send({ content: `Succesfully Unbanned ${args[0]}` });
+                message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Succesfully Unbanned ${args[0]}`).setColor('GREY')] });
             });
             let guildProfile = await Guild.findOne({ guildID: message.guild.id });
             if (!guildProfile) {

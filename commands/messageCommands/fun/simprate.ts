@@ -7,7 +7,7 @@ module.exports = {
         const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
         let simprate = Math.floor(Math.random() * 101)
         if (user.id == '750880076555354185') simprate = Math.floor(Math.random() * 5);
-        if (!user) return message.reply({ content: `Please mention a user in this guild.` })
+        if (!user) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Please mention a user in this guild.`).setColor('GREY')] })
 
         const embed = new Discord.MessageEmbed()
             .setTitle(`Simprate.`)

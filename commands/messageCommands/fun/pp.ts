@@ -33,7 +33,7 @@ module.exports = {
     aliases: ['ppsize'],
     async execute(message, args, data, client) {
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
-        if (!member) return message.reply({ content: `Please mentioned a user in this guild.` })
+        if (!member) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Please mentioned a user in this guild.`).setColor('GREY')] })
 
         const embed = new Discord.MessageEmbed()
             .setTitle('PP Size Detector')

@@ -8,7 +8,7 @@ module.exports = {
     description: 'Shows the servers leaderboard.',
     async execute(message, args, data, client) {
         const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);
-        if (rawLeaderboard.length < 1) return message.reply({ content: "Nobody's in leaderboard yet." });
+        if (rawLeaderboard.length < 1) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription("Nobody's in leaderboard yet.").setColor('GREY')] });
         const leaderboard = await Levels.computeLeaderboard(client, rawLeaderboard, true);
         const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
 

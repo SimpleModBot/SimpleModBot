@@ -5,7 +5,7 @@ module.exports = {
     name: "bonk",
     async execute(message, args, data, client) {
         const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
-        if (!user) return message.reply({ content: `Please mention a user from this guild to bonk.` })
+        if (!user) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Please mention a user from this guild to bonk.`).setColor('GREY')] })
 
         const bonk = await jimp.read(`${__dirname}/../../../utils/images/bonk.jpeg`);
         const userAv = await jimp.read(message.author.displayAvatarURL({ format: "jpeg" }));

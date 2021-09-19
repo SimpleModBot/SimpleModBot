@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: "chat",
     aliases: ["talk"],
@@ -13,7 +15,7 @@ module.exports = {
                 fetch(`https://api.monkedev.com/fun/chat?msg=${encodeURIComponent(input)}&uid=${message.author.id}`)
                     .then((res) => res.json())
                     .then(async (json) => {
-                        return message.reply({ content: json.response, allowedMentions: { everyone: false } });
+                        return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(json.response).setColor('GREY')], allowedMentions: { everyone: false } });
                     });
             } catch (err) {
                 Promise.reject(new err);

@@ -22,7 +22,7 @@ module.exports = {
         ];
 
         const question = args.join(" ");
-        if (!question) return message.reply({ content: 'Please provide a question to ask' });
+        if (question == 'ENA') return message.reply({ embeds: [new Discord.MessageEmbed().setDescription('Please provide a question to ask').setColor('GREY')] });
 
         const embed = new Discord.MessageEmbed()
             .setTitle('The Magic 8-Ball')

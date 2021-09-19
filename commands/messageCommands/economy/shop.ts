@@ -9,7 +9,6 @@ module.exports = {
     cooldown: 3,
     async execute(message, args, data, client) {
         let mentionedMember = message.member.id;
-        let inventoryProfile = await Inventory.findOne({ userID: mentionedMember });
         let balanceProfile = await Balance.findOne({ userID: mentionedMember });
         if (!balanceProfile) {
             balanceProfile = await new Balance({
@@ -100,7 +99,7 @@ module.exports = {
                 });
                 await button.deferUpdate();
             } else {
-                button.reply({ content: `Hey, ${button.user.username}, these buttons aren't for you to use!`, ephemeral: true });
+                button.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Hey, ${button.user.username}, these buttons aren't for you to use!`).setColor('GREY')], ephemeral: true });
             };
         });
 

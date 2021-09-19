@@ -9,7 +9,7 @@ module.exports = {
         let gayrate = Math.floor(Math.random() * 101);
         if (user.id == '750880076555354185') gayrate = Math.floor(Math.random() * 5);
 
-        if (!user) return message.reply({ content: `Please provide a valid user from this guild.` })
+        if (!user) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Please provide a valid user from this guild.`).setColor('GREY')] })
 
         const embed = new Discord.MessageEmbed()
             .setTitle(`Gayrate For ${user.user.tag}`)

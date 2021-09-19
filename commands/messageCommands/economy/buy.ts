@@ -49,10 +49,10 @@ module.exports = {
         };
 
         let buyingNumber = parseInt(args[1]);
-        if (buyingNumber.isNaN) return message.channel.send({ content: "The number you want to buy is not valid." });
+        if (buyingNumber.isNaN) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("The number you want to buy is not valid.").setColor('GREY')] });
 
-        if (!args[0]) return message.channel.send({ content: "Please say the ID of which item you would like to buy." });
-        if (args[1] == "ENA") return message.channel.send({ content: "Please say the amount you would like to buy of this item." });
+        if (!args[0]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("Please say the ID of which item you would like to buy.").setColor('GREY')] });
+        if (args[1] == "ENA") return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("Please say the amount you would like to buy of this item.").setColor('GREY')] });
 
         if (args[0] == "1" && balanceProfile.balance > buyingNumber * 25 - 1) {
             await Balance.findOneAndUpdate({ userID: mentionedMember }, { balance: balanceProfile.balance - (buyingNumber * 25) });
@@ -68,7 +68,7 @@ module.exports = {
             await Balance.findOneAndUpdate({ userID: mentionedMember }, { balance: balanceProfile.balance - (buyingNumber * 15) });
             await Inventory.findOneAndUpdate({ userID: mentionedMember }, { item3: inventoryProfile.item3 + buyingNumber });
 
-            message.channel.send({ content: `Successfully bought \`${buyingNumber}\` of item\`3\`, <:blobOwo:852784471819550802>\`Blob Plushie\`, for \`$${buyingNumber * 15}\`` });
-        } else message.channel.send({ content: "You do not have enough money to buy this item or it doesn't exist. Please check the shop to see prices and items." });
+            message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Successfully bought \`${buyingNumber}\` of item\`3\`, <:blobOwo:852784471819550802>\`Blob Plushie\`, for \`$${buyingNumber * 15}\``).setColor('GREY')] });
+        } else message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You do not have enough money to buy this item or it doesn't exist. Please check the shop to see prices and items.").setColor('GREY')] });
     },
 };

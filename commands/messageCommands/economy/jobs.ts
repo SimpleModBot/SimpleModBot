@@ -6,7 +6,7 @@ module.exports = {
     cooldown: 10,
     async execute(message, args, data, client) {
         let userProfile = await client.data.getBalanceDB(message.author.id);
-        if (!userProfile) return message.channel.send("You have no Bot Wallet, please use the `balance`/`bal` command to create one.");
+        if (!userProfile) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You have no Bot Wallet, please use the `balance`/`bal` command to create one.").setColor('GREY')] });
         if (!userProfile.job) userProfile.job = "none";
         if (!userProfile.exp) userProfile.exp = 0;
 
@@ -38,7 +38,7 @@ module.exports = {
             } else if (userProfile.exp >= jobs.SMBG_EXP) {
                 userProfile.job = jobs.SMBG_N;
                 await userProfile.save();
-                message.channel.send({ content: `Holy :shit: congratulations! You have successfully changed your job to \`${jobs.SMBG_N}\`!\nI really hope you had an immense amount of fun somehow grinding to this point!` });
+                message.channel.send({ content: `Congratulations! You have successfully changed your job to \`${jobs.SMBG_N}\`!\nI really hope you had an immense amount of fun somehow grinding to this point!` });
             };
         } else if (args[0] == "BC") {
             if (userProfile.exp < jobs.BC_EXP) {

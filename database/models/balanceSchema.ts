@@ -7,6 +7,6 @@ const balanceSchema = new mongoose.Schema({
     job: { type: String, default: "none" },
     exp: { type: Number, default: 0 },
     useless: { type: Number, default: 0 },
-})
+});
 
 module.exports = new mongoose.model('Balance', balanceSchema, 'balances');

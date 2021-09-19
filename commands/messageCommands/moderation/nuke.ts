@@ -7,14 +7,14 @@ module.exports = {
     aliases: ['bomb'],
     description: 'Deletes the current channel and makes a new identical one. (good for deleting really old messages)',
     async execute(message, args, data, client) {
-        if (!message.member.permissions.has("MANAGE_CHANNELS")) return message.channel.send({ content: "You can't use this command." });
-        if (!message.guild.me.permissions.has("MANAGE_CHANNELS")) return message.channel.send({ content: "I do not have permission to MANAGE_CHANNELS." });
+        if (!message.member.permissions.has("MANAGE_CHANNELS")) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You can't use this command.").setColor('GREY')] });
+        if (!message.guild.me.permissions.has("MANAGE_CHANNELS")) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("I do not have permission to MANAGE_CHANNELS.").setColor('GREY')] });
 
         let reason = args.join(" ");
         const nukeChannel = message.channel;
 
         if (!reason) reason = "No reason given.";
-        if (!nukeChannel.deletable) return message.channel.send({ content: "This channel is not deletable." });
+        if (!nukeChannel.deletable) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("This channel is not deletable.").setColor('GREY')] });
 
         try {
             await nukeChannel.clone();

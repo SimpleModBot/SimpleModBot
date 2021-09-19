@@ -5,7 +5,7 @@ module.exports = {
     name: "dumb",
     async execute(message, args, data, client) {
         const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
-        if (!user) return message.reply({ content: `Please mention a user from this guild to make into a dumb ass.` })
+        if (!user) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Please mention a user from this guild to make into a dumb ass.`).setColor('GREY')] })
 
         const bonk = await jimp.read(`${__dirname}/../../../utils/images/dumb.png`);
         const userToBonkAv = await jimp.read(user.user.displayAvatarURL({ format: "png" }));

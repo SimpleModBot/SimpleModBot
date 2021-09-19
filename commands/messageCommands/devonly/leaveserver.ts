@@ -12,9 +12,9 @@ module.exports = {
 
         const guild = message.client.guilds.cache.get(guildId);
 
-        if (!guild) return message.channel.send({ content: "Please give me a valid guild ID." });
+        if (!guild) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("Please give me a valid guild ID.").setColor('GREY')] });
         await guild.leave();
 
-        await message.channel.send({ content: `Left the guild **\`${guild.name}\`** with **\`${guild.memberCount}\`** Users Successfully!` });
+        await message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Left the guild **\`${guild.name}\`** with **\`${guild.memberCount}\`** Users Successfully!`).setColor('GREY')] });
     },
 };

@@ -6,7 +6,7 @@ module.exports = {
     DMU: true,
     async execute(message, args, data, client) {
         let countries = args.join(" ");
-        if (!countries) return message.channel.send({ content: `Please Provide a Country, or Say "${client.prefix}covid all"` });
+        if (!countries) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Please Provide a Country, or Say "${client.prefix}covid all"`).setColor('GREY')] });
 
         if (args[0] === "all") {
             fetch(`https://covid19.mathdro.id/api`)
@@ -42,7 +42,7 @@ module.exports = {
 
                     message.channel.send({ embeds: [embed] })
                 }).catch(e => {
-                    return message.channel.send({ content: `Invalid Country.` })
+                    return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Invalid Country.`).setColor('GREY')] })
                 })
         }
     },

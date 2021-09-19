@@ -8,7 +8,7 @@ module.exports = {
         let key = "AIzaSyAyGGUJvip1tNAr-QYNA3X89VIZW6AiL8w";
         let csx = "e326af2435b868fea";
         let query = args.join(" ");
-        if (!query) return message.reply({ content: `Please provide something to search for. Example: \`${client.prefix}google youtube\`` });
+        if (!query) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Please provide something to search for. Example: \`${client.prefix}google youtube\``).setColor('GREY')] });
 
         async function search(query) {
             const { body } = await request.get("https://www.googleapis.com/customsearch/v1").query({

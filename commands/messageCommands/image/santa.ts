@@ -5,7 +5,7 @@ module.exports = {
     name: 'santa',
     async execute(message, args, data, client) {
         let say = message.content.split(" ").slice(1).join(" ");
-        if (!say) return message.channel.send('You need to say something to put on the image!');
+        if (!say) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('You need to say something to put on the image!').setColor('GREY')] });
 
         const canvas = Canvas.createCanvas(641, 617);
         const ctx = canvas.getContext('2d');

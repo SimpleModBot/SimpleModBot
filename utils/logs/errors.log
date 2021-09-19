@@ -709,3 +709,18 @@ Require stack:
     at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:98:27)
     at runMicrotasks (<anonymous>)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-16T07:04:45.851] [ERROR] default - DMPError [VoiceConnectionError]: There was an Error while starting the Voice Stream
+    at Queue.<anonymous> (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord-music-player\dist\managers\Queue.js:117:23)
+    at Generator.throw (<anonymous>)
+    at rejected (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord-music-player\dist\managers\Queue.js:6:65)
+[2021-09-18T16:33:45.164] [ERROR] default - ObjectParameterError: Parameter "filter" to findOne() must be an object, got 750880076555354185
+    at model.Query.Query.findOne (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\mongoose\lib\query.js:2321:16)
+    at Function.findOne (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\mongoose\lib\model.js:2266:13)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\premium\testpremium.ts:7:36)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:102:27)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-18T16:42:58.640] [ERROR] default - TypeError: schema.findOneAndUpdate(...).save is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\premium\testpremium.ts:11:74)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:102:13)

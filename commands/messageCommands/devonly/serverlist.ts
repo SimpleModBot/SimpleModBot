@@ -18,7 +18,6 @@ module.exports = {
         });
 
         await console.log(Table.toString());
-        await require("log4js").getLogger(`info`).info(Table.toString());
-        message.channel.send({ content: "I have logged the servers." });
+        message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("I have logged the servers.").setColor('GREY')] });
     },
 };

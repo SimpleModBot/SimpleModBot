@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const weather = require('weather-js');
+const Discord = require('discord.js');
 
 module.exports = {
     name: "weather",
@@ -9,8 +10,8 @@ module.exports = {
             weather.find({ search: args.join(" "), degreeType: 'F' }, function (err, result) {
 
                 if (err) message.channel.send(err.message);
-                if (!result) return message.channel.send({ content: "You probably used this command after I don't have a valid connection so an error occurred." });
-                if (result.length === 0) return message.channel.send({ content: `Please enter a valid location.` });
+                if (!result) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You probably used this command after I don't have a valid connection so an error occurred.").setColor('GREY')] });
+                if (result.length === 0) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Please enter a valid location.`).setColor('GREY')] });
 
                 var current = result[0].current;
                 var location = result[0].location;
@@ -35,7 +36,7 @@ module.exports = {
 
             });
         } catch (err) {
-            message.channel.send({ content: `Please enter a valid location.` });
+            message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Please enter a valid location.`).setColor('GREY')] });
             Promise.reject(new err);
         }
     },

@@ -131,7 +131,7 @@ module.exports = {
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
                 .setColor(roleColor)
                 .setTimestamp();
-            
+
             const randomEmbed = new Discord.MessageEmbed()
                 .setTitle("Commands:")
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)

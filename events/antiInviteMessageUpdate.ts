@@ -16,7 +16,7 @@ module.exports = {
         if (guildProfile.antiInvite) if (guildProfile.antiInvite == false) return; else return;
 
         function deleteMessage() {
-            if (!message.channel.permissionsFor(message.guild.me).has("MANAGE_MESSAGES")) return message.reply({ content: "I have anti invite turned on but I do not have the permissions I need to protect you!" });
+            if (!message.channel.permissionsFor(message.guild.me).has("MANAGE_MESSAGES")) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription("I have anti invite turned on but I do not have the permissions I need to protect you!").setColor('GREY')] });
             message.delete();
             message.channel.send({
                 embeds: [new Discord.MessageEmbed()

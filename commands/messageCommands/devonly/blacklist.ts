@@ -11,15 +11,15 @@ module.exports = {
         const mentionedMember = message.mentions.members.first() || await client.members.cache.get(args[0]);
         let reason = args.slice(1).join(" ");
 
-        if (!args[0]) return message.channel.send({ content: 'You need to give a user to blacklist along with why your banning them.' });
-        if (!mentionedMember) return message.channel.send({ content: 'The member stated is not in the server.' });
+        if (!args[0]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('You need to give a user to blacklist along with why your banning them.').setColor('GREY')] });
+        if (!mentionedMember) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('The member stated is not in the server.').setColor('GREY')] });
         if (!reason) reason = 'No given reason.';
 
         let profile = await Blacklist.findOne({
             userID: mentionedMember.user.id
         });
 
-        if (profile) return message.channel.send({ content: 'This user is already banned from using the bot.' });
+        if (profile) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('This user is already banned from using the bot.').setColor('GREY')] });
         profile = await new Blacklist({
             _id: mongoose.Types.ObjectId(),
             userID: mentionedMember.user.id,
@@ -27,7 +27,7 @@ module.exports = {
         })
         try {
             await profile.save();
-            message.channel.send({ content: 'Successfully banned ' + mentionedMember.user.tag + ' from using the bot!' });
+            message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('Successfully banned ' + mentionedMember.user.tag + ' from using the bot!').setColor('GREY')] });
         } catch (err) {
             const errorChannel = await client.channels.cache.get("832744410998767666");
             const errorMessage = new Discord.MessageEmbed()

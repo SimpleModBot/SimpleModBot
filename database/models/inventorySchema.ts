@@ -23,7 +23,7 @@ const inventorySchema = new mongoose.Schema({
     item17: { type: Number, default: 0 },
     item18: { type: Number, default: 0 },
     item19: { type: Number, default: 0 },
-    item20: { type: Number, default: 0},
-})
+    item20: { type: Number, default: 0 },
+});
 
 module.exports = new mongoose.model('Inventory', inventorySchema, 'Inventories');

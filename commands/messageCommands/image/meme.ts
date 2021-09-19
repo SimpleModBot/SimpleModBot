@@ -11,7 +11,7 @@ module.exports = {
                 .setImage(json.url)
                 .setFooter(`${json.subreddit}`);
 
-            let msg = await message.channel.send({ content: "Fetching you a meme..." });
+            let msg = await message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("Fetching you a meme...").setColor('GREY')] });
             msg.edit({ embeds: [memeEmbed] });
         });
 

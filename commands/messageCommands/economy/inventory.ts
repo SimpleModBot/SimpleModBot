@@ -97,7 +97,7 @@ module.exports = {
                 });
                 await button.deferUpdate();
             } else {
-                button.reply({ content: `Hey, ${button.user.username}, these buttons aren't for you to use!`, ephemeral: true });
+                button.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Hey, ${button.user.username}, these buttons aren't for you to use!`).setColor('GREY')], ephemeral: true });
             };
         });
 

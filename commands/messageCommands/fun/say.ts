@@ -4,9 +4,9 @@ module.exports = {
   name: 'say',
   description: 'Says a message in a nice embed.',
   async execute(message, args, data, client) {
-    if (args[0] == "ENA") return message.channel.send({ content: "Please give me something to say!" });
+    if (args[0] == "ENA") return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("Please give me something to say!").setColor('GREY')] });
     const messageToSay = args.join(" ");
-    if (messageToSay.length > 2048) return message.channel.send({ content: "This message is too big for me to say!" });
+    if (messageToSay.length > 2048) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("This message is too big for me to say!").setColor('GREY')] });
 
     const sayEmbed = new Discord.MessageEmbed()
       .setDescription(`${messageToSay}\u200b`)
@@ -17,7 +17,7 @@ module.exports = {
     try {
       message.channel.send({embeds:[sayEmbed]});
     } catch (err) {
-      message.channel.send({ content: "I am unable to send that message." });
+      message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("I am unable to send that message.").setColor('GREY')] });
       Promise.reject(new err);
     }
 

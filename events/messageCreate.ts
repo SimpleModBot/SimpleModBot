@@ -23,11 +23,11 @@ module.exports = {
         let inventoryDB = client.data.getInventoryDB(message.author.id);
 
         let data = {
-            config: "An Error Occured Loading This Information.",
-            balance: "An Error Occured Loading This Information.",
-            blacklisted: "An Error Occured Loading This Information.",
-            guild: "An Error Occured Loading This Information.",
-            inventory: "An Error Occured Loading This Information."
+            config: "An Error Occurred Loading This Information.",
+            balance: "An Error Occurred Loading This Information.",
+            blacklisted: "An Error Occurred Loading This Information.",
+            guild: "An Error Occurred Loading This Information.",
+            inventory: "An Error Occurred Loading This Information.",
         };
 
         data.config = client;
@@ -56,9 +56,8 @@ module.exports = {
         let profile = await require("../database/models/blackListSchema.ts").findOne({
             userID: message.author.id
         });
-        if (profile) return message.channel.send({ content: 'You cannot use this bot as you are banned. You can appeal in the support server: https://discord.gg/26NtPVvNCU' });
-        if (command.devOnly == true && message.author.id !== client.ownerID) return message.channel.send({ content: 'You don\'t have permission to use this command as it is only for developers.' });
-
+        if (profile) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('You cannot use this bot as you are banned. You can appeal in the support server: https://discord.gg/26NtPVvNCU').setColor('GREY')] });
+        if (command.devOnly == true && message.author.id !== client.ownerID) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('You don\'t have permission to use this command as it is only for developers.').setColor('GREY')] });
         const { cooldowns } = client;
         if (!cooldowns.has(command.name)) {
             cooldowns.set(command.name, new Discord.Collection());
@@ -72,7 +71,7 @@ module.exports = {
             const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
             if (now < expirationTime) {
                 const timeLeft = (expirationTime - now) / 1000;
-                return message.reply({ content: `Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.` });
+                return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`).setColor('GREY')] });
             }
         }
 
@@ -85,7 +84,7 @@ module.exports = {
                 const hasLeveledUP = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
                 if (hasLeveledUP) {
                     const user = await Levels.fetch(message.author.id, message.guild.id);
-                    message.channel.send({ content: `${message.member.user.tag}, you have leveled up to ${user.level}!` })
+                    message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.member.user.tag}, you have leveled up to ${user.level}!`).setColor('GREY')] })
                         .then((lvlmsg) => {
                             lvlmsg.delete({ timeout: 3500 });
                         });
@@ -109,7 +108,7 @@ module.exports = {
                     .setColor("#ff0a0a");
 
                 errorChannel.send({ embeds: [errorMessage] });
-                message.channel.send({ content: "An error occured within the bot. If you are a dev or log viewer please review the error in <#832744410998767666>" });
+                message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("An error occured within the bot. If you are a dev or log viewer please review the error in <#832744410998767666>").setColor('GREY')] });
             };
         };
     },
