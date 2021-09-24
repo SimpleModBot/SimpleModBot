@@ -724,3 +724,83 @@ Require stack:
     at runMicrotasks (<anonymous>)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
     at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:102:13)
+[2021-09-19T00:12:13.254] [ERROR] default - TypeError: message.guild.members.cache.array is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\information\serverinfo.ts:38:53)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-19T00:13:21.214] [ERROR] default - TypeError: Cannot read property 'status' of null
+    at C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\information\serverinfo.ts:40:57
+    at Map.filter (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\@discordjs\collection\dist\index.js:159:17)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\information\serverinfo.ts:40:32)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-19T00:16:59.635] [ERROR] default - TypeError: Cannot read property 'status' of null
+    at C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\information\serverinfo.ts:40:54
+    at Map.filter (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\@discordjs\collection\dist\index.js:159:17)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\information\serverinfo.ts:40:29)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-19T00:17:31.233] [ERROR] default - RangeError [EMBED_FIELD_VALUE]: MessageEmbed field values must be non-empty strings.
+    at Function.verifyString (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\util\Util.js:413:41)
+    at Function.normalizeField (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:443:19)
+    at C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:464:14
+    at Array.map (<anonymous>)
+    at Function.normalizeFields (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:463:8)
+    at MessageEmbed.addFields (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:286:42)
+    at MessageEmbed.addField (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:277:17)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\information\serverinfo.ts:58:14)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'EMBED_FIELD_VALUE'
+}
+[2021-09-19T00:18:51.262] [ERROR] default - RangeError [EMBED_FIELD_VALUE]: MessageEmbed field values must be non-empty strings.
+    at Function.verifyString (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\util\Util.js:413:41)
+    at Function.normalizeField (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:443:19)
+    at C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:464:14
+    at Array.map (<anonymous>)
+    at Function.normalizeFields (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:463:8)
+    at MessageEmbed.addFields (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:286:42)
+    at MessageEmbed.addField (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:277:17)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\information\serverinfo.ts:63:14)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'EMBED_FIELD_VALUE'
+}
+[2021-09-19T00:19:24.817] [ERROR] default - RangeError [EMBED_FIELD_VALUE]: MessageEmbed field values must be non-empty strings.
+    at Function.verifyString (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\util\Util.js:413:41)
+    at Function.normalizeField (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:443:19)
+    at C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:464:14
+    at Array.map (<anonymous>)
+    at Function.normalizeFields (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:463:8)
+    at MessageEmbed.addFields (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:286:42)
+    at MessageEmbed.addField (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\MessageEmbed.js:277:17)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\information\serverinfo.ts:69:14)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  [Symbol(code)]: 'EMBED_FIELD_VALUE'
+}
+[2021-09-19T00:38:34.084] [ERROR] default - DMPError [VoiceConnectionError]: There was an Error while starting the Voice Stream
+    at Queue.<anonymous> (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord-music-player\dist\managers\Queue.js:117:23)
+    at Generator.throw (<anonymous>)
+    at rejected (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord-music-player\dist\managers\Queue.js:6:65)
+[2021-09-19T00:50:17.576] [ERROR] default - TypeError: Cannot read property 'cache' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\blacklist.ts:11:90)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-19T00:52:04.288] [ERROR] default - TypeError: Cannot read property 'id' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\blacklist.ts:19:42)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:13)
+[2021-09-19T00:52:52.510] [ERROR] default - TypeError: Cannot read property 'user' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\blacklist.ts:11:65)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)

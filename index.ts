@@ -42,6 +42,7 @@ const slashCommandFolders = fs.readdirSync("./commands/slashCommands");
     process.setMaxListeners(0);
     require('events').EventEmitter.defaultMaxListeners = 0;
     client.setMaxListeners(0);
+
     await client.handleEvents(eventFiles, "./events");
     await client.handleMessageCommands(messageCommandFolders, "./commands/messageCommands");
     await client.handleSlashCommands(slashCommandFolders, "./commands/slashCommands");

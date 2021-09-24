@@ -7,7 +7,7 @@ module.exports = {
     devOnly: true,
     description: 'Reloads a command',
     async execute(message, args, data, client) {
-        if (!args[0]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You need to tell me what command to add, ex: //reload help").setColor('GREY')] });
+        if (!args[0]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`You need to tell me what command to add, ex: ${client.prefix}addcmd cheese`).setColor('GREY')] });
 
         const commandName = args[0].toLowerCase();
         const commandFolders = fs.readdirSync('./commands/messageCommands');

@@ -8,7 +8,7 @@ module.exports = {
     DMU: true,
     devOnly: true,
     async execute(message, args, data, client) {
-        const mentionedMember = message.mentions.members.first() || await client.members.cache.get(args[0]);
+        const mentionedMember = message.mentions.members.first() || await message.guild.members.cache.get(args[0]);
         let reason = args.slice(1).join(" ");
 
         if (!args[0]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('You need to give a user to blacklist along with why your banning them.').setColor('GREY')] });

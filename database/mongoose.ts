@@ -32,7 +32,6 @@ module.exports = {
         const blacklistsDB = require("./models/blackListSchema.ts");
         const guildsDB = require("./models/guildSchema.ts");
         const inventoriesDB = require("./models/inventorySchema.ts");
-        const premiumsDB = require("./models/premiumSchema.ts");
 
         module.exports.getBalanceDB = async function (userID) {
             let balanceDB = await balancesDB.findOne({ userID: userID });
@@ -67,19 +66,6 @@ module.exports = {
                 return inventoryDB;
             } else {
                 return "User Doesn't Have An Inventory.";
-            };
-        };
-
-        module.exports.getPremiumDB = async function (userID) {
-            let premiumDB = await premiumsDB.findOne({ userID: userID });
-            if (premiumDB) {
-                return premiumDB;
-            } else {
-                premiumDB = await new premiumsDB({
-                    _id: mongoose.Types.ObjectId(),
-                    userID: userID,
-                    premium: false,
-                }).save();
             };
         };
 
