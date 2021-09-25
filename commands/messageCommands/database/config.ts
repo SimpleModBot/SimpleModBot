@@ -29,26 +29,26 @@ module.exports = {
                 .setColor("GREY");
 
             const muteRoleID = new MessageEmbed()
-                .setTitle("muteRoleID")
+                .setTitle("muteRole")
                 .setDescription(`The current muteRole is ${guildProfile.muteRoleID}
                 To change or remove/reset it use:
-                \`${client.prefix}config add/remove muteRoleID <input>\``)
+                \`${client.prefix}config add/remove muteRole <input>\``)
                 .setTimestamp()
                 .setColor("GREY");
 
             const memberRoleID = new MessageEmbed()
-                .setTitle("memberRoleID")
+                .setTitle("memberRole")
                 .setDescription(`The current memberRole is ${guildProfile.memberRoleID}
                 To change or remove/reset it use:
-                \`${client.prefix}config add/remove memberRoleID <input>\``)
+                \`${client.prefix}config add/remove memberRole <input>\``)
                 .setTimestamp()
                 .setColor("GREY");
 
             const modlogChannelID = new MessageEmbed()
-                .setTitle("modlogChannelID")
+                .setTitle("modlogChannel")
                 .setDescription(`The current modlogChannel is ${guildProfile.modlogChannelID}
                 To change or remove/reset it use:
-                \`${client.prefix}config add/remove modlogChannelID <input>\``)
+                \`${client.prefix}config add/remove modlogChannel <input>\``)
                 .setTimestamp()
                 .setColor("GREY");
 

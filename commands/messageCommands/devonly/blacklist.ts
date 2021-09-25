@@ -5,7 +5,6 @@ const Discord = require("discord.js");
 module.exports = {
     name: 'blacklist',
     description: 'Bans a member from using the bot.',
-    DMU: true,
     devOnly: true,
     async execute(message, args, data, client) {
         const mentionedMember = message.mentions.members.first() || await message.guild.members.cache.get(args[0]);
@@ -19,12 +18,17 @@ module.exports = {
             userID: mentionedMember.user.id
         });
 
-        if (profile) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('This user is already banned from using the bot.').setColor('GREY')] });
+        if (profile) {
+            await Blacklist.findOneAndDelete({ userID: mentionedMember.user.id });
+            return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`I have removed ${mentionedMember.user.tag} from the blacklist.`).setColor('GREY')], allowedMentions: { repliedUser: false } });
+        };
+
         profile = await new Blacklist({
             _id: mongoose.Types.ObjectId(),
             userID: mentionedMember.user.id,
             reason: reason,
-        })
+        });
+
         try {
             await profile.save();
             message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('Successfully banned ' + mentionedMember.user.tag + ' from using the bot!').setColor('GREY')] });
@@ -36,6 +40,6 @@ module.exports = {
                 .setTimestamp()
                 .setColor("#ff0a0a");
             errorChannel.send(errorMessage);
-        }
+        };
     },
 };

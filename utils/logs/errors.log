@@ -804,3 +804,84 @@ Require stack:
     at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
     at runMicrotasks (<anonymous>)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-24T21:20:42.430] [ERROR] default - ReferenceError: Discord is not defined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:15:42)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-24T21:23:45.463] [ERROR] default - DiscordAPIError: Invalid Form Body
+embeds[0].description: This field is required
+    at RequestHandler.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\rest\RequestHandler.js:298:13)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async RequestHandler.push (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\rest\RequestHandler.js:50:14)
+    at async TextChannel.send (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:171:15)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:13) {
+  method: 'post',
+  path: '/channels/814386802609487912/messages',
+  code: 50035,
+  httpStatus: 400,
+  requestData: {
+    json: {
+      content: undefined,
+      tts: false,
+      nonce: undefined,
+      embeds: [Array],
+      components: undefined,
+      username: undefined,
+      avatar_url: undefined,
+      allowed_mentions: [Object],
+      flags: 0,
+      message_reference: [Object],
+      attachments: undefined,
+      sticker_ids: undefined
+    },
+    files: []
+  }
+}
+[2021-09-24T21:23:48.713] [ERROR] default - DiscordAPIError: Invalid Form Body
+embeds[0].description: This field is required
+    at RequestHandler.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\rest\RequestHandler.js:298:13)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async RequestHandler.push (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\rest\RequestHandler.js:50:14)
+    at async TextChannel.send (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\discord.js\src\structures\interfaces\TextBasedChannel.js:171:15)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:13) {
+  method: 'post',
+  path: '/channels/814386802609487912/messages',
+  code: 50035,
+  httpStatus: 400,
+  requestData: {
+    json: {
+      content: undefined,
+      tts: false,
+      nonce: undefined,
+      embeds: [Array],
+      components: undefined,
+      username: undefined,
+      avatar_url: undefined,
+      allowed_mentions: [Object],
+      flags: 0,
+      message_reference: [Object],
+      attachments: undefined,
+      sticker_ids: undefined
+    },
+    files: []
+  }
+}
+[2021-09-24T21:44:39.514] [ERROR] default - Error: Cannot find module '../undefined/binary.ts'
+Require stack:
+- C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\reload.ts
+- C:\Users\zachc\Documents\GitHub\SimpleModBot\utils\handlers\messageCommand.ts
+- C:\Users\zachc\Documents\GitHub\SimpleModBot\index.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.resolve (node:internal/modules/cjs/helpers:100:19)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\reload.ts:42:42)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\zachc\\Documents\\GitHub\\SimpleModBot\\commands\\messageCommands\\devonly\\reload.ts',
+    'C:\\Users\\zachc\\Documents\\GitHub\\SimpleModBot\\utils\\handlers\\messageCommand.ts',
+    'C:\\Users\\zachc\\Documents\\GitHub\\SimpleModBot\\index.ts'
+  ]
+}

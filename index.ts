@@ -35,8 +35,8 @@ const messageCommandFolders = fs.readdirSync("./commands/messageCommands");
 const slashCommandFolders = fs.readdirSync("./commands/slashCommands");
 
 (async () => {
-    for (file of handlers) {
-        require(`./utils/handlers/${file}`)(client);
+    for (File of handlers) {
+        require(`./utils/handlers/${File}`)(client);
     };
 
     process.setMaxListeners(0);
@@ -48,4 +48,6 @@ const slashCommandFolders = fs.readdirSync("./commands/slashCommands");
     await client.handleSlashCommands(slashCommandFolders, "./commands/slashCommands");
     await rgb.fromString(`Loaded Events: ${client.en}\nLoaded messageCommands: ${client.mcn}\nLoaded slashCommands: ${client.scn}`);
     await client.login(process.env.TOKEN);
+
+    process.title = 'SimpleModBot Server Host';
 })();
