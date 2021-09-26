@@ -13,7 +13,7 @@ const player = new Player(client, {
     leaveOnEmpty: true,
     leaveOnStop: true,
     deafenOnJoin: true,
-    volume: 200,
+    volume: 100,
 });
 
 Levels.setURL(`mongodb://127.0.0.1:27017/SMB`);

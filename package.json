@@ -14,6 +14,7 @@
     "@discordjs/rest": "*",
     "ascii-table": "^0.0.9",
     "axios": "^0.21.1",
+    "canvacord": "^5.2.3",
     "canvas": "^2.8.0",
     "common-tags": "^1.8.0",
     "console-timestamp": "^0.3.0",

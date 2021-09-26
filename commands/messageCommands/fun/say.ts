@@ -11,7 +11,7 @@ module.exports = {
     const sayEmbed = new Discord.MessageEmbed()
       .setDescription(`${messageToSay}\u200b`)
       .setFooter(message.author.tag, message.author.displayAvatarURL())
-      .setColor("#4daf8")
+      .setColor("GREY")
       .setTimestamp();
 
     try {

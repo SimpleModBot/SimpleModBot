@@ -19,7 +19,8 @@ module.exports = {
         let song = await queue.play(query).catch(a => {
             queue.stop();
         });
-        if (song.millisecons > 1800000) return queue.stop(), message.reply({ embeds: [new Discord.MessageEmbed().setDescription('That song is too long to play! Try to keep it under 30 minutes.').setColor('GREY')] });
+        if (song.millisecons > 3600000) return queue.stop(), message.reply({ embeds: [new Discord.MessageEmbed().setDescription('That song is too long to play! Try to keep it under 1 hour.').setColor('GREY')] });
+        if (queue.error) return queue.stop(), message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`There was an error while playing the song.`).setColor('GREY')], allowedMentions: { repliedUser: false } });
 
         message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Started playing: *\`${song}\`*   *\`|\`*   *\`${song.duration}\`*`).setColor('GREY')] });
     },

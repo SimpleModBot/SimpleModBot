@@ -39,7 +39,7 @@ module.exports = {
         const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(client.prefix)})\\s*`);
         if (!prefixRegex.test(message.content)) return;
-        if (message.content == `<@!${client.user.id}>`) return message.channel.send({ embeds: [new Discord.MessageEmbed().setTitle("It appears you mentioned me!").setDescription(`Hello! I am SimpleModBot! An easy to use multipurpose bot.\n\nIf you wish to know my prefix its set to \`${client.prefix}\` but you can change it if your the owner!\nI will always have <@${client.user.id}> as a prefix though!\n\nIf you wish to know my commands type \`${client.prefix}help\`.`).setFooter('I hope you like me!').setTimestamp().setColor('GREY')] });
+        if (message.content == `<@!${client.user.id}>`) return message.channel.send({ embeds: [new Discord.MessageEmbed().setTitle("It appears you mentioned me!").setDescription(`Hello! I am SimpleModBot! An easy to use multipurpose bot.\n\nIf you wish to know my prefix its set to \`${client.prefix}\` but you can change it if your the owner!\nI will always have <@${client.user.id}> as a prefix though!\n\nIf you wish to know my commands type \`${client.prefix}help\`.`).setFooter('I hope you like me!').setImage('https://cdn.discordapp.com/attachments/885009693645344829/891421005082398750/simplemodbot.gif').setTimestamp().setColor('GREY')] });
 
         const [, matchedPrefix] = message.content.match(prefixRegex);
         let args = message.content.slice(matchedPrefix.length).trim().split(/ +/);

@@ -15,11 +15,11 @@ module.exports = {
             .setColor('GREY')
             .setTimestamp();
         
-        if (queue.songs[0]) embed.addField('1) ' + queue.songs[0].name, queue.songs[0].url), embed.setThumbnail(queue.songs[0].thumbnail);
-        if (queue.songs[1]) embed.addField('2) ' + queue.songs[1].name, queue.songs[1].url);
-        if (queue.songs[2]) embed.addField('3) ' + queue.songs[2].name, queue.songs[2].url);
-        if (queue.songs[4]) embed.addField('4) ' + queue.songs[4].name, queue.songs[4].url);
-        if (queue.songs[3]) embed.addField('5) ' + queue.songs[3].name, queue.songs[3].url);
+        if (queue.songs[0]) embed.addField('1) ' + queue.songs[0].name, `*\`${queue.songs[0].author}\`* \`|\` *\`${queue.songs[0].duration}\`*\n${queue.songs[0].url}`), embed.setThumbnail(queue.songs[0].thumbnail);
+        if (queue.songs[1]) embed.addField('2) ' + queue.songs[1].name, `*\`${queue.songs[1].author}\`* \`|\` *\`${queue.songs[1].duration}\`*\n${queue.songs[1].url}`);
+        if (queue.songs[2]) embed.addField('3) ' + queue.songs[2].name, `*\`${queue.songs[2].author}\`* \`|\` *\`${queue.songs[2].duration}\`*\n${queue.songs[2].url}`);
+        if (queue.songs[4]) embed.addField('4) ' + queue.songs[4].name, `*\`${queue.songs[3].author}\`* \`|\` *\`${queue.songs[3].duration}\`*\n${queue.songs[3].url}`);
+        if (queue.songs[3]) embed.addField('5) ' + queue.songs[3].name, `*\`${queue.songs[4].author}\`* \`|\` *\`${queue.songs[4].duration}\`*\n${queue.songs[4].url}`);
 
         message.channel.send({ embeds: [embed] });
     },
