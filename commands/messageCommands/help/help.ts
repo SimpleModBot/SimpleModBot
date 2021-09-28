@@ -37,7 +37,7 @@ module.exports = {
             });
 
             const databaseEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[0].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[0].name, categories[0].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -45,7 +45,7 @@ module.exports = {
                 .setTimestamp();
 
             const devOnlyEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[1].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[1].name, categories[1].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -53,7 +53,7 @@ module.exports = {
                 .setTimestamp();
 
             const economyEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[2].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[2].name, categories[2].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -61,7 +61,7 @@ module.exports = {
                 .setTimestamp();
 
             const embedEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[3].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[3].name, categories[3].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -69,7 +69,7 @@ module.exports = {
                 .setTimestamp();
 
             const emojiEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[4].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[4].name, categories[4].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -77,7 +77,7 @@ module.exports = {
                 .setTimestamp();
 
             const funEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[5].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[5].name, categories[5].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -85,7 +85,7 @@ module.exports = {
                 .setTimestamp();
 
             const gamesEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[6].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[6].name, categories[6].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -93,7 +93,7 @@ module.exports = {
                 .setTimestamp();
 
             const helpEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[7].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[7].name, categories[7].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -101,7 +101,7 @@ module.exports = {
                 .setTimestamp();
 
             const imageEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[8].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[8].name, categories[8].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -109,7 +109,7 @@ module.exports = {
                 .setTimestamp();
 
             const informationEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[9].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[9].name, categories[9].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -117,7 +117,7 @@ module.exports = {
                 .setTimestamp();
 
             const moderationEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[10].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[10].name, categories[10].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -125,7 +125,7 @@ module.exports = {
                 .setTimestamp();
 
             const musicEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[11].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[11].name, categories[11].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -133,89 +133,16 @@ module.exports = {
                 .setTimestamp();
 
             const randomEmbed = new Discord.MessageEmbed()
-                .setTitle("Commands:")
+                .setTitle(categories[12].name)
                 .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                 .addField(categories[12].name, categories[12].value)
                 .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
                 .setColor(roleColor)
                 .setTimestamp();
 
-            let position = 0;
             const pages = [databaseEmbed, devOnlyEmbed, economyEmbed, embedEmbed, emojiEmbed, funEmbed, gamesEmbed, helpEmbed,
                 imageEmbed, informationEmbed, moderationEmbed, musicEmbed, randomEmbed];
-
-            const previous = new MessageButton()
-                .setLabel("")
-                .setStyle("SECONDARY")
-                .setEmoji("◀️")
-                .setCustomId("previous");
-
-            const next = new MessageButton()
-                .setLabel("")
-                .setStyle("SECONDARY")
-                .setEmoji("▶️")
-                .setCustomId("next");
-
-            const paginationbuttons = new MessageActionRow()
-                .addComponents(previous, next);
-
-            const endedP = new MessageButton()
-                .setLabel("")
-                .setStyle("SECONDARY")
-                .setEmoji("◀️")
-                .setCustomId("previous")
-                .setDisabled();
-
-            const endedN = new MessageButton()
-                .setLabel("")
-                .setStyle("SECONDARY")
-                .setEmoji("▶️")
-                .setCustomId("previous")
-                .setDisabled();
-
-            const endedbuttons = new MessageActionRow()
-                .addComponents(endedP, endedN);
-
-            function checkPos() {
-                previous.setDisabled(position === 0 ? true : false);
-                next.setDisabled(position === Object.keys(pages).length - 1 ? true : false);
-            };
-
-            checkPos();
-            const pagination = await message.channel.send({
-                embeds: [pages[position]],
-                components: [paginationbuttons]
-            });
-
-            const collector = pagination.componentCollector(
-                {
-                    componentType: "BUTTON",
-                    time: 60000
-                });
-
-            collector.on("collect", async (button) => {
-                if (button.user.id === message.author.id) {
-                    if (button.customId === "previous" && position > 0) position = position - 1;
-                    if (button.customId === "next" && position < pages.length - 1) position = position + 1;
-                    checkPos();
-                    await pagination.edit({
-                        content: "\u200b",
-                        embeds: [pages[position]],
-                        components: [paginationbuttons]
-                    });
-                    await button.deferUpdate();
-                } else {
-                    button.reply({ content: `Hey, ${button.user.username}, these buttons aren't for you to use!`, ephemeral: true });
-                };
-            });
-
-            collector.on("end", async (collected) => {
-                await pagination.edit(`Timed out.`, {
-                    content: "\u200b",
-                    embeds: [pages[position]],
-                    components: [endedbuttons]
-                });
-            });
+            client.paginate(message, pages);
         } else {
             const command = client.messageCommands.get(args[0].toLowerCase()) || client.messageCommands.find((c) => c.aliases && c.aliases.includes(args[0].toLowerCase()));
 

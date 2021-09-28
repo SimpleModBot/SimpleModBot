@@ -7,7 +7,7 @@ module.exports = {
         const burgerEmbed = new Discord.MessageEmbed()
             .setTitle("🍔Hamburger🍔")
             .setDescription("Who ordered a hamburger? I got someones burger order.")
-            .setColor("BROWN");
+            .setColor("GREY");
 
         message.channel.send({ embeds: [burgerEmbed] });
 

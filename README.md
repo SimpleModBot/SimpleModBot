@@ -47,6 +47,6 @@ server and tell me any bugs/issues you encounter.
 ### Testers
 
 - [itsamedood#0818](https://github.com/itsamedood)
-- [Blaster#6969](https://www.youtube.com/channel/UCvG7nYCCx33dL61nlObV5TQ)
+- [Blaster#7471](https://www.youtube.com/channel/UCvG7nYCCx33dL61nlObV5TQ)
 - [Stanford47#5621](https://github.com/Stanford47)
 - [near#9999](https://www.youtube.com/channel/UCVdckpCY90ytyzwihp86xEA)

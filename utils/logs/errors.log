@@ -899,3 +899,52 @@ Require stack:
     at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
     at runMicrotasks (<anonymous>)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-25T13:47:54.861] [ERROR] default - TypeError: Cannot read property 'warning' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\image\pixelate.ts:7:58)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-25T15:58:53.901] [ERROR] default - TypeError: Cannot read property 'toLowerCase' of undefined
+    at C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\fun\mixnames.ts:9:159
+    at Map.find (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\@discordjs\collection\dist\index.js:130:17)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\fun\mixnames.ts:9:89)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-25T15:59:02.720] [ERROR] default - TypeError: Cannot read property 'toLowerCase' of undefined
+    at C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\fun\mixnames.ts:9:159
+    at Map.find (C:\Users\zachc\Documents\GitHub\SimpleModBot\node_modules\@discordjs\collection\dist\index.js:130:17)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\fun\mixnames.ts:9:89)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-25T16:01:12.615] [ERROR] default - TypeError: Cannot read property 'cross' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\fun\mixnames.ts:15:69)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-25T16:02:21.791] [ERROR] default - TypeError: Cannot read property 'username' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\fun\mixnames.ts:18:36)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-26T17:29:23.770] [ERROR] default - TypeError: Cannot read property 'type' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\games\activity.ts:10:21)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-26T17:31:54.939] [ERROR] default - TypeError: Cannot read property 'type' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\games\activity.ts:12:21)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-26T17:34:15.094] [ERROR] default - TypeError: Cannot read property 'createTogetherCode' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\games\activity.ts:19:36)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-27T10:48:12.794] [ERROR] default - TypeError: userProfile.save is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\economy\work.ts:12:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:13)

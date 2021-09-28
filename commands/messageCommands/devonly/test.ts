@@ -5,6 +5,6 @@ module.exports = {
     aliases: ["t"],
     devOnly: true,
     async execute(message, args, data, client) {
-        
+        client.paginate(message, [new Discord.MessageEmbed().setTitle('oo 1').setDescription('yes'), new Discord.MessageEmbed().setTitle('oo 2').setDescription('no')]);
     },
 };
