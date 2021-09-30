@@ -1,5 +1,13 @@
 # Changelog
 
+## [6.1.4] - 2021-08-11
+
+### Fixed
+
+- Move auth token to header instead of query param ([#160](https://github.com/prebuild/prebuild-install/issues/160)) ([`b3fad76`](https://github.com/prebuild/prebuild-install/commit/b3fad76)) (nicolai-nordic)
+- Remove `_` prefix as it isn't allowed by npm config ([#153](https://github.com/prebuild/prebuild-install/issues/153)) ([`a964e5b`](https://github.com/prebuild/prebuild-install/commit/a964e5b)) (Tom Boothman)
+- Make `rc.path` absolute ([#158](https://github.com/prebuild/prebuild-install/issues/158)) ([`57bcc06`](https://github.com/prebuild/prebuild-install/commit/57bcc06)) (George Waters).
+
 ## [6.1.3] - 2021-06-03
 
 ### Changed
@@ -55,6 +63,8 @@
 ### Changed
 
 - Replace `mkdirp` dependency with `mkdirp-classic` ([**@ralphtheninja**](https://github.com/ralphtheninja))
+
+[6.1.4]: https://github.com/prebuild/prebuild-install/compare/v6.1.3...v6.1.4
 
 [6.1.3]: https://github.com/prebuild/prebuild-install/compare/v6.1.2...v6.1.3
 
