@@ -7,16 +7,10 @@ Please read SECURITY.md as it doesn't appear below files like README.md does
 
 ## Additional Information
 
-If you wish to use my bots code for your own bot please do not pass it off as
-yours and give credit to me wherever you can.
+If you wish to use my bot code for your project, you can use it, just try to either credit me or change
+the code so it isn't obviously stolen.
 
-If you want to use the code just download the files as a zip and add your bot
-token(s) into the `.env` file where it says, once you have done that go into the
-`SimpleModBot/utils` folder and you should see a file called `SMB.bat`,
-open the file and you should see the bot online.
-
-*The default prefix is `//` and if you
-want the database commands to work you need to put your own MongoDB link.*
+I am hiding some important files because I don't want people to steal my project entirely. Sorry for any inconveniences.
 
 ## Features
 

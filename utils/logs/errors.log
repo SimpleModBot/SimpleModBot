@@ -948,3 +948,11 @@ Require stack:
     at runMicrotasks (<anonymous>)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
     at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:13)
+[2021-09-28T19:21:40.910] [ERROR] default - TypeError: Cannot read property 'username' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\fun\mixnames.ts:18:36)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-09-28T19:22:16.052] [ERROR] default - TypeError: Cannot read property 'username' of undefined
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\fun\mixnames.ts:18:64)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:97:27)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)

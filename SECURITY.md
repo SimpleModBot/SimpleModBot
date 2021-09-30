@@ -2,12 +2,12 @@
 
 ## Supported Versions
 
-Currently supported versions of the projects (based on commit numbers) so that you can download an older version and run it.
+Currently supported versions of the projects (based on commit numbers) so that you can download an older version of code and run it without issues.
 
 | Version |     Supported      |
 | ------- | ------------------ |
 | 57+     | :white_check_mark: |
-| 56-     | :x:                |
+| 1-56     | :x:                |
 
 ## Reporting a Vulnerability
 
