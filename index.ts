@@ -62,21 +62,21 @@ const slashCommandFolders = fs.readdirSync("./commands/slashCommands");
 
 /*---------------------------------------------------------------------------------ANTICRASH---------------------------------------------------------------------------------*/
 
-process.on("unhandledRejection", (reason, p) => {
+process.on("unhandledRejection", async (reason, p) => {
     console.log(" [antiCrash] :: Unhandled Rejection/Catch");
-    console.log(reason, p);
+    await client.channels.cache.get('832744410998767666').send({ embeds: [new Discord.MessageEmbed().setTitle(`An error has occurred!`).setDescription(`\`\`\`diff\n+ REASON: ${reason}\n- ${p}`).setTimestamp().setColor("#ff0a0a")]})
 });
-process.on("uncaughtException", (err, origin) => {
+process.on("uncaughtException", async (err, origin) => {
     console.log(" [antiCrash] :: Uncaught Exception/Catch");
-    console.log(err, origin);
+    await client.channels.cache.get('832744410998767666').send({ embeds: [new Discord.MessageEmbed().setTitle(`An error has occurred!`).setDescription(`\`\`\`diff\n+ ERROR:\n- ${err}\n+ ORIGIN:\n- ${origin}`).setTimestamp().setColor("#ff0a0a")]})
 });
-process.on("uncaughtExceptionMonitor", (err, origin) => {
+process.on("uncaughtExceptionMonitor", async (err, origin) => {
     console.log(" [antiCrash] :: Uncaught Exception/Catch (MONITOR)");
-    console.log(err, origin);
+    await client.channels.cache.get('832744410998767666').send({ embeds: [new Discord.MessageEmbed().setTitle(`An error has occurred!`).setDescription(`\`\`\`diff\n+ ERROR:\n- ${err}\n+ ORIGIN:\n- ${origin}`).setTimestamp().setColor("#ff0a0a")]})
 });
-process.on("multipleResolves", (type, promise, reason) => {
+process.on("multipleResolves", async (type, promise, reason) => {
     console.log(" [antiCrash] :: Multiple Resolves");
-    console.log(type, promise, reason);
+    await client.channels.cache.get('832744410998767666').send({ embeds: [new Discord.MessageEmbed().setTitle(`An error has occurred!`).setDescription(`\`\`\`diff\n+ TYPE: ${type}\n+ REASON: ${reason}\n- ${promise}`).setTimestamp().setColor("#ff0a0a")]})
 });
 
 /*---------------------------------------------------------------------------------FUNCTIONS---------------------------------------------------------------------------------*/
