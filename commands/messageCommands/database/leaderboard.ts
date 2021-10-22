@@ -15,8 +15,8 @@ module.exports = {
         const leaderboardEmbed = new Discord.MessageEmbed()
             .setTitle("**Leaderboard**:")
             .setDescription(`${lb.join("\n\n")}`)
-            .setColor("#000000")
-            .setFooter(`${message.author.tag} is looking at the leaderboard.`);
+            .setFooter(`${message.author.tag} is looking at the leaderboard.`)
+            .setColor("GREY");
 
         message.channel.send({ embeds: [leaderboardEmbed] });
     },

@@ -12,13 +12,20 @@ module.exports = {
         const target = await Levels.fetch(mentionedMember.user.id, message.guild.id);
         if (!target) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('That person does not have any level within the server.').setColor('GREY')] });
 
-        const levelEmbed = new Discord.MessageEmbed()
-            .setTitle(`${mentionedMember.user.tag}'s level in ${message.guild}`)
-            .addField(`${target.level}`, `XP: ${target.xp}/${Levels.xpFor(target.level + 1)}`)
-            .setThumbnail(mentionedMember.user.displayAvatarURL({ dynamic: true, size: 1024 }))
-            .setColor("GREY")
-            .setTimestamp();
+        const canvacord = require("canvacord");
+        const img = mentionedMember.user.displayAvatarURL({ dynamic: true, size: 1024 });
 
-        message.channel.send({ embeds: [levelEmbed] });
+        const rank = new canvacord.Rank()
+            .setAvatar(img)
+            .setCurrentXP(target.xp)
+            .setRequiredXP(Levels.xpFor(target.level + 1))
+            .setProgressBar("#00c8ff", "COLOR")
+            .setUsername(mentionedMember.user.username)
+            .setDiscriminator(mentionedMember.user.discriminator);
+
+        rank.build().then(buffer => {
+            const file = new Discord.MessageAttachment(buffer, "RankCard.png")
+            message.channel.send({ files: [file] });
+        });
     },
 };

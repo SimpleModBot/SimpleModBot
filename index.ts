@@ -53,14 +53,33 @@ const slashCommandFolders = fs.readdirSync("./commands/slashCommands");
 
     await client.handleEvents(eventFiles, "./events");
     await client.handleMessageCommands(messageCommandFolders, "./commands/messageCommands");
-    //await client.handleSlashCommands(slashCommandFolders, "./commands/slashCommands");
+    await client.handleSlashCommands(slashCommandFolders, "./commands/slashCommands");
     await rgb.fromString(`Loaded Events: ${client.en}\nLoaded messageCommands: ${client.mcn}\nLoaded slashCommands: ${client.scn}`);
     await client.login(process.env.TOKEN);
 
     process.title = 'SimpleModBot Server Host';
 })();
 
-/*--------------------------------------------------------------------------------FUNCTIONS--------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------ANTICRASH---------------------------------------------------------------------------------*/
+
+process.on("unhandledRejection", (reason, p) => {
+    console.log(" [antiCrash] :: Unhandled Rejection/Catch");
+    console.log(reason, p);
+});
+process.on("uncaughtException", (err, origin) => {
+    console.log(" [antiCrash] :: Uncaught Exception/Catch");
+    console.log(err, origin);
+});
+process.on("uncaughtExceptionMonitor", (err, origin) => {
+    console.log(" [antiCrash] :: Uncaught Exception/Catch (MONITOR)");
+    console.log(err, origin);
+});
+process.on("multipleResolves", (type, promise, reason) => {
+    console.log(" [antiCrash] :: Multiple Resolves");
+    console.log(type, promise, reason);
+});
+
+/*---------------------------------------------------------------------------------FUNCTIONS---------------------------------------------------------------------------------*/
 
 async function paginate(message, pages) {
     const { MessageActionRow, MessageSelectMenu } = require("discord.js");

@@ -48,7 +48,6 @@ module.exports = {
                 .addField('[TYPE]', `\`\`\`xl\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
                 .setColor('GREEN');
 
-            let position = 0;
             let pages = [EvalResult];
 
             if (clean(evaled).length > 1000) {
@@ -70,6 +69,7 @@ module.exports = {
                     pages = [EvalResult, EvalResult2, EvalResult3];
                 };
             };
+
             client.paginate(message, pages);
         } catch (err) {
             message.channel.send({ embeds: [new MessageEmbed().setDescription(`\`ERROR\` \`\`\`ts\n${clean(err)}\n\`\`\``).setColor('GREY')] });

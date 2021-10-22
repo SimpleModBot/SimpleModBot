@@ -36,6 +36,15 @@ module.exports = {
         data.guild = guildDB;
         data.inventory = inventoryDB;
 
+        if (guildDB.levelSystem) if (guildDB.levelSystem == true) {
+            const randomXP = Math.floor(Math.random() * 25) + 5;
+            const hasLeveledUP = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
+            if (hasLeveledUP) {
+                const user = await Levels.fetch(message.author.id, message.guild.id);
+                message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.member.user.tag}, you have leveled up to ${user.level}!`).setColor('GREY')] });
+            };
+        };
+
         const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(client.prefix)})\\s*`);
         if (!prefixRegex.test(message.content)) return;
@@ -56,12 +65,17 @@ module.exports = {
         let profile = await require("../database/models/blackListSchema.ts").findOne({
             userID: message.author.id
         });
-        if (profile) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('You cannot use this bot as you are banned. You can appeal in the support server: https://discord.gg/26NtPVvNCU').setColor('GREY')] });
+
+        try {
+            if (profile) return message.author.send({ embeds: [new Discord.MessageEmbed().setDescription('You cannot use this bot as you are banned for ' + profile.reason + '. You can appeal in the support server: https://discord.gg/26NtPVvNCU').setColor('GREY')] });
+        } catch (err) {
+            Promise.reject(new err);
+        };
         if (command.devOnly == true && message.author.id !== client.ownerID) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('You don\'t have permission to use this command as it is only for developers.').setColor('GREY')] });
         const { cooldowns } = client;
         if (!cooldowns.has(command.name)) {
             cooldowns.set(command.name, new Discord.Collection());
-        }
+        };
 
         const now = Date.now();
         const timestamps = cooldowns.get(command.name);
@@ -71,33 +85,20 @@ module.exports = {
             const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
             if (now < expirationTime) {
                 const timeLeft = (expirationTime - now) / 1000;
-                return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`).setColor('GREY')] });
-            }
-        }
+                return message.author.send({ embeds: [new Discord.MessageEmbed().setDescription(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`).setColor('GREY')] });
+            };
+        };
 
         timestamps.set(message.author.id, now);
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-        if (message.channel.type !== 'DM') {
-            if (guildDB && guildDB.levelSystem && guildDB.levelSystem == true) {
-                const randomXP = Math.floor(Math.random() * 29) + 1;
-                const hasLeveledUP = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
-                if (hasLeveledUP) {
-                    const user = await Levels.fetch(message.author.id, message.guild.id);
-                    message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.member.user.tag}, you have leveled up to ${user.level}!`).setColor('GREY')] })
-                        .then((lvlmsg) => {
-                            lvlmsg.delete({ timeout: 3500 });
-                        });
-                };
-            };
-        };
 
         try {
             await client.channels.cache.get('883251143151599646').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author}(${message.author.tag}) used \`${command.name} ${args.join(' ').replace('ENA', '')}\`.`).setColor('GREY').setTimestamp()] });
             await command.execute(message, args, data, client);
         } catch (err) {
             if (command.name == 'embed') return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("An error occurred whilst running this command!\nIt is most likely from an invalid color, you can probably fix this by:\nMaking the color a valid hex code.\nMaking an all caps color name like GREY or RED\nOr you probably added a space after \`-c\`").setColor("GREY").setTimestamp()] });
-            else if (command.name == 'play') return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('An error occurred whilst running this command!\nThis is most likely due to a connection error, please try again later.').setColor('GREY').setTimestamp()]})
+            else if (command.name == 'play') return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('An error occurred whilst running this command!\nThis is most likely due to a connection error, please try again later.').setColor('GREY').setTimestamp()] })
             else {
                 require("log4js").getLogger(`default`).error(err);
 

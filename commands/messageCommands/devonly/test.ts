@@ -5,6 +5,10 @@ module.exports = {
     aliases: ["t"],
     devOnly: true,
     async execute(message, args, data, client) {
-        client.paginate(message, [new Discord.MessageEmbed().setTitle('oo 1').setDescription('yes'), new Discord.MessageEmbed().setTitle('oo 2').setDescription('no')]);
+        try {
+            await eval('throw new Error("wtf")');
+        } catch (err) {
+            message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`\`ERROR\` \`\`\`ts\n${err}\n\`\`\``).setColor('GREY')] });
+        };
     },
 };
