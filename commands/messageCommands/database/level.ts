@@ -15,7 +15,7 @@ module.exports = {
         const canvacord = require("canvacord");
         const img = mentionedMember.user.displayAvatarURL({ dynamic: true, size: 1024 });
 
-        const rank = new canvacord.Rank()
+        const rank = await new canvacord.Rank()
             .setAvatar(img)
             .setCurrentXP(target.xp)
             .setRequiredXP(Levels.xpFor(target.level + 1))
@@ -23,9 +23,8 @@ module.exports = {
             .setUsername(mentionedMember.user.username)
             .setDiscriminator(mentionedMember.user.discriminator);
 
-        rank.build().then(buffer => {
-            const file = new Discord.MessageAttachment(buffer, "RankCard.png")
-            message.channel.send({ files: [file] });
-        });
+        const buffer = await rank.build();
+        const file = new Discord.MessageAttachment(buffer, "RankCard.png");
+        message.channel.send({ files: [file] });
     },
 };

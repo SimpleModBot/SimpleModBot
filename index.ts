@@ -63,20 +63,33 @@ const slashCommandFolders = fs.readdirSync("./commands/slashCommands");
 /*---------------------------------------------------------------------------------ANTICRASH---------------------------------------------------------------------------------*/
 
 process.on("unhandledRejection", async (reason, p) => {
-    console.log(" [antiCrash] :: Unhandled Rejection/Catch");
-    await client.channels.cache.get('832744410998767666').send({ embeds: [new Discord.MessageEmbed().setTitle(`An error has occurred!`).setDescription(`\`\`\`diff\n+ REASON: ${reason}\n- ${p}`).setTimestamp().setColor("#ff0a0a")]})
+    await client.channels.cache.get('832744410998767666').send({
+        embeds: [new Discord.MessageEmbed().setTitle(`An error has occurred!`).setDescription(`REASON: ${reason}
+    ${p}`).setTimestamp().setColor("#ff0a0a")]
+    });
 });
 process.on("uncaughtException", async (err, origin) => {
-    console.log(" [antiCrash] :: Uncaught Exception/Catch");
-    await client.channels.cache.get('832744410998767666').send({ embeds: [new Discord.MessageEmbed().setTitle(`An error has occurred!`).setDescription(`\`\`\`diff\n+ ERROR:\n- ${err}\n+ ORIGIN:\n- ${origin}`).setTimestamp().setColor("#ff0a0a")]})
+    await client.channels.cache.get('832744410998767666').send({
+        embeds: [new Discord.MessageEmbed().setTitle(`An error has occurred!`).setDescription(`ERROR:
+    ${err}
+    ORIGIN:
+    ${origin}`).setTimestamp().setColor("#ff0a0a")]
+    });
 });
 process.on("uncaughtExceptionMonitor", async (err, origin) => {
-    console.log(" [antiCrash] :: Uncaught Exception/Catch (MONITOR)");
-    await client.channels.cache.get('832744410998767666').send({ embeds: [new Discord.MessageEmbed().setTitle(`An error has occurred!`).setDescription(`\`\`\`diff\n+ ERROR:\n- ${err}\n+ ORIGIN:\n- ${origin}`).setTimestamp().setColor("#ff0a0a")]})
+    await client.channels.cache.get('832744410998767666').send({
+        embeds: [new Discord.MessageEmbed().setTitle(`An error has occurred!`).setDescription(`ERROR:
+    ${err}
+    ORIGIN:
+    ${origin}`).setTimestamp().setColor("#ff0a0a")]
+    });
 });
 process.on("multipleResolves", async (type, promise, reason) => {
-    console.log(" [antiCrash] :: Multiple Resolves");
-    await client.channels.cache.get('832744410998767666').send({ embeds: [new Discord.MessageEmbed().setTitle(`An error has occurred!`).setDescription(`\`\`\`diff\n+ TYPE: ${type}\n+ REASON: ${reason}\n- ${promise}`).setTimestamp().setColor("#ff0a0a")]})
+    await client.channels.cache.get('832744410998767666').send({
+        embeds: [new Discord.MessageEmbed().setTitle(`An error has occurred!`).setDescription(`TYPE: ${type}
+    REASON: ${reason}
+    ${promise}`).setTimestamp().setColor("#ff0a0a")]
+    });
 });
 
 /*---------------------------------------------------------------------------------FUNCTIONS---------------------------------------------------------------------------------*/

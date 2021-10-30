@@ -113,8 +113,8 @@ module.exports = {
                 } else return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You need to say a property to update.").setColor('GREY')] });
             } else if ("remove" === args[0]) {
                 if ("prefix" === args[1]) {
-                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { prefix: "//", lastEdited: Date.now() });
-                    message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Deleted ${args[1]} successfully!`).setColor('GREY')] });
+                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { prefix: "\\", lastEdited: Date.now() });
+                    message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Set ${args[1]} to \`\\\` successfully!\nThis is the default instead of // due to discord mentions not functioning right always when using bot commands.`).setColor('GREY')] });
                 } else if ("muteRole" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { muteRoleID: "undefined", lastEdited: Date.now() });
                     message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Deleted ${args[1]} successfully!`).setColor('GREY')] });

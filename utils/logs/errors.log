@@ -1012,3 +1012,7 @@ Require stack:
     at runMicrotasks (<anonymous>)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
     at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:98:13)
+[2021-10-22T17:32:52.510] [ERROR] default - TypeError: captcha.png is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:16:71)
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:98:27)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)

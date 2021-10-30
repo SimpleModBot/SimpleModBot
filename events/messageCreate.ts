@@ -92,26 +92,7 @@ module.exports = {
         timestamps.set(message.author.id, now);
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-
-        try {
-            await client.channels.cache.get('883251143151599646').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author}(${message.author.tag}) used \`${command.name} ${args.join(' ').replace('ENA', '')}\`.`).setColor('GREY').setTimestamp()] });
-            await command.execute(message, args, data, client);
-        } catch (err) {
-            if (command.name == 'embed') return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("An error occurred whilst running this command!\nIt is most likely from an invalid color, you can probably fix this by:\nMaking the color a valid hex code.\nMaking an all caps color name like GREY or RED\nOr you probably added a space after \`-c\`").setColor("GREY").setTimestamp()] });
-            else if (command.name == 'play') return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('An error occurred whilst running this command!\nThis is most likely due to a connection error, please try again later.').setColor('GREY').setTimestamp()] })
-            else {
-                require("log4js").getLogger(`default`).error(err);
-
-                const errorChannel = client.channels.cache.get("832744410998767666");
-                const errorMessage = new Discord.MessageEmbed()
-                    .setTitle("An error has occured!")
-                    .setDescription("** **" + err)
-                    .setTimestamp()
-                    .setColor("#ff0a0a");
-
-                errorChannel.send({ embeds: [errorMessage] });
-                message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("An error occured within the bot. If you are a dev or log viewer please review the error in <#832744410998767666>").setColor('GREY')] });
-            };
-        };
+        await client.channels.cache.get('883251143151599646').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author}(${message.author.tag}) used \`${command.name} ${args.join(' ').replace('ENA', '')}\`.`).setColor('GREY').setTimestamp()] });
+        await command.execute(message, args, data, client);
     },
 };

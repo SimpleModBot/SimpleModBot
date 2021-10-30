@@ -15,12 +15,12 @@ module.exports = {
         if (query == 'ENA') return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("Please provide a song to play!").setColor('GREY')] });
 
         let queue = client.player.createQueue(message.guild.id);
-        await queue.join(vc);
-        let song = await queue.play(query).catch(a => {
-            queue.stop();
-        });
+        try { await queue.join(vc); } catch (e) {
+            await queue.stop();
+            return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`An error occured while playing that song or video.\nThis is most likely due to a connection error or the video found being private.\nPlease try again later.`).setColor('GREY')], allowedMentions: { repliedUser: false } });
+        };
+        let song = await queue.play(query);
         if (song.millisecons > 3600000) return queue.stop(), message.reply({ embeds: [new Discord.MessageEmbed().setDescription('That song is too long to play! Try to keep it under 1 hour.').setColor('GREY')] });
-        if (queue.error) return queue.stop(), message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`There was an error while playing the song.`).setColor('GREY')], allowedMentions: { repliedUser: false } });
 
         message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Started playing: *\`${song}\`*   *\`|\`*   *\`${song.duration}\`*`).setColor('GREY')] });
     },
