@@ -1016,3 +1016,8 @@ Require stack:
     at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\messageCommands\devonly\test.ts:16:71)
     at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\messageCreate.ts:98:27)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-10-31T08:34:29.477] [ERROR] default - TypeError: pagination.componentCollector is not a function
+    at Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\commands\slashCommands\help\help.ts:101:42)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.execute (C:\Users\zachc\Documents\GitHub\SimpleModBot\events\interactionCreate.ts:12:13)
