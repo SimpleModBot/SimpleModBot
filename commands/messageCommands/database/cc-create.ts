@@ -14,7 +14,7 @@ module.exports = {
         if (await client.messageCommands.get(name)) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You can't overwrite a base command!").setColor('GREY')] });
         if (!response) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('Please specify a response.').setColor('GREY')] });
 
-        const m = await schema.find({});
+        const m = await schema.find({ guildID: message.guild.id });
         if (m.length > 19) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription('You have 20 custom commands which is the limit!').setColor('GREY')] });
 
         const data = await schema.findOne({ Guild: message.guild.id, Command: name });

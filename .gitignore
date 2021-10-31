@@ -1,3 +1,4 @@
 .env
 index.ts
 node_modules
+.gitignore
