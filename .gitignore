@@ -3,6 +3,8 @@ index.ts
 node_modules
 .gitignore
 .gitattributes
-utils/logs/errors.log
-utils/logs/information.log
-utils/logs/warnings.log
+TODO.private.diff
+errors.log
+information.log
+warnings.log
+json.sqlite
