@@ -34,6 +34,6 @@ module.exports = {
             .setTimestamp();
         
         const pages = [inventory1, inventory2];
-        client.paginate(message, pages);
+        client.functions.paginate(message, pages);
     },
 };

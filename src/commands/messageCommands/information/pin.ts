@@ -9,8 +9,8 @@ module.exports = {
         if (args[0] == 'ENA') return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`You need to give a valid message id.`).setColor('GREY')], allowedMentions: { repliedUser: false } });
 
         try {
-            const msg = await message.channel.messages.fetch(args[0])
-            await msg.pin()
+            const msg = await message.channel.messages.fetch(args[0]);
+            await msg.pin();
         } catch (e) {
             return message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`An error occurred, you probably didn't give a valid message id.`).setColor('GREY')], allowedMentions: { repliedUser: false } })
         };

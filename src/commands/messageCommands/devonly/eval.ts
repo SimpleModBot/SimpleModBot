@@ -46,7 +46,7 @@ module.exports = {
                 .addField("[INPUT]", `\`\`\`ts\n${code}\n\`\`\``)
                 .addField("[OUTPUT1]", `\`\`\`ts\n${clean(evaled).slice(0, 1000)}\n\`\`\``)
                 .addField('[TYPE]', `\`\`\`xl\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
-                .setColor('GREEN');
+                .setColor('GREY');
 
             let pages = [EvalResult];
 
@@ -55,7 +55,7 @@ module.exports = {
                     .setTitle(`Evaluated in ${Math.round(Date.now() - message.createdTimestamp)}ms`)
                     .addField("[OUTPUT2]", `\`\`\`ts\n${clean(evaled).slice(1000, 2000)}\n\`\`\``)
                     .addField('[TYPE]', `\`\`\`xl\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
-                    .setColor('GREEN');
+                    .setColor('GREY');
 
                 pages = [EvalResult, EvalResult2];
 
@@ -64,13 +64,13 @@ module.exports = {
                         .setTitle(`Evaluated in ${Math.round(Date.now() - message.createdTimestamp)}ms`)
                         .addField("[OUTPUT3]", `\`\`\`ts\n${clean(evaled).slice(2000, 3000)}\n\`\`\``)
                         .addField('[TYPE]', `\`\`\`xl\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
-                        .setColor('GREEN');
+                        .setColor('GREY');
 
                     pages = [EvalResult, EvalResult2, EvalResult3];
                 };
             };
 
-            client.paginate(message, pages);
+            client.functions.paginate(message, pages);
         } catch (err) {
             message.channel.send({ embeds: [new MessageEmbed().setDescription(`\`ERROR\` \`\`\`ts\n${clean(err)}\n\`\`\``).setColor('GREY')] });
         };

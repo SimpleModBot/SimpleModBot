@@ -6,7 +6,7 @@ module.exports = {
     cooldown: 3,
     async execute(message, args, data, client) {
         const answers = [
-            'Yes, definately!',
+            'Yes, definitely!',
             'Definately! not..',
             'I guess so?',
             'Probably not.',
@@ -19,6 +19,15 @@ module.exports = {
             'I have doubts.',
             'I can\'t predict now.',
             'Try asking again.',
+            'I am an 8 ball please stop asking me to answer your goddamn life questions, solve your problems yourself you lazy idiot!',
+            'Whatever you say.',
+            'Why are you asking me this?',
+            'Can you not?..',
+            'Fine.. Yes.',
+            'No, I don\'t think so.',
+            'I don\'t know, ask again later.',
+            'When do I get to ask you questions?',
+            'Why do you ask me questions? I want to ask you questions. Like why do you care about what a random number says?',
         ];
 
         const question = args.join(" ");

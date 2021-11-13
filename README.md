@@ -10,7 +10,7 @@ Please read SECURITY.md as it doesn't appear below files like README.md does
 If you wish to use my bot code for your project, you can use it, just try to either credit me or change
 the code so it isn't obviously stolen.
 
-I am hiding some important files because I don't want people to steal my project entirely. Sorry for any inconveniences.
+I am hiding some important files because I don't want people to steal my project entirely or view private information. Sorry for any inconveniences.
 
 ## Features
 
@@ -22,8 +22,10 @@ I am hiding some important files because I don't want people to steal my project
 - Emoji commands
 - Fun commands
 - Games
+- Image manipulation
+- Information
 - Moderation
-- Secrets
+- Music
 
 ## Contributing
 

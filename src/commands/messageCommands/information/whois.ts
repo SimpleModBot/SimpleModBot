@@ -12,7 +12,8 @@ module.exports = {
 
         const activities = [];
         let customStatus;
-        for (const activity of member.presence.activities.values()) {
+
+        if (member.presence) for (const activity of member.presence.activities.values()) {
             switch (activity.type) {
                 case 'PLAYING':
                     activities.push(`Playing **${activity.name}**`);
@@ -30,8 +31,8 @@ module.exports = {
                 case 'CUSTOM_STATUS':
                     customStatus = activity.state;
                     break;
-            }
-        }
+            };
+        };
 
         const roles = member.roles.highest
 
@@ -63,8 +64,11 @@ module.exports = {
             VERIFIED_DEVELOPER: `BotDev`,
         }
 
-        const flags = await member.user.fetchFlags()
-        const userFlags = flags.toArray()
+        const flags = await member.user.fetchFlags();
+        const userFlags = flags.toArray();
+
+        let num = 'offline';
+        if (member.presence) if (member.presence.status) num = member.presence.status;
 
         const embed = new Discord.MessageEmbed()
             .setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 1024 }))
@@ -76,7 +80,7 @@ module.exports = {
             .addField('Joined Server At', `\`${moment.utc(member.joinedAt).format('DD/MMM/YYYY')}\``, true)
             .addField('Joined Discord At', `\`${moment.utc(member.user.createdAt).format('DD/MMM/YYYY')}\``, true)
             .addField('Highest Role', `${roles}`, true)
-            .addField('User Status', status[member.presence.status], true)
+            .addField('User Status', status[num], true)
             .addField('User Is Bot', bot[member.user.bot], true)
         if (userFlags.length <= 0)
             embed.addField('Badges', `\`No Badge\``, true)

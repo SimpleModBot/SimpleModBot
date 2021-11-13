@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const { mem, cpu, os } = require('node-os-utils');
 const { stripIndent } = require('common-tags');
+const op = require('os');
 
 module.exports = {
     name: "systeminfo",
@@ -10,7 +11,7 @@ module.exports = {
         const { totalMemMb, usedMemMb } = await mem.info();
 
         const systeminfo = stripIndent`
-        OS        : Windows 10
+        OS        : ${op.type()}
         CPU       : ${cpu.model()}
         Cores     : ${cpu.count()}
         CPU Usage : ${await cpu.usage()} %

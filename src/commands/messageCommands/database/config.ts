@@ -77,7 +77,7 @@ module.exports = {
                 .setColor("GREY");
 
             const pages = [prefix, muteRoleID, memberRoleID, modlogChannelID, levelSystem, antiInvite, welcomeChannelID];
-            client.paginate(message, pages);
+            client.functions.paginate(message, pages);
         } else {
             if ("add" === args[0]) {
                 if ("prefix" === args[1]) {

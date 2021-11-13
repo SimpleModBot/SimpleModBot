@@ -36,6 +36,6 @@ module.exports = {
             .setTimestamp();
         
         const pages = [shopEmbed1, shopEmbed2];
-        client.paginate(message, pages);
+        client.functions.paginate(message, pages);
     },
 };

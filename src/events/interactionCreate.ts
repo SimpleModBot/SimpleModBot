@@ -5,7 +5,6 @@ module.exports = {
     name: "interactionCreate",
     async execute(interaction, client) {
         if (!interaction.channel) return;
-        await interaction.deferUpdate();
 
         if (interaction.isButton()) {
             if (interaction.customId === 'tic') {

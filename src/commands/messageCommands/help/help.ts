@@ -49,7 +49,7 @@ module.exports = {
                 pages.push(embed);
             };
 
-            client.paginate(message, pages);
+            client.functions.paginate(message, pages);
         } else {
             const command = client.messageCommands.get(args[0].toLowerCase()) || client.messageCommands.find((c) => c.aliases && c.aliases.includes(args[0].toLowerCase()));
 
