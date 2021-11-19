@@ -8,15 +8,15 @@ module.exports = {
     async execute(client) {
         log4jsRun();
 
-        const SMB = figlet.textSync("SimpleModBot", {
+        /*const SMB = figlet.textSync("SimpleModBot", {
             font: 'broadway',
             horizontalLayout: 'fitted',
             verticalLayout: 'fitted',
             width: 500,
             whitespaceBreak: true
-        });
+        });*/
 
-        rgb.fromString(SMB);
+        rgb.fromString(/*SMB*/ 'bean');
 
         let serverIn = await client.guilds.cache.size;
         let serverMembers = await client.users.cache.size;
@@ -44,6 +44,6 @@ module.exports = {
             index++;
         }, 20000);
 
-        await client.channels.cache.get('883252233926488074').send({ embeds: [new Discord.MessageEmbed().setDescription(`\`${client.user.tag}\` is now online!`).setColor('GREY').setTimestamp()] });
+        //await client.channels.cache.get('883252233926488074').send({ embeds: [new Discord.MessageEmbed().setDescription(`\`${client.user.tag}\` is now online!`).setColor('GREY').setTimestamp()] });
     },
 };

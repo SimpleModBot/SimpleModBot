@@ -59,7 +59,7 @@ module.exports = {
                     .setColor("FF0000");
 
                 return message.channel.send({ embeds: [embed] });
-            }
+            };
 
             const embed = new MessageEmbed()
                 .setTitle("Command Details:")
@@ -71,6 +71,6 @@ module.exports = {
                 .setColor(roleColor);
 
             return message.channel.send({ embeds: [embed] });
-        }
+        };
     },
 };

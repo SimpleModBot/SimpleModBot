@@ -36,7 +36,7 @@ module.exports = {
         data.guild = guildDB;
         data.inventory = inventoryDB;
 
-        if (guildDB.levelSystem) if (guildDB.levelSystem == true) {
+        if (guildDB?.levelSystem == true) {
             const randomXP = Math.floor(Math.random() * 25) + 5;
             const hasLeveledUP = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
             if (hasLeveledUP) {
@@ -92,7 +92,7 @@ module.exports = {
         timestamps.set(message.author.id, now);
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-        await client.channels.cache.get('883251143151599646').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author}(${message.author.tag}) used \`${command.name} ${args.join(' ').replace('ENA', '')}\`.`).setColor('GREY').setTimestamp()] });
+        //await client.channels.cache.get('883251143151599646').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author}(${message.author.tag}) used \`${command.name} ${args.join(' ').replace('ENA', '')}\`.`).setColor('GREY').setTimestamp()] });
         await command.execute(message, args, data, client);
     },
 };
