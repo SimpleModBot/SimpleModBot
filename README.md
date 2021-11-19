@@ -5,6 +5,9 @@ multipurpose bot.
 
 Please read SECURITY.md as it doesn't appear below files like README.md does
 
+
+So I uh, kinda corrupted my main hard drive and lost nearly everything I posses digitally so thats really fucking cool. New discord account is DEATHB$DEFEAT#4404 and I will be working on SimpleModBot 2.0 and updating it here.
+
 ## Additional Information
 
 If you wish to use my bot code for your project, you can use it, just try to either credit me or change
