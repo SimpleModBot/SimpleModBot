@@ -4,7 +4,7 @@ module.exports = {
     name: 'guildCreate',
     async execute(guild, client) {
         {
-            const joinNotifChannel = await client.channels.cache.get("834283366324895786");
+            const joinNotifChannel = await client.channels.cache.get("915826985744363570");
             const notifEmbed = new Discord.MessageEmbed()
                 .setTitle("I have joined a new guild!")
                 .addField(`Name:`, `${guild.name}`, true)

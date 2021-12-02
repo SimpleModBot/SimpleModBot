@@ -35,7 +35,7 @@ module.exports = {
             .addField(`Prefix`, `\`\`\`${client.prefix}\`\`\``, true)
             .addField(`Uptime`, `\`\`\`${Uptime}\`\`\``, true)
             .addField(`Developer`, `\`\`\`${Developer.tag}\n${client.ownerID}\`\`\``, true)
-            .addField(`Bot Links`, `Bot Invite [https://top.gg/bot/808196506833125396]\nSupport/Community Server [https://discord.gg/26NtPVvNCU]`)
+            .addField(`Bot Links`, `Bot Invite [https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands]\nSupport/Community Server [https://discord.gg/49KeKwXc8g]`)
             .setAuthor(client.user.tag, client.user.displayAvatarURL())
             .setColor('GREY')
             .setTimestamp();

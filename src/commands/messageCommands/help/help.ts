@@ -42,7 +42,7 @@ module.exports = {
                     .setTitle(category.name)
                     .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
                     .addField(category.name, category.value)
-                    .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
+                    .setFooter(`If you like me please invite me to your server with the button on my profile!`, message.author.displayAvatarURL({ dynamic: true }))
                     .setColor(roleColor || "GRAY")
                     .setTimestamp();
 
@@ -56,7 +56,7 @@ module.exports = {
             if (!command) {
                 const embed = new MessageEmbed()
                     .setTitle(`Invalid command! Use \`${prefix}help\` to view all commands.`)
-                    .setColor("FF0000");
+                    .setColor("GREY");
 
                 return message.channel.send({ embeds: [embed] });
             };
@@ -66,7 +66,7 @@ module.exports = {
                 .addField("COMMAND:", command.name ? `> \`${command.name}\`` : "> Unnamed command??")
                 .addField("DESCRIPTION:", command.description ? `> ${command.description}` : "> No description.")
                 .addField("ALIASES:", command.aliases ? `> \`${command.aliases.join("` `")}\`` : "> No aliases.")
-                .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
+                .setFooter(`If you like me please invite me to your server with the button on my profile!`, message.author.displayAvatarURL({ dynamic: true }))
                 .setTimestamp()
                 .setColor(roleColor);
 

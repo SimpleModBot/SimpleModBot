@@ -1,10 +1,11 @@
-.env
 index.ts
+.env
 node_modules
-.gitignore
-.gitattributes
-TODO.private.diff
+
 errors.log
 information.log
 warnings.log
 json.sqlite
+
+test.ts
+yo.ogg

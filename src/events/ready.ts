@@ -7,16 +7,16 @@ module.exports = {
     name: 'ready',
     async execute(client) {
         log4jsRun();
-
-        /*const SMB = figlet.textSync("SimpleModBot", {
-            font: 'broadway',
+        
+        const SMB = figlet.textSync("SimpleModBot", {
+            font: 'Broadway',
             horizontalLayout: 'fitted',
             verticalLayout: 'fitted',
             width: 500,
             whitespaceBreak: true
-        });*/
+        });
 
-        rgb.fromString(/*SMB*/ 'bean');
+        rgb.fromString(SMB);
 
         let serverIn = await client.guilds.cache.size;
         let serverMembers = await client.users.cache.size;
@@ -30,20 +30,16 @@ module.exports = {
             `messages.`,
         ];
 
-        let index = 0;
         setInterval(() => {
-            if (index === statuses.length) index = 0;
-            const status = statuses[index];
             client.user.setPresence({
                 activities: [{
-                    name: `${status}`,
+                    name: statuses[Math.floor(Math.random() * statuses.length)],
                     type: "WATCHING",
                 }],
                 status: "online",
-            })
-            index++;
+            });
         }, 20000);
 
-        //await client.channels.cache.get('883252233926488074').send({ embeds: [new Discord.MessageEmbed().setDescription(`\`${client.user.tag}\` is now online!`).setColor('GREY').setTimestamp()] });
+        await client.channels.cache.get('915827579431288843').send({ embeds: [new Discord.MessageEmbed().setDescription(`\`${client.user.tag}\` is now online!`).setColor('GREY').setTimestamp()] });
     },
 };

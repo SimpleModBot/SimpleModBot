@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const Levels = require('discord-xp');
 const mongis = require('../database/mongoose.ts');
 const schema = require('../database/models/ccSchema.ts');
 const mongoose = require('mongoose');
@@ -15,7 +14,7 @@ module.exports = {
 
         const Guild = require('../database/models/guildSchema.ts');
         const guildProfile = await Guild.findOne({ guildID: message.guild.id });
-        if (guildProfile) client.prefix = guildProfile.prefix;
+        if (guildProfile?.prefix) client.prefix = guildProfile.prefix;
 
         let balanceDB = client.data.getBalanceDB(message.author.id);
         let blacklistDB = client.data.getBlacklistDB(message.author.id);
@@ -36,19 +35,10 @@ module.exports = {
         data.guild = guildDB;
         data.inventory = inventoryDB;
 
-        if (guildDB?.levelSystem == true) {
-            const randomXP = Math.floor(Math.random() * 25) + 5;
-            const hasLeveledUP = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
-            if (hasLeveledUP) {
-                const user = await Levels.fetch(message.author.id, message.guild.id);
-                message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.member.user.tag}, you have leveled up to ${user.level}!`).setColor('GREY')] });
-            };
-        };
-
         const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(client.prefix)})\\s*`);
         if (!prefixRegex.test(message.content)) return;
-        if (message.content == `<@!${client.user.id}>`) return message.channel.send({ embeds: [new Discord.MessageEmbed().setTitle("It appears you mentioned me!").setDescription(`Hello! I am SimpleModBot! An easy to use multipurpose bot.\n\nIf you wish to know my prefix its set to \`${client.prefix}\` but you can change it if your the owner!\nI will always have <@${client.user.id}> as a prefix though!\n\nIf you wish to know my commands type \`${client.prefix}help\`.`).setFooter('I hope you like me!').setImage('https://cdn.discordapp.com/attachments/885009693645344829/891421005082398750/simplemodbot.gif').setTimestamp().setColor('GREY')] });
+        if (message.content == `<@!${client.user.id}>`) return message.channel.send({ embeds: [new Discord.MessageEmbed().setTitle("It appears you mentioned me!").setDescription(`Hello! I am SimpleModBot! An easy to use multipurpose bot.\n\nIf you wish to know my prefix its set to \`${client.prefix}\` but you can change it if you're the owner!\nI will always have \`<@${client.user.id}>\` as a prefix though!\n\nIf you wish to know my commands type \`${client.prefix}help\`.`).setFooter('Please invite me to your servers to help me grow! Theres a button on my profile ^-^').setImage('https://cdn.discordapp.com/attachments/885009693645344829/891421005082398750/simplemodbot.gif').setTimestamp().setColor('GREY')] });
 
         const [, matchedPrefix] = message.content.match(prefixRegex);
         let args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
@@ -92,7 +82,7 @@ module.exports = {
         timestamps.set(message.author.id, now);
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-        //await client.channels.cache.get('883251143151599646').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author}(${message.author.tag}) used \`${command.name} ${args.join(' ').replace('ENA', '')}\`.`).setColor('GREY').setTimestamp()] });
+        await client.channels.cache.get('915826612057030667').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author}(${message.author.tag}) used \`${command.name} ${args.join(' ').replace('ENA', '')}\`.`).setColor('GREY').setTimestamp()] });
         await command.execute(message, args, data, client);
     },
 };

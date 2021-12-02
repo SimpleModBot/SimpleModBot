@@ -22,7 +22,7 @@ module.exports = {
             message.channel.send({
                 embeds: [new Discord.MessageEmbed()
                     .setTitle("Anti Invite.")
-                    .setDescription(`${message.author.tag} sent an invite!`)
+                    .setDescription(`${message.member}(${message.author.tag}) sent an invite!`)
                     .setColor("GREY")
                     .setTimestamp()]
             });
@@ -40,10 +40,10 @@ module.exports = {
                 try {
                     const vanity = await message.guild.fetchVanityData();
                     if (code !== vanity?.code) return deleteMessage();
-                    await client.channels.cache.get('883251216639991828').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author}(${message.author.tag}) was attacked by anti invite in ${message.channel}!`).setColor('GREY').setTimestamp()] });
+                    await client.channels.cache.get('915827131534168105').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author}(${message.author.tag}) was attacked by anti invite in ${message.channel}!`).setColor('GREY').setTimestamp()] });
                 } catch (err) {
                     deleteMessage();
-                    await client.channels.cache.get('883251216639991828').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author}(${message.author.tag}) was attacked by anti invite in ${message.channel}!`).setColor('GREY').setTimestamp()] });
+                    await client.channels.cache.get('915827131534168105').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author}(${message.author.tag}) was attacked by anti invite in ${message.channel}!`).setColor('GREY').setTimestamp()] });
                 };
             };
         };

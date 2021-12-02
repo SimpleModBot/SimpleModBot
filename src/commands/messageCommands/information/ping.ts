@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 module.exports = {
     name: 'ping',
     description: 'Shows the bots ping.',
-    DMU: true,
     cooldown: 5,
     async execute(message, args, data, client) {
         let Days = Math.floor(client.uptime / 86400000);

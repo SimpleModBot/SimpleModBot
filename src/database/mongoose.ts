@@ -11,22 +11,10 @@ module.exports = {
             useUnifiedTopology: true,
             autoIndex: false,
             poolSize: 100,
-            connectTimeoutMS: 10000,
             family: 4
         };
 
-        const connection = mongoose.createConnection(`mongodb://127.0.0.1:27017/SMB`, dbOptions);
-        mongoose.Promise = global.Promise;
-
-        mongoose.connection.on('err', (err) => {
-            console.log(chalk.red.bgBlack.bold(figlet.textSync("Error!", {
-                font: 'Standard',
-                horizontalLayout: 'fitted',
-                verticalLayout: 'fitted',
-                width: 100,
-                whitespaceBreak: true
-            }) + err));
-        });
+        await mongoose.connect(`mongodb://simplemodbot-db:27017`, dbOptions);
 
         const balancesDB = require("./models/balanceSchema.ts");
         const blacklistsDB = require("./models/blackListSchema.ts");
@@ -68,9 +56,5 @@ module.exports = {
                 return "User Doesn't Have An Inventory.";
             };
         };
-
-        setTimeout(() => {
-        connection.close();
-        }, 5000);
     },
 };

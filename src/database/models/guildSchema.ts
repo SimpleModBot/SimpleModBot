@@ -7,7 +7,6 @@ const guildSchema = new mongoose.Schema({
     muteRoleID: { type: String, required: false },
     memberRoleID: { type: String, required: false },
     modlogChannelID: { type: String, required: false },
-    levelSystem: { type: Boolean, default: false },
     antiInvite: { type: Boolean, default: false },
     welcomeChannelID: { type: String, default: false },
 });

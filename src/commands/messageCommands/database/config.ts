@@ -52,14 +52,6 @@ module.exports = {
                 .setTimestamp()
                 .setColor("GREY");
 
-            const levelSystem = new MessageEmbed()
-                .setTitle("levelSystem")
-                .setDescription(`The current levelSystem is ${guildProfile.levelSystem}
-                To change or remove/reset it use:
-                \`${client.prefix}config add/remove levelSystem\``)
-                .setTimestamp()
-                .setColor("GREY");
-
             const antiInvite = new MessageEmbed()
                 .setTitle("antiInvite")
                 .setDescription(`The current antiInvite is ${guildProfile.antiInvite}
@@ -76,7 +68,7 @@ module.exports = {
                 .setTimestamp()
                 .setColor("GREY");
 
-            const pages = [prefix, muteRoleID, memberRoleID, modlogChannelID, levelSystem, antiInvite, welcomeChannelID];
+            const pages = [prefix, muteRoleID, memberRoleID, modlogChannelID, antiInvite, welcomeChannelID];
             client.functions.paginate(message, pages);
         } else {
             if ("add" === args[0]) {
@@ -98,9 +90,6 @@ module.exports = {
                     if (!modlogChannel) return;
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { modlogChannelID: modlogChannel.id, lastEdited: Date.now() });
                     message.channel.send(`Updated: ${args[1]} to ${modlogChannel} succesfully!`);
-                } else if ("levelSystem" === args[1]) {
-                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { levelSystem: true });
-                    message.channel.send({ content: "Level System is now toggled on!" });
                 } else if ("antiInvite" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { antiInvite: true });
                     message.channel.send({ content: "antiInvite is now toggled on!" });
@@ -124,9 +113,6 @@ module.exports = {
                 } else if ("modlogChannel" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { modlogChannelID: "undefined", lastEdited: Date.now() });
                     message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Deleted ${args[1]} successfully!`).setColor('GREY')] });
-                } else if ("levelSystem" === args[1]) {
-                    await Guild.findOneAndUpdate({ guildID: message.guild.id }, { levelSystem: false });
-                    message.channel.send({ content: "Level System is now toggled off!" });
                 } else if ("antiInvite" === args[1]) {
                     await Guild.findOneAndUpdate({ guildID: message.guild.id }, { antiInvite: false });
                     message.channel.send({ content: "antiInvite is now toggled off!" });
