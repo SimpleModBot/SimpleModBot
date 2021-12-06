@@ -2,9 +2,8 @@ const Discord = require('discord.js');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 
 module.exports = {
-    name: "ticket-panel",
+    name: "ticket",
     description: "Opens the ticket panel.",
-    aliases: ["t-p"],
     cooldown: 5,
     async execute(message, args, data, client) {
         const embed = new MessageEmbed()

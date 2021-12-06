@@ -54,9 +54,9 @@ module.exports = {
 
                 const pongEmbed = new Discord.MessageEmbed()
                     .setTitle("🏓Pong!")
-                    .setDescription(`${MESSAGE}\n> <:BotDev:832344818453184522> Response: ${ping}ms
-                > <:mongoDB:870855924129079356> Database: ${dbPing}ms
-                > <:DiscordApp:870856184456949761> Discord: ${client.ws.ping}ms
+                    .setDescription(`${MESSAGE}\n> Response: ${ping}ms
+                > Database: ${dbPing}ms
+                > Discord: ${client.ws.ping}ms
                 > 💖 Uptime: ${Uptime}`)
                     .setFooter(`${message.author.tag.slice(0, -5)} used ping command.`)
                     .setColor(COLOR);

@@ -32,7 +32,7 @@ Most of the data is not that useful or really easy to repair so I do not believe
 
 - Message commands
 - *Slash commands
-- *Level system
+- **Level system
 - Developer commands
 - Economy system
 - Emoji commands
@@ -45,6 +45,8 @@ Most of the data is not that useful or really easy to repair so I do not believe
 
 *\*Currently disfunctional or disabled. Might get added back/fixed, might not.*
 
+*\*\*Guaranteed to not be coming back on the full release. Is still possible that I add it back in a future update, just unlikely.*
+
 ## Contributing
 
 Contributions are always welcome!
@@ -56,9 +58,10 @@ If you are a developer and would like to help with the bot, please join me in th
 
 ### Contributors
 
-- [Stanford47#1548](https://github.com/Stanford47)
+- @Stanford47
 ### Testers
 
-- [itsamedood#0818](https://github.com/itsamedood)
+- @itsamedood
 - [Blaster#7471](https://www.youtube.com/channel/UCvG7nYCCx33dL61nlObV5TQ)
 - [near#9999](https://www.youtube.com/channel/UCVdckpCY90ytyzwihp86xEA)
+- @XOwOEnder

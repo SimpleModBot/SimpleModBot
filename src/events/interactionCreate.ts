@@ -18,12 +18,10 @@ module.exports = {
 
                 const embed = new MessageEmbed()
                     .setTitle('Ticket')
-                    .setDescription('Hello!\nThe staff will be here as soon as possible, while you wait you can explain your issue.')
-                    .setColor('GREEN')
+                    .setDescription('Hello there!\nThe staff will be here as soon as possible, while you wait you can explain your issue.')
+                    .setColor('GREY')
                     .setTimestamp()
-                    .setAuthor(interaction.guild.name, interaction.guild.iconURL({
-                        dynamic: true
-                    }));
+                    .setAuthor(interaction.guild.name, interaction.guild.iconURL({ dynamic: true }));
 
                 const del = new MessageActionRow()
                     .addComponents(new MessageButton()
@@ -35,19 +33,21 @@ module.exports = {
                     content: `Welcome <@${interaction.user.id}>!`,
                     embeds: [embed],
                     components: [del]
-                }).then(interaction.followUp({
+                }).then(interaction.channel.send({
                     content: 'Created Ticket!',
                     ephemeral: true
                 }));
 
-                console.log(`Created thread: ${thread.name}`);
+                const ch = await client.channels.cache.get('915827131534168105');
+                ch.send({ embeds: [new Discord.MessageEmbed().setDescription(`${interaction.user.tag}(${interaction.user.id}) created a ticket!`).setTimestamp().setColor('GREY')] });
+
                 setTimeout(() => {
-                    interaction.channel.bulkDelete(1);
+                    interaction.channel.bulkDelete(2);
                 }, 5000);
 
             } else if (interaction.customId === 'del') {
                 const thread = interaction.channel;
-                thread.delete();
+                thread.setArchived(true);
             };
         };
 
