@@ -3,7 +3,7 @@
 A bot for Discord I originally made for moderation but grew over time into a
 multipurpose bot.
 
-The current prefix is `//` because I don't want to be bothered with changing it again to `\`, so if you are a tester, you can manually change it to `\` if you want until I get annoyed at mentions not functioning right.
+The current prefix is `\` but you can change it with the `config` command.
 
 ---
 
@@ -37,7 +37,7 @@ Most of the data is not that useful or really easy to repair so I do not believe
 - Economy system
 - Emoji commands
 - Fun commands
-- Games
+- Games system
 - Image manipulation
 - Information
 - Moderation

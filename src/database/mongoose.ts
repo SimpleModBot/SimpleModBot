@@ -20,13 +20,14 @@ module.exports = {
         const blacklistsDB = require("./models/blackListSchema.ts");
         const guildsDB = require("./models/guildSchema.ts");
         const inventoriesDB = require("./models/inventorySchema.ts");
+        const readyatDB = require("./models/readyatSchema.ts");
 
         module.exports.getBalanceDB = async function (userID) {
             let balanceDB = await balancesDB.findOne({ userID: userID });
             if (balanceDB) {
                 return balanceDB;
             } else {
-                return "User Doesn't Have A Bot Wallet.";
+                return "User doesn't have a wallet.";
             };
         };
 
@@ -35,7 +36,7 @@ module.exports = {
             if (blacklistDB) {
                 return blacklistDB;
             } else {
-                return "User Is Not Blacklisted.";
+                return "User is not blacklisted.";
             };
         };
 
@@ -44,7 +45,7 @@ module.exports = {
             if (guildDB) {
                 return guildDB;
             } else {
-                return "Guild Isn't Setup With Bot.";
+                return "Guild isn't set up with bot.";
             };
         };
 
@@ -53,7 +54,16 @@ module.exports = {
             if (inventoryDB) {
                 return inventoryDB;
             } else {
-                return "User Doesn't Have An Inventory.";
+                return "User doesn't have an inventory.";
+            };
+        };
+
+        module.exports.getReadyatDB = async function () {
+            let readyat = await readyatDB.findOne({ timezone: 'PST/Pacific Standard Time' });
+            if (readyat) {
+                return readyat;
+            } else {
+                return "No existing time.";
             };
         };
     },

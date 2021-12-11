@@ -6,19 +6,19 @@ module.exports = {
     cooldown: 3,
     devOnly: true,
     async execute(message, args, data, client) {
-        const voice = require("@discordjs/voice");
+        // const voice = require("@discordjs/voice");
 
-        const connection = await voice.joinVoiceChannel({
-            channelId: message.member.voice.channel.id,
-            guildId: message.guild.id,
-            adapterCreator: message.guild.voiceAdapterCreator
-        });
+        // const connection = await voice.joinVoiceChannel({
+        //     channelId: message.member.voice.channel.id,
+        //     guildId: message.guild.id,
+        //     adapterCreator: message.guild.voiceAdapterCreator
+        // });
 
-        const player = voice.createAudioPlayer();
-        const res = voice.createAudioResource('./yo.ogg');
-        res.volume = 75;
+        // const player = voice.createAudioPlayer();
+        // const res = voice.createAudioResource('./yo.ogg');
+        // res.volume = 75;
 
-        await connection.subscribe(player);
-        await player.play(res);
+        // await connection.subscribe(player);
+        // await player.play(res);
     },
 };

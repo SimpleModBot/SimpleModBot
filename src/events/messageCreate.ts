@@ -20,6 +20,7 @@ module.exports = {
         let blacklistDB = client.data.getBlacklistDB(message.author.id);
         let guildDB = client.data.getGuildDB(message.guild.id);
         let inventoryDB = client.data.getInventoryDB(message.author.id);
+        let timeDB = client.data.getReadyatDB();
 
         let data = {
             config: "An Error Occurred Loading This Information.",
@@ -27,6 +28,7 @@ module.exports = {
             blacklisted: "An Error Occurred Loading This Information.",
             guild: "An Error Occurred Loading This Information.",
             inventory: "An Error Occurred Loading This Information.",
+            time: "An Error Occurred Loading This Information.",
         };
 
         data.config = client;
@@ -34,6 +36,7 @@ module.exports = {
         data.blacklisted = blacklistDB;
         data.guild = guildDB;
         data.inventory = inventoryDB;
+        data.time = timeDB;
 
         const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(client.prefix)})\\s*`);
