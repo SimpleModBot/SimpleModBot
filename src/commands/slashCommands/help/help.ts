@@ -1,29 +1,32 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
-const Discord = require("discord.js");
-const { readdirSync } = require("fs");
+// @ts-ignore
+const Discord = require('discord.js');
+const { readdirSync } = require('fs');
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('help')
-        .setDescription('Replies with the bot help menu.')
-        .addStringOption(opt =>
-            opt.setName('command')
-                .setDescription("Command you want to view more info for.")),
-    async execute(interaction, client) {
-        interaction.reply({ content: "Sending the help menu.", ephemeral: true });
+    name: 'help',
+    description: 'Gain knowledge here.',
+    userPermissions: ['SEND_MESSAGES'],
+    botPermissions: ['SEND_MESSAGES'],
+    options: [
+        {
+            name: 'cmd',
+            description: 'The command to view information on.',
+            type: 'STRING',
+            required: false,
+        },
+    ],
+    async execute(interaction, args, client) {
+        const [cmd] = args;
+        const roleColor = "#000000" ? "GREY" : interaction.guild.me.displayHexColor;
 
-        const prefix = client.prefix;
-        const roleColor = interaction.guild.me.displayHexColor === "#000000" ? "GREY" : interaction.guild.me.displayHexColor;
-        const args = interaction.options.getString('command') || "ENA";
-
-        if (args == "ENA") {
+        if (!cmd) {
             let categories = [];
-            readdirSync("./commands/messageCommands/").forEach((dir) => {
-                const commands = readdirSync(`./commands/messageCommands/${dir}/`).filter((file) => file.endsWith(".ts"));
+
+            readdirSync("./commands/slashCommands/").forEach((dir) => {
+                const commands = readdirSync(`./commands/slashCommands/${dir}/`).filter((file) => file.endsWith(".ts"));
 
                 const cmds = commands.map((command) => {
-                    let file = require(`../../messageCommands/${dir}/${command}`);
+                    let file = require(`../${dir}/${command}`);
                     if (!file.name) return "No command name.";
                     let name = file.name.replace(".ts", "");
 
@@ -45,109 +48,36 @@ module.exports = {
             for (const category of categories) {
                 const embed = new Discord.MessageEmbed()
                     .setTitle(category.name)
-                    .setDescription(`Use \`${client.prefix}help <command>\` to get more information on the command.\nExample: \`${client.prefix}help ban\``)
+                    .setDescription(`Use \`/help <command>\` to get more information on the command.\nExample: \`/help ban\``)
                     .addField(category.name, category.value)
-                    .setFooter(`Requested by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
+                    .setFooter(`If you like me please invite me to your server with the button on my profile!`, interaction.member.displayAvatarURL({ dynamic: true }))
                     .setColor(roleColor || "GRAY")
                     .setTimestamp();
 
                 pages.push(embed);
             };
-            let position = 0;
 
-            const previous = new MessageButton()
-                .setLabel("")
-                .setStyle("SECONDARY")
-                .setEmoji("◀️")
-                .setCustomId("previous");
-
-            const next = new MessageButton()
-                .setLabel("")
-                .setStyle("SECONDARY")
-                .setEmoji("▶️")
-                .setCustomId("next");
-
-            const paginationbuttons = new MessageActionRow()
-                .addComponents(previous, next);
-
-            const endedP = new MessageButton()
-                .setLabel("")
-                .setStyle("SECONDARY")
-                .setEmoji("◀️")
-                .setCustomId("previous")
-                .setDisabled();
-
-            const endedN = new MessageButton()
-                .setLabel("")
-                .setStyle("SECONDARY")
-                .setEmoji("▶️")
-                .setCustomId("previous")
-                .setDisabled();
-
-            const endedbuttons = new MessageActionRow()
-                .addComponents(endedP, endedN);
-
-            function checkPos() {
-                previous.setDisabled(position === 0 ? true : false);
-                next.setDisabled(position === Object.keys(pages).length - 1 ? true : false);
-            };
-
-            checkPos();
-            const pagination = await interaction.channel.send({
-                embeds: [pages[position]],
-                components: [paginationbuttons]
-            });
-
-            const collector = pagination.componentCollector(
-                {
-                    componentType: "BUTTON",
-                    time: 60000
-                });
-
-            collector.on("collect", async (button) => {
-                if (button.user.id === interaction.user.id) {
-                    if (button.customId === "previous" && position > 0) position = position - 1;
-                    if (button.customId === "next" && position < pages.length - 1) position = position + 1;
-                    checkPos();
-                    await pagination.edit({
-                        content: "\u200b",
-                        embeds: [pages[position]],
-                        components: [paginationbuttons]
-                    });
-                    await button.deferUpdate();
-                } else {
-                    button.reply({ content: `Hey, ${button.user.username}, these buttons aren't for you to use!`, ephemeral: true });
-                };
-            });
-
-            collector.on("end", async (collected) => {
-                await pagination.edit(`Timed out.`, {
-                    content: "\u200b",
-                    embeds: [pages[position]],
-                    components: [endedbuttons]
-                });
-            });
+            client.functions.spaginate(interaction, pages);
         } else {
-            const command = client.messageCommands.get(args.toLowerCase()) || client.messageCommands.find((c) => c.aliases && c.aliases.includes(args.toLowerCase()));
+            const command = client.slashCommands.get(cmd.toLowerCase());
 
             if (!command) {
-                const embed = new MessageEmbed()
-                    .setTitle(`Invalid command! Use \`${prefix}help\` to view all commands.`)
-                    .setColor("FF0000");
+                const embed = new Discord.MessageEmbed()
+                    .setTitle(`Invalid command! Use \`/help\` to view all commands.`)
+                    .setColor("GREY");
 
-                return interaction.channel.send({ embeds: [embed] });
-            }
+                return interaction.reply({ embeds: [embed], ephemeral: true });
+            };
 
-            const embed = new MessageEmbed()
+            const embed = new Discord.MessageEmbed()
                 .setTitle("Command Details:")
                 .addField("COMMAND:", command.name ? `> \`${command.name}\`` : "> Unnamed command??")
                 .addField("DESCRIPTION:", command.description ? `> ${command.description}` : "> No description.")
-                .addField("ALIASES:", command.aliases ? `> \`${command.aliases.join("` `")}\`` : "> No aliases.")
-                .setFooter(`Requested by ${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
+                .setFooter(`If you like me please invite me to your server with the button on my profile!`, interaction.member.displayAvatarURL({ dynamic: true }))
                 .setTimestamp()
                 .setColor(roleColor);
 
-            return interaction.channel.send({ embeds: [embed] });
+            return interaction.reply({ embeds: [embed], ephemeral: true });
         };
     },
 };

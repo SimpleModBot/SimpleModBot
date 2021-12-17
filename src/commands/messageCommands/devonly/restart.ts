@@ -1,9 +1,8 @@
 const Discord = require('discord.js');
 
 module.exports = {
-    name: "shutdown",
-    aliases: ["shut"],
-    DMU: true,
+    name: "restart",
+    aliases: ["shut", "res"],
     devOnly: true,
     async execute(message, args, data, client) {
         console.clear();

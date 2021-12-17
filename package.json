@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "@types/node": "^16.11.9"
+  },
+  "dependencies": {
+    "@iamtraction/google-translate": "^1.1.2"
   }
 }

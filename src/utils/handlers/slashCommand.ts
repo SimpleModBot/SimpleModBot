@@ -1,34 +1,21 @@
-const fs = require("fs");
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
-const figlet = require("figlet");
-const rgb = require("lolcatjs");
+const { glob } = require("glob");
+const { promisify } = require("util");
+const { Client } = require("discord.js");
+const mongoose = require("mongoose");
+const globPromise = promisify(glob);
 
-module.exports = (client) => {
-    client.handleSlashCommands = async (commandFolders, path) => {
-        client.commandArray = [];
-        for (const folder of commandFolders) {
-            const commandFiles = fs.readdirSync(`${path}/${folder}`).filter(file => file.endsWith('.ts'));
-            for (const file of commandFiles) {
-                client.scn = client.scn + 1;
-                const command = require(`../../commands/slashCommands/${folder}/${file}`);
-                client.slashCommands.set(command.data.name, command);
-                client.commandArray.push(command.data.toJSON());
-            };
-        };
+module.exports = async (client) => {
+    const slashCommands = await globPromise(`${process.cwd()}/commands/slashCommands/*/*.ts`);
+    const arrayOfSlashCommands = [];
 
-        const clientId = '808196506833125396';
-        const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
+    slashCommands.map((value) => {
+        const file = require(value);
+        if (!file?.name) return;
+        client.slashCommands.set(file.name, file);
 
-        (async () => {
-            try {
-                await rest.put(
-                    Routes.applicationCommands(clientId),
-                    { body: client.commandArray },
-                );
-            } catch (error) {
-                console.log("\u200b");
-            }
-        })();
-    };
+        if (["MESSAGE", "USER"].includes(file.type)) delete file.description;
+        arrayOfSlashCommands.push(file);
+    });
+
+    client.commandArray = arrayOfSlashCommands;
 };

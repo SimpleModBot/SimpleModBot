@@ -1,6 +1,0 @@
-@ECHO OFF
-CD ../
-:MAIN
-NODE index.ts
-ECHO ‫
-GOTO MAIN

@@ -3,9 +3,8 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: 'addcmd',
-    aliases: ['acmd'],
     devOnly: true,
-    description: 'Reloads a command',
+    description: 'Loads a command',
     async execute(message, args, data, client) {
         if (!args[0]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`You need to tell me what command to add, ex: ${client.prefix}addcmd cheese`).setColor('GREY')] });
 

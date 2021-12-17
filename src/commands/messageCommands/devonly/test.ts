@@ -20,5 +20,7 @@ module.exports = {
 
         // await connection.subscribe(player);
         // await player.play(res);
+
+        message.reply({ embeds: [new Discord.MessageEmbed().setDescription(`hello`).setColor('GREY')], allowedMentions: { repliedUser: false } });
     },
 };

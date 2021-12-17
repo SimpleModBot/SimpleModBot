@@ -1,4 +1,5 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
+// @ts-ignore
 const Discord = require("discord.js");
 const { readdirSync } = require("fs");
 

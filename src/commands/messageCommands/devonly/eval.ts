@@ -27,10 +27,7 @@ module.exports = {
 
             let evaled = await eval(code);
             let rawEvaled = evaled;
-            if (typeof evaled !== "string")
-                evaled = require("util").inspect(evaled, {
-                    "depth": 0
-                });
+            if (typeof evaled !== "string") evaled = require("util").inspect(evaled, { "depth": 0 });
 
             let dataType = Array.isArray(rawEvaled) ? "Array<" : typeof rawEvaled, dataTypes = [];
             if (~dataType.indexOf("<")) {

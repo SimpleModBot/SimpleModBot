@@ -1,3 +1,0 @@
-Schema#find({
-    Object: Search
-}).sort([['Object', 'descending']]).exec();

@@ -5,7 +5,6 @@ let Table = new ascii("ServerList");
 module.exports = {
     name: "serverlist",
     aliases: ["sl"],
-    DMU: true,
     devOnly: true,
     async execute(message, args, data, client) {
         Table.setHeading(" Guild Name ", " Guild ID ", " Member Count ", " Owner ");

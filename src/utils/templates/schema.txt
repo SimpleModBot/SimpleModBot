@@ -1,8 +1,0 @@
-const mongoose = require('mongoose');
-
-const Schema = new mongoose.Schema({
-    _id: mongoose.Types.ObjectId,
-    userID: String,
-})
-
-module.exports = new mongoose.model('', Schema, '');

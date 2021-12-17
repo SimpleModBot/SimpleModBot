@@ -13,7 +13,7 @@ module.exports = {
             .setTitle("Pinging...")
             .setDescription("This might take a bit.")
             .setFooter(`${message.author.tag.slice(0, -5)} used ping command.`)
-            .setColor("#fffb14");
+            .setColor("GREY");
 
         message.channel.send({ embeds: [pingingEmbed] }).then(async (resultMessage) => {
             const ping = resultMessage.createdTimestamp - message.createdTimestamp;

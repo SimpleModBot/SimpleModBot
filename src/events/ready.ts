@@ -1,40 +1,76 @@
+// @ts-ignore
+const Discord = require('discord.js');
 const figlet = require("figlet");
 const rgb = require("lolcatjs");
-const log4jsRun = require(`../utils/other/log4js`);
-const Discord = require('discord.js');
+const chalk  = require("chalk");
+const { table } = require('table');
 
 module.exports = {
     name: 'ready',
     async execute(client) {
-        log4jsRun();
-        
-        const SMB = figlet.textSync("SimpleModBot", {
-            font: 'Broadway',
-            horizontalLayout: 'fitted',
-            verticalLayout: 'fitted',
-            width: 500,
-            whitespaceBreak: true
+        client.guilds.cache.forEach(async guild => {
+            guild.commands.set(client.commandArray);
         });
 
-        rgb.fromString(SMB);
+        const data = [
+            ["LOGGED IN AS", `${chalk.red.bold(client.user.tag)}`, "The client user tag."],
+            ["GUILD COUNT", `${chalk.yellow.bold(await client.guilds.cache.size)}`, "The amount of guilds I'm in."],
+            ["USER COUNT", `${chalk.green.bold(await client.users.cache.size)}`, "The amount of users in my guilds."],
+            ["PREFIX", `${chalk.cyan.bold(client.prefix)}`, "The prefix to use my commands."],
+            ["MCOMMANDS", `${chalk.blue.bold(client.messageCommands.size)}`, "Number of mCommands I have."],
+            ["SCOMMANDS", `${chalk.blue.bold(client.slashCommands.size)}`, "Number of sCommands I have."],
+        ];
+
+        const config = {
+            border: {
+                topBody: `─`,
+                topJoin: `┬`,
+                topLeft: `┌`,
+                topRight: `┐`,
+
+                bottomBody: `─`,
+                bottomJoin: `┴`,
+                bottomLeft: `└`,
+                bottomRight: `┘`,
+
+                bodyLeft: `│`,
+                bodyRight: `│`,
+                bodyJoin: `│`,
+
+                joinBody: `─`,
+                joinLeft: `├`,
+                joinRight: `┤`,
+                joinJoin: `┼`
+            },
+            header: {
+                alignment: 'center',
+                content: "CLIENT DATA"
+            }
+        };
+
+        console.log(table(data, config));
 
         let serverIn = await client.guilds.cache.size;
         let serverMembers = await client.users.cache.size;
 
+        // COMPETING WATCHING PLAYING STREAMING LISTENING
         const statuses = [
-            `${serverIn} servers.`,
-            `for commands.`,
-            `${serverMembers} members.`,
-            `for mentions.`,
-            `you..`,
-            `messages.`,
+            [`${serverIn} servers.`, `WATCHING`],
+            [`${serverMembers} members.`, `WATCHING`],
+            [`you..`, `WATCHING`],
+            [`for commands.`, `LISTENING`],
+            [`for mentions.`, `LISTENING`],
         ];
 
         setInterval(() => {
+            const num = Math.floor(Math.random() * statuses.length);
+            const message = statuses[num][0];
+            const type = statuses[num][1];
+
             client.user.setPresence({
                 activities: [{
-                    name: statuses[Math.floor(Math.random() * statuses.length)],
-                    type: "WATCHING",
+                    name: message,
+                    type: type,
                 }],
                 status: "online",
             });

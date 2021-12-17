@@ -1,30 +1,19 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const Discord = require('discord.js');
-const Ping = require('../../../database/models/pingSchema.ts');
 const mongoose = require('mongoose');
+const Ping = require('../../../database/models/pingSchema.ts');
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('ping')
-        .setDescription('Replies with the bot ping.'),
-    async execute(interaction, client) {
+    name: 'ping',
+    description: 'Ping! Pong!',
+    async execute(interaction, args, client) {
         interaction.reply({ content: "Sending the ping embed.", ephemeral: true });
-
-        let Days = Math.floor(client.uptime / 86400000);
-        let Hours = Math.floor(client.uptime / 3600000) % 24;
-        let Minutes = Math.floor(client.uptime / 60000) % 60;
-        let Seconds = Math.floor(client.uptime / 1000) % 60;
-        const RemoveUseless = (Duration) => {
-            return Duration.replace("`0` Day", "").replace("`0` Hour", "").replace("`0` Minute", "");
-        };
-
-        let Uptime = await RemoveUseless(`\`${Days}\` ${Days > 1 ? "Days" : "Day"} \`${Hours}\` ${Hours > 1 ? "Hours" : "Hour"} \`${Minutes}\` ${Minutes > 1 ? "Minutes" : "Minute"} \`${Seconds}\` ${Seconds > 1 ? "Seconds" : "Second"}`);
+        let Uptime = await client.functions.getUptime();
 
         const pingingEmbed = new Discord.MessageEmbed()
             .setTitle("Pinging...")
             .setDescription("This might take a bit.")
             .setFooter(`${interaction.user.tag.slice(0, -5)} used ping command.`)
-            .setColor("#fffb14");
+            .setColor("GREY");
 
         interaction.channel.send({ embeds: [pingingEmbed] }).then(async (resultMessage) => {
             const ping = resultMessage.createdTimestamp - interaction.createdTimestamp;
@@ -57,9 +46,9 @@ module.exports = {
 
             const pongEmbed = new Discord.MessageEmbed()
                 .setTitle("🏓Pong!")
-                .setDescription(`${MESSAGE}\n> <:BotDev:832344818453184522> Response: ${ping}ms
-                > <:mongoDB:870855924129079356> Database: ${dbPing}ms
-                > <:DiscordApp:870856184456949761> Discord: ${client.ws.ping}ms
+                .setDescription(`${MESSAGE}\n> Response: ${ping}ms
+                > Database: ${dbPing}ms
+                > Discord: ${client.ws.ping}ms
                 > 💖 Uptime: ${Uptime}`)
                 .setFooter(`${interaction.user.tag.slice(0, -5)} used ping command.`)
                 .setColor(COLOR);

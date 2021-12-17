@@ -1,10 +1,37 @@
+// @ts-ignore
 const Discord = require('discord.js');
+const mongis = require('../database/mongoose.ts');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 
 module.exports = {
     name: "interactionCreate",
     async execute(interaction, client) {
         if (!interaction.channel) return;
+        await mongis.init();
+
+        if (interaction.isCommand()) {
+            const command = client.slashCommands.get(interaction.commandName);
+            if (!command) return interaction.followUp({ content: 'An error occurred whilst running this command.' });
+            let args = [];
+
+            for (let option of interaction.options.data) {
+                if (option.type == "SUB_COMMAND") {
+                    if (option.name) args.push(option.name);
+                    option.options?.forEach((x) => {
+                        if (x.value) args.push(x.value);
+                    });
+                } else if (option.value) args.push(option.value);
+            };
+
+            interaction.member = await interaction.guild.members.fetch(interaction.user.id);
+
+            if (!interaction.member.permissions.has(command.userPermissions || [])) return interaction.reply({ content: `You do not have the required permissions to run this command.`, ephemeral: true });
+            if (!interaction.guild.me.permissions.has(command.botPermissions || [])) return interaction.reply({ content: `I do not have the required permissions to run this command.`, ephemeral: true });
+
+            await command.execute(interaction, args, client);
+        };
+
+
 
         if (interaction.isButton()) {
             if (interaction.customId === 'tic') {
@@ -49,13 +76,6 @@ module.exports = {
                 const thread = interaction.channel;
                 thread.setArchived(true);
             };
-        };
-
-        if (interaction.isCommand()) {
-            const command = client.slashCommands.get(interaction.commandName);
-            if (!command) return;
-
-            await command.execute(interaction, client);
         };
     },
 };

@@ -1,10 +1,12 @@
-version: "3"
+version: '3'
 services:
   simplemodbot:
     container_name: simplemodbot
     image: simplemodbot
     restart: always
     build: .
+    volumes:
+      - /home/death/Downloads/things/Code/SimpleModBot_2.0:/app
     links:
       - simplemodbot-db
   simplemodbot-db:
