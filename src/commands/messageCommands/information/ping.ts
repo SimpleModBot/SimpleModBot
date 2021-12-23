@@ -24,8 +24,8 @@ module.exports = {
             });
             const dbPing = Date.now() - Past;
 
-            let MESSAGE = "__Message Broke Lmao, if the color is white then that broke too btw.__";
-            let COLOR = "WHITE";
+            let MESSAGE = "__Message Broke Lmao, if the color is grey then that broke too btw.__";
+            let COLOR = "GREY";
 
             if (ping < 501 && ping > 0) {
                 MESSAGE = "__That's some nice ping.__",
@@ -46,10 +46,11 @@ module.exports = {
 
             const pongEmbed = new Discord.MessageEmbed()
                 .setTitle("🏓Pong!")
-                .setDescription(`${MESSAGE}\n> Response: ${ping}ms
-                > Database: ${dbPing}ms
-                > Discord: ${client.ws.ping}ms
-                > 💖 Uptime: ${Uptime}`)
+                .setDescription(MESSAGE)
+                .addField(`Response`, `${ping}ms`, true)
+                .addField(`Discord`, `${client.ws.ping}ms`, true)
+                .addField(`Database`, `${dbPing}ms`, true)
+                .addField(`💖 Uptime`, `${Uptime}`)
                 .setFooter(`${message.author.tag.slice(0, -5)} used ping command.`)
                 .setColor(COLOR);
 

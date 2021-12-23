@@ -64,7 +64,7 @@ module.exports = {
         } catch (err) {
             Promise.reject(new err);
         };
-        if (command.devOnly == true && message.author.id !== client.ownerID) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('You don\'t have permission to use this command as it is only for developers.').setColor('GREY')] });
+        if (command.devOnly == true && !client.devIDs.includes(message.author.id)) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('You don\'t have permission to use this command as it is only for developers.').setColor('GREY')] });
         const { cooldowns } = client;
         if (!cooldowns.has(command.name)) {
             cooldowns.set(command.name, new Discord.Collection());
@@ -78,7 +78,7 @@ module.exports = {
             const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
             if (now < expirationTime) {
                 const timeLeft = (expirationTime - now) / 1000;
-                return message.author.send({ embeds: [new Discord.MessageEmbed().setDescription(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`).setColor('GREY')] });
+                return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`).setColor('GREY')] });
             };
         };
 

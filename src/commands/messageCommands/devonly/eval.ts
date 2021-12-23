@@ -1,4 +1,5 @@
-const { MessageButton, MessageActionRow, MessageEmbed } = require("discord.js");
+const { MessageButton, MessageActionRow, MessageEmbed, MessageSelectMenu } = require("discord.js");
+// @ts-ignorecaptcha currently
 const Discord = require("discord.js");
 
 module.exports = {
@@ -7,20 +8,16 @@ module.exports = {
     DMU: true,
     devOnly: true,
     async execute(message, args, data, client) {
+        const old = Date.now();
+
         let NValidEVAL = new MessageEmbed()
             .addField("Executor", `<@${message.author.id}>`)
-            .addField("Command Output", `\`\`\`diff\nError: Invalid Usage\`\`\``)
+            .addField("Command output", `\`\`\`diff\nError: Invalid Usage\`\`\``)
             .addField("Usage:", `\`\`\`diff\n ${client.prefix}eval <code>\`\`\``)
             .setAuthor("Invalid Usage.")
-            .setColor("#ff0000");
+            .setColor("GREY");
 
         if (args[0] == "ENA") return message.channel.send({ embeds: [NValidEVAL] });
-
-        function clean(text) {
-            if (typeof (text) === "string")
-                return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-            else return text;
-        };
 
         try {
             let code = args.join(" ");
@@ -38,38 +35,86 @@ module.exports = {
                 dataType += dataTypes.map(s => s[0].toUpperCase() + s.slice(1)).join(", ") + ">";
             };
 
-            let EvalResult = new MessageEmbed()
-                .setTitle(`Evaluated in ${Math.round(Date.now() - message.createdTimestamp)}ms`)
-                .addField("[INPUT]", `\`\`\`ts\n${code}\n\`\`\``)
-                .addField("[OUTPUT1]", `\`\`\`ts\n${clean(evaled).slice(0, 1000)}\n\`\`\``)
-                .addField('[TYPE]', `\`\`\`xl\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
-                .setColor('GREY');
+            let pages = [];
 
-            let pages = [EvalResult];
-
-            if (clean(evaled).length > 1000) {
-                const EvalResult2 = new MessageEmbed()
-                    .setTitle(`Evaluated in ${Math.round(Date.now() - message.createdTimestamp)}ms`)
-                    .addField("[OUTPUT2]", `\`\`\`ts\n${clean(evaled).slice(1000, 2000)}\n\`\`\``)
-                    .addField('[TYPE]', `\`\`\`xl\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
-                    .setColor('GREY');
-
-                pages = [EvalResult, EvalResult2];
-
-                if (clean(evaled).length > 2000) {
-                    const EvalResult3 = new MessageEmbed()
-                        .setTitle(`Evaluated in ${Math.round(Date.now() - message.createdTimestamp)}ms`)
-                        .addField("[OUTPUT3]", `\`\`\`ts\n${clean(evaled).slice(2000, 3000)}\n\`\`\``)
+            if (evaled.length > 1000) {
+                const variable = client.functions.splitLength(evaled, 1000);
+                variable.forEach(v => {
+                    const embed = new Discord.MessageEmbed()
+                        .setTitle(`Evaluated in ${Math.round(Date.now() - old)}ms`)
+                        .addField("[INPUT]", `\`\`\`ts\n${code}\n\`\`\``)
+                        .setDescription("**[OUTPUT]**" + `\n\`\`\`ts\n${v}\n\`\`\``)
                         .addField('[TYPE]', `\`\`\`xl\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
                         .setColor('GREY');
 
-                    pages = [EvalResult, EvalResult2, EvalResult3];
-                };
+                    pages.push(embed);
+                });
+            } else {
+                const embed = new Discord.MessageEmbed()
+                    .setTitle(`Evaluated in ${Math.round(Date.now() - old)}ms`)
+                    .addField("[INPUT]", `\`\`\`ts\n${code}\n\`\`\``)
+                    .setDescription("**[OUTPUT]**" + `\n\`\`\`ts\n${evaled}\n\`\`\``)
+                    .addField('[TYPE]', `\`\`\`xl\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
+                    .setColor('GREY');
+
+                pages.push(embed);
             };
 
-            client.functions.paginate(message, pages);
+            paginate(message, pages);
         } catch (err) {
             message.channel.send({ embeds: [new MessageEmbed().setDescription(`\`ERROR\` \`\`\`ts\n${clean(err)}\n\`\`\``).setColor('GREY')] });
+        };
+
+        async function paginate(message, pages) {
+
+            if (!pages || !message) throw new TypeError(`Please supply both message and a pages array!`);
+            let count = 0;
+            let pos = 0;
+            let dropdowns = [];
+
+            await pages.forEach(() => {
+                const newPos = pos++
+                dropdowns.push({
+                    label: `${pages[newPos].title}`,
+                    description: `Click to go to page ${newPos + 1}`,
+                    value: `${newPos}`
+                });
+            });
+
+            const row1 = new MessageActionRow()
+                .addComponents([
+                    new MessageSelectMenu()
+                        .setPlaceholder("Choose a page to go to.")
+                        .addOptions(dropdowns)
+                        .setCustomId("queue_pagination")
+                ]);
+            const row2 = new MessageActionRow()
+                .addComponents([
+                    new Discord.MessageButton()
+                        .setCustomId('evalbtn')
+                        .setLabel('Delete Output')
+                        .setStyle('DANGER')
+                ]);
+
+            const baseMessage = await message.reply({
+                embeds: [pages[count]], components: [row1, row2], allowedMentions: { repliedUser: false }
+            });
+            const collector = baseMessage.createMessageComponentCollector({ componentType: "SELECT_MENU", time: 45000 });
+
+            collector.on("collect", async (interaction) => {
+                if (interaction.isSelectMenu()) {
+                    if (interaction.customId === "queue_pagination") {
+                        if (interaction.user.id !== message.author.id) return;
+                        const newPage = interaction.values[0];
+                        interaction.update({ embeds: [pages[newPage]] });
+                    };
+                };
+            });
+        };
+
+        function clean(text) {
+            if (typeof (text) === "string") return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203)).replace(process.env.TOKEN, process.env.token);
+            else return text;
         };
     },
 };

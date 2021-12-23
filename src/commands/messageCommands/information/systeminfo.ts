@@ -11,7 +11,7 @@ module.exports = {
         const { totalMemMb, usedMemMb } = await mem.info();
 
         const systeminfo = stripIndent`
-        OS        : ${op.type()}
+        OS        : Docker container using Buster
         CPU       : ${cpu.model()}
         Cores     : ${cpu.count()}
         CPU Usage : ${await cpu.usage()} %
@@ -20,10 +20,10 @@ module.exports = {
         `;
 
         const embed = new Discord.MessageEmbed()
-            .setTitle(`My Clients System Information.`)
+            .setTitle(`My host system information.`)
             .setDescription(`\`\`\`yaml\n${systeminfo}\`\`\``)
             .setTimestamp()
-            .setColor('BLACK');
+            .setColor('GREY');
 
         message.channel.send({ embeds: [embed] })
     },

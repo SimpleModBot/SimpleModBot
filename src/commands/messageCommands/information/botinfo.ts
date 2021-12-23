@@ -11,16 +11,8 @@ module.exports = {
             usersCount += (await guild[1].members.fetch()).size
         }
 
-        let Days = Math.floor(client.uptime / 86400000);
-        let Hours = Math.floor(client.uptime / 3600000) % 24;
-        let Minutes = Math.floor(client.uptime / 60000) % 60;
-        let Seconds = Math.floor(client.uptime / 1000) % 60;
-        const RemoveUseless = (Duration) => {
-            return Duration.replace("0 Day\n", "").replace("0 Hour\n", "").replace("0 Minute\n", "");
-        }
-
         const Developer = client.users.cache.get(client.ownerID)
-        let Uptime = await RemoveUseless(`${Days}${Days > 1 ? "d" : "d"} ${Hours}${Hours > 1 ? "h" : "h"} ${Minutes}${Minutes > 1 ? "m" : "m"} ${Seconds}${Seconds > 1 ? "s" : "s"}`);
+        let Uptime = await client.functions.getUptime();
 
         const embed = new Discord.MessageEmbed()
             .setTitle(`Client Information`)
@@ -35,7 +27,7 @@ module.exports = {
             .addField(`Prefix`, `\`\`\`${client.prefix}\`\`\``, true)
             .addField(`Uptime`, `\`\`\`${Uptime}\`\`\``, true)
             .addField(`Developer`, `\`\`\`${Developer.tag}\n${client.ownerID}\`\`\``, true)
-            .addField(`Bot Links`, `Bot Invite [https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands]\nSupport/Community Server [https://discord.gg/49KeKwXc8g]`)
+            .addField(`Bot Links`, `[Bot Invite](https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands)\n[Support/Community Server](https://discord.gg/49KeKwXc8g)`)
             .setAuthor(client.user.tag, client.user.displayAvatarURL())
             .setColor('GREY')
             .setTimestamp();

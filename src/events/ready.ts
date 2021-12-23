@@ -18,7 +18,7 @@ module.exports = {
             ["USER COUNT", `${chalk.green.bold(await client.users.cache.size)}`, "The amount of users in my guilds."],
             ["PREFIX", `${chalk.cyan.bold(client.prefix)}`, "The prefix to use my commands."],
             ["MCOMMANDS", `${chalk.blue.bold(client.messageCommands.size)}`, "Number of mCommands I have."],
-            ["SCOMMANDS", `${chalk.blue.bold(client.slashCommands.size)}`, "Number of sCommands I have."],
+            ["SCOMMANDS", `${chalk.magenta.bold(client.slashCommands.size)}`, "Number of sCommands I have."],
         ];
 
         const config = {
@@ -58,8 +58,8 @@ module.exports = {
             [`${serverIn} servers.`, `WATCHING`],
             [`${serverMembers} members.`, `WATCHING`],
             [`you..`, `WATCHING`],
-            [`for commands.`, `LISTENING`],
-            [`for mentions.`, `LISTENING`],
+            [`commands.`, `LISTENING`],
+            [`mentions.`, `LISTENING`],
         ];
 
         setInterval(() => {
@@ -76,6 +76,7 @@ module.exports = {
             });
         }, 20000);
 
-        await client.channels.cache.get('915827579431288843').send({ embeds: [new Discord.MessageEmbed().setDescription(`\`${client.user.tag}\` is now online!`).setColor('GREY').setTimestamp()] });
+        client.startTime = Date.now() - client.startTime;
+        await client.channels.cache.get('915827579431288843').send({ embeds: [new Discord.MessageEmbed().setDescription(`\`${client.user.tag}\` is now online!\nIt took ${client.startTime}ms.`).setColor('GREY').setTimestamp()] });
     },
 };

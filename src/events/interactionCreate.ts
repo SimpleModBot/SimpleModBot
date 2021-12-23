@@ -25,8 +25,9 @@ module.exports = {
 
             interaction.member = await interaction.guild.members.fetch(interaction.user.id);
 
-            if (!interaction.member.permissions.has(command.userPermissions || [])) return interaction.reply({ content: `You do not have the required permissions to run this command.`, ephemeral: true });
-            if (!interaction.guild.me.permissions.has(command.botPermissions || [])) return interaction.reply({ content: `I do not have the required permissions to run this command.`, ephemeral: true });
+            if (interaction.devOnly == true && !client.devIDs.includes(interaction.member.id)) return interaction.reply({ embeds: [new Discord.MessageEmbed().setDescription(`You aren't a developer and therefor, don't have permission to do this action!`).setColor('GREY')], ephemeral: true });
+            if (!interaction.channel.permissionsFor(interaction.member).has(command.userPermissions || [])) return interaction.reply({ content: `You do not have the required permissions to run this command.`, ephemeral: true });
+            if (!interaction.channel.permissionsFor(interaction.guild.me).has(command.botPermissions || [])) return interaction.reply({ content: `I do not have the required permissions to run this command.`, ephemeral: true });
 
             await command.execute(interaction, args, client);
         };
@@ -34,7 +35,7 @@ module.exports = {
 
 
         if (interaction.isButton()) {
-            if (interaction.customId === 'tic') {
+            if (interaction.customId == 'tic') {
                 const thread = await interaction.channel.threads.create({
                     name: `${interaction.user.tag}`,
                     autoArchiveDuration: 'MAX',
@@ -72,9 +73,11 @@ module.exports = {
                     interaction.channel.bulkDelete(2);
                 }, 5000);
 
-            } else if (interaction.customId === 'del') {
+            } else if (interaction.customId == 'del') {
                 const thread = interaction.channel;
                 thread.setArchived(true);
+            } else if (interaction.customId == 'evalbtn') {
+                interaction.message.delete();
             };
         };
     },
