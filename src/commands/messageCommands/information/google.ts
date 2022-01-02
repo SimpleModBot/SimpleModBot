@@ -28,7 +28,7 @@ module.exports = {
             .setImage(href.pagemap ? href.pagemap.cse_thumbnail[0].src : null)
             .setURL(href.link)
             .setColor(message.guild.me.displayHexColor)
-            .setFooter(`Search requested by ${message.author.username}`, message.author.displayAvatarURL({ dynamic: true }))
+            .setFooter({ text: `Search requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
             .setTimestamp();
 
         message.channel.send({ embeds: [embed] });

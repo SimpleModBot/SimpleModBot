@@ -36,7 +36,7 @@ module.exports = {
             const successEmbed = new Discord.MessageEmbed()
                 .setTitle(`${message.author.tag} is begging for moneys.`)
                 .setDescription(`${array[Math.floor(Math.random() * array.length)]}`)
-                .setFooter(`${message.author.tag} got $${coinsToGive}!`)
+                .setFooter({ text: `${message.author.tag} got $${coinsToGive}!` })
                 .setTimestamp()
                 .setColor("GREEN");
 
@@ -53,7 +53,7 @@ module.exports = {
             const declinedEmbed = new Discord.MessageEmbed()
                 .setTitle(`${message.author.tag} is begging for moneys.`)
                 .setDescription(`${array[Math.floor(Math.random() * array.length)]}`)
-                .setFooter(`${message.author.tag} failed to beg for moneys..`)
+                .setFooter({ text: `${message.author.tag} failed to beg for moneys..` })
                 .setTimestamp()
                 .setColor("RED");
 

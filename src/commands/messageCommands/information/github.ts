@@ -28,7 +28,7 @@ module.exports = {
                         .addField(`Location`, `${location || "No Location"}`)
                         .addField(`Account Created`, moment.utc(created_at).format("dddd, MMMM, Do YYYY"))
                         .setColor('GREY')
-                        .setFooter(`Requested by: ${message.author.username}`);
+                        .setFooter({ text: `Requested by: ${message.author.username}` });
 
                     message.channel.send({ embeds: [embed] });
 

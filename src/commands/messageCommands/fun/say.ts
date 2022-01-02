@@ -10,12 +10,12 @@ module.exports = {
 
     const sayEmbed = new Discord.MessageEmbed()
       .setDescription(`${messageToSay}\u200b`)
-      .setFooter(message.author.tag, message.author.displayAvatarURL())
+      .setFooter({ text: message.author.tag, iconURL: message.author.displayAvatarURL() })
       .setColor("GREY")
       .setTimestamp();
 
     try {
-      message.channel.send({embeds:[sayEmbed]});
+      message.channel.send({ embeds: [sayEmbed] });
     } catch (err) {
       message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("I am unable to send that message.").setColor('GREY')] });
       Promise.reject(new err);

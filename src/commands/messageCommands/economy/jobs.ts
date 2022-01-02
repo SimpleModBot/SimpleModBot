@@ -27,7 +27,7 @@ module.exports = {
             .addField(`**[DJ]**\`${jobs.DJ_N}\`.`, `**Pays** \`$${jobs.DJ_P1}\`-\`$${jobs.DJ_P2}\`.
             Requires \`${jobs.DJ_EXP}\` job experience.`, true)
 
-            .setFooter(`Your current job is ${userProfile.job}.`)
+            .setFooter({ text: `Your current job is ${userProfile.job}.` })
             .setColor("GREEN")
             .setTimestamp();
 

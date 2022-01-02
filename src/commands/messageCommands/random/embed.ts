@@ -13,7 +13,7 @@ module.exports = {
         \`-c\` Sets the color to whatever you put after it.
         \`-m\` Sends the text as the actual message.
 
-        Add a tag to your message and some text after it to change the embed!`).setColor('GREY') ]
+        Add a tag to your message and some text after it to change the embed!`).setColor('GREY')]
         });
 
         let embed = new Discord.MessageEmbed();
@@ -33,7 +33,7 @@ module.exports = {
         };
 
         if (message.content.includes('-f')) {
-            if (message.content.split('-f')[1]) embed.setFooter(message.content.split('-f')[1].split('-')[0].slice(0, 2048));
+            if (message.content.split('-f')[1]) embed.setFooter({ text: message.content.split('-f')[1].split('-')[0].slice(0, 2048) });
         } else num = num + 1;
 
         if (message.content.includes('-c')) {
@@ -60,7 +60,7 @@ module.exports = {
         \`-c\` Sets the color to whatever you put after it.
         \`-m\` Sends the text as the actual message.
 
-        Add a tag to your message and some text after it to change the embed!`).setColor('GREY') ]
+        Add a tag to your message and some text after it to change the embed!`).setColor('GREY')]
         });
     },
 };

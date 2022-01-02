@@ -41,7 +41,7 @@ module.exports = {
         const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(client.prefix)})\\s*`);
         if (!prefixRegex.test(message.content)) return;
-        if (message.content == `<@!${client.user.id}>`) return message.channel.send({ embeds: [new Discord.MessageEmbed().setTitle("It appears you mentioned me!").setDescription(`Hello! I am SimpleModBot! An easy to use multipurpose bot.\n\nIf you wish to know my prefix its set to \`${client.prefix}\` but you can change it if you're the owner!\nI will always have \`<@${client.user.id}>\` as a prefix though!\n\nIf you wish to know my commands type \`${client.prefix}help\`.`).setFooter('Please invite me to your servers to help me grow! Theres a button on my profile ^-^').setImage('https://cdn.discordapp.com/attachments/885009693645344829/891421005082398750/simplemodbot.gif').setTimestamp().setColor('GREY')] });
+        if (message.content == `<@!${client.user.id}>`) return message.channel.send({ embeds: [new Discord.MessageEmbed().setTitle("It appears you mentioned me!").setDescription(`Hello! I am SimpleModBot! An easy to use multipurpose bot.\n\nIf you wish to know my prefix its set to \`${client.prefix}\` but you can change it if you're the owner!\nI will always have \`<@${client.user.id}>\` as a prefix though!\n\nIf you wish to know my commands type \`${client.prefix}help\`.`).setFooter({ text: 'Please invite me to your servers to help me grow!\nTheres a button on my profile ^-^' }).setImage('https://cdn.discordapp.com/attachments/885009693645344829/891421005082398750/simplemodbot.gif').setTimestamp().setColor('GREY')] });
 
         const [, matchedPrefix] = message.content.match(prefixRegex);
         let args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
@@ -50,7 +50,7 @@ module.exports = {
         let commandName = args.shift().toLowerCase();
 
         const dataa = await schema.findOne({ Guild: message.guild.id, Command: commandName });
-        if (dataa) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(dataa.Response).setFooter(`CustomCommand: ${dataa.Command}`).setColor("GREY").setTimestamp()] });
+        if (dataa) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(dataa.Response).setFooter({ text: `CustomCommand: ${dataa.Command}` }).setColor("GREY").setTimestamp()] });
 
         let command = client.messageCommands.get(commandName) || client.messageCommands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
         if (!command) return;

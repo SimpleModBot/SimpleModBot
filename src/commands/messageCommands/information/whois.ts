@@ -86,7 +86,7 @@ module.exports = {
             embed.addField('Badges', `\`No Badge\``, true)
         if (userFlags.length > 0)
             embed.addField('Badges', userFlags.map(flag => badges[flag]).join(' '), true)
-                .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL({ dynamic: true }))
+                .setFooter({ text: `Requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
         if (activities.length <= 0)
             embed.addField(`Activity`, '`Nothing`')
         if (activities.length > 0)

@@ -38,10 +38,7 @@ module.exports = {
                             }\`\n**Boost Level** \`${message.guild.premiumTier.toString()}\`\n**Verification Level** \`${message.guild.verificationLevel.toString()}\`\n`,
                     })
                 .setColor("GREY")
-                .setFooter(
-                    `Requested by ${message.author.tag}`,
-                    message.author.displayAvatarURL({ dynamic: true })
-                )]
+                .setFooter({ text: `Requested by ${message.author.tag}`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })]
         });
     },
 };

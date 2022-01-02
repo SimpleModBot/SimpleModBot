@@ -50,7 +50,7 @@ module.exports = {
                     .setTitle(category.name)
                     .setDescription(`Use \`/help <command>\` to get more information on the command.\nExample: \`/help ban\``)
                     .addField(category.name, category.value)
-                    .setFooter(`If you like me please invite me to your server with the button on my profile!`, interaction.member.displayAvatarURL({ dynamic: true }))
+                    .setFooter({ text: `If you like me please invite me to your server with the button on my profile!`, iconURL: interaction.member.displayAvatarURL({ dynamic: true }) })
                     .setColor(roleColor || "GRAY")
                     .setTimestamp();
 
@@ -73,7 +73,7 @@ module.exports = {
                 .setTitle("Command Details:")
                 .addField("COMMAND:", command.name ? `> \`${command.name}\`` : "> Unnamed command??")
                 .addField("DESCRIPTION:", command.description ? `> ${command.description}` : "> No description.")
-                .setFooter(`If you like me please invite me to your server with the button on my profile!`, interaction.member.displayAvatarURL({ dynamic: true }))
+                .setFooter({ text: `If you like me please invite me to your server with the button on my profile!`, iconURL: interaction.member.displayAvatarURL({ dynamic: true }) })
                 .setTimestamp()
                 .setColor(roleColor);
 

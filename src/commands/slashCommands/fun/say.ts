@@ -53,17 +53,17 @@ module.exports = {
                         interaction.reply({ embeds: [new Discord.MessageEmbed().setDescription(`You aren't a developer, therefore you do not have the permission to perform this action.`).setColor('GREY')], ephemeral: true });
                     };
                 } else {
-                    sayEmbed.setFooter(interaction.member.user.username, interaction.member.displayAvatarURL({ dynamic: true }))
+                    sayEmbed.setFooter({ text: interaction.member.user.username, iconURL: interaction.member.displayAvatarURL({ dynamic: true }) })
                         .setTimestamp();
                     channelToSend.send({ embeds: [sayEmbed] });
                 };
             } else {
-                sayEmbed.setFooter(interaction.member.user.username, interaction.member.displayAvatarURL({ dynamic: true }))
+                sayEmbed.setFooter({ text: interaction.member.user.username, iconURL: interaction.member.displayAvatarURL({ dynamic: true }) })
                     .setTimestamp();
                 return interaction.channel.send({ embeds: [sayEmbed] });
             };
         };
-        
+
         if (!interaction.replied == true) interaction.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Your message has been sent.`).setColor('GREY')], ephemeral: true });
     },
 };

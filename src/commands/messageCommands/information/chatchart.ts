@@ -11,7 +11,7 @@ module.exports = {
 
         const pEmbed = new Discord.MessageEmbed()
             .setDescription(`**Fetching the past ${mLimit} messages.**`)
-            .setFooter('This might take time.')
+            .setFooter({ text: 'This might take time.' })
             .setColor('GREY');
 
         message.channel.send({ embeds: [pEmbed] });
@@ -53,7 +53,7 @@ module.exports = {
         arraylist.forEach(array => {
             authors.push(array[1].author.id);
         });
-        
+
         let frequency = {};
         authors.forEach(function (item) {
             frequency[item] = frequency[item] ? frequency[item] + 1 : 1;
@@ -64,7 +64,7 @@ module.exports = {
             .map(x => {
                 return x[0];
             });
-        
+
         let finalthingyig = {}
         let chartlabels = []
 
@@ -72,7 +72,7 @@ module.exports = {
             try {
                 const newe = await client.users.fetch(u);
                 if (newe.bot) continue;
-                
+
                 if (frequency[u] > 20) {
                     finalthingyig[newe.tag] = frequency[u];
                 } else {

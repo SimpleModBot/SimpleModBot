@@ -13,7 +13,7 @@ module.exports = {
         const pingingEmbed = new Discord.MessageEmbed()
             .setTitle("Pinging...")
             .setDescription("This might take a bit.")
-            .setFooter(`${interaction.user.tag.slice(0, -5)} used ping command.`)
+            .setFooter({ text: `${interaction.user.tag.slice(0, -5)} used ping command.` })
             .setColor("GREY");
 
         interaction.channel.send({ embeds: [pingingEmbed] }).then(async (resultMessage) => {
@@ -52,7 +52,7 @@ module.exports = {
                 .addField(`Discord`, `${client.ws.ping}ms`, true)
                 .addField(`Database`, `${dbPing}ms`, true)
                 .addField(`💖 Uptime`, `${Uptime}`)
-                .setFooter(`${interaction.user.tag.slice(0, -5)} used ping command.`)
+                .setFooter({ text: `${interaction.user.tag.slice(0, -5)} used ping command.` })
                 .setColor(COLOR);
 
             resultMessage.edit({ embeds: [pongEmbed] });

@@ -9,7 +9,7 @@ module.exports = {
             const memeEmbed = new Discord.MessageEmbed()
                 .setTitle(json.title)
                 .setImage(json.url)
-                .setFooter(`${json.subreddit}`);
+                .setFooter({ text: `${json.subreddit}` });
 
             let msg = await message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("Fetching you a meme...").setColor('GREY')] });
             msg.edit({ embeds: [memeEmbed] });

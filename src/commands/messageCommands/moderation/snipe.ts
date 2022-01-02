@@ -20,7 +20,7 @@ module.exports = {
                     .setAuthor(msg.author.tag, msg.author.displayAvatarURL({ dynamic: true }))
                     .setDescription(msg.content)
                     .setImage(image)
-                    .setFooter(`${moment(time).fromNow()} | ${snipe + 1}/${snipes.length}`)
+                    .setFooter({ text: `${moment(time).fromNow()} | ${snipe + 1}/${snipes.length}` })
                     .setColor("GREY")
             ]
         });

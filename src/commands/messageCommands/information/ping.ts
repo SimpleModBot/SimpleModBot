@@ -12,7 +12,7 @@ module.exports = {
         const pingingEmbed = new Discord.MessageEmbed()
             .setTitle("Pinging...")
             .setDescription("This might take a bit.")
-            .setFooter(`${message.author.tag.slice(0, -5)} used ping command.`)
+            .setFooter({ text: `${message.author.tag.slice(0, -5)} used ping command.` })
             .setColor("GREY");
 
         message.channel.send({ embeds: [pingingEmbed] }).then(async (resultMessage) => {

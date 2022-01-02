@@ -28,7 +28,7 @@ module.exports = {
                     .addField('**Humidity**', `${current.humidity}%`, true)
                     .addField('**Date**', `${current.date}`, true)
                     .addField('**Day**', `${current.day}`, true)
-                    .setFooter(message.member.displayName, message.author.displayAvatarURL({ dynamic: true }))
+                    .setFooter({ text: message.member.displayName, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                     .setTimestamp()
                     .setColor(message.guild.me.displayHexColor);
 
