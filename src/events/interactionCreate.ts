@@ -49,7 +49,7 @@ module.exports = {
                     .setDescription('Hello there!\nThe staff will be here as soon as possible, while you wait you can explain your issue.')
                     .setColor('GREY')
                     .setTimestamp()
-                    .setAuthor(interaction.guild.name, interaction.guild.iconURL({ dynamic: true }));
+                    .setAuthor({ text: interaction.guild.name, icon: interaction.guild.iconURL({ dynamic: true }) });
 
                 const del = new MessageActionRow()
                     .addComponents(new MessageButton()
