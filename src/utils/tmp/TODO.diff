@@ -1,0 +1,33 @@
+A + means complete.
+An = means not done.
+a - means failed.
+```diff
+SimpleModBot TODO list.
+
++ Recreate editsnipe
++ Fix error handler
++ Help slash command
++ Arguments
++ Server rules
+---
++ owofiy command
++ Sharding manager
+---
++ Timeout
++ UnTimeout
++ Permission checking for say command
++ Make ender his minecraft skin
+= F to C ((C * 1.8) + 32) and C to F ((F - 32) * 1.8) command
+```
+```diff
+Dashboard TODO list.
+
++ Basic web dashboard prototype
++ Guild check
+= Create react snippets
+= Dashboard MongoDB setup
+= Discord proper API authorization
+= Backend dashboard API
+= Link backend and frontend
+= More functionality
+```

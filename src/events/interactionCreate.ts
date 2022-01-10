@@ -29,6 +29,7 @@ module.exports = {
             if (!interaction.channel.permissionsFor(interaction.member).has(command.userPermissions || [])) return interaction.reply({ content: `You do not have the required permissions to run this command.`, ephemeral: true });
             if (!interaction.channel.permissionsFor(interaction.guild.me).has(command.botPermissions || [])) return interaction.reply({ content: `I do not have the required permissions to run this command.`, ephemeral: true });
 
+            client.lastCmd = command.name;
             await command.execute(interaction, args, client);
         };
 
@@ -54,7 +55,7 @@ module.exports = {
                 const del = new MessageActionRow()
                     .addComponents(new MessageButton()
                         .setCustomId('del')
-                        .setLabel('🗑️ Delete Ticket!')
+                        .setLabel('Delete Ticket!')
                         .setStyle('DANGER'));
 
                 thread.send({

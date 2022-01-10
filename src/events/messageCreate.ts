@@ -86,6 +86,7 @@ module.exports = {
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
         await client.channels.cache.get('915826612057030667').send({ embeds: [new Discord.MessageEmbed().setDescription(`${message.author}(${message.author.tag}) used \`${command.name} ${args.join(' ').replace('ENA', '')}\`.`).setColor('GREY').setTimestamp()] });
+        client.lastCmd = command.name;
         await command.execute(message, args, data, client);
     },
 };

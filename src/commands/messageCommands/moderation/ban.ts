@@ -22,8 +22,7 @@ module.exports = {
         await mentionedMember.ban({
             days: 7,
             reason: reason,
-        })
-            .catch((err) => Promise.reject(new err))
+        }).catch((err) => Promise.reject(new err))
             .then(() => message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("Succesfully banned " + mentionedMember.user.tag).setColor('GREY')] }));
 
         let guildProfile = await Guild.findOne({ guildID: message.guild.id });

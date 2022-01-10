@@ -11,10 +11,10 @@ module.exports = {
         const old = Date.now();
 
         let NValidEVAL = new MessageEmbed()
+            .setTitle("Invalid sage.")
             .addField("Executor", `<@${message.author.id}>`)
             .addField("Command output", `\`\`\`diff\nError: Invalid Usage\`\`\``)
             .addField("Usage:", `\`\`\`diff\n ${client.prefix}eval <code>\`\`\``)
-            .setAuthor("Invalid Usage.")
             .setColor("GREY");
 
         if (args[0] == "ENA") return message.channel.send({ embeds: [NValidEVAL] });
