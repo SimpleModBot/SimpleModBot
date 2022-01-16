@@ -28,40 +28,28 @@ module.exports = {
 		},
 	],
 	async execute(interaction, args, client) {
-		const [message] = args;
+		const message = interaction.options.getString('message');
+		let channel = interaction.options.getChannel('channel');
+		const devoption = interaction.options.getBoolean('devoption');
 		const sayEmbed = new Discord.MessageEmbed().setDescription(message.replace('\\n', '\n')).setColor('GREY');
 
-		if (args[1] == true) {
-			if (client.devIDs.includes(interaction.member.id)) {
-				interaction.channel.send({ embeds: [sayEmbed] });
-			} else {
+		if (channel) {
+			channel = await interaction.guild.channels.cache.get(channel.id);
+		} else channel = interaction.channel;
+		if (!channel?.permissionsFor(interaction.member)?.has('SEND_MESSAGES'))
+			interaction.reply({ embeds: [new Discord.MessageEmbed().setDescription(`You do not have the SEND_MESSAGES permission for that channel.`).setColor('GREY')], ephemeral: true });
+
+		if (devoption == true) {
+			if (!client.devIDs.includes(interaction.member.id))
 				interaction.reply({ embeds: [new Discord.MessageEmbed().setDescription(`You aren't a developer, therefore you do not have the permission to perform this action.`).setColor('GREY')], ephemeral: true });
+			else {
+				channel.send({ embeds: [sayEmbed] });
 			}
+		} else if (devoption !== true) {
+			sayEmbed.setFooter({ text: interaction.member.user.username, iconURL: interaction.member.displayAvatarURL({ dynamic: true }) }).setTimestamp();
+			channel.send({ embeds: [sayEmbed] });
 		}
 
-		if (args[1] !== true) {
-			const channelToSend = await interaction.guild.channels.fetch(args[1]);
-			if (channelToSend)
-				if (!channelToSend.permissionsFor(interaction.member).has('SEND_MESSAGES'))
-					interaction.reply({ embeds: [new Discord.MessageEmbed().setDescription(`You do not have the SEND_MESSAGES permission for that channel.`).setColor('GREY')], ephemeral: true });
-
-			if (channelToSend?.id) {
-				if (args[2]) {
-					if (args[2] == true && client.devIDs.includes(interaction.member.id)) {
-						channelToSend.send({ embeds: [sayEmbed] });
-					} else {
-						interaction.reply({ embeds: [new Discord.MessageEmbed().setDescription(`You aren't a developer, therefore you do not have the permission to perform this action.`).setColor('GREY')], ephemeral: true });
-					}
-				} else {
-					sayEmbed.setFooter({ text: interaction.member.user.username, iconURL: interaction.member.displayAvatarURL({ dynamic: true }) }).setTimestamp();
-					channelToSend.send({ embeds: [sayEmbed] });
-				}
-			} else {
-				sayEmbed.setFooter({ text: interaction.member.user.username, iconURL: interaction.member.displayAvatarURL({ dynamic: true }) }).setTimestamp();
-				return interaction.channel.send({ embeds: [sayEmbed] });
-			}
-		}
-
-		if (!interaction.replied == true) interaction.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Your message has been sent.`).setColor('GREY')], ephemeral: true });
+		if (!interaction.replied == true) interaction.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Your message has been sent to ${channel.name}.`).setColor('GREY')], ephemeral: true });
 	},
 };

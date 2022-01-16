@@ -8,6 +8,7 @@ module.exports = {
     async execute(interaction, client) {
         if (!interaction.channel) return;
         await mongis.init();
+        client.test = interaction;
 
         if (interaction.isCommand()) {
             const command = client.slashCommands.get(interaction.commandName);

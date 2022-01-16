@@ -42,8 +42,8 @@ module.exports = {
                 variable.forEach(v => {
                     const embed = new Discord.MessageEmbed()
                         .setTitle(`Evaluated in ${Math.round(Date.now() - old)}ms`)
-                        .addField("[INPUT]", `\`\`\`ts\n${code}\n\`\`\``)
                         .setDescription("**[OUTPUT]**" + `\n\`\`\`ts\n${v}\n\`\`\``)
+                        .addField("[INPUT]", `\`\`\`ts\n${code}\n\`\`\``)
                         .addField('[TYPE]', `\`\`\`xl\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
                         .setColor('GREY');
 
@@ -52,8 +52,8 @@ module.exports = {
             } else {
                 const embed = new Discord.MessageEmbed()
                     .setTitle(`Evaluated in ${Math.round(Date.now() - old)}ms`)
-                    .addField("[INPUT]", `\`\`\`ts\n${code}\n\`\`\``)
                     .setDescription("**[OUTPUT]**" + `\n\`\`\`ts\n${evaled}\n\`\`\``)
+                    .addField("[INPUT]", `\`\`\`ts\n${code}\n\`\`\``)
                     .addField('[TYPE]', `\`\`\`xl\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
                     .setColor('GREY');
 

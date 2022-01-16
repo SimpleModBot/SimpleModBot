@@ -1,3 +1,4 @@
+// @ts-ignore
 const Discord = require('discord.js');
 const { MessageAttachment } = require('discord.js');
 const { createCaptcha } = require('captcha-canvas');
