@@ -10,8 +10,6 @@ module.exports = {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             autoIndex: false,
-            poolSize: 100,
-            family: 4
         };
 
         await mongoose.connect(`mongodb://simplemodbot-db:27017`, dbOptions);

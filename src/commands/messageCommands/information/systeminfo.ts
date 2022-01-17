@@ -11,7 +11,7 @@ module.exports = {
         const { totalMemMb, usedMemMb } = await mem.info();
 
         const systeminfo = stripIndent`
-        OS        : Docker container using Buster
+        OS        : Buster-slim, Docker
         CPU       : ${cpu.model()}
         Cores     : ${cpu.count()}
         CPU Usage : ${await cpu.usage()} %

@@ -17,7 +17,7 @@ module.exports = {
         message.channel.send({
             embeds: [
                 new Discord.MessageEmbed()
-                    .setAuthor(msg.author.tag, msg.author.displayAvatarURL({ dynamic: true }))
+                    .setAuthor({ name: msg.author.tag, iconURL: msg.author.displayAvatarURL({ dynamic: true })})
                     .setDescription(msg.content)
                     .setImage(image)
                     .setFooter({ text: `${moment(time).fromNow()} | ${snipe + 1}/${snipes.length}` })
