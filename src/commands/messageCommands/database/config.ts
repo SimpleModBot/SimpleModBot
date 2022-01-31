@@ -188,7 +188,7 @@ module.exports = {
                                     .setColor('GREY'),
                             ],
                         });
-                    const welcomeChannel = message.mentions.channels.first();
+                    const welcomeChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[2]);
                     if (!welcomeChannel) return;
                     await Guild.findOneAndUpdate(
                         { guildID: message.guild.id },
