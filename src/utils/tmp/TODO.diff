@@ -9,10 +9,8 @@ SimpleModBot TODO list.
 + Help slash command
 + Arguments
 + Server rules
----
 + owofiy command
 + Sharding manager
----
 + Timeout
 + UnTimeout
 + Permission checking for say command
@@ -23,11 +21,48 @@ SimpleModBot TODO list.
 Dashboard TODO list.
 
 + Basic web dashboard prototype
+
 + Guild check
++ Discord proper API authorization
++ Automatic guild list for /menu
++ Implement caching for ratelimits
++ Backend dashboard API
 = Create react snippets
-= Dashboard MongoDB setup
-= Discord proper API authorization
-= Backend dashboard API
-= Link backend and frontend
-= More functionality
++ Link API
+
++ Prefix page
++ MemberRole page
+= WelcomeChannel page
+= AntiInvite page
++ CCcreate page
++ CCdelete page
+= CCedit page
++ CClist page
+
+= User options page
+= Move user caching button
+= Add more user caching options
+= Move guild caching button
+= Add more guild caching options
+= Add token check button
+= Add cache clearing button
+
+= Make everything functional that should be
+```
+```diff
+API TODO list.
+
++ Base API
++ MongoDB setup
++ Create get, put, create, and delete requests
+
+= Add all functions
++ CCcreate
++ CCdelete
++ CClist
+= CCedit
++ Guild
++ Prefix
+
++ Link dashboard
 ```

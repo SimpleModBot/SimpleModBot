@@ -14,10 +14,13 @@ module.exports = {
         );
         if (!welcomechannel) return;
 
+        let desc = `Everyone welcome ${member.user.tag}!`;
+        if (guildProfile.memberRoleID) desc += `\n\nIt appears this guild might be set up with my verification system.\nYou can gain the member role by completing the captcha after using the \`${client.prefix}verify\` command.`;
+
         const welcomeEmbed = new Discord.MessageEmbed()
             .setTitle('A new user has joined!')
             .setDescription(
-                `Everyone welcome ${member.user.tag}!\nIf the server is set up with the verification system you can probably do \`${client.prefix}verify\` to gain access to the server.`,
+                desc,
             )
             .setTimestamp()
             .setColor('GREY');
