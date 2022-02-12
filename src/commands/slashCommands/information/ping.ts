@@ -48,9 +48,9 @@ module.exports = {
             const pongEmbed = new Discord.MessageEmbed()
                 .setTitle("🏓Pong!")
                 .setDescription(MESSAGE)
-                .addField(`Response`, `${ping}ms`, true)
-                .addField(`Discord`, `${client.ws.ping}ms`, true)
-                .addField(`Database`, `${dbPing}ms`, true)
+                .addField(`<:BotDev:938649404720676874> Response`, `${ping}ms`, true)
+                .addField(`<:Snowsgiving:918721827579236352> Discord`, `${client.ws.ping}ms`, true)
+                .addField(`<:MongoDB:938649455668887572> Database`, `${dbPing}ms`, true)
                 .addField(`💖 Uptime`, `${Uptime}`)
                 .setFooter({ text: `${interaction.user.tag.slice(0, -5)} used ping command.` })
                 .setColor(COLOR);
