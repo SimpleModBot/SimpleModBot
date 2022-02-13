@@ -1,9 +1,11 @@
+// @ts-ignore
 const mongoose = require("mongoose");
 
 const guildSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     guildID: String,
     prefix: { type: String, default: "\\" },
+    prefixes: { type: Array, default: [] },
     memberRoleID: { type: String, required: false },
     modlogChannelID: { type: String, required: false },
     antiInvite: { type: Boolean, default: false },
