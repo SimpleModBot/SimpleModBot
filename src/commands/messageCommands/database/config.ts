@@ -82,10 +82,11 @@ module.exports = {
 				if ('prefix' === args[1]) {
 					if (!args[2]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`You need to give me a prefix to add.`).setColor('GREY')] });
 					const a = await Guild.findOne({ guildID: message.guild.id });
+					const prefix = args.slice(2).join(' ');
 
-					await Guild.findOneAndUpdate({ guildID: message.guild.id }, { prefixes: [...a.prefixes, args[2]], lastEdited: Date.now() });
+					await Guild.findOneAndUpdate({ guildID: message.guild.id }, { prefixes: [...a.prefixes, prefix], lastEdited: Date.now() });
 
-					message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Added prefix ${args[2]} successfully!`).setColor('GREY')] });
+					message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Added prefix \`${prefix}\` successfully!`).setColor('GREY')] });
 				} else if ('muteRole' === args[1]) {
 					if (!args[2])
 						return message.channel.send({
@@ -145,12 +146,13 @@ module.exports = {
 					});
 			} else if ('remove' === args[0]) {
 				if ('prefix' === args[1]) {
-					if (!args[3]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`You need to give me a prefix to remove.`).setColor('GREY')] });
+					if (!args[2]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`You need to give me a prefix to remove.`).setColor('GREY')] });
 					const a = await Guild.findOne({ guildID: message.guild.id });
+					const prefix = args.slice(2).join(' ');
 
-					await Guild.findOneAndUpdate({ guildID: message.guild.id }, { prefixes: a.prefixes.filter((e) => e !== args[3]), lastEdited: Date.now() });
+					await Guild.findOneAndUpdate({ guildID: message.guild.id }, { prefixes: a.prefixes.filter((e) => e !== prefix), lastEdited: Date.now() });
 
-					message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Removed prefix ${args[3]} successfully!`).setColor('GREY')] });
+					message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Removed prefix \`${prefix}\` successfully!`).setColor('GREY')] });
 				} else if ('muteRole' === args[1]) {
 					await Guild.findOneAndUpdate({ guildID: message.guild.id }, { muteRoleID: 'undefined', lastEdited: Date.now() });
 					message.channel.send({
