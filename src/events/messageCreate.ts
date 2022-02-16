@@ -25,7 +25,7 @@ module.exports = {
 		}
 
 		client.prefix = '\\';
-		client.prefixes = [`<@!?911112976793215006>`, `smb`, `hey smb`, `oi smb`, `simplemodbot`, `hey simplemodbot`, `oi simplemodbot`, `shithead`, `shitbot`, `shit bot`];
+		client.prefixes = [];
 
 		if (guildProfile.prefixes) {
 			if (!guildProfile.prefixes) return;
@@ -56,8 +56,13 @@ module.exports = {
 		data.inventory = inventoryDB;
 		data.time = timeDB;
 
-		// const prefixRegex = /^(<@!?911112976793215006>|\\|sim|hey smb|oi smb|simplemodbot|hey simplemodbot|oi simplemodbot|shithead|shitbot|shit bot)\s*/i;
-		const prefixRegex = new RegExp(`^(${client.prefixes.join('|').replace('\\', '\\\\')}|${client.prefix.replace('\\', '\\\\')})\\s*`);
+		let prefixes = client.prefixes.join('|') + '|';
+		if (prefixes.length < 2) prefixes = '';
+
+		const prefixRegex = new RegExp(
+			`^((hey|heya|hello|hi|oi) (smb|there smb|simplemodbot|there simplemodbot)( (can|could) (you|ya))?( maybe| possibly)?)|^((${prefixes}<@\!\?911112976793215006>|smb|simplemodbot|\\)) *`.replace(/\\/g, '\\\\'),
+			`i`,
+		);
 		if (!prefixRegex.test(message.content)) return;
 		if (message.content == `<@!${client.user.id}>`)
 			return message.channel.send({
@@ -65,7 +70,7 @@ module.exports = {
 					new Discord.MessageEmbed()
 						.setTitle('It appears you mentioned me!')
 						.setDescription(
-							`Hello! I am SimpleModBot! An easy to use multipurpose bot.\n\nIf you wish to know my prefix its set to \`${client.prefix}\` but you can change it if you're the owner!\nI will always have \`<@${client.user.id}>\` as a prefix though!\n\nIf you wish to know my commands type \`${client.prefix}help\`.`,
+							`Hello! I am SimpleModBot! An easy to use multipurpose bot.\n\nIf you wish to know my prefix, I have many, but the common ones are \`\\\` and mentioning me\nIf you have permission to manage guild then you cna change my prefixes\n\nIf you wish to know my commands type \`${client.prefix}help\`.`,
 						)
 						.setFooter({ text: 'Please invite me to your servers to help me grow!\nTheres a button on my profile ^-^' })
 						.setImage('https://cdn.discordapp.com/attachments/885009693645344829/891421005082398750/simplemodbot.gif')
@@ -74,8 +79,10 @@ module.exports = {
 				],
 			});
 
-		const [, matchedPrefix] = message.content.match(prefixRegex);
-		let args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+		// const [, matchedPrefix] = message.content.match(prefixRegex);
+		// let args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+		const matchedPrefix = message.content.replace(prefixRegex, '');
+		let args = matchedPrefix.split(/ +/);
 		if (!args[1]) args[1] = 'ENA';
 		args = args.filter((e) => e);
 		let commandName = args.shift().toLowerCase();
