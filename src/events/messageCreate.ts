@@ -79,10 +79,8 @@ module.exports = {
 				],
 			});
 
-		// const [, matchedPrefix] = message.content.match(prefixRegex);
-		// let args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
-		const matchedPrefix = message.content.replace(prefixRegex, '');
-		let args = matchedPrefix.split(/ +/);
+		const matchedPrefix = message.content.replace(prefixRegex, '').trim();
+		let args = matchedPrefix.split(' ');
 		if (!args[1]) args[1] = 'ENA';
 		args = args.filter((e) => e);
 		let commandName = args.shift().toLowerCase();

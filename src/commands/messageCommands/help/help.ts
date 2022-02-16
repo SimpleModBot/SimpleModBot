@@ -12,7 +12,7 @@ module.exports = {
         const prefix = client.prefix;
         const roleColor = "#000000" ? "GREY" : message.guild.me.displayHexColor;
 
-        if (args[0] == "ENA") {
+        if (args[0] == 'ENA') {
             let categories = [];
 
             readdirSync("./commands/messageCommands/").forEach((dir) => {
