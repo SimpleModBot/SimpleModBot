@@ -27,7 +27,6 @@ module.exports = {
 		client.prefix = '\\';
 		client.prefixes = [`<@!?911112976793215006>`, `smb`, `hey smb`, `oi smb`, `simplemodbot`, `hey simplemodbot`, `oi simplemodbot`, `shithead`, `shitbot`, `shit bot`];
 
-		if (guildProfile.prefix) client.prefix = guildProfile.prefix;
 		if (guildProfile.prefixes) {
 			if (!guildProfile.prefixes) return;
 			guildProfile.prefixes.forEach((prefix) => {
