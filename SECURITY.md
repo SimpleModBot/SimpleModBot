@@ -4,16 +4,6 @@
 
 All versions with a discord.js version 13 or higher are supported except for the older prototypes. Versions of this bot using discord.js 12 are deprecated and will not function right and soon, not function at all due to the API.
 
----
-Once I have finished the alphas I will update this and the README saying so.
-
-The Prototype will be very unstable and pretty much just backups, I do not recommend copying any code from this at all.
-The Alpha will be somewhat unstable but you can feel free to copy code from it.
-The Beta will be as stable as I can make it.
-The full release will be 100% stable (on the front end).
-
-You will see some node or git files that are not needed inside of the Prototype/Alpha/Beta builds, just ignore these, they are only for development.
-
 ## Reporting a Vulnerability
 
 If you find any vulnerabilities, anything that leaks sensitive information (tokens, passwords, etc), dangerous npm packages, or just anything dangerous to the bot.

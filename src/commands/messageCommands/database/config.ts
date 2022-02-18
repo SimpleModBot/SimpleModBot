@@ -28,7 +28,7 @@ module.exports = {
 			const prefix = new MessageEmbed()
 				.setTitle('prefix')
 				.setDescription(
-					`The current prefixes are\n\`${client.prefixes.join(', ')}\`
+					`The current custom prefixes are: \`${guildProfile.prefixes.join('`, `') || 'None set'}\`
 			To add a new prefix, type \`${client.prefix}config add prefix <prefix>\`.
 			To remove a prefix, type \`${client.prefix}config remove prefix <prefix>\`.`,
 				)

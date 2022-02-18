@@ -6,7 +6,6 @@ require('dotenv').config();
 module.exports = {
     init: async() => {
         const dbOptions = {
-            useFindAndModify: false,
             useNewUrlParser: true,
             useUnifiedTopology: true,
             autoIndex: false,

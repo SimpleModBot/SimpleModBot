@@ -18,8 +18,6 @@ If you wish to use some of my bot code you can, just try to credit me wherever y
 
 ---
 
-**THIS IS AN ALPHA, I WILL NOT BE HELD RESPONSIBLE FOR ANY LOSS OF DATA THAT MAY OCCUR.**
-
 Most of the data is not that useful or really easy to repair so I do not believe it is worth me trying to get it all back when it occurs.
 
 ## Features
@@ -46,14 +44,3 @@ Most of the data is not that useful or really easy to repair so I do not believe
 Contributions are always welcome!
 
 If you are a developer and would like to help with the bot, please join me in the [community server](https://discord.gg/49KeKwXc8g) and tell me how you want to help and why I should trust you. Or join the server just to interact with the community and ask questions!
-## Developers
-
-- [DEATHB4DEFEAT#4404](https://www.github.com/deathb4defeat)
-
-### Contributors
-
-- @Stanford47
-### Testers
-
-- @itsamedood
-- [Blaster#7471](https://www.youtube.com/channel/UCvG7nYCCx33dL61nlObV5TQ)
