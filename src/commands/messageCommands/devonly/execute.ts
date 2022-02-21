@@ -5,6 +5,7 @@ const { exec } = require('child_process');
 module.exports = {
 	name: 'execute',
 	aliases: ['exec', 'cmd'],
+	devOnly: true,
 	cooldown: 3,
 	async execute(message, args, data, client) {
 		const row = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setCustomId('evalbtn').setLabel('Delete output').setStyle('DANGER'));

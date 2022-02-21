@@ -14,39 +14,29 @@ module.exports = {
 		if (message.channel.type == 'DM') return;
 		if (message.author.bot) return;
 
-		const Guild = require('../database/models/guildSchema.ts');
-		const guildProfile = await Guild.findOne({ guildID: message.guild.id });
-		if (!guildProfile) {
-			const profile = await new Guild({
-				_id: mongoose.Types.ObjectId(),
-				guildID: message.guild.id,
-			});
-			await profile.save();
-		}
-
 		client.prefix = '\\';
 		client.prefixes = [];
 
-		if (guildProfile.prefixes) {
-			if (!guildProfile.prefixes) return;
-			guildProfile.prefixes.forEach((prefix) => {
-				client.prefixes.push(prefix);
-			});
-		}
-
-		let balanceDB = client.data.getBalanceDB(message.author.id);
-		let blacklistDB = client.data.getBlacklistDB(message.author.id);
-		let guildDB = client.data.getGuildDB(message.guild.id);
-		let inventoryDB = client.data.getInventoryDB(message.author.id);
-		let timeDB = client.data.getReadyatDB();
+		// let balanceDB = client.data.getBalanceDB(message.author.id);
+		// let blacklistDB = client.data.getBlacklistDB(message.author.id);
+		// let guildDB = client.data.getGuildDB(message.guild.id);
+		// let inventoryDB = client.data.getInventoryDB(message.author.id);
+		// let timeDB = client.data.getReadyatDB();
+		const [balanceDB, blacklistDB, guildDB, inventoryDB, timeDB] = await Promise.all([
+			await client.data.getBalanceDB(message.author.id),
+			await client.data.getBlacklistDB(message.author.id),
+			await client.data.getGuildDB(message.guild.id),
+			await client.data.getInventoryDB(message.author.id),
+			await client.data.getReadyatDB(),
+		]);
 
 		let data = {
-			config: 'An Error Occurred Loading This Information.',
-			balance: 'An Error Occurred Loading This Information.',
-			blacklisted: 'An Error Occurred Loading This Information.',
-			guild: 'An Error Occurred Loading This Information.',
-			inventory: 'An Error Occurred Loading This Information.',
-			time: 'An Error Occurred Loading This Information.',
+			config: {},
+			balance: {},
+			blacklisted: {},
+			guild: {},
+			inventory: {},
+			time: {},
 		};
 
 		data.config = client;
@@ -56,13 +46,16 @@ module.exports = {
 		data.inventory = inventoryDB;
 		data.time = timeDB;
 
+		if (guildDB.prefixes) {
+			guildDB.prefixes.forEach((prefix) => {
+				client.prefixes.push(prefix);
+			});
+		}
+
 		let prefixes = client.prefixes.join('|') + '|';
 		if (prefixes.length < 2) prefixes = '';
 
-		const prefixRegex = new RegExp(
-			`^((hey|heya|hello|hi|oi) (smb|there smb|simplemodbot|there simplemodbot)( (can|could) (you|ya))?( maybe| possibly)?)|^((${prefixes}<@\!\?911112976793215006>|smb|simplemodbot|\\)) *`.replace(/\\/g, '\\\\'),
-			`i`,
-		);
+		const prefixRegex = new RegExp(`^((hey|heya|hello|hi|oi) (smb|there smb|simplemodbot|there simplemodbot)( (can|could) (you|ya))?( maybe| possibly)?)|^((${prefixes}<@\!\?911112976793215006>|smb|simplemodbot|\\\\)) *`, `i`);
 		if (!prefixRegex.test(message.content)) return;
 		if (message.content == `<@!${client.user.id}>`)
 			return message.channel.send({

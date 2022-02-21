@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: "createinvite",
-    description: "No description.",
+    description: "Creates an invite for a bot.",
     aliases: ['botinvite'],
     cooldown: 5,
     async execute(message, args, data, client) {

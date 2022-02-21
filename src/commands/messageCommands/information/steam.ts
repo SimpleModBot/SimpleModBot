@@ -36,7 +36,6 @@ module.exports = {
         };
 
         const embed = new MessageEmbed()
-            .setAuthor('Steam', 'https://i.imgur.com/xxr2UBZ.png', 'http://store.steampowered.com/')
             .setTitle(`__**${data.name}**__`)
             .setURL(`http://store.steampowered.com/app/${data.steam_appid}`)
             .addField('\u2000Price', `•\u2000 ${price}`, true)
