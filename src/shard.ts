@@ -7,7 +7,6 @@ const manager = new ShardingManager('./index.ts', {
     token: process.env.TOKEN,
     totalShards: 'auto',
     respawn: true,
-    shardArgs: [  ],
 });
 
 manager.on('shardCreate', async (shard) => {
