@@ -8,6 +8,7 @@ module.exports = {
 	async execute(modal, client) {
 		if (modal.customId === 'evalmodal') {
 			const code = modal.getTextInputValue('evalform').toString();
+			modal.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Running evaluation..`).setColor('GREY')], ephemeral: true });
 
 			try {
 				const old = Date.now();
@@ -67,7 +68,6 @@ module.exports = {
 				const row = new MessageActionRow().addComponents([new MessageSelectMenu().setPlaceholder('Choose a page to go to.').addOptions(dropdowns).setCustomId('queue_pagination')]);
 
 				const baseMessage = await modal.channel.send({ embeds: [pages[count]], components: [row] });
-				// modal.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Sent pagination embed.`).setColor('GREY')], ephemeral: true });
 				const collector = baseMessage.createMessageComponentCollector({ componentType: 'SELECT_MENU', time: 60000 });
 
 				collector.on('collect', async (i) => {
@@ -80,7 +80,7 @@ module.exports = {
 					}
 				});
 			} catch (err) {
-				modal.reply({ embeds: [new Discord.MessageEmbed().setDescription(`\`ERROR\` \`\`\`ts\n${clean(err)}\n\`\`\``).setColor('GREY')], ephemeral: true });
+				modal.editReply({ embeds: [new Discord.MessageEmbed().setDescription(`\`ERROR\` \`\`\`ts\n${clean(err)}\n\`\`\``).setColor('GREY')], ephemeral: true });
 			}
 
 			function clean(text) {
