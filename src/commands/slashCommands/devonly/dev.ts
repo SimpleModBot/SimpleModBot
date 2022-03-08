@@ -1,9 +1,10 @@
 // @ts-ignore
 const Discord = require('discord.js');
+const { Modal, TextInputComponent, showModal } = require('discord-modals');
 const ascii = require('ascii-table');
 // @ts-ignore
 const fetch = require('node-fetch');
-let Table = new ascii("ServerList");
+let Table = new ascii('ServerList');
 
 module.exports = {
 	name: 'dev',
@@ -30,12 +31,18 @@ module.exports = {
 				},
 			],
 		},
+		{
+			name: 'evaluate',
+			description: 'Evaluates some code from a form.',
+			type: 'SUB_COMMAND',
+		},
 	],
 	async execute(interaction, args, client) {
 		const [subcommand] = args;
 
 		if (subcommand == 'guildlist') guildlist();
 		if (subcommand == 'test') test();
+		if (subcommand == 'evaluate') evaluate();
 
 		async function guildlist() {
 			Table.setHeading(' Guild Name ', ' Guild ID ', ' Member Count ', ' Owner ');
@@ -52,12 +59,23 @@ module.exports = {
 		}
 
 		async function test() {
-			// await interaction.reply({ embeds: [new Discord.MessageEmbed().setDescription("This is a test.\nAnd it has worked! ^-^").setColor('GREY')], ephemeral: true });
+			await interaction.reply({ embeds: [new Discord.MessageEmbed().setDescription('This is a test.\nAnd it has worked! ^-^').setColor('GREY')], ephemeral: true });
+		}
 
-			fetch(`https://api.waifu.pics/nsfw/${args[1]}`).then(async (res) => {
-				const json = await res.json();
-				const embed = new Discord.MessageEmbed().setTitle(`${args[1]}`).setDescription(`${json.url}`).setImage(json.url).setColor('GREY');
-				await interaction.reply({ embeds: [embed], ephemeral: true });
+		async function evaluate() {
+			const evalform = new TextInputComponent() // We create a Text Input Component
+				.setCustomId('evalform')
+				.setLabel('Input code')
+				.setStyle('LONG')
+				.setMinLength(1)
+				.setMaxLength(4000)
+				.setPlaceholder('// Evaluated with SimpleModBot code evaluation.\n')
+				.setRequired(true);
+			const modal = new Modal().setCustomId('evalmodal').setTitle('SimpleModBot code evaluation').addComponents(evalform);
+
+			showModal(modal, {
+				client: client,
+				interaction: interaction,
 			});
 		}
 	},

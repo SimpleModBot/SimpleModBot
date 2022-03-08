@@ -1,3 +1,4 @@
+// @ts-ignore
 const { MessageButton, MessageActionRow, MessageEmbed, MessageSelectMenu } = require("discord.js");
 // @ts-ignorecaptcha currently
 const Discord = require("discord.js");
@@ -44,7 +45,7 @@ module.exports = {
                         .setTitle(`Evaluated in ${Math.round(Date.now() - old)}ms`)
                         .setDescription("**[OUTPUT]**" + `\n\`\`\`ts\n${v}\n\`\`\``)
                         .addField("[INPUT]", `\`\`\`ts\n${code}\n\`\`\``)
-                        .addField('[TYPE]', `\`\`\`xl\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
+                        .addField('[TYPE]', `\`\`\`ts\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
                         .setColor('GREY');
 
                     pages.push(embed);
@@ -54,7 +55,7 @@ module.exports = {
                     .setTitle(`Evaluated in ${Math.round(Date.now() - old)}ms`)
                     .setDescription("**[OUTPUT]**" + `\n\`\`\`ts\n${evaled}\n\`\`\``)
                     .addField("[INPUT]", `\`\`\`ts\n${code}\n\`\`\``)
-                    .addField('[TYPE]', `\`\`\`xl\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
+                    .addField('[TYPE]', `\`\`\`ts\n${(dataType).substr(0, 1).toUpperCase() + dataType.substr(1)}\n\`\`\``)
                     .setColor('GREY');
 
                 pages.push(embed);
