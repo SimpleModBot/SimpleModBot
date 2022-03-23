@@ -8,13 +8,9 @@ The current prefix is `\` but you can change it with the `config` command. You c
 
 Please read SECURITY.md as it doesn't appear below files like README.md does and it contains other useful information.
 
-**Currently working and pushing alphas for SMB 2.0.**
-
 ## Additional information (PLEASE READ ME)
 
-If you wish to use some of my bot code you can, just try to credit me wherever you can. **Nobody** is allowed to obtain a full copy of the project so please stop asking.
-
-*I am hiding some important files because I don't want people to just steal my project entirely or view private information. Sorry for any inconveniences.*
+This project is open source **only** so people can contribute and test it easily. I will **not** allow people to claim any of this code as theirs without modification or permission.
 
 ---
 
