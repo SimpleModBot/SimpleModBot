@@ -8,7 +8,7 @@ module.exports = {
 	async execute(modal, client) {
 		if (modal.customId === 'evalmodal') {
 			const code = modal.getTextInputValue('evalform').toString();
-			modal.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Running evaluation..`).setColor('GREY')], ephemeral: true });
+			// modal.reply({ embeds: [new Discord.MessageEmbed().setDescription(`Running evaluation..`).setColor('GREY')], ephemeral: true });
 
 			try {
 				const old = Date.now();
@@ -25,6 +25,7 @@ module.exports = {
 					});
 					dataType += dataTypes.map((s) => s[0].toUpperCase() + s.slice(1)).join(', ') + '>';
 				}
+				evaled = clean(evaled);
 
 				let pages = [];
 
@@ -80,17 +81,13 @@ module.exports = {
 					}
 				});
 			} catch (err) {
-				modal.editReply({ embeds: [new Discord.MessageEmbed().setDescription(`\`ERROR\` \`\`\`ts\n${clean(err)}\n\`\`\``).setColor('GREY')], ephemeral: true });
+				modal.reply({ embeds: [new Discord.MessageEmbed().setDescription(`\`ERROR\` \`\`\`ts\n${clean(err)}\n\`\`\``).setColor('GREY')], ephemeral: true });
 			}
 
 			function clean(text) {
-				if (typeof text === 'string')
-					return text
-						.replace(/`/g, '`' + String.fromCharCode(8203))
-						.replace(/@/g, '@' + String.fromCharCode(8203))
-						.replace(process.env.TOKEN, process.env.token);
+				if (typeof (text) === "string") return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
 				else return text;
-			}
+			};
 		}
 	},
 };

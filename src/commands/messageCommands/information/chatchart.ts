@@ -106,7 +106,6 @@ module.exports = {
 🥉**${Object.keys(finalthingyig)[2]}** │ \`${Object.values(finalthingyig)[2]} [${(Object.values(finalthingyig)[2] / mLimit) * 100}%]\``,
 			)
 			.setImage('attachment://chart.png')
-			.setFooter({ value: `This might not be very accurate.` })
 			.setColor('GREY');
 
 		message.reply({ embeds: [embed], files: [attachment] });

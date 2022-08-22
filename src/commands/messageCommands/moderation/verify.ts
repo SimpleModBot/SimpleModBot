@@ -32,7 +32,7 @@ module.exports = {
                 embeds: [
                     new Discord.MessageEmbed()
                         .setDescription(
-                            `Complete the captcha to verify!`,
+                            `Complete the captcha by typing what you see along the green line to verify!\nMake sure to use the same case as the letters.`,
                         )
                         .setImage('attachment://captcha.png')
                         .setColor('GREY'),
@@ -59,7 +59,7 @@ module.exports = {
                 const response = await msg.channel.awaitMessages({
                     filter,
                     max: 1,
-                    time: 25000,
+                    time: 60000,
                     errors: ['time'],
                 });
 
@@ -80,7 +80,7 @@ module.exports = {
                     embeds: [
                         new Discord.MessageEmbed()
                             .setDescription(
-                                `You have not verified properly, please retry.`,
+                                `You have not verified properly or ran out of time, please retry.`,
                             )
                             .setColor('GREY'),
                     ],

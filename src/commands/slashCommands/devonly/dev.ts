@@ -77,6 +77,8 @@ module.exports = {
 				client: client,
 				interaction: interaction,
 			});
+
+			interaction.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Starting an evaluation..`).setColor('GREY')], ephemeral: true });
 		}
 	},
 };

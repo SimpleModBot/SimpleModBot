@@ -11,7 +11,7 @@ module.exports = {
         const { totalMemMb, usedMemMb } = await mem.info();
 
         const systeminfo = stripIndent`
-        OS        : Buster-slim, Docker
+        OS        : Ubuntu 20.04 LTS - RPI4B
         CPU       : ${cpu.model()}
         Cores     : ${cpu.count()}
         CPU Usage : ${await cpu.usage()} %

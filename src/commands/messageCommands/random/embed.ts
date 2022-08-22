@@ -18,7 +18,7 @@ module.exports = {
 
         let embed = new Discord.MessageEmbed();
         let num = 0;
-        let tf = false;
+        let allowed = false;
 
         if (message.content.includes('-t')) {
             if (message.content.split('-t')[1]) embed.setTitle(message.content.split('-t')[1].split('-')[0].slice(0, 256));
@@ -41,13 +41,13 @@ module.exports = {
         } else num = num + 1;
 
         if (message.content.includes('-m')) {
-            if (message.content.split('-m')[1]) tf = true;
+            if (message.content.split('-m')[1]) allowed = true;
         };
 
         if (num < 4) {
-            if (tf == false) {
+            if (allowed == false) {
                 message.channel.send({ embeds: [embed] });
-            } else if (tf == true) {
+            } else if (allowed == true) {
                 message.channel.send({ content: message.content.split('-m')[1].split('-')[0].slice(0, 2000), embeds: [embed] });
             };
         } else return message.channel.send({

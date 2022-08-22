@@ -35,6 +35,7 @@ module.exports = {
                 });
                 dataType += dataTypes.map(s => s[0].toUpperCase() + s.slice(1)).join(", ") + ">";
             };
+            evaled = clean(evaled);
 
             let pages = [];
 
@@ -114,7 +115,7 @@ module.exports = {
         };
 
         function clean(text) {
-            if (typeof (text) === "string") return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203)).replace(process.env.TOKEN, process.env.token);
+            if (typeof (text) === "string") return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
             else return text;
         };
     },

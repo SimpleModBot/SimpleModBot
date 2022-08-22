@@ -11,7 +11,8 @@ module.exports = {
 			autoIndex: false,
 		};
 
-		await mongoose.connect(`mongodb://simplemodbot-db:27017`, dbOptions);
+		// await mongoose.connect(`mongodb://simplemodbot-db:27017`, dbOptions);
+		await mongoose.connect(`mongodb://localhost:27017`, dbOptions);
 
 		const balancesDB = require('./models/balanceSchema.ts');
 		const blacklistsDB = require('./models/blackListSchema.ts');

@@ -55,7 +55,7 @@ module.exports = {
 		let prefixes = client.prefixes.join('|') + '|';
 		if (prefixes.length < 2) prefixes = '';
 
-		const prefixRegex = new RegExp(`^((hey|heya|hello|hi|oi) (smb|there smb|simplemodbot|there simplemodbot)( (can|could) (you|ya))?( maybe| possibly)?)|^((${prefixes}<@\!\?911112976793215006>|smb|simplemodbot|\\\\)) *`, `i`);
+		const prefixRegex = new RegExp(`^((hey|heya|hello|hi|oi) (smb|there smb|simplemodbot|there simplemodbot)( (can|could) (you|ya))?( maybe| possibly| please)?)|^((${prefixes}<@\!\?911112976793215006>|smb|simplemodbot|\\\\)) *`, `i`);
 		if (!prefixRegex.test(message.content)) return;
 		if (message.content == `<@!${client.user.id}>`)
 			return message.channel.send({
@@ -97,14 +97,10 @@ module.exports = {
 			userID: message.author.id,
 		});
 
-		try {
-			if (profile)
-				return message.author.send({
-					embeds: [new Discord.MessageEmbed().setDescription('You cannot use this bot as you are banned for ' + profile.reason + '. You can appeal in the support server: https://discord.gg/26NtPVvNCU').setColor('GREY')],
-				});
-		} catch (err) {
-			Promise.reject(new err());
-		}
+		if (profile)
+			return message.author.send({
+				embeds: [new Discord.MessageEmbed().setDescription('You cannot use this bot as you are banned for ' + profile.reason + '. You can appeal in the support server: https://discord.gg/26NtPVvNCU').setColor('GREY')],
+			});
 		if (command.devOnly == true && !client.devIDs.includes(message.author.id))
 			return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You don't have permission to use this command as it is only for developers.").setColor('GREY')] });
 		const { cooldowns } = client;

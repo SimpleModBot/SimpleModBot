@@ -1,5 +1,5 @@
-index.ts
 .env
+package-lock.json
 node_modules
 
 errors.log
