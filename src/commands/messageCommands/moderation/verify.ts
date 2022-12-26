@@ -43,7 +43,7 @@ module.exports = {
 
             const filter = (mesg) => {
                 if (mesg.author.id !== message.author.id) return;
-                if (mesg.content == captcha.text) return true;
+                if (mesg.content.toUpperCase() == captcha.text || mesg.content.toLowerCase() == captcha.text) return true;
                 else
                     mesg.reply({
                         embeds: [

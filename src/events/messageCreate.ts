@@ -8,11 +8,13 @@ const mongoose = require('mongoose');
 module.exports = {
 	name: 'messageCreate',
 	async execute(message, client) {
+        if (!message.guild) return;
+		if (message.channel.type == 'DM') return;
+		if (message.channel.type == 'UNKNOWN') return;
+		if (message.author.bot) return;
+
 		await mongis.init();
 		client.emit('antiInviteMessageCreate', message, client);
-
-		if (message.channel.type == 'DM') return;
-		if (message.author.bot) return;
 
 		client.prefix = '\\';
 		client.prefixes = [];

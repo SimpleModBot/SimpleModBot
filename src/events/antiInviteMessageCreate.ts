@@ -5,10 +5,12 @@ const mongoose = require('mongoose');
 module.exports = {
     name: 'antiInviteMessageCreate',
     async execute(message, client) {
-        if (!message.channel.permissionsFor(message.guild.me).has("SEND_MESSAGES")) return;
-
         if (!message.guild) return;
-        if (message.author.bot) return;
+		if (message.channel.type == 'DM') return;
+		if (message.channel.type == 'UNKNOWN') return;
+		if (message.author.bot) return;
+
+        if (!message.channel.permissionsFor(message.guild.me).has("SEND_MESSAGES")) return;
         if (message.member.permissions.has("MANAGE_GUILD")) return;
 
         let guildProfile = await schema.findOne({ guildID: message.guild.id });
