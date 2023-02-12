@@ -59,7 +59,7 @@ module.exports = {
 
 		const prefixRegex = new RegExp(`^((hey|heya|hello|hi|oi) (smb|there smb|simplemodbot|there simplemodbot)( (can|could) (you|ya))?( maybe| possibly| please)?)|^((${prefixes}<@\!\?911112976793215006>|smb|simplemodbot|\\\\)) *`, `i`);
 		if (!prefixRegex.test(message.content)) return;
-		if (message.content == `<@!${client.user.id}>`)
+		if (message.content == `<@!${client.user.id}>` || message.content == `<@${client.user.id}>`)
 			return message.channel.send({
 				embeds: [
 					new Discord.MessageEmbed()
@@ -83,13 +83,7 @@ module.exports = {
 		const dataa = await schema.findOne({ Guild: message.guild.id, Command: commandName });
 		if (dataa)
 			return message.channel.send({
-				embeds: [
-					new Discord.MessageEmbed()
-						.setDescription(dataa.Response)
-						.setFooter({ text: `CustomCommand: ${dataa.Command}` })
-						.setColor('GREY')
-						.setTimestamp(),
-				],
+				content: dataa.Response
 			});
 
 		let command = client.messageCommands.get(commandName) || client.messageCommands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
