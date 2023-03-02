@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": false,
+        "noEmitOnError": true,
+        "removeComments": false,
+        "sourceMap": true,
+        "target" : "ES6",
+        "outDir": "out",
+        "moduleResolution": "nodenext",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "noPropertyAccessFromIndexSignature": false
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "src/commands/messageCommands",
+        "src/classes",
+        "src/commands/slashCommands/IGNORE",
+        "src/events/IGNORE",
+        "src/shard.ts",
+        "src/database"
+    ]
+}
