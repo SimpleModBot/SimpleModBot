@@ -19,7 +19,7 @@
 // client.devIDs = ['801294818839756811', '398758748904226836'];
 // client.lastCmd = undefined;
 
-// client.data = require('./database/mongoose.ts');
+// client.data = require('${WORKING_DIR}database/mongoose.ts');
 // client.messageCommands = new Discord.Collection();
 // client.slashCommands = new Discord.Collection();
 
@@ -33,17 +33,22 @@
 
 
 import { Client, Collection, REST, Routes } from "discord.js";
-import { readdirSync } from "fs";
-import { basename } from "path";
+import { globSync } from "glob";
+
 //@ts-ignore
 import config from "../settings.json" assert { type: "json" };
 
-const WORKING_DIR: String = process.cwd(); // just in case
+const WORKING_DIR: string = process.cwd(); // just in case
 
 const client: Client = new Client({ intents: 1003 });
-const event_files: String[] = readdirSync(`./out/src/events`).filter((file) => file.endsWith(".ts"));
-const s_commands: String[] = readdirSync(`./out/src/commands/slashCommands/*/`).filter((file) => file.endsWith(".ts"));
-const s_commands_deploy: String[] = [];
+const event_files: string[] = globSync(`${WORKING_DIR}/out/src/events/*.js`);
+const s_commands: string[] = globSync(`${WORKING_DIR}/out/src/commands/slashCommands/*/*.js`);
+const s_commands_deploy: string[] = [];
+
+console.log(`
+event files: ${event_files}\n
+s_commands: ${s_commands}\n
+`);
 
 //@ts-expect-error
 client.startTime = Date.now(); // to clean this up farther, make a seperate file for this...
@@ -52,7 +57,7 @@ client.slashCommands = new Collection();
 
 // event handler
 for (const file of event_files) {
-  const event = require(`./out/src/events/${file}`);
+  const event = require(file);
 
   if (event.once) {
     client.once(event.name, (...args) => event.execute(...args, client));
@@ -63,7 +68,7 @@ for (const file of event_files) {
 
 // command handler
 for (const file of s_commands) {
-  const command = require(`./out/src/commands/slashCommands/real/${file}`);
+  const command = require(`${WORKING_DIR}/out/src/commands/slashCommands/real/${file}`);
   
   //@ts-expect-error
 	client.slashCommands.set(command.data.name, command);
@@ -71,7 +76,7 @@ for (const file of s_commands) {
 
 // deploying commands
 for (const files of s_commands) {
-  const command = require(`./commands/slashCommands/real/${files}`);
+  const command = require(`${WORKING_DIR}/out/src/commands/slashCommands/real/${files}`);
 
   s_commands_deploy.push(command.data.toJSON());
 }
@@ -86,8 +91,12 @@ const rest = new REST({ version: '10' }).setToken(config.Discord.token);
   }
 })();
 
+console.log("registered commands");
+
 // logging in now
 client.login(config.Discord.token);
+
+console.log("readu");
 
 // /*---------------------------------------------------------------------------------ANTICRASH---------------------------------------------------------------------------------*/
 
@@ -371,7 +380,7 @@ client.login(config.Discord.token);
 // }
 
 // async function getUptime() {
-//   const schema = require("./database/models/readyatSchema.ts");
+//   const schema = require("${WORKING_DIR}database/models/readyatSchema.ts");
 //   let ready = await schema.findOne({ timezone: "PST/Pacific Standard Time" });
 //   let time = Date.now() - ready.time;
 //   let Days = Math.floor(time / 86400000);

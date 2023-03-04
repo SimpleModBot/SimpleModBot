@@ -1,25 +1,19 @@
 {
     "compilerOptions": {
+        "strict": true,
+        "target": "es2022",
         "noImplicitAny": false,
         "noEmitOnError": true,
-        "removeComments": false,
-        "sourceMap": true,
-        "target" : "ES6",
         "outDir": "out",
-        "moduleResolution": "nodenext",
+        "moduleResolution": "node",
+        "useUnknownInCatchVariables": true,
+        "allowUnreachableCode": false,
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "noPropertyAccessFromIndexSignature": false
+        "noPropertyAccessFromIndexSignature": false,
+        "module": "commonjs",
+        "sourceMap": true,
     },
-    "include": [
-        "src/**/*.ts"
-    ],
-    "exclude": [
-        "src/commands/messageCommands",
-        "src/classes",
-        "src/commands/slashCommands/IGNORE",
-        "src/events/IGNORE",
-        "src/shard.ts",
-        "src/database"
-    ]
+    "include" : ["./settings.json", "src/**/*.ts"],
+    "exclude": ["src/commands/messageCommands", "src/classes", "src/commands/slashCommands/IGNORE", "src/events/IGNORE", "src/shard.ts", "src/database"]
 }
