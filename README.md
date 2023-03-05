@@ -39,4 +39,38 @@ Most of the data is not that useful or really easy to repair so I do not believe
 
 Contributions are always welcome!
 
-If you are a developer and would like to help with the bot, please join me in the [community server](https://discord.gg/49KeKwXc8g) and tell me how you want to help and why I should trust you. Or join the server just to interact with the community and ask questions!
+If you are a developer and would like to help with the bot, please join me in the [community server](https://discord.gg/49KeKwXc8g) and tell me how you want to help. Or join the server just to interact with the community and ask questions!
+
+The bot uses a file called `settings.json` to function. make sure to create the file in the root directory.
+
+```json
+{
+    "Discord" : {
+        "dev_ids" : [
+        ],
+        "token" : "",
+        "app_id" : ""
+    }
+}
+```
+
+### Getting Started
+
+Prerequisits:
+
+* `NodeJS >=19.6.0`
+* `git`
+* `Typescript`
+* If on windows: `Visual Studio 17 or greater`
+
+Firstly, clone the repository
+
+```bash
+mein@mein-pc:~$ cd ~/Coding
+
+mein@mein-pc:~/Coding$ git clone https://github.com/SimpleModBot/SimpleModBot.git
+```
+Once git has finished cloning the SimpleModBot repository, cd into the directory and run `npm run install_deps` or `npm install`
+
+```bash
+mein@mein-pc:~/Coding
