@@ -8,11 +8,11 @@
 	"main": "./out/index.js",
 	"private": true,
 	"scripts": {
-		"test": "node ./src/index.ts",
 		"build": "tsc --build",
 		"build_c": "tsc --build --clean",
 		"build_r": "node srcripts/build_and_run.js 0",
 		"buld_r_s": "node scripts/build_and_run.js 1",
+		"build_r_prod": "node scripts/build_and_run.js 2",
 		"run": "node out/src/index.js",
 		"run_s": "node out/index.js 1",
 		"install_deps": "npm install"
@@ -24,7 +24,7 @@
 		"@discordjs/builders": "^1.4.0",
 		"@types/node": "18.14.2",
 		"@zuzak/owo": "1.18.0",
-		"chalk": "5.2.0",
+		"chalk": "^4.1.2",
 		"discord.js": "14.7.1",
 		"figlet": "1.5.2",
 		"glob": "^9.2.1",

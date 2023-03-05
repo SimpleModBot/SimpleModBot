@@ -48,6 +48,7 @@ const s_commands_deploy: string[] = [];
 console.log(`
 event files: ${event_files}\n
 s_commands: ${s_commands}\n
+cwd: ${WORKING_DIR}\n
 `);
 
 //@ts-expect-error
@@ -56,8 +57,9 @@ client.startTime = Date.now(); // to clean this up farther, make a seperate file
 client.slashCommands = new Collection();
 
 // event handler
-for (const file of event_files) {
-  const event = require(file);
+for (const file of event_files) { // I LITERALLT CANT FIGURE THIS OUT ARRRGGGGHHH
+  const file_p = `${WORKING_DIR}${process.platform === "win32" ? "\\" : "/"}${file}`;
+  const event = require(file_p);
 
   if (event.once) {
     client.once(event.name, (...args) => event.execute(...args, client));
