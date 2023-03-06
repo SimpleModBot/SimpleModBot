@@ -73,4 +73,7 @@ mein@mein-pc:~/Coding$ git clone https://github.com/SimpleModBot/SimpleModBot.gi
 Once git has finished cloning the SimpleModBot repository, cd into the directory and run `npm run install_deps` or `npm install`
 
 ```bash
-mein@mein-pc:~/Coding
+mein@mein-pc:~/Coding$ cd SimpleModBot
+mein@mein-pc:~/Coding/SimpleModBot$ npm run install_deps
+```
+
