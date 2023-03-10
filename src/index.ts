@@ -34,6 +34,7 @@
 
 import { Client, Collection, REST, Routes } from "discord.js";
 import { readdirSync } from "fs";
+import deploySlashCommands from "./utils/ready_up";
 //import { globSync } from "glob";
 
 //@ts-ignore
@@ -46,7 +47,6 @@ const client: Client = new Client({ intents: 1003 });
 const event_files: string[] = readdirSync(`${WORKING_DIR}/out/src/events`).filter(file => file.endsWith(".js"));
 // const s_commands: string[] = globSync(`${WORKING_DIR}/out/src/commands/slashCommands/*/*.js`);
 const s_commands: string[] = readdirSync(`${WORKING_DIR}/out/src/commands/slashCommands`).filter(file => file.endsWith(".js"));
-const s_commands_deploy: string[] = [];
 
 console.log(`
 event files: ${event_files}\n
@@ -73,35 +73,37 @@ for (const file of event_files) {
 
 // command handler
 for (const file of s_commands) {
-  const command = require(`${WORKING_DIR}/out/src/commands/SlashCommands/${file}`);
-  
+  const command = require(`${WORKING_DIR}/out/src/commands/slashCommands/${file}`);
+
   //@ts-expect-error
 	client.slashCommands.set(command.data.name, command);
 }
 
-// deploying commands
-// for (const files of s_commands) {
-//   const command = require(`${WORKING_DIR}/out/src/commands/slashCommands/${files}`);
+export default client;
 
-//   s_commands_deploy.push(command.data.toJSON());
-// }
+deploySlashCommands(s_commands, client);
 
-// const rest = new REST({ version: '10' }).setToken(config.Discord.token);
+process.on("beforeExit", (code) => {
+  switch(code) {
+    case 0: 
+      process.stdout.write("Exited successfully. Nice job devs!");
+      client.destroy();
+      break;
+    case 1: 
+      process.stdout.write("Exited with failure... Fix your code :/");
+      client.destroy();
+      break;
+    case 5:
+      process.stdout.write("Not sure if this is good or bad...");
+      client.destroy();
+      break;
 
-// (async () => {
-//   try {
-//     const data = await rest.put(Routes.applicationCommands(config.Discord.app_id), { body: s_commands_deploy });
-//   } catch (err) {
-//     console.error(err);
-//   }
-// })();
-
-// console.log("registered commands");
-
-// logging in now
-client.login(config.Discord.token);
-
-console.log("readu");
+    default:
+      process.stdout.write("Give me an exit code you lazy bum");
+      client.destroy();
+      break;
+  }
+});
 
 // /*---------------------------------------------------------------------------------ANTICRASH---------------------------------------------------------------------------------*/
 
