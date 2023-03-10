@@ -33,7 +33,8 @@
 
 
 import { Client, Collection, REST, Routes } from "discord.js";
-import { globSync } from "glob";
+import { readdirSync } from "fs";
+//import { globSync } from "glob";
 
 //@ts-ignore
 import config from "../settings.json" assert { type: "json" };
@@ -41,8 +42,10 @@ import config from "../settings.json" assert { type: "json" };
 const WORKING_DIR: string = process.cwd(); // just in case
 
 const client: Client = new Client({ intents: 1003 });
-const event_files: string[] = globSync(`${WORKING_DIR}/out/src/events/*.js`);
-const s_commands: string[] = globSync(`${WORKING_DIR}/out/src/commands/slashCommands/*/*.js`);
+// const event_files: string[] = globSync(`${WORKING_DIR}/out/src/events/*.js`);
+const event_files: string[] = readdirSync(`${WORKING_DIR}/out/src/events`).filter(file => file.endsWith(".js"));
+// const s_commands: string[] = globSync(`${WORKING_DIR}/out/src/commands/slashCommands/*/*.js`);
+const s_commands: string[] = readdirSync(`${WORKING_DIR}/out/src/commands/slashCommands`).filter(file => file.endsWith(".js"));
 const s_commands_deploy: string[] = [];
 
 console.log(`
@@ -57,9 +60,9 @@ client.startTime = Date.now(); // to clean this up farther, make a seperate file
 client.slashCommands = new Collection();
 
 // event handler
-for (const file of event_files) { // I LITERALLT CANT FIGURE THIS OUT ARRRGGGGHHH
-  const file_p = `${WORKING_DIR}${process.platform === "win32" ? "\\" : "/"}${file}`;
-  const event = require(file_p);
+for (const file of event_files) {
+  //const event = require(`${process.cwd().replace(/\\/g, "/")}/out/src/events/${file.split("\\")[3]}`);
+  const event = require(`${WORKING_DIR}/out/src/events/${file}`);
 
   if (event.once) {
     client.once(event.name, (...args) => event.execute(...args, client));
@@ -70,30 +73,30 @@ for (const file of event_files) { // I LITERALLT CANT FIGURE THIS OUT ARRRGGGGHH
 
 // command handler
 for (const file of s_commands) {
-  const command = require(`${WORKING_DIR}/out/src/commands/slashCommands/real/${file}`);
+  const command = require(`${WORKING_DIR}/out/src/commands/SlashCommands/${file}`);
   
   //@ts-expect-error
 	client.slashCommands.set(command.data.name, command);
 }
 
 // deploying commands
-for (const files of s_commands) {
-  const command = require(`${WORKING_DIR}/out/src/commands/slashCommands/real/${files}`);
+// for (const files of s_commands) {
+//   const command = require(`${WORKING_DIR}/out/src/commands/slashCommands/${files}`);
 
-  s_commands_deploy.push(command.data.toJSON());
-}
+//   s_commands_deploy.push(command.data.toJSON());
+// }
 
-const rest = new REST({ version: '10' }).setToken(config.Discord.token);
+// const rest = new REST({ version: '10' }).setToken(config.Discord.token);
 
-(async () => {
-  try {
-    const data = await rest.put(Routes.applicationCommands(config.Discord.app_id), { body: s_commands_deploy });
-  } catch (err) {
-    console.error(err);
-  }
-})();
+// (async () => {
+//   try {
+//     const data = await rest.put(Routes.applicationCommands(config.Discord.app_id), { body: s_commands_deploy });
+//   } catch (err) {
+//     console.error(err);
+//   }
+// })();
 
-console.log("registered commands");
+// console.log("registered commands");
 
 // logging in now
 client.login(config.Discord.token);

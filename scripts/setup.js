@@ -4,7 +4,6 @@
 
 const path = require("path");
 const fs = require("fs");
-const prettier = require("prettier");
 const figlet = require("figlet");
 //const { Chalk } = require("chalk");
 
