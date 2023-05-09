@@ -7,7 +7,7 @@ module.exports = {
 	aliases: [],
 	cooldown: 5,
 	async execute(message, args, data, client) {
-		const mLimit = 500;
+		const mLimit = 1000;
 
 		const pEmbed = new Discord.MessageEmbed().setDescription(`**Fetching the past ${mLimit} messages.**`).setFooter({ text: 'This might take time.' }).setColor('GREY');
 

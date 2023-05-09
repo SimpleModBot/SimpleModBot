@@ -9,6 +9,8 @@ module.exports = {
     cooldown: 5,
     async execute(message, args, data, client) {
         try {
+            if (args[0] === 'ENA') return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Provide me with a role ID, which can be fetched from the server roles tab.`).setColor('GREY')] });
+
             const role = await message.guild.roles.cache.get(args[0]);
             if (!role) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription(`Couldn't find a role with the ID of \`${args[0]}\`.`).setColor('GREY')] });
 

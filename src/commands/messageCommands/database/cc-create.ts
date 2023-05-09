@@ -15,7 +15,7 @@ module.exports = {
         if (!response) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('Please specify a response.').setColor('GREY')] });
 
         const m = await schema.find({ guildID: message.guild.id });
-        if (m.length > 19) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription('You have 20 custom commands which is the limit!').setColor('GREY')] });
+        if (m.length > 49) return message.reply({ embeds: [new Discord.MessageEmbed().setDescription('You cannot have more than 50 custom commands.').setColor('GREY')] });
 
         const data = await schema.findOne({ Guild: message.guild.id, Command: name });
         if (data) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription('This command already exists!').setColor('GREY')] });
