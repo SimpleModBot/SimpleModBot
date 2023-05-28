@@ -4,8 +4,8 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 // @ts-ignore
 const servers = [
-	['parkstation', '140.238.144.42:1212'],
-	['simplestation', '140.238.144.42:1213'],
+	['parkstation', 'parkstation.simplestation.org'],
+	['simplestation', 'simplestation.simplestation.org'],
 ];
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
 	description: "Get information on a Space Station 14 server\n> First argument decides what server to get information on, can be a direct ip:port.\n> Available server aliases: 'parkstation', 'simplestation'",
 	cooldown: 15,
 	async execute(message, args, data, client) {
-		let server = '140.238.144.42:1212';
+		let server = 'parkstation.simplestation.org';
 		const oldserver = server;
 		if (args[0] !== 'ENA') {
 			servers.forEach((srv) => {

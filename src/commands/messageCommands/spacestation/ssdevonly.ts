@@ -4,8 +4,8 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 // @ts-ignore
 const servers = [
-	['parkstation', '140.238.144.42:1212'],
-	['simplestation', '140.238.144.42:1213'],
+	['parkstation', 'parkstation.simplestation.org'],
+	['simplestation', 'simplestation.simplestation.org'],
 ];
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
 	devOnly: true,
 	description: '',
 	async execute(message, args, data, client) {
-		let server = '140.238.144.42:1212';
+		let server = 'parkstation.simplestation.org';
 		let oldserver = server;
 		let path = '';
 		if (args[0] !== 'ENA') {
