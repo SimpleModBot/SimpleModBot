@@ -6,7 +6,7 @@ The current prefix is `\` but you can change it with the `config` command. You c
 
 ---
 
-Please read [Contributing.md](https://github.com/SimpleModBot/SimpleModBot/blob/main/CONTRIBUTING.md) for more information such as contributing.
+Please read [Contributing.md](https://github.com/SimpleModBot/SimpleModBot/blob/new-rewrite/CONTRIBUTING.md) for more information such as contributing.
 
 All files within this repository and any clones/copies of it (local and/or online) fall under the [GNU Public License v3](https://github.com/SimpleModBot/SimpleModBot/blob/main/LICENSE).
 
