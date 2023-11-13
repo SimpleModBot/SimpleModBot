@@ -1,14 +1,4 @@
 # Contributing
-```json
-{
-    "Discord" : {
-        "dev_ids" : [
-        ],
-        "token" : "",
-        "app_id" : ""
-    }
-}
-```
 
 ## Supported Versions
 

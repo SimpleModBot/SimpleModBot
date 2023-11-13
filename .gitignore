@@ -16,4 +16,4 @@ package-lock.json
 out
 src/classes
 
-settings.json
+config.json
