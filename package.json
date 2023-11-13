@@ -1,0 +1,43 @@
+{
+	"name": "simplemodbot",
+	"version": "2.0.0",
+	"author": {
+		"name": "DEATHB4DEFEAT"
+	},
+	"license": "AGPL-3.0",
+	"main": "./out/index.js",
+	"private": true,
+	"engines": {
+		"node": ">=19.5.0"
+	},
+	"scripts": {
+		"build": "tsc --build",
+		"build_c": "tsc --build --clean",
+		"build_r": "node srcripts/build_and_run.js 0",
+		"buld_r_s": "node scripts/build_and_run.js 1",
+		"build_r_prod": "node scripts/build_and_run.js 2",
+		"run": "node out/src/index.js",
+		"run_s": "node out/index.js 1",
+		"install_deps": "npm install"
+	},
+	"dependencies": {
+		"typescript": "^4.9.5"
+	},
+	"devDependencies": {
+		"@discordjs/builders": "^1.6.5",
+		"@types/node": "18.14.2",
+		"@zuzak/owo": "1.18.0",
+		"chalk": "^4.1.2",
+		"discord.js": "^14.13.0",
+		"figlet": "1.5.2",
+		"glob": "^9.2.1",
+		"prettier": "2.8.4"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/simplemodbot/simplemodbot"
+	},
+	"bugs": {
+		"url": "https://github.com/simplemodbot/simplemodbot/issues"
+	}
+}

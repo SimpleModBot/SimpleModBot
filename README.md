@@ -6,15 +6,9 @@ The current prefix is `\` but you can change it with the `config` command. You c
 
 ---
 
-Please read SECURITY.md as it doesn't appear below files like README.md does and it contains other useful information.
+Please read [Contributing.md](https://github.com/SimpleModBot/SimpleModBot/blob/main/CONTRIBUTING.md) for more information such as contributing.
 
-## Additional information (PLEASE READ ME)
-
-This project is open source **only** so people can contribute and test it easily. I will **not** allow people to claim any of this code as theirs without modification or permission.
-
----
-
-Most of the data is not that useful or really easy to repair so I do not believe it is worth me trying to get it all back when it occurs.
+All files within this repository and any clones/copies of it (local and/or online) fall under the [GNU Public License v3](https://github.com/SimpleModBot/SimpleModBot/blob/main/LICENSE).
 
 ## Features
 
@@ -30,13 +24,3 @@ Most of the data is not that useful or really easy to repair so I do not believe
 - Information
 - Moderation
 - **Music
-
-*\*Currently disfunctional or disabled. Might get added back/fixed, might not.*
-
-*\*\*Guaranteed to not be coming back on the full release. Is still possible that I add it back in a future update, just unlikely.*
-
-## Contributing
-
-Contributions are always welcome!
-
-If you are a developer and would like to help with the bot, please join me in the [community server](https://discord.gg/49KeKwXc8g) and tell me how you want to help and why I should trust you. Or join the server just to interact with the community and ask questions!

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+      "strict": true,
+      "target": "es2022",
+      "noImplicitAny": false,
+      "noEmitOnError": true,
+      "outDir": "out",
+      "moduleResolution": "node",
+      "useUnknownInCatchVariables": true,
+      "allowUnreachableCode": false,
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "noPropertyAccessFromIndexSignature": false,
+      "module": "commonjs",
+      "sourceMap": true,
+  },
+  "include": ["src/**/*.ts", "settings.json"],
+}

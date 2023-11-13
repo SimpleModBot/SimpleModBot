@@ -1,11 +1,19 @@
-.env
-package-lock.json
+# .env
+# package-lock.json
+# node_modules
+
+# errors.log
+# information.log
+# warnings.log
+# json.sqlite
+
+# test.ts
+# yo.ogg
+
 node_modules
+package-lock.json
 
-errors.log
-information.log
-warnings.log
-json.sqlite
+out
+src/classes
 
-test.ts
-yo.ogg
+settings.json
