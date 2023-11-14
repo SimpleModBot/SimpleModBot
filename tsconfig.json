@@ -13,6 +13,7 @@
       "noPropertyAccessFromIndexSignature": false,
       "module": "commonjs",
       "sourceMap": true,
+      "rootDir": "./"
   },
-  "include": ["src/**/*.ts", "settings.json"],
+  "include": ["src/*/*.ts", "settings.json"],
 }

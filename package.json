@@ -11,14 +11,8 @@
 		"node": ">=19.5.0"
 	},
 	"scripts": {
-		"build": "tsc --build",
-		"build_c": "tsc --build --clean",
-		"build_r": "node srcripts/build_and_run.js 0",
-		"buld_r_s": "node scripts/build_and_run.js 1",
-		"build_r_prod": "node scripts/build_and_run.js 2",
-		"run": "node out/src/index.js",
-		"run_s": "node out/index.js 1",
-		"install_deps": "npm install"
+		"build" : "tsc --build",
+		"build-old" : ""
 	},
 	"dependencies": {
 		"typescript": "^4.9.5"

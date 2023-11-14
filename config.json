@@ -1,8 +1,10 @@
 {
-    "Discord" : {
-        "dev_ids" : [
-        ],
-        "token" : "",
-        "app_id" : ""
+    "SETUP" : {
+        "Discord" : {
+            "dev_ids" : [
+            ],
+            "token" : "",
+            "app_id" : ""
+        }
     }
 }
