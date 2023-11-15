@@ -10,22 +10,15 @@
 	"engines": {
 		"node": ">=19.5.0"
 	},
-	"scripts": {
-		"build" : "tsc --build",
-		"build-old" : ""
-	},
 	"dependencies": {
 		"typescript": "^4.9.5"
 	},
 	"devDependencies": {
 		"@discordjs/builders": "^1.6.5",
-		"@types/node": "18.14.2",
-		"@zuzak/owo": "1.18.0",
-		"chalk": "^4.1.2",
+		"@types/node": "^20.9.0",
+		"@zuzak/owo": "^1.18.0",
 		"discord.js": "^14.13.0",
-		"figlet": "1.5.2",
-		"glob": "^9.2.1",
-		"prettier": "2.8.4"
+		"figlet": "1.5.2"
 	},
 	"repository": {
 		"type": "git",

@@ -12,19 +12,21 @@ export default class SMB {
     public slashCommandsM = new Collection<string, Command>;
 
     public constructor(public readonly client: Client) {
-        this.client.login();
+        this.client.login(SETUP.Discord.token);
 
         this.client.on("ready", () => {
             console.log("ready! UwU");
 
             this.registerSlashCommands();
         });
+
+        this.onInteractionCreate();
     }
 
     private async registerSlashCommands() {
         const rest = new REST({ version: "9" }).setToken(SETUP.Discord.token);
 
-        const commandFiles = readdirSync(join(__dirname, "..", "commands")).filter((file) => !file.endsWith(".js"));
+        const commandFiles = readdirSync(join(__dirname, "..", "commands")).filter((file) => !file.endsWith(".map"));
 
         for (const file of commandFiles) {
             const command = await import(join(__dirname, "..", "commands", `${file}`));
