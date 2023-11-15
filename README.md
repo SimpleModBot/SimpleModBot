@@ -2,7 +2,7 @@
 
 A bot for Discord I originally made for moderation but grew over time into a multipurpose bot.
 
-The current prefix is `\` but you can change it with the `config` command. You can invite the bot using [this invite link](https://discord.com/oauth2/authorize?client_id=911112976793215006&permissions=8&scope=bot%20applications.commands).
+You can invite the bot using [this invite link](https://discord.com/oauth2/authorize?client_id=911112976793215006&permissions=8&scope=bot%20applications.commands).
 
 ---
 
