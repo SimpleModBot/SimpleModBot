@@ -6,7 +6,6 @@ import { join } from "path";
 
 
 export default class SMB {
-    public commands = new Collection<string, Command>;
     public slashCommands = new Array<ApplicationCommandDataResolvable>;
     public slashCommandsM = new Collection<string, Command>;
 
