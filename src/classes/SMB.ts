@@ -3,6 +3,7 @@ import { SETUP } from "../../config.json";
 import Command from "./Command";
 import { readdirSync } from "fs";
 import { join } from "path";
+import { TERMINAL_COLOURS } from "../utils/const";
 
 
 export default class SMB {
@@ -10,12 +11,13 @@ export default class SMB {
     public slashCommandsM = new Collection<string, Command>;
 
     public constructor(public readonly client: Client) {
+        console.log("registering slash commands...");
+        this.registerSlashCommands();
+
         this.client.login(SETUP.Discord.token);
 
         this.client.on("ready", () => {
             console.log("ready! UwU");
-
-            this.registerSlashCommands();
         });
 
         this.onInteractionCreate();
@@ -31,9 +33,11 @@ export default class SMB {
 
             this.slashCommands.push(command.default.data);
             this.slashCommandsM.set(command.default.data.name, command.default);
+
+            console.log(`${TERMINAL_COLOURS.INFO}Loaded => ${TERMINAL_COLOURS.SUCCESS}${command.default.name}${TERMINAL_COLOURS.DEFAULT}`);
         }
 
-        await rest.put(Routes.applicationCommands(this.client.user!.id), { body: this.slashCommands });
+        await rest.put(Routes.applicationCommands(SETUP.Discord.app_id), { body: this.slashCommands });
     }
 
     private async onInteractionCreate() {
