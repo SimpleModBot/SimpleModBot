@@ -8,8 +8,11 @@ You can get support in the [discord server](https://discord.gg/49KeKwXc8g).
 
 ## Reporting a Vulnerability
 
-If you find a bug or security issue in SimpleModBot, please create an [issue](https://github.com/SimpleModBot/SimpleModBot/issues). Before creating an issue, though, please check if your issue has already been found.
+If you find a bug or security issue in SimpleModBot, please create an [issue](https://github.com/SimpleModBot/SimpleModBot/issues). Before creating an issue, though, please check if your issue has already been reported.
 
 ### Spamming and Trolls
 
 Anyone who spams or creates a fake issue will be blacklisted from the bot. It wastes our time and we don't appreciate that!!
+
+## How to Contribute?
+
