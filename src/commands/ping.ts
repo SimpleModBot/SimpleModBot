@@ -14,8 +14,8 @@ export default {
                         .setTitle("🏓 Pong!")
                         .setDescription("Hmmm...")
                         .addFields(
-                            { name: "Discord API:", value: `\`${interaction.client.ws.ping}\`` },
-                            { name: "Uptime:", value: `\`${interaction.client.uptime}\`` }     
+                            { name: "Discord API:", value: `\`${interaction.client.ws.ping} ms\`` },
+                            { name: "Uptime:", value: `\`${interaction.client.uptime/1000} s\`` }     
                         )
             ]
         })

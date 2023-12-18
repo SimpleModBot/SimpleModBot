@@ -65,12 +65,12 @@ class OwO {
         R: "W",
         l: "w",
         L: "W",
-        no: 'nu',
-        has: 'haz',
-        have: 'haz',
-        says: 'sez',
-        you: 'uu',
-        the: 'da'
+        no: "nu",
+        has: "haz",
+        have: "haz",
+        says: "sez",
+        you: "uu",
+        the: "da"
     };
 
     public translateText(str: string): string {
