@@ -16,8 +16,8 @@ export default {
         interaction.reply({
             ephemeral: false,
             embeds: [new EmbedBuilder()
-                        .setTitle(new OwO().translateText("Here\'s your translated text :3"))
-                        .setDescription(`\`${new OwO().translateText(getString as string)}`)
+                        .setTitle(OwO.translate("Here\'s your translated text :3"))
+                        .setDescription(`\`${OwO.translate(getString as string)}`)
                     ]
         })
     }
