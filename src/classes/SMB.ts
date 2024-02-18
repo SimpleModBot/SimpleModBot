@@ -34,7 +34,7 @@ export default class SMB {
             this.slashCommands.push(command.default.data);
             this.slashCommandsM.set(command.default.data.name, command.default);
 
-            console.log(`${TERMINAL_COLOURS.INFO}Loaded => ${TERMINAL_COLOURS.SUCCESS}${command.default.name}${TERMINAL_COLOURS.DEFAULT}`);
+            console.log(`${TERMINAL_COLOURS.INFO}Loaded => ${TERMINAL_COLOURS.SUCCESS}${command.default.data.name}${TERMINAL_COLOURS.DEFAULT}`);
         }
 
         await rest.put(Routes.applicationCommands(SETUP.Discord.app_id), { body: this.slashCommands });

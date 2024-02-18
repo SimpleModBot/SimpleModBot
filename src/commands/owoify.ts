@@ -17,7 +17,7 @@ export default {
             ephemeral: false,
             embeds: [new EmbedBuilder()
                         .setTitle(OwO.translate("Here\'s your translated text :3"))
-                        .setDescription(`\`${OwO.translate(getString as string)}`)
+                        .setDescription(`\`${OwO.translate(getString as string)}\``)
                     ]
         })
     }
