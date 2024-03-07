@@ -30,7 +30,7 @@ module.exports = {
 
         const random = generateRandomString(6);
 
-        let nickname = `Moderated nickname ${random}`;
+        let nickname = `Moderated Nickname ${random}`;
 
         try {
             await user.setNickname(nickname);
