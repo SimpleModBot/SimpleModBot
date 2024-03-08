@@ -1,6 +1,6 @@
 import http from "http";
 
-function get(fullURL: string): Promise<string> {
+export default function get(fullURL: string): Promise<string> {
     return new Promise((resolve) => {
         http.get(fullURL, (res) => {
             res.setEncoding("utf-8");
@@ -15,6 +15,4 @@ function get(fullURL: string): Promise<string> {
             });
         });
     });
-}
-
-export default get;
+} // could probably make this better with bind

@@ -20,12 +20,6 @@ Anyone who spams or creates a fake issue will be blacklisted from the bot. It wa
  - Node version `19.5.0` or newer
  - ~~MongoDB~~ (Not yet)
 
-### Code formatting
-Please try your best to format the code that you write as close as possible to the rest of the codebase. Some general rules for writing the code:
-
-- Indentation spacing is 4 spaces.
-- Variables **Must** be given a type on declaration.
-
 
 
 
