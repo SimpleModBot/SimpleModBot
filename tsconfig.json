@@ -11,9 +11,10 @@
       "resolveJsonModule": true,
       "esModuleInterop": true,
       "noPropertyAccessFromIndexSignature": false,
-      "module": "commonjs",
+      "module": "CommonJS",
       "sourceMap": true,
-      "rootDir": "./"
+      "rootDir": "./",
+      "allowJs": true
   },
   "include": ["src/**/*.ts", "settings.json"]
 }

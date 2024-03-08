@@ -16,12 +16,14 @@ export default {
         let holder: string;
 
         while(indexes) {
-            randomIndex = Math.random() * indexes-- | 0; // give value -> subtract. rather than subtract -> give value
+            randomIndex = Math.random() * indexes-- | 0; // give value -> subtract, rather than subtract -> give value
             holder = arrayCopy[indexes];
             arrayCopy[indexes] = arrayCopy[randomIndex];
             arrayCopy[randomIndex] = holder;
         }
 
-        interaction.reply({ embeds: [new EmbedBuilder().setDescription(arrayCopy.join(" "))] });
-    } // will optimize later >m<
+        interaction.reply({ embeds: [new EmbedBuilder()
+            .setDescription(arrayCopy.join(" "))
+            .setTimestamp()] });
+    }
 }
