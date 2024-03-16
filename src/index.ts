@@ -9,3 +9,11 @@ if(!SETUP.Discord.app_id) throw new Error(`${TERMINAL_COLOURS.ERROR_RED}ERROR =>
 import SMB from "./classes/SMB";
 
 export const smbclient = new SMB(new Client({intents: 1003}));
+
+process.on("SIGINT", async () => {
+    console.log("Killing client.")
+    await smbclient.client.destroy();
+
+    console.log("Killing process.");
+    process.exit();
+});
