@@ -18,8 +18,8 @@ export default {
         await interaction.deferReply();
 
         // time for the messy code
-        const infoP1: string = await get(`http://${server}/info`); // get the guys
-        const infoP2: string = await get(`http://${server}/status`);
+        const infoP1: string  = await get(`http://${server}/info`); // get the guys
+        const infoP2: string  = await get(`http://${server}/status`);
 
         // now check if the link works...
         if((checkJSON(infoP1) && checkJSON(infoP2)) === false) {
@@ -29,7 +29,7 @@ export default {
             const iP1JSON = JSON.parse(infoP1); // /info
             const iP2JSON = JSON.parse(infoP2); // /status
 
-            iP1JSON.links.forEach(link => { linksStr += `[${link.name}](${link.url}) ` });
+            iP1JSON.links.forEach(link => { linksStr += `[${link.name}](${link.url})\t` });
 
             // https://docs.spacestation14.com/en/robust-toolbox/server-http-api.html is my bestie
             interaction.editReply({ embeds: [new EmbedBuilder()
