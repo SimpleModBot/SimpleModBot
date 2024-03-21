@@ -22,7 +22,7 @@ export default {
         const infoP2: string  = await get(`http://${server}/status`);
 
         // now check if the link works...
-        if((checkJSON(infoP1) && checkJSON(infoP2)) === false) {
+        if((checkJSON(infoP1) || checkJSON(infoP2)) === false) {
             interaction.editReply({ content: "Double-check the link you gave, the data I recieved wasn\'t expected." });
         } else {
             // then turn the data into JSON and give the final data :) (hopefully)
@@ -37,6 +37,7 @@ export default {
                 .setDescription(iP1JSON.desc)
                 .addFields(
                     { name: "tags", value: `\`${iP2JSON.tags.join(", ")}\`` },
+                    { name: "panic bunker enabled?", value: `\`${iP2JSON.panic_bunker == undefined || null || false ? "no" : "yes"}\``, inline: true },
                     { name: "links", value: linksStr }
                 )
                 .setTimestamp()] })

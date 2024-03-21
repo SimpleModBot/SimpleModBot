@@ -8,7 +8,7 @@
 	"main": "./out/index.js",
 	"private": true,
 	"engines": {
-		"node": ">=21.7.0",
+		"node": ">20",
 		"npm": "^10.5.0"
 	},
 	"dependencies": {
