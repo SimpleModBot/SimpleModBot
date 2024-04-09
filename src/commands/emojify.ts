@@ -10,7 +10,8 @@ export default {
             .setName("text")
             .setDescription("The text to recreate.")
             .setRequired(true)
-        ),
+        )
+    ,
 
     async exec(interaction: ChatInputCommandInteraction) {
         const text: string = interaction.options.getString("text") as string;
