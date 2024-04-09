@@ -34,7 +34,7 @@ Here's an example of what it should look like:
             "801294818839756811",
             "492492282789101568"
         ],
-        "token": "OTA4OTQ5MzkwMzEwNDA4MjQz.G3o-FN.0gmuFDIDny-eLdMmjLqQp_BUgJhXeDcLgFF330",
+        "token": "OTA4OTQ5MzkwMzEwNDA4MjQz.G3ogtFN.0gmuFDIDny-eLdMmjLqQp_BUgJhXeDcLgFF330",
         "app_id": "911112976793215006"
     }
 }
