@@ -8,18 +8,17 @@ export default {
         .addStringOption(o => o
             .setName("text")
             .setDescription("text to owoify")
-            .setRequired(true)),
+            .setRequired(true))
+    ,
     
-    exec(interaction: ChatInputCommandInteraction) {
+    async exec(interaction: ChatInputCommandInteraction) {
         const getString = interaction.options.getString("text");
 
-        interaction.reply({
-            ephemeral: false,
-            embeds: [new EmbedBuilder()
-                        .setTitle(OwO.translate("Here\'s your translated text :3"))
-                        .setDescription(`\`${OwO.translate(getString as string)}\``)
-                        .setTimestamp()
-                    ]
-        })
+        interaction.reply({ embeds: [
+                new EmbedBuilder()
+                    .setTitle(OwO.translate("Here\'s your translated text :3"))
+                    .setDescription(`\`${OwO.translate(getString as string)}\``)
+                    .setTimestamp()
+                ] });
     }
 }

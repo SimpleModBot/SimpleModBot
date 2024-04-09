@@ -5,19 +5,18 @@ import { join } from "path";
 export default {
     data: new SlashCommandBuilder()
         .setName("ping")
-        .setDescription("Shows the ping of the bot"),
+        .setDescription("Shows the ping of the bot")
+    ,
 
-    exec(interaction: ChatInputCommandInteraction) {
-        interaction.reply({
-            ephemeral: false,
-            embeds: [new EmbedBuilder()
-                        .setTitle("🏓 Pong!")
-                        .setDescription("Hmmm...")
-                        .addFields(
-                            { name: "Discord API:", value: `\`${interaction.client.ws.ping} ms\`` },
-                            { name: "Uptime:", value: `\`${interaction.client.uptime/1000} s\`` }     
-                        )
-            ]
-        })
+    async exec(interaction: ChatInputCommandInteraction) {
+        interaction.reply({ embeds: [
+                new EmbedBuilder()
+                    .setTitle("🏓 Pong!")
+                    .setDescription("Hmmm...")
+                    .addFields(
+                        { name: "Discord API:", value: `\`${interaction.client.ws.ping} ms\`` },
+                        { name: "Uptime:", value: `\`${interaction.client.uptime/1000} s\`` }     
+                    )
+            ] });
     }
 }

@@ -7,14 +7,17 @@ export default {
         .addStringOption(o => o
             .setName("text")
             .setDescription("the text")
-            .setRequired(true)),
+            .setRequired(true))
+    ,
 
-    exec(interaction: ChatInputCommandInteraction) {
+    async exec(interaction: ChatInputCommandInteraction) {
         const str = interaction.options.getString("text");
 
-        interaction.reply({ embeds: [new EmbedBuilder()
-            .setDescription(`${str as string}`)
-            .setFooter({ text: interaction.user.globalName as string, iconURL: interaction.user.avatarURL() as string })
-            .setTimestamp()] })
+        interaction.reply({ embeds: [
+            new EmbedBuilder()
+                .setDescription(`${str as string}`)
+                .setFooter({ text: interaction.user.globalName as string, iconURL: interaction.user.avatarURL() as string })
+                .setTimestamp()
+            ] });
     }
 }

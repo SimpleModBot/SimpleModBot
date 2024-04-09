@@ -68,7 +68,8 @@ export default {
             Train - Yes
             If needed, will be able to write to a file.
             */
-        ),
+        )
+    ,
 
     async exec(interaction: ChatInputCommandInteraction) {
         const text: string = interaction.options.getString("text") as string;

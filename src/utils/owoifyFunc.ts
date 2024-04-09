@@ -64,7 +64,7 @@ const suffixes = [
     '（＾ｖ＾）',
 ];
 
-  const substitutions = {
+const substitutions = {
     'r': 'w',
     'l': 'w',
     'R': 'W',
@@ -84,7 +84,7 @@ const suffixes = [
 function translate(string: string): string {
     let str: string = string;
 
-    const replacements = Object.keys(substitutions).forEach(key => {
+    Object.keys(substitutions).forEach(key => {
         str = str.replaceAll(key, substitutions[key]);
     });  
 

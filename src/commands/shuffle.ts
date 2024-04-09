@@ -7,9 +7,10 @@ export default {
         .addStringOption(o => o
             .setName("text")
             .setDescription("the text to shuffle around")
-            .setRequired(true)),
+            .setRequired(true))
+    ,
 
-    exec(interaction: ChatInputCommandInteraction) {
+    async exec(interaction: ChatInputCommandInteraction) {
         const originalStringArray: Array<string> = interaction.options.getString("text")!.split(" ");
         let arrayCopy: Array<string> = originalStringArray;
         let randomIndex: number = 0, indexes: number = originalStringArray.length;
@@ -22,8 +23,10 @@ export default {
             arrayCopy[randomIndex] = holder;
         }
 
-        interaction.reply({ embeds: [new EmbedBuilder()
-            .setDescription(arrayCopy.join(" "))
-            .setTimestamp()] });
+        interaction.reply({ embeds: [
+            new EmbedBuilder()
+                .setDescription(arrayCopy.join(" "))
+                .setTimestamp()
+            ] });
     }
 }

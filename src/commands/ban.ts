@@ -29,11 +29,13 @@ export default {
             } else {
                 interaction.guild.members.cache.get(user!.id)!.ban({ reason: reason });
 
-                interaction.reply({ embeds: [new EmbedBuilder()
-                    .setTitle(`Banned ${user!.username}`)
-                    .setDescription(`Reason: ${reason}`)
-                    .setTimestamp()
-                    .setColor("Red")] })
+                interaction.reply({ embeds: [
+                    new EmbedBuilder()
+                        .setTitle(`Banned ${user!.username}`)
+                        .setDescription(`Reason: ${reason}`)
+                        .setTimestamp()
+                        .setColor("Red")
+                    ] });
             }
         }
 }
