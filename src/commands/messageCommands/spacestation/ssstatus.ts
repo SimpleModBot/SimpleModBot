@@ -26,7 +26,7 @@ module.exports = {
 			server = args[0];
 		}
 
-		server = `http://${server}/status`;
+		server = `https://${server}/status`;
 
 		try {
 			fetch(server)

@@ -26,7 +26,7 @@ module.exports = {
 			server = args[0];
 		}
 
-		server = `http://${server}`;
+		server = `https://${server}`;
 
 		let status = undefined;
 		let info = undefined;
