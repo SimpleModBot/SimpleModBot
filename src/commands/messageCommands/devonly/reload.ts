@@ -9,7 +9,7 @@ module.exports = {
     description: 'Reloads a command',
     async execute(message, args, data, client) {
         if (args[0] == 'ENA') {
-            return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You need to tell me what command to reload, ex: //reload help").setColor('GREY')] });
+            return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You need to tell me what command to reload, ex: \\\\reload help").setColor('GREY')] });
         };
 
         if (args[0].toLowerCase() == 'all') {
