@@ -3,48 +3,33 @@ const Discord = require('discord.js');
 // @ts-ignore
 const fetch = require('node-fetch');
 // @ts-ignore
-const servers = [
-	['parkstation', 'parkstation.simplestation.org'],
-	['simplestation', 'simplestation.simplestation.org'],
-];
+const argsToServer = require('../../../utils/handlers/ssArgsToServer.ts');
+// @ts-ignore
+const servers = require("../../../utils/json/servers.json");
+
 
 module.exports = {
 	name: 'ssstatus',
-	description: "Get information on a Space Station 14 server\n> First argument decides what server to get information on, can be a direct ip:port.\n> Available server aliases: 'parkstation', 'simplestation'",
+	description: `Get information on a Space Station 14 server\n> First argument decides what server to get information on, can be a direct http(s)://ip:port.\n> Available server aliases: ${servers.map((srv) => `\`${srv[0]}\``).join(', ')}`,
 	cooldown: 15,
 	async execute(message, args, data, client) {
-		let server = 'parkstation.simplestation.org';
-		const oldserver = server;
-		if (args[0] !== 'ENA') {
-			servers.forEach((srv) => {
-				if (srv[0] == args[0] && srv[1] !== server) {
-					return (server = srv[1]);
-				}
+		let server = argsToServer(args);
+
+		fetch(`${server}/status`)
+			.then((res) => res.json())
+			.then((body) => {
+				let { name, players, tags, soft_max_players, run_level, round_start_time } = body;
+
+				const embed = new Discord.MessageEmbed()
+					.setTitle(`${name}   -   Status Information`)
+					.setURL(`${server}/status`)
+					.addField('Players', `${players}/${soft_max_players}`)
+					.addField('Start time', `${round_start_time?.replace('T', ' ').split('.')[0] || 'In Lobby'}`)
+					.setColor('GREY');
+
+				message.channel.send({ embeds: [embed] });
+			}).catch((err) => {
+				return message.channel.send({ content: `Error:\n> ${err.message}` });
 			});
-		}
-		if (args[0] !== 'ENA' && args[0].includes('.') && oldserver == server) {
-			server = args[0];
-		}
-
-		server = `https://${server}/status`;
-
-		try {
-			fetch(server)
-				.then((res) => res.json())
-				.then((body) => {
-					let { name, players, tags, soft_max_players, run_level, round_start_time } = body;
-
-					const embed = new Discord.MessageEmbed()
-						.setTitle(`${name}   -   Status Information`)
-						.setURL(server)
-						.addField('Players', `${players}/${soft_max_players}`)
-						.addField('Start time', `${round_start_time?.replace('T', ' ').split('.')[0] || 'In Lobby'}`)
-						.setColor('GREY');
-
-					message.channel.send({ embeds: [embed] });
-				});
-		} catch (error) {
-			return message.channel.send({ content: `Something went wrong, try again later.` });
-		}
 	},
 };
