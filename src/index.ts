@@ -115,7 +115,7 @@ process.on('uncaughtException', async (error) => {
 								new Discord.MessageEmbed()
 									.setTitle(`uncaughtException`)
 									.setDescription(
-										`\`\`\`diff\n+ Presumable cause: \`${client.lastCmd}\`\n- ${err[0]}\n+ ${err[1]}\n+ ${err[2]}\n+ ${err[3]}\n+ ${err[4]}\n+ ${err[5]}\n+ ${err[6]}\n+ ${err[7]}\n+ ${err[8]}\n+ ${err[9]}\n+ ${err[10]}\n+ ${err[11]}\n+ ${err[12]}\n+ ${err[13]}\n+ ${err[14]}\n+ ${err[15]}\`\`\``,
+										`\`\`\`diff\n+ Presumable cause: \`${client.lastCmd}\`\n- ${err.join('\n- ')}\`\`\``,
 									)
 									.setTimestamp()
 									.setColor('GREY'),
