@@ -21,7 +21,3 @@ If your issue is something I'm aware of I will tell you that and thank you for w
 If your issue is just some annoying bug that doesn't affect performance I will thank you for telling me and I will try to fix it.
 
 If your issue isn't important I will decline it and move on.
-
-### IF YOU SPAM OR TROLL
-
-You *will* get blacklisted and no longer be able to use SMB anymore on any accounts that I see trolling. I do not want my time to be wasted by some idiot(s).
