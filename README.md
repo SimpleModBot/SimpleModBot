@@ -6,14 +6,6 @@ The current prefix is `\` but you can change it with the `config` command. You c
 
 ---
 
-Please read SECURITY.md as it doesn't appear below files like README.md does and it contains other useful information.
-
-## Additional information (PLEASE READ ME)
-
-This project is open source **only** so people can contribute and test it easily. I will **not** allow people to claim any of this code as theirs without modification or permission.
-
----
-
 Most of the data is not that useful or really easy to repair so I do not believe it is worth me trying to get it all back when it occurs.
 
 ## Features
@@ -39,4 +31,4 @@ Most of the data is not that useful or really easy to repair so I do not believe
 
 Contributions are always welcome!
 
-If you are a developer and would like to help with the bot, please join me in the [community server](https://discord.gg/49KeKwXc8g) and tell me how you want to help and why I should trust you. Or join the server just to interact with the community and ask questions!
+If you are a developer and would like to help with the bot, please join me in the [community server](https://discord.gg/49KeKwXc8g) and tell me how you want to help. Or join the server just to interact with the community and ask questions!
