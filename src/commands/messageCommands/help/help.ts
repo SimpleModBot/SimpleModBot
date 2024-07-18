@@ -66,7 +66,7 @@ module.exports = {
                 .setTitle("Command Details:")
                 .addField("COMMAND:", command.name ? `> \`${command.name}\`` : "> Unnamed command??")
                 .addField("DESCRIPTION:", command.description ? `> ${command.description}` : "> No description.")
-                .addField("ALIASES:", command.aliases ? `> \`${command.aliases.join("` `")}\`` : "> No aliases.")
+                .addField("ALIASES:", command.aliases ? `> \`${command.aliases.join("`, `")}\`` : "> No aliases.")
                 .setFooter({ text: `If you like me please invite me to your server with the button on my profile!`, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
                 .setTimestamp()
                 .setColor(roleColor);
