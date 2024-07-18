@@ -1,8 +1,8 @@
 [
-    [ "parkstation", "https://parkstation.simplestation.org" ],
-    [ "simplestation", "https://simplestation.simplestation.org" ],
-    [ "dv", "http://delta-v.org:1212" ],
-    [ "dv-apoapsis", "http://delta-v.org:1212" ],
-    [ "dv-periapsis", "http://delta-v.org:1213" ],
-    [ "dv-inclination", "http://lagrange.delta-v.org:1212" ]
+    [ "parkstation",    "https://parkstation.simplestation.org"   ],
+    [ "simplestation",  "https://simplestation.simplestation.org" ],
+    [ "dv",             "http://delta-v.org:1212"                 ],
+    [ "dv-apoapsis",    "http://delta-v.org:1212"                 ],
+    [ "dv-periapsis",   "http://delta-v.org:1213"                 ],
+    [ "dv-inclination", "http://lagrange.delta-v.org:1212"        ]
 ]
