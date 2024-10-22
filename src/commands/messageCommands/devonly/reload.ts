@@ -1,5 +1,8 @@
+// @ts-ignore
 const fs = require('fs');
+// @ts-ignore
 const Discord = require('discord.js');
+// @ts-ignore
 const glob = require('glob');
 
 module.exports = {
@@ -13,6 +16,7 @@ module.exports = {
         };
 
         if (args[0].toLowerCase() == 'all') {
+            // Message commands
             glob(`${__dirname}/../**/*.ts`, async (err, fp) => {
                 if (err) Promise.reject(new err);
 

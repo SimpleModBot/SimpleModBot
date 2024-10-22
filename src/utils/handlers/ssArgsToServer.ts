@@ -1,5 +1,7 @@
 // @ts-ignore
-const servers = require("../json/servers.json");
+const fs = require('fs');
+// @ts-ignore
+const servers = JSON.parse(fs.readFileSync(`${__dirname}/../json/servers.json`, 'utf8'));
 
 module.exports = function (args) {
     // Defaults to the first server's IP

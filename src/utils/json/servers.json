@@ -1,8 +1,13 @@
 [
-    [ "parkstation",    "https://parkstation.simplestation.org"   ],
-    [ "simplestation",  "https://simplestation.simplestation.org" ],
-    [ "dv",             "http://delta-v.org:1212"                 ],
-    [ "dv-apoapsis",    "http://delta-v.org:1212"                 ],
-    [ "dv-periapsis",   "http://delta-v.org:1213"                 ],
-    [ "dv-inclination", "http://lagrange.delta-v.org:1212"        ]
+    [ "parkstation",     "https://parkstation.simplestation.org"               ],
+    [ "dv",              "http://delta-v.org:1212"                             ],
+    [ "dv-apoapsis",     "http://delta-v.org:1212"                             ],
+    [ "dv-periapsis",    "http://delta-v.org:1213"                             ],
+    [ "dv-inclination",  "http://lagrange.delta-v.org:1212"                    ],
+    [ "goobstation",     "http://goobstation.simplestation.org:25510"          ],
+    [ "goobstation-lrp", "http://goobstation.simplestation.org:25510"          ],
+    [ "goobstation-mrp", "http://goobstation.simplestation.org:25514"          ],
+    [ "goobstation-eu",  "http://goobstation-eu.simplestation.org:25510"       ],
+    [ "weaselstation",   "http://weaselstation-eu.simplestation.org:25710"     ],
+    [ "arcadis",         "http://arcadis.node-shwartz.simplestation.org:25710" ]
 ]
