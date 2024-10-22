@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 module.exports = {
     name: 'verify',
-    cooldown: 20,
+    cooldown: 60,
     async execute(message, args, data, client) {
         let guildProfile = await Guild.findOne({ guildID: message.guild.id });
         if (!guildProfile) {
