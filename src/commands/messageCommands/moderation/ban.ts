@@ -20,8 +20,8 @@ module.exports = {
         if (!args[0]) return message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("You must mention a user to ban.").setColor('GREY')] });
 
         await mentionedMember.ban({
-            days: 7,
             reason: reason,
+            deleteMessageSeconds: 0,
         }).catch((err) => Promise.reject(new err))
             .then(() => message.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("Succesfully banned " + mentionedMember.user.tag).setColor('GREY')] }));
 
